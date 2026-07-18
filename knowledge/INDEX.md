@@ -6,3 +6,4 @@
 
 - [skills/viewer-reviewer/SKILL.md] — ревью контента «глазами наивного зрителя» с подтверждением цели у автора (контент-проекты: видео, статьи, лендинги; from work-video-production)
 - [lessons/api-discovery.md] — порядок поиска недокументированных эндпоинтов/полей REST API: вторичные доки → журнал уроков → живой GET → пробная запись с echo (любой проект на внешнем REST API; from work-video-production)
+- [lessons/agent-shell-state.md] — PATH/cwd не персистятся между Bash-вызовами агента: export PATH + абсолютные пути, иначе файлы падают в корень репо (любой агентный CLI-харнесс; from work-video-production)
