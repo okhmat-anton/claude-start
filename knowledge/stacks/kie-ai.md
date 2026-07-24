@@ -6,6 +6,14 @@
   пути, например Veo: `/api/v1/veo/generate`).
 - **ГЛАВНАЯ ЛОВУШКА**: kie.ai отдаёт HTTP 200 с ошибкой в теле — всегда проверяй
   `body["code"]`: `code != 200` → это ошибка, поднимай исключение.
+- **ЛОВУШКА №2 — текстовые модели (`/claude/v1/messages` и совместимые)**: не-стриминговые
+  запросы с генерацией дольше ~2 минут гейтвей обрубает HTTP 500
+  `api_error: Server exception, please try again later` (короткие проходят — это wall-time
+  лимит, ретраями без стриминга не лечится; подтверждено 2026-07-24, 3 падения подряд).
+  Всегда `stream: true` + сборка ответа из SSE-событий Anthropic-формата
+  (message_start / content_block_delta / message_delta с usage и stop_reason);
+  httpx-таймаут при стриме — пауза между чанками, не вся генерация.
+  Транзиентные ошибки (5xx, api_error, overloaded_error) — один автоповтор с паузой.
 - Результат: либо вебхук (в payload инжектится `callBackUrl`), либо поллинг
   `GET /api/v1/jobs/recordInfo?taskId=...` — статус в `data.state`
   (`success`/`failed`); интервалы поллинга подбирать пер-модель.
