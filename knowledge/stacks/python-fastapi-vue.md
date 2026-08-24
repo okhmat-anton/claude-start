@@ -16,6 +16,13 @@
   новые колонки `create_all` НЕ добавляет — либо идемпотентные `ALTER TABLE`
   в startup, либо alembic.
 - Тяжёлые операции (генерация контента) — Celery (+ RabbitMQ), realtime — Socket.IO.
+- Auth прототипа без внешних зависимостей (from 3d-printer): пароли — scrypt из
+  stdlib (hashlib), сессии — таблица в БД + httponly-кука; доступ агентов
+  (Claude Code) — именные API-токены в БД, выдаются из UI готовой ссылкой
+  `<origin>/api?token=...` (принимаются и в заголовке, и как query),
+  отзыв = удаление записи; суперюзер сеется при старте из пароля в `.env`.
+  Ловушка SQLite: naive datetime из БД приводить к UTC перед сравнением
+  с aware-значением.
 
 ## Frontend
 - Vue 3 Composition API (`<script setup>`), Pinia, Vite; каталоги
