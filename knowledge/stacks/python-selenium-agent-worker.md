@@ -1,3 +1,13 @@
+---
+name: python-selenium-agent-worker
+description: Браузерные боты + агент-воркер поверх REST — API-first, SQLite+APScheduler на VPS, sent только по подтверждению страницы, скриншот+DOM на падении
+stack: [selenium, python, fastapi]
+triggers:
+  keywords: [selenium, бот, headful, Xvfb, рассылк, автоматизац браузера, воркер, APScheduler, селектор, рейт-лимит]
+  commands: ['\bselenium\b', 'chromedriver', 'Xvfb']
+  errors: ['NoSuchElementException', 'StaleElementReferenceException']
+  paths: ['bots/**', 'worker/**']
+---
 # Стек: Python + Selenium bot fleet + агент-воркер поверх REST
 
 Конвенции для систем, где браузерные боты выполняют внешние действия (рассылки,

@@ -1,3 +1,13 @@
+---
+name: python-fastapi-mongo-nuxt
+description: FastAPI + motor + Nuxt 3 SSR — API через routeRules (не devProxy), cookie через useRequestHeaders, тестовая БД форсируется до импорта app, точечный pytest
+stack: [fastapi, nuxt, python]
+triggers:
+  keywords: [nuxt, motor, mongo, SSR, routeRules, devProxy, useRequestHeaders, pinia, asyncio_mode]
+  commands: ['nuxt\s+(dev|build)', 'mongosh\b']
+  errors: []
+  paths: ['nuxt.config.*', 'app/api/*', 'stores/*']
+---
 # Стек: Python + FastAPI + MongoDB + Nuxt 3
 
 Вариант общего стандарта (`stacks/python-fastapi-vue.md`) для контент-проектов, где вместо

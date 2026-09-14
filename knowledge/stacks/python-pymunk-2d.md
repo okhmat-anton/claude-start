@@ -1,3 +1,13 @@
+---
+name: python-pymunk-2d
+description: pymunk — цепи на pivot, лёгкие тела в среде, детерминизм через space.shapes, быстрые тела ловить геометрией, масса 3D-детали, аналитические моды для волн
+stack: [pymunk, python]
+triggers:
+  keywords: [pymunk, chipmunk, цепь, звенья, pivot, плавучест, пузыр, collision, ShapeFilter, детерминизм, фигуры Хладни, моды, Бессел, частиц]
+  commands: ['pip\s+install\s+pymunk']
+  errors: []
+  paths: ['engine/*', 'sim/*']
+---
 # pymunk (Chipmunk2D) — проверенные грабли механики
 
 Факты из практики симуляций механизмов (фиксированный шаг ~1/120, единицы

@@ -1,3 +1,13 @@
+---
+name: kie-ai
+description: kie.ai — Bearer, createTask/recordInfo, HTTP 200 с ошибкой в теле, длинные текстовые генерации только SSE, image_input публичными URL, стоимость из recordInfo
+stack: [kie-ai, python]
+triggers:
+  keywords: [kie.ai, kieai, createTask, recordInfo, resultJson, gemini-omni, nano banana, veo, suno, image_input, генерац изображен, генерац видео]
+  commands: ['kie\.ai', 'kieai\.redpandaai']
+  errors: ['api_error: Server exception']
+  paths: ['**/kie*', '**/generation*']
+---
 # Стек: kie.ai (генеративные изображения / видео / аудио)
 
 - Auth: `Authorization: Bearer <key>`, `Content-Type: application/json`.

@@ -1,3 +1,13 @@
+---
+name: python-fastapi-vue
+description: FastAPI + Vue 3 + PostgreSQL — структура app/, pydantic-settings, auth-зависимости, SQLAlchemy 2.0, Celery, порты по сотне на проект, auth прототипа на stdlib
+stack: [fastapi, vue, python]
+triggers:
+  keywords: [fastapi, vue, pydantic-settings, sqlalchemy, alembic, create_all, celery, socket.io, auth-зависимост, X-API-Key, scrypt]
+  commands: ['uvicorn\b', 'alembic\b', 'vite\b']
+  errors: []
+  paths: ['app/core/*', 'app/api/*', 'app/models/*', 'frontend/src/**']
+---
 # Стек: Python FastAPI + Vue + PostgreSQL
 
 Конвенции, проверенные в проектах пользователя.
