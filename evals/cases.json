@@ -228,5 +228,15 @@
   "stack": [
    "fastapi"
   ]
+ },
+ {
+  "unit": "architecture-mvc",
+  "prompt": "начинаем новый проект — магазин на fastapi: набросай структуру, куда положить контроллеры и роуты",
+  "expect": "controllers|экшен|docstring"
+ },
+ {
+  "unit": "architecture-mvc",
+  "prompt": "добавь эндпоинт GET /order/history в контроллер заказов и не забудь комментарий с роутом",
+  "expect": "async|docstring|history"
  }
 ]

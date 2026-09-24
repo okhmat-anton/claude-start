@@ -23,7 +23,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "api-discovery": {
   "applied": 0,
@@ -33,9 +33,10 @@
    "planning": 0,
    "project1": 0,
    "scratchpad": 0,
-   "todo": 0
+   "todo": 0,
+   "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "auth-change-verification": {
   "applied": 0,

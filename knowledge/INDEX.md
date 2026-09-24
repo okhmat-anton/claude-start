@@ -7,11 +7,12 @@
 
 - [skills/knowledge-gc/SKILL.md] — Ежемесячная уборка базы знаний по отчёту knowledge.py gc — дубли, длинные, неприменяемые, кандидаты в зрелые, синхронизация клона (any)
 - [skills/product-idea-review/SKILL.md] — Доработка сырой продуктовой идеи до концепции — рынок с датами, требования, экономика единицы, фазы с воротами, риски, решения в DECISIONS.md (any)
-- [skills/standard-stack/SKILL.md] — Единый стандарт стека, команд make run/test/lint/build/update, именования, git и деплоя для всех проектов; вопросы-стандарты в /start не задаются (any)
+- [skills/standard-stack/SKILL.md] — Единый стандарт стека, архитектуры MVC, команд make run/test/lint/build/update, именования, git и деплоя; вопросы-стандарты в /start не задаются (any)
 - [skills/viewer-reviewer/SKILL.md] — Ревью контента «глазами наивного зрителя» отдельным read-only агентом с подтверждением цели у автора (видео, статьи, лендинги) (any)
 
 ## Стеки
 
+- [stacks/architecture-mvc.md] — MVC в духе Yii2 advanced — роут = файл + функция, async-экшены index/view/…, роут в docstring, логика в экшене, слои public/admin/console в одном app (python, fastapi, vue, nuxt, node)
 - [stacks/kie-ai.md] — kie.ai — Bearer, createTask/recordInfo, HTTP 200 с ошибкой в теле, длинные текстовые генерации только SSE, image_input публичными URL, стоимость из recordInfo (kie-ai, python)
 - [stacks/python-fastapi-mongo-nuxt.md] — FastAPI + motor + Nuxt 3 SSR — API через routeRules (не devProxy), cookie через useRequestHeaders, тестовая БД форсируется до импорта app, точечный pytest (fastapi, nuxt, python)
 - [stacks/python-fastapi-vue.md] — FastAPI + Vue 3 + PostgreSQL — структура app/, pydantic-settings, auth-зависимости, SQLAlchemy 2.0, Celery, порты по сотне на проект, auth прототипа на stdlib (fastapi, vue, python)
