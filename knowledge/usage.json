@@ -1,1 +1,316 @@
-{}
+{
+ "agent-oneoff-script": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "akm-news": 0,
+   "planning": 0,
+   "project1": 0,
+   "todo": 0,
+   "video-blade-2": 0
+  },
+  "shown": 21
+ },
+ "agent-shell-state": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "akm-news": 0,
+   "divani": 0,
+   "music-hit": 0,
+   "planning": 0,
+   "project1": 0,
+   "todo": 0,
+   "video-blade-2": 0
+  },
+  "shown": 16
+ },
+ "api-discovery": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "docs": 0,
+   "planning": 0,
+   "project1": 0,
+   "scratchpad": 0,
+   "todo": 0
+  },
+  "shown": 5
+ },
+ "auth-change-verification": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 2
+ },
+ "browser-test-stand": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 2
+ },
+ "browser-verification": {
+  "applied": 2,
+  "last_applied": "2026-09-23",
+  "last_shown": "2026-09-23",
+  "projects": {
+   "project1": 0,
+   "scratchpad": 0,
+   "video-blade": 0,
+   "video-blade-2": 2
+  },
+  "shown": 4
+ },
+ "complaint-history-mining": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "akm-news": 0,
+   "planning": 0,
+   "project1": 0,
+   "video-blade-2": 0
+  },
+  "shown": 16
+ },
+ "dev-vs-pinned-deps": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "divani": 0,
+   "planning": 0,
+   "project1": 0,
+   "todo": 0,
+   "video-blade-2": 0
+  },
+  "shown": 14
+ },
+ "env-example-no-secrets": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "external-agent-data": {
+  "applied": 1,
+  "last_applied": "2026-09-24",
+  "last_shown": "2026-09-24",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 1
+ },
+ "guard-hook-command-parsing": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "akm-news": 0,
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 9
+ },
+ "guard-hook-testing": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "kie-ai": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "divani": 0,
+   "lpdf": 0,
+   "planning": 0,
+   "project1": 0,
+   "scratchpad": 0
+  },
+  "shown": 5
+ },
+ "lint-first-run": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "new": 0,
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 5
+ },
+ "lint-rules-explicit-select": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 2
+ },
+ "llm-output-not-metadata": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "llm-prompt-defaults": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "project1": 0,
+   "video-blade-2": 0
+  },
+  "shown": 2
+ },
+ "local-runs-reach-production": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "ai-business-advisor-websites": 0,
+   "akm-news": 0,
+   "planning": 0
+  },
+  "shown": 4
+ },
+ "multi-language-checks": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 2
+ },
+ "paid-api-file-integrity": {
+  "applied": 0,
+  "last_shown": "2026-09-18",
+  "projects": {
+   "planning": 0,
+   "project1": 0
+  },
+  "shown": 3
+ },
+ "prod-data-ops": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "divani": 0,
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 7
+ },
+ "python-fastapi-mongo-nuxt": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 2
+ },
+ "python-fastapi-vue": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "divani": 0
+  },
+  "shown": 1
+ },
+ "python-selenium-agent-worker": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "stale-server-process": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "akm-news": 0,
+   "divani": 0,
+   "pipeline": 0,
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 6
+ },
+ "stuck-binary-ue-processes": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "akm-news": 0,
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 9
+ },
+ "tests-observable-behavior": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "token-guarded-endpoints": {
+  "applied": 0,
+  "last_shown": "2026-09-18",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
+ },
+ "ui-silent-failures": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
+ },
+ "video-cost-accounting": {
+  "applied": 0,
+  "last_shown": "2026-09-18",
+  "projects": {
+   "docs": 0,
+   "planning": 0
+  },
+  "shown": 2
+ },
+ "video-extra-hands-faces": {
+  "applied": 0,
+  "last_shown": "2026-09-18",
+  "projects": {
+   "project1": 0
+  },
+  "shown": 1
+ },
+ "video-product-anchor": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "video-text-overlays-and-platforms": {
+  "applied": 0,
+  "last_shown": "2026-09-23",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
+ }
+}
