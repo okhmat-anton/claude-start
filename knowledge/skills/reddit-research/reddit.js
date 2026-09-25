@@ -74,8 +74,9 @@ const THREAD = `(() => {
         if (!text || text.length < 12 || !/\\/comments\\/[a-z0-9]+\\//.test(href)) continue;
         let card = a; for (let k = 0; k < 7 && card.parentElement; k++) { card = card.parentElement; if (card.getAttribute("data-testid") === "search-post-unit" || card.tagName === "ARTICLE") break; }
         const t = card.innerText || "";
-        const votes = +((t.match(/(\\d[\\d,.]*[kK]?)\\s+(votes?|upvotes?)/) || [])[1] || "").replace(/,/g, "").replace(/k$/i, "000") || 0;
-        const comments = +((t.match(/(\\d[\\d,.]*[kK]?)\\s+comments?/) || [])[1] || "").replace(/,/g, "").replace(/k$/i, "000") || 0;
+        const num = (x) => { x = String(x || "").replace(/,/g, ""); const n = parseFloat(x) || 0; return Math.round(/k$/i.test(x) ? n * 1000 : n); };
+        const votes = num((t.match(/(\\d[\\d,.]*[kK]?)\\s+(votes?|upvotes?)/) || [])[1]);
+        const comments = num((t.match(/(\\d[\\d,.]*[kK]?)\\s+comments?/) || [])[1]);
         const key = href.replace(/\\/$/, "");
         if (!seen.has(key) || seen.get(key).title.length < text.length) seen.set(key, { title: text, link: key + "/", score: votes, comments });
       }

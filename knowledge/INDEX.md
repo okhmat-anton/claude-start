@@ -7,7 +7,7 @@
 
 - [skills/knowledge-gc/SKILL.md] — Ежемесячная уборка базы знаний по отчёту knowledge.py gc — дубли, длинные, неприменяемые, кандидаты в зрелые, синхронизация клона (any)
 - [skills/product-idea-review/SKILL.md] — Доработка сырой продуктовой идеи до концепции — рынок с датами, требования, экономика единицы, фазы с воротами, риски, решения в DECISIONS.md (any)
-- [skills/reddit-research/SKILL.md] — Reddit закрыт для WebSearch/curl, но открыт настоящему Chrome без окна — скрипт reddit.js (list / search / thread), атрибуты компонентов, догрузка комментариев (any)
+- [skills/reddit-research/SKILL.md] — Reddit закрыт для WebSearch/curl, но открыт настоящему Chrome без окна — скрипт reddit.js (list / search / thread), атрибуты компонентов, догрузка комментариев; выдаче поиска не доверять — название и голоса только со страницы обсуждения (any; from planning)
 - [skills/standard-stack/SKILL.md] — Единый стандарт стека, архитектуры MVC, команд make run/test/lint/build/update, именования, git и деплоя; вопросы-стандарты в /start не задаются (any)
 - [skills/viewer-reviewer/SKILL.md] — Ревью контента «глазами наивного зрителя» отдельным read-only агентом с подтверждением цели у автора (видео, статьи, лендинги) (any)
 
