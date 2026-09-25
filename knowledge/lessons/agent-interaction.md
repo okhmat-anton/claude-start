@@ -4,7 +4,7 @@ description: Контрольные точки длинной задачи — �
 stack: [any]
 status: mature
 created: 2026-07-28
-seen_in: [work-video-production, 3d-printer-one]
+seen_in: [work-video-production, 3d-printer-one, planning]
 triggers:
   keywords: [подтверди, согласуй, контрольн, платн, стоит, кредит, сколько будет стоить, выбери вариант, приёмк, одобр]
   commands: []

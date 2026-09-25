@@ -7,7 +7,7 @@
 
 - [skills/knowledge-gc/SKILL.md] — Ежемесячная уборка базы знаний по отчёту knowledge.py gc — дубли, длинные, неприменяемые, кандидаты в зрелые, синхронизация клона (any)
 - [skills/product-idea-review/SKILL.md] — Доработка сырой продуктовой идеи до концепции — рынок с датами, требования, экономика единицы, фазы с воротами, риски, решения в DECISIONS.md (any)
-- [skills/reddit-research/SKILL.md] — Reddit закрыт для WebSearch/curl, но открыт настоящему Chrome без окна — скрипт reddit.js (list / search / thread), атрибуты компонентов, догрузка комментариев; выдаче поиска не доверять — название и голоса только со страницы обсуждения (any; from planning)
+- [skills/reddit-research/SKILL.md] — Reddit закрыт для WebSearch/curl, но открыт настоящему Chrome без окна — скрипт reddit.js (list / search / thread), атрибуты компонентов, догрузка комментариев (any)
 - [skills/standard-stack/SKILL.md] — Единый стандарт стека, архитектуры MVC, команд make run/test/lint/build/update, именования, git и деплоя; вопросы-стандарты в /start не задаются (any)
 - [skills/viewer-reviewer/SKILL.md] — Ревью контента «глазами наивного зрителя» отдельным read-only агентом с подтверждением цели у автора (видео, статьи, лендинги) (any)
 
@@ -22,8 +22,9 @@
 
 ## Уроки
 
+- [lessons/ad-creative-batch-size.md] [candidate] — Партия рекламных креативов — сначала тексты и их число на согласование; число = дневной бюджет × 7 ÷ цена тысячи показов; генерация после ответа (any; from planning)
 - [lessons/agent-docs-route-guard.md] [candidate] — Документ для агента с вызовами API (протокол, AGENTS.md) проверяется тестом против роутера: каждый адрес и МЕТОД /путь — живой маршрут (any; from video-blade-2)
-- [lessons/agent-interaction.md] — Контрольные точки длинной задачи — выбор кнопкой, а не текстом; цена платной операции в самом вопросе; брак называть до заказчика (any; from work-video-production, 3d-printer-one)
+- [lessons/agent-interaction.md] — Контрольные точки длинной задачи — выбор кнопкой, а не текстом; цена платной операции в самом вопросе; брак называть до заказчика (any; from work-video-production, 3d-printer-one, planning)
 - [lessons/agent-oneoff-script.md] [candidate] — Одноразовый скрипт агента — с main-guard, абсолютным окружением и клиентом, который сам читает env; креды не в argv (python, any; from 3d-printer)
 - [lessons/agent-shell-state.md] — PATH и cwd не живут между Bash-вызовами агента — абсолютные пути, export PATH, ls по адресу назначения после записи (any; from work-video-production, 3d-printer, planning)
 - [lessons/api-discovery.md] — Недокументированный эндпоинт не угадывать — вторичные доки → журнал → живой GET → пробная запись на одном объекте; у внешнего сервиса сначала openapi.json (any; from work-video-production, planning)
@@ -57,6 +58,7 @@
 - [lessons/paid-api-file-integrity.md] — Файлы от платного API — ретрай на передаче в обе стороны, читаемость probe-ом, а не размером, try/except в теле потока, верификатор комплектности до сборки (kie-ai, python, any; from work-video-production, kitchens)
 - [lessons/param-descriptions-rot.md] [candidate] — Описания параметров протухают вслед за моделью — меняя модель, сверяй каждое утверждение с кодом; первыми врут числа в тексте и обещания про поведение (any; from 3d-printer)
 - [lessons/port-search-all-sources.md] [candidate] — Перенос «из прошлого проекта» — сначала поиск по всем соседним репозиториям владельца по именам артефактов, а не только в названном доноре (any; from video-blade-2)
+- [lessons/prior-analysis-outside-tracker.md] [candidate] — Прошлый разбор может лежать вне трекера проекта — в артефактах и чатах; перед планом следующего шага просмотри список артефактов по теме (any; from planning)
 - [lessons/prod-data-ops.md] — Прод-данные правим ops-инструментами репозитория — read-only диагностика, показывающая содержимое записей, идемпотентный ремонт с dry-run, факт важнее плана (any; from gym-bro-2, planning)
 - [lessons/pydantic-patch-nested-exclude-unset.md] [candidate] — PATCH через model_dump(exclude_unset=True) срезает незаданные поля и во вложенных моделях — в базу пишется null вместо умолчаний; include=model_fields_set (fastapi; from video-blade-2)
 - [lessons/simulation-plausibility.md] — «Не взорвалось» ≠ «даёт задуманный результат» — порог теста от требуемого результата, а не от первого замера; картинку сверять с референсом на ранней итерации (python, pymunk, any; from 3d-printer, 3d-printer-one)
