@@ -9,7 +9,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "agent-shell-state": {
   "applied": 0,
@@ -23,7 +23,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 17
+  "shown": 19
  },
  "api-discovery": {
   "applied": 0,
@@ -36,7 +36,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "auth-change-verification": {
   "applied": 0,
@@ -44,28 +44,30 @@
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "browser-test-stand": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-09-24",
   "last_shown": "2026-09-23",
   "projects": {
    "planning": 0,
-   "video-blade-2": 0
+   "video-blade-2": 1
   },
   "shown": 2
  },
  "browser-verification": {
-  "applied": 2,
-  "last_applied": "2026-09-23",
-  "last_shown": "2026-09-23",
+  "applied": 3,
+  "last_applied": "2026-09-24",
+  "last_shown": "2026-09-24",
   "projects": {
+   "planning": 0,
    "project1": 0,
    "scratchpad": 0,
    "video-blade": 0,
-   "video-blade-2": 2
+   "video-blade-2": 3
   },
-  "shown": 4
+  "shown": 6
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -88,7 +90,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 14
+  "shown": 16
  },
  "env-example-no-secrets": {
   "applied": 0,
@@ -107,15 +109,23 @@
   },
   "shown": 1
  },
+ "feature-existence-check": {
+  "applied": 0,
+  "last_shown": "2026-09-24",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "guard-hook-command-parsing": {
   "applied": 0,
-  "last_shown": "2026-09-23",
+  "last_shown": "2026-09-24",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 9
+  "shown": 10
  },
  "guard-hook-testing": {
   "applied": 0,
@@ -133,9 +143,10 @@
    "lpdf": 0,
    "planning": 0,
    "project1": 0,
-   "scratchpad": 0
+   "scratchpad": 0,
+   "todo": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "lint-first-run": {
   "applied": 0,
@@ -145,16 +156,16 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 7
  },
  "lint-rules-explicit-select": {
   "applied": 0,
-  "last_shown": "2026-09-23",
+  "last_shown": "2026-09-24",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "llm-output-not-metadata": {
   "applied": 0,
@@ -202,13 +213,13 @@
  },
  "prod-data-ops": {
   "applied": 0,
-  "last_shown": "2026-09-23",
+  "last_shown": "2026-09-24",
   "projects": {
    "divani": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "python-fastapi-mongo-nuxt": {
   "applied": 0,
@@ -255,7 +266,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 9
+  "shown": 11
  },
  "tests-observable-behavior": {
   "applied": 0,
@@ -274,21 +285,23 @@
   "shown": 1
  },
  "ui-silent-failures": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-09-24",
   "last_shown": "2026-09-23",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "video-blade-2": 1
   },
   "shown": 1
  },
  "video-cost-accounting": {
   "applied": 0,
-  "last_shown": "2026-09-18",
+  "last_shown": "2026-09-24",
   "projects": {
    "docs": 0,
    "planning": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "video-extra-hands-faces": {
   "applied": 0,
@@ -313,5 +326,13 @@
    "planning": 0
   },
   "shown": 1
+ },
+ "visible-and-persistent-ui-state": {
+  "applied": 1,
+  "last_applied": "2026-09-24",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 0
  }
 }
