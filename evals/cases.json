@@ -253,5 +253,20 @@
     "unit": "architecture-question-restate-purpose",
     "prompt": "владелец ответил ты не понял, когда я спросил где хранить протоколы: в базе или файлами",
     "expect": "словами владельца|назначени"
+  },
+  {
+    "unit": "pydantic-patch-nested-exclude-unset",
+    "prompt": "после PATCH во вложенном объекте пропали ключи, model_dump exclude_unset пишет null вместо значений по умолчанию",
+    "expect": "model_fields_set"
+  },
+  {
+    "unit": "agent-docs-route-guard",
+    "prompt": "переношу протокол для агента со старыми эндпоинтами из v1, как проверить что все curl в AGENTS.md живые",
+    "expect": "роутер|маршрут"
+  },
+  {
+    "unit": "port-search-all-sources",
+    "prompt": "вытащи протоколы из прошлого проекта и загрузи в этот, там точно были протоколы по видео",
+    "expect": "соседн|всем"
   }
 ]

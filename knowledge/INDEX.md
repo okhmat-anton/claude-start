@@ -22,6 +22,7 @@
 
 ## Уроки
 
+- [lessons/agent-docs-route-guard.md] [candidate] — Документ для агента с вызовами API (протокол, AGENTS.md) проверяется тестом против роутера: каждый адрес и МЕТОД /путь — живой маршрут (any; from video-blade-2)
 - [lessons/agent-interaction.md] — Контрольные точки длинной задачи — выбор кнопкой, а не текстом; цена платной операции в самом вопросе; брак называть до заказчика (any; from work-video-production, 3d-printer-one)
 - [lessons/agent-oneoff-script.md] [candidate] — Одноразовый скрипт агента — с main-guard, абсолютным окружением и клиентом, который сам читает env; креды не в argv (python, any; from 3d-printer)
 - [lessons/agent-shell-state.md] — PATH и cwd не живут между Bash-вызовами агента — абсолютные пути, export PATH, ls по адресу назначения после записи (any; from work-video-production, 3d-printer, planning)
@@ -55,7 +56,9 @@
 - [lessons/page-boilerplate-checks.md] [candidate] — Обязательные подключения страниц (общая шапка, модуль размеров, id полей, список копирования образа) проверяет программа в make test, с негативным прогоном (node, web-ui; from planning)
 - [lessons/paid-api-file-integrity.md] — Файлы от платного API — ретрай на передаче в обе стороны, читаемость probe-ом, а не размером, try/except в теле потока, верификатор комплектности до сборки (kie-ai, python, any; from work-video-production, kitchens)
 - [lessons/param-descriptions-rot.md] [candidate] — Описания параметров протухают вслед за моделью — меняя модель, сверяй каждое утверждение с кодом; первыми врут числа в тексте и обещания про поведение (any; from 3d-printer)
+- [lessons/port-search-all-sources.md] [candidate] — Перенос «из прошлого проекта» — сначала поиск по всем соседним репозиториям владельца по именам артефактов, а не только в названном доноре (any; from video-blade-2)
 - [lessons/prod-data-ops.md] — Прод-данные правим ops-инструментами репозитория — read-only диагностика, показывающая содержимое записей, идемпотентный ремонт с dry-run, факт важнее плана (any; from gym-bro-2, planning)
+- [lessons/pydantic-patch-nested-exclude-unset.md] [candidate] — PATCH через model_dump(exclude_unset=True) срезает незаданные поля и во вложенных моделях — в базу пишется null вместо умолчаний; include=model_fields_set (fastapi; from video-blade-2)
 - [lessons/simulation-plausibility.md] — «Не взорвалось» ≠ «даёт задуманный результат» — порог теста от требуемого результата, а не от первого замера; картинку сверять с референсом на ранней итерации (python, pymunk, any; from 3d-printer, 3d-printer-one)
 - [lessons/stale-server-process.md] — Сервер на порту — не тот, что ты думаешь — lsof по порту и время старта воркера против времени правок до любого рестарта (python, docker, node; from 3d-printer, planning)
 - [lessons/stuck-binary-ue-processes.md] — Команда «зависла» — сначала ps по прошлым запускам того же бинаря: состояние U/UE = блокировка ОС, лечится перезагрузкой, обход другим тулчейном (any; from ai-business-advisor, 3d-printer)
