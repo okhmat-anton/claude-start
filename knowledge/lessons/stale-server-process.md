@@ -4,10 +4,10 @@ description: Сервер на порту — не тот, что ты дума�
 stack: [python, docker, node]
 status: mature
 created: 2026-08-24
-seen_in: [3d-printer, planning]
+seen_in: [3d-printer, planning, video-blade-2]
 triggers:
   keywords: [не подхватил, старое поведение, новая статика, порт занят, пересобрать контейнер, перезапустить сервис, --reload, не применяется правка]
-  commands: ['docker\s+compose\s+(up|restart|build)', 'uvicorn\b', 'lsof\s+-i', 'kill\s+-9', 'make\s+(run|restart)']
+  commands: ['docker\s+compose\s+(up|restart|build)', 'uvicorn\b', 'lsof\s+-i', 'kill\s+-9', 'make\s+(run|restart)', 'pkill\s+-f']
   errors: ['address already in use', 'Address already in use']
   paths: []
 ---
@@ -24,3 +24,5 @@ triggers:
 - Пул воркеров держит код, загруженный при создании пула; отсутствие дочерних процессов = пул ещё не создан =
   следующий вызов возьмёт новый код без рестарта.
 - Симптом «новая статика + старое поведение» диагностируй с версии процесса, а не с кода фронта.
+- Гаси стенд по порту: `kill $(lsof -ti tcp:<порт> -sTCP:LISTEN)`. `pkill -f` по пути venv промахивается — у
+  framework-Python в командной строке `…/Python.app/…/Python script.py`; процесс живёт, проверка «погашен» врёт.

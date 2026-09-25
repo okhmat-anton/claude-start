@@ -4,10 +4,10 @@ description: Read-only эндпоинт под токеном для чужог�
 stack: [fastapi, python, any]
 status: mature
 created: 2026-08-04
-seen_in: [ai-business-advisor-websites, akm-news, planning]
+seen_in: [ai-business-advisor-websites, akm-news, planning, video-blade-2]
 triggers:
   keywords: [мониторинг, monitoring, дешборд, внешний потребитель, токен в пути, compare_digest, health, метрик, заглушк, отдаёт нули]
-  commands: []
+  commands: ['\bmonitoring\b']
   errors: ['comparing strings with non-ASCII characters is not supported']
   paths: ['**/monitoring*', 'monitoring']
 ---
@@ -26,3 +26,5 @@ triggers:
 - Секреты сравнивай по байтам: `secrets.compare_digest` на строках падает 500 на первом не-ASCII токене. Тест —
   с намеренно не-ASCII значением, на ASCII баг не воспроизводится никогда.
 - Есть маршрут-перехватчик (короткие ссылки, catch-all) — вешай эндпоинт под общий префикс API, не в корень.
+- Печатая такие ссылки в вывод или отчёт (проверка после релиза), маскируй сегмент-токен пути
+  (`sed -E 's#/[0-9a-f]{32,}#/***#g'`), а не только `?token=`: токен в пути утекает целиком.

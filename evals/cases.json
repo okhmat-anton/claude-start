@@ -268,5 +268,111 @@
     "unit": "port-search-all-sources",
     "prompt": "вытащи протоколы из прошлого проекта и загрузи в этот, там точно были протоколы по видео",
     "expect": "соседн|всем"
+  },
+  {
+    "unit": "regex-codemod-spans-functions",
+    "command": "sed -i '' 's/Depends(require_admin)/Depends(_confirmed())/g' app/web/admin.py",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ]
+  },
+  {
+    "unit": "vendor-console-guide",
+    "prompt": "там где ввод S3 должна быть подробная инструкция со ссылками где брать эти ключи",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ],
+    "expect": "ссыл|провер"
+  },
+  {
+    "unit": "vendor-console-guide",
+    "command": "curl -s -L https://developers.cloudflare.com/r2/api/tokens/index.md | head",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ]
+  },
+  {
+    "unit": "mongo-naive-datetime-local-skew",
+    "prompt": "в админке дата уехала на несколько часов, astimezone вроде стоит",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ],
+    "expect": "UTC|tzinfo"
+  },
+  {
+    "unit": "autofix-hook-import-order",
+    "command": ".venv/bin/ruff check app/services/storage.py",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ]
+  },
+  {
+    "unit": "agent-shell-state",
+    "command": "for path in /admin/a /admin/b; do curl -s \"https://example.com$path\"; done",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ]
+  },
+  {
+    "unit": "stale-server-process",
+    "command": "pkill -f \"python stand.py\"",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ]
+  },
+  {
+    "unit": "token-guarded-endpoints",
+    "command": "grep -oE 'https?://[^ ]+' monitoring | while read u; do curl -s -o /dev/null -w '%{http_code}' \"$u\"; done",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ]
   }
 ]

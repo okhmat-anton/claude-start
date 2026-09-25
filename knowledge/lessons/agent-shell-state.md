@@ -4,10 +4,10 @@ description: PATH и cwd не живут между Bash-вызовами аге
 stack: [any]
 status: mature
 created: 2026-07-17
-seen_in: [work-video-production, 3d-printer, planning]
+seen_in: [work-video-production, 3d-printer, planning, video-blade-2]
 triggers:
-  keywords: [command not found, файлы в корне, попали в корень, cwd, PATH, относительн, не тот каталог]
-  commands: ['curl\s.*\s-o\s', '\bwget\b']
+  keywords: [command not found, файлы в корне, попали в корень, cwd, PATH, относительн, не тот каталог, zsh]
+  commands: ['curl\s.*\s-o\s', '\bwget\b', '\bfor\s+(path|status)\s+in\b']
   errors: ['command not found', 'No such file or directory']
   paths: []
 ---
@@ -22,3 +22,5 @@ triggers:
 - PATH бывает урезан: начинай команду с `export PATH=/usr/bin:/bin:/opt/homebrew/bin` либо зови бинари по абсолютному пути.
 - Команда пишет файлы — сразу `ls` по абсолютному пути назначения. Тихое попадание файлов в корень ломает
   изоляцию клиентских папок, и замечается это после коммита.
+- В zsh `path` — массив-двойник PATH, `status` — только для чтения: `for path in …` обнуляет поиск команд до конца
+  той же команды (curl «not found» сразу после рабочего вызова). Переменные цикла — `p`, `route`, `item`.
