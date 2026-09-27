@@ -9,6 +9,7 @@
 - [skills/pdf-report/SKILL.md] — Оформленный PDF из markdown — набор и протокол по GET /api/pdf-kit планировщика; структуры отчёта по ресёрчу и документа инвестору; графики JSON→SVG, картинки kie.ai, headless Chrome, проверка каждой страницы растром (node, any)
 - [skills/product-idea-review/SKILL.md] — Доработка сырой продуктовой идеи до концепции — рынок с датами, требования, экономика единицы, фазы с воротами, риски, решения в DECISIONS.md (any)
 - [skills/reddit-research/SKILL.md] — Reddit закрыт для WebSearch/curl, но открыт настоящему Chrome без окна — скрипт reddit.js (list / search / thread), атрибуты компонентов, догрузка комментариев (any)
+- [skills/research/SKILL.md] — Ресёрч → документ в проекте — проект кнопками, если не назван; каждый факт с датой и ссылкой; структура «вопрос → ответ → как искали → находки → где расходятся → что делать → ограничения»; текст на сайт, PDF рядом (any)
 - [skills/standard-stack/SKILL.md] — Единый стандарт стека, архитектуры MVC, команд make run/test/lint/build/update, именования, git и деплоя; вопросы-стандарты в /start не задаются (any)
 - [skills/viewer-reviewer/SKILL.md] — Ревью контента «глазами наивного зрителя» отдельным read-only агентом с подтверждением цели у автора (видео, статьи, лендинги) (any)
 
@@ -67,6 +68,7 @@
 - [lessons/prod-data-ops.md] — Прод-данные правим ops-инструментами репозитория — read-only диагностика, показывающая содержимое записей, идемпотентный ремонт с dry-run, факт важнее плана (any; from gym-bro-2, planning)
 - [lessons/pydantic-patch-nested-exclude-unset.md] [candidate] — PATCH через model_dump(exclude_unset=True) срезает незаданные поля и во вложенных моделях — в базу пишется null вместо умолчаний; include=model_fields_set (fastapi; from video-blade-2)
 - [lessons/regex-codemod-spans-functions.md] [candidate] — Массовая правка кода регуляркой с re.S и нежадным .*? стартует у первого якоря файла и съедает соседние функции — одна замена на уникальный якорь (any; from video-blade-2)
+- [lessons/sales-playbook.md] [candidate] — Опыт продаж владельца — наживка → основной тариф → 2–3 VIP, успех напоказ, возражения закрыты гарантиями заранее, сомневающегося не уговаривать, дизайн почти идеальный, предпродажа мечты, точечный таргет; с границами закона США (any; from planning)
 - [lessons/scoped-key-narrow-gate.md] [candidate] — Ограниченный ключ доступа проходит общую проверку авторизации, но реальные права у него — только там, где на маршрут навешан отдельный gate; агентский гайд не должен обещать действие, которое ключ выполнить не может (any; from planning)
 - [lessons/simulation-plausibility.md] — «Не взорвалось» ≠ «даёт задуманный результат» — порог теста от требуемого результата, а не от первого замера; картинку сверять с референсом на ранней итерации (python, pymunk, any; from 3d-printer, 3d-printer-one)
 - [lessons/stale-server-process.md] — Сервер на порту — не тот, что ты думаешь — lsof по порту и время старта воркера против времени правок до любого рестарта (python, docker, node; from 3d-printer, planning, video-blade-2)
