@@ -6,6 +6,7 @@
 ## Скиллы
 
 - [skills/knowledge-gc/SKILL.md] — Ежемесячная уборка базы знаний по отчёту knowledge.py gc — дубли, длинные, неприменяемые, кандидаты в зрелые, синхронизация клона (any)
+- [skills/pdf-report/SKILL.md] — Оформленный PDF из markdown-документа — обложка+плитки цифр+графики(JSON-спека→SVG)+картинки kie.ai+врезки, headless Chrome печатает, каждая страница проверяется растром до отправки (node, any)
 - [skills/product-idea-review/SKILL.md] — Доработка сырой продуктовой идеи до концепции — рынок с датами, требования, экономика единицы, фазы с воротами, риски, решения в DECISIONS.md (any)
 - [skills/reddit-research/SKILL.md] — Reddit закрыт для WebSearch/curl, но открыт настоящему Chrome без окна — скрипт reddit.js (list / search / thread), атрибуты компонентов, догрузка комментариев (any)
 - [skills/standard-stack/SKILL.md] — Единый стандарт стека, архитектуры MVC, команд make run/test/lint/build/update, именования, git и деплоя; вопросы-стандарты в /start не задаются (any)
