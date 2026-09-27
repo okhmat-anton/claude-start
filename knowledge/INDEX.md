@@ -5,12 +5,14 @@
 
 ## Скиллы
 
+- [skills/jobs-review/SKILL.md] — Взгляд Джобса — ревью готового интерфейса субагентом «вижу впервые» с планкой Apple: стенд, кадры и клики в Chrome без окна (look.js), итог владельцу в Chrome (any)
 - [skills/knowledge-gc/SKILL.md] — Ежемесячная уборка базы знаний по отчёту knowledge.py gc — дубли, длинные, неприменяемые, кандидаты в зрелые, синхронизация клона (any)
 - [skills/pdf-report/SKILL.md] — Оформленный PDF из markdown — набор и протокол по GET /api/pdf-kit планировщика; структуры отчёта по ресёрчу и документа инвестору; графики JSON→SVG, картинки kie.ai, headless Chrome, проверка каждой страницы растром (node, any)
 - [skills/product-idea-review/SKILL.md] — Доработка сырой продуктовой идеи до концепции — рынок с датами, требования, экономика единицы, фазы с воротами, риски, решения в DECISIONS.md (any)
 - [skills/reddit-research/SKILL.md] — Reddit закрыт для WebSearch/curl, но открыт настоящему Chrome без окна — скрипт reddit.js (list / search / thread), атрибуты компонентов, догрузка комментариев (any)
 - [skills/research/SKILL.md] — Ресёрч → документ в проекте — проект кнопками, если не назван; каждый факт с датой и ссылкой; структура «вопрос → ответ → как искали → находки → где расходятся → что делать → ограничения»; текст на сайт, PDF рядом (any)
 - [skills/standard-stack/SKILL.md] — Единый стандарт стека, архитектуры MVC, команд make run/test/lint/build/update, именования, git и деплоя; вопросы-стандарты в /start не задаются (any)
+- [skills/style-base/SKILL.md] — База стиля владельца — правила вкуса из его ответов (интерфейс, выбор решений, работа агента, тексты); читать до вопроса, дописывать после ответа (any)
 - [skills/viewer-reviewer/SKILL.md] — Ревью контента «глазами наивного зрителя» отдельным read-only агентом с подтверждением цели у автора (видео, статьи, лендинги) (any)
 
 ## Стеки
@@ -26,7 +28,7 @@
 
 - [lessons/ad-creative-batch-size.md] [candidate] — Партия рекламных креативов — сначала тексты и их число на согласование; число = дневной бюджет × 7 ÷ цена тысячи показов; генерация после ответа (any; from planning)
 - [lessons/admin-links-to-app.md] [candidate] — В любой админке — пункт меню «Приложение» на корень приложения; обратно — кнопка «в админку» в кабинете только админу, серверным рендером (any; from video-blade-2)
-- [lessons/agent-docs-route-guard.md] [candidate] — Документ для агента с вызовами API (протокол, AGENTS.md) проверяется тестом против роутера: каждый адрес и МЕТОД /путь — живой маршрут; готовность — прогон из пустой папки ключом агента (any; from video-blade-2, planning)
+- [lessons/agent-docs-route-guard.md] [candidate] — Документ для агента с вызовами API (протокол, AGENTS.md) проверяется тестом против роутера: каждый адрес и МЕТОД /путь — живой маршрут (any; from video-blade-2, planning)
 - [lessons/agent-interaction.md] — Контрольные точки длинной задачи — выбор кнопкой, а не текстом; цена платной операции в самом вопросе; брак называть до заказчика (any; from work-video-production, 3d-printer-one, planning)
 - [lessons/agent-oneoff-script.md] [candidate] — Одноразовый скрипт агента — с main-guard, абсолютным окружением и клиентом, который сам читает env; креды не в argv (python, any; from 3d-printer)
 - [lessons/agent-shell-state.md] — PATH и cwd не живут между Bash-вызовами агента — абсолютные пути, export PATH, ls по адресу назначения после записи (any; from work-video-production, 3d-printer, planning, video-blade-2)
@@ -52,7 +54,7 @@
 - [lessons/lint-rules-explicit-select.md] — Набор правил линтера фиксируется явным select, а конфликт правила со штатной идиомой фреймворка чинится настройкой правила в конфиге, не noqa россыпью (python, any; from ai-business-advisor, 3d-printer)
 - [lessons/llm-output-not-metadata.md] — Правило вне промта для ИИ не существует; ревьювер только по явному «REVISE, если …»; текст ИИ не носитель метаданных — единица и валюта в структуре (llm; from gym-bro-2, planning)
 - [lessons/llm-prompt-defaults.md] — Дефолтные промты в БД — правка дефолта без архивной копии прежней версии молча не доезжает до прода; проверять счётчик обновлённых промтов в логе старта (llm, python; from gym-bro-2, planning)
-- [lessons/local-runs-reach-production.md] — Локальный прогон с боевым env пишет в чужие боевые системы — глушить внешнюю сторону до прогона (пустой ключ или подмена клиента), исходящих ноль; временная папка данных не гасит запись рядом с кодом при старте (any; from planning, 3d-printer)
+- [lessons/local-runs-reach-production.md] — Локальный прогон с боевым env пишет в чужие боевые системы — глушить внешнюю сторону до прогона (пустой ключ или подмена клиента), исходящих ноль (any; from planning, 3d-printer)
 - [lessons/missing-event-count-first.md] [candidate] — «Нет события» в рекламном кабинете — сначала где смотрят и сколько раз действие случалось (журнал сервера), потом искать баг; событие после успешной отправки кабинет не видит, пока отправок нет (any; from planning)
 - [lessons/model-driven-visualizer-channels.md] — Канал «результат расчёта → визуализатор» объявляет спека модели (ключ, подпись, единица), а не хардкод клиента; объект мельче пикселя рисуется точкой со следом (python, web-ui, pymunk; from 3d-printer, 3d-printer-one)
 - [lessons/mongo-naive-datetime-local-skew.md] [candidate] — Mongo отдаёт даты UTC без зоны — astimezone считает их местным временем машины; помечай UTC до перевода, тест с TZ не-UTC (python; from video-blade-2)
