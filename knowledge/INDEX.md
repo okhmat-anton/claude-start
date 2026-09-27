@@ -23,6 +23,7 @@
 ## Уроки
 
 - [lessons/ad-creative-batch-size.md] [candidate] — Партия рекламных креативов — сначала тексты и их число на согласование; число = дневной бюджет × 7 ÷ цена тысячи показов; генерация после ответа (any; from planning)
+- [lessons/admin-links-to-app.md] [candidate] — В любой админке — пункт меню «Приложение» на корень приложения; обратно — кнопка «в админку» в кабинете только админу, серверным рендером (any; from video-blade-2)
 - [lessons/agent-docs-route-guard.md] [candidate] — Документ для агента с вызовами API (протокол, AGENTS.md) проверяется тестом против роутера: каждый адрес и МЕТОД /путь — живой маршрут (any; from video-blade-2)
 - [lessons/agent-interaction.md] — Контрольные точки длинной задачи — выбор кнопкой, а не текстом; цена платной операции в самом вопросе; брак называть до заказчика (any; from work-video-production, 3d-printer-one, planning)
 - [lessons/agent-oneoff-script.md] [candidate] — Одноразовый скрипт агента — с main-guard, абсолютным окружением и клиентом, который сам читает env; креды не в argv (python, any; from 3d-printer)
@@ -50,6 +51,7 @@
 - [lessons/llm-output-not-metadata.md] — Правило вне промта для ИИ не существует; ревьювер только по явному «REVISE, если …»; текст ИИ не носитель метаданных — единица и валюта в структуре (llm; from gym-bro-2, planning)
 - [lessons/llm-prompt-defaults.md] — Дефолтные промты в БД — правка дефолта без архивной копии прежней версии молча не доезжает до прода; проверять счётчик обновлённых промтов в логе старта (llm, python; from gym-bro-2, planning)
 - [lessons/local-runs-reach-production.md] — Локальный прогон с боевым env пишет в чужие боевые системы — глушить внешнюю сторону до прогона (пустой ключ или подмена клиента), исходящих ноль (any; from planning, 3d-printer)
+- [lessons/missing-event-count-first.md] [candidate] — «Нет события» в рекламном кабинете — сначала где смотрят и сколько раз действие случалось (журнал сервера), потом искать баг; событие после успешной отправки кабинет не видит, пока отправок нет (any; from planning)
 - [lessons/model-driven-visualizer-channels.md] — Канал «результат расчёта → визуализатор» объявляет спека модели (ключ, подпись, единица), а не хардкод клиента; объект мельче пикселя рисуется точкой со следом (python, web-ui, pymunk; from 3d-printer, 3d-printer-one)
 - [lessons/mongo-naive-datetime-local-skew.md] [candidate] — Mongo отдаёт даты UTC без зоны — astimezone считает их местным временем машины; помечай UTC до перевода, тест с TZ не-UTC (python; from video-blade-2)
 - [lessons/multi-language-checks.md] — make lint и make test покрывают каждый язык репозитория; «вторая команда руками» — источник пропусков; команда-проверка обязана существовать в зависимостях (any; from jym-bro-2, ai-business-advisor, 3d-printer)
@@ -58,9 +60,8 @@
 - [lessons/page-boilerplate-checks.md] [candidate] — Обязательные подключения страниц (общая шапка, модуль размеров, id полей, список копирования образа) проверяет программа в make test, с негативным прогоном (node, web-ui; from planning)
 - [lessons/paid-api-file-integrity.md] — Файлы от платного API — ретрай на передаче в обе стороны, читаемость probe-ом, а не размером, try/except в теле потока, верификатор комплектности до сборки (kie-ai, python, any; from work-video-production, kitchens)
 - [lessons/param-descriptions-rot.md] [candidate] — Описания параметров протухают вслед за моделью — меняя модель, сверяй каждое утверждение с кодом; первыми врут числа в тексте и обещания про поведение (any; from 3d-printer)
+- [lessons/pixel-server-event-dedup.md] [candidate] — Пиксель Meta + серверные события (Conversions API) — склеивается только пара «браузер первым, сервер вторым» под одним event_id; два браузерных события с одним id считаются дважды (web-ui; from planning)
 - [lessons/port-search-all-sources.md] [candidate] — Перенос «из прошлого проекта» — сначала поиск по всем соседним репозиториям владельца по именам артефактов, а не только в названном доноре (any; from video-blade-2)
-- [lessons/missing-event-count-first.md] [candidate] — «Нет события» в рекламном кабинете — сначала где смотрят и сколько раз действие случалось (журнал сервера), потом искать баг; лечится тестовым событием (any; from planning)
-- [lessons/pixel-server-event-dedup.md] [candidate] — Пиксель Meta + серверные события — склеивается только пара «браузер первым, сервер вторым» под одним event_id; два браузерных с одним id считаются дважды (web-ui; from planning)
 - [lessons/prior-analysis-outside-tracker.md] [candidate] — Прошлый разбор может лежать вне трекера проекта — в артефактах и чатах; перед планом следующего шага просмотри список артефактов по теме (any; from planning)
 - [lessons/prod-data-ops.md] — Прод-данные правим ops-инструментами репозитория — read-only диагностика, показывающая содержимое записей, идемпотентный ремонт с dry-run, факт важнее плана (any; from gym-bro-2, planning)
 - [lessons/pydantic-patch-nested-exclude-unset.md] [candidate] — PATCH через model_dump(exclude_unset=True) срезает незаданные поля и во вложенных моделях — в базу пишется null вместо умолчаний; include=model_fields_set (fastapi; from video-blade-2)

@@ -374,5 +374,27 @@
       "web-ui",
       "llm"
     ]
+  },
+  {
+    "unit": "admin-links-to-app",
+    "prompt": "надо в админке добавить ссылку на app",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ],
+    "expect": "приложен|ссылк"
+  },
+  {
+    "unit": "admin-links-to-app",
+    "prompt": "сделай админку для нового проекта: пользователи и настройки",
+    "stack": [
+      "python",
+      "fastapi"
+    ]
   }
 ]
