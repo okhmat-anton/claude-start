@@ -1,6 +1,7 @@
 ---
 name: pixel-server-event-dedup
 description: Пиксель Meta + серверные события (Conversions API) — склеивается только пара «браузер первым, сервер вторым» под одним event_id; два браузерных события с одним id считаются дважды
+index: Пиксель Meta + Conversions API — склеивается только пара «браузер первым, сервер вторым» под одним event_id
 stack: [web-ui]
 status: candidate
 created: 2026-09-26

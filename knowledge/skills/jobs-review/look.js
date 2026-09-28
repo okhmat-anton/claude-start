@@ -8,6 +8,7 @@
 //
 // auth.json — как войти:
 //   {"base":"http://127.0.0.1:5190","login":{"path":"/api/auth/login","json":{"username":"…","password":"…"}}}
+//   {"base":"http://127.0.0.1:5190","login":{"path":"/login","form":{"email":"…","password":"…"}}}  — HTML-форма
 //   {"base":"https://сайт","bearer":"…"}  — ключ уходит только на адрес base, не на CDN и шрифты
 // --readonly — всё, кроме GET/HEAD/OPTIONS, блокируется: смотреть рабочий сайт, ничего на нём не меняя.
 //
@@ -200,11 +201,14 @@ async function launch(headless, profile) {
 }
 
 // Вход по auth.json: POST логина, cookie ответа — в браузер, на адрес приложения.
+// Форма входа отвечает редиректом с cookie — его не проходим, иначе cookie теряется.
 async function login(cdp, auth, origin) {
   if (!auth.login) return;
-  const r = await fetch(origin + auth.login.path, { method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(auth.login.json || {}) });
-  if (!r.ok) throw new Error(`вход не удался: ${r.status}`);
+  const { form, json } = auth.login;
+  const r = await fetch(origin + auth.login.path, form
+    ? { method: "POST", body: new URLSearchParams(form), redirect: "manual" }
+    : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(json || {}) });
+  if (r.status >= 400) throw new Error(`вход не удался: ${r.status}`);
   for (const c of r.headers.getSetCookie()) {
     const nv = c.split(";")[0], i = nv.indexOf("=");
     const name = nv.slice(0, i).trim(), value = nv.slice(i + 1).trim();

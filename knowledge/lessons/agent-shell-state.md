@@ -7,8 +7,8 @@ created: 2026-07-17
 seen_in: [work-video-production, 3d-printer, planning, video-blade-2]
 triggers:
   keywords: [command not found, файлы в корне, попали в корень, cwd, PATH, относительн, не тот каталог, zsh]
-  commands: ['curl\s.*\s-o\s', '\bwget\b', '\bfor\s+(path|status)\s+in\b']
-  errors: ['command not found', 'No such file or directory']
+  commands: ['curl\s.*\s-o\s', '\bwget\b', '\bfor\s+(path|status)\s+in\b', '\bfor\s+\w+\s+in\s[^;]*\?', '\bcurl\b[^\n]*\shttps?://\S*\?']
+  errors: ['command not found', 'No such file or directory', 'no matches found']
   paths: []
 ---
 # Состояние шелла между Bash-вызовами агента не сохраняется
@@ -24,3 +24,5 @@ triggers:
   изоляцию клиентских папок, и замечается это после коммита.
 - В zsh `path` — массив-двойник PATH, `status` — только для чтения: `for path in …` обнуляет поиск команд до конца
   той же команды (curl «not found» сразу после рабочего вызова). Переменные цикла — `p`, `route`, `item`.
+- В zsh `?`, `*`, `[` в незакавыченном слове — шаблон файлов: адрес с `?key=` или маска без совпадений роняет
+  команду «no matches found» до её запуска. Адреса и маски бери в кавычки.

@@ -396,5 +396,47 @@
       "python",
       "fastapi"
     ]
+  },
+  {
+    "unit": "credentials-stay-with-owner",
+    "prompt": "и настрой хранилище из прошлого проекта (там уже есть настройки s3)",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ],
+    "expect": "форм|владел"
+  },
+  {
+    "unit": "agent-shell-state",
+    "command": "for route in /login /admin/login?key=x; do curl -s \"$B$route\"; done",
+    "stack": [
+      "python",
+      "fastapi",
+      "kie-ai",
+      "ffmpeg",
+      "docker",
+      "web-ui",
+      "llm"
+    ]
+  },
+  {
+    "unit": "mongo-ms-sort-tiebreak",
+    "prompt": "тест иногда падает: самый свежий проект по sort created_at выбирается не тот",
+    "stack": [
+      "python",
+      "fastapi"
+    ]
+  },
+  {
+    "unit": "fetch-login-redirect-cookie",
+    "prompt": "инструмент кадров логинится формой через fetch, вход вроде прошёл, но на скриншотах опять экран входа — cookie теряется после 303",
+    "stack": [
+      "web-ui"
+    ]
   }
 ]
