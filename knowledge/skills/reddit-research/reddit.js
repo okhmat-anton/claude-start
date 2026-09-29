@@ -8,12 +8,19 @@ const os = require("os");
 const path = require("path");
 const [cmd, url, out] = process.argv.slice(2);
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const port = 9400 + Math.floor(Math.random() * 400);
 const prof = fs.mkdtempSync(path.join(os.tmpdir(), "rd-"));
-const ch = spawn(CHROME, ["--headless=new", "--disable-gpu", `--remote-debugging-port=${port}`, `--user-data-dir=${prof}`,
+// Порт выбирает сам Chrome (0) и пишет его в DevToolsActivePort профиля: со случайным портом
+// параллельные копии попадали друг к другу и читали чужую страницу.
+const ch = spawn(CHROME, ["--headless=new", "--disable-gpu", "--remote-debugging-port=0", `--user-data-dir=${prof}`,
   "--window-size=1400,3000", "--lang=en-US", "about:blank"], { stdio: "ignore", detached: true });
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 const done = (code) => { try { process.kill(-ch.pid, "SIGKILL"); } catch (e) {} fs.rmSync(prof, { recursive: true, force: true }); process.exit(code); };
+// Неудача — пустой результат нужной формы и код 2, чтобы пакетный прогон отличил её от пустой ветки.
+const fail = (msg) => {
+  console.error(msg);
+  fs.writeFileSync(out, JSON.stringify(cmd === "thread" ? { error: msg, comments: [] } : [], null, 1));
+  done(2);
+};
 // Сторож: страница может переадресоваться посреди запроса, и ответ не придёт никогда.
 setTimeout(() => { console.error("watchdog: 150s"); done(3); }, 150000);
 
@@ -39,9 +46,13 @@ const THREAD = `(() => {
 })()`;
 
 (async () => {
-  let targets;
-  for (let i = 0; i < 50; i++) { try { targets = await (await fetch(`http://127.0.0.1:${port}/json`)).json(); break; } catch (e) { await sleep(200); } }
-  const page = targets.find(t => t.type === "page");
+  let port = 0, targets;
+  for (let i = 0; i < 50 && !port; i++) {
+    try { port = +fs.readFileSync(path.join(prof, "DevToolsActivePort"), "utf8").split("\n")[0]; } catch (e) { await sleep(200); }
+  }
+  for (let i = 0; port && i < 50; i++) { try { targets = await (await fetch(`http://127.0.0.1:${port}/json`)).json(); break; } catch (e) { await sleep(200); } }
+  const page = targets && targets.find(t => t.type === "page");
+  if (!page) return fail("Chrome не открыл страницу — повтори запуск");
   const ws = new WebSocket(page.webSocketDebuggerUrl);
   await new Promise(r => ws.onopen = r);
   let id = 0; const pending = {};
@@ -64,6 +75,9 @@ const THREAD = `(() => {
     if (n > 0) break;
   }
   if (cmd === "search") {
+    // Переадресация увела с поиска (на ветку, на проверку) — её комментарии за выдачу не выдаём.
+    const at = (await evalJs("location.href")) || "";
+    if (!/\/search/.test(at)) return fail(`Поиск открыл не страницу поиска: ${at}`);
     // Страница поиска: карточки без компонентов — берём ссылки на обсуждения и цифры из текста карточки.
     for (let i = 0; i < 4; i++) { await evalJs("window.scrollTo(0, document.body.scrollHeight)"); await sleep(1500); }
     data = await evalJs(`(() => {
@@ -99,6 +113,7 @@ const THREAD = `(() => {
     }
     data = await evalJs(THREAD);
   }
+  if (data == null) return fail("Страница не отдала данных — повтори тише (не больше 2 копий)");
   fs.writeFileSync(out, JSON.stringify(data, null, 1));
   const summary = Array.isArray(data) ? { posts: data.length } : { title: data && data.title, bodyChars: data && data.body.length, comments: data && data.comments.length };
   console.log(JSON.stringify({ url: await evalJs("location.href"), ...summary }));
