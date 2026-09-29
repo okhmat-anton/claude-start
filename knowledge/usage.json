@@ -7,7 +7,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "agent-docs-route-guard": {
   "applied": 0,
@@ -29,7 +29,7 @@
  },
  "agent-oneoff-script": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-29",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -37,11 +37,11 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 31
+  "shown": 33
  },
  "agent-shell-state": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
    "ads": 0,
    "akm-news": 0,
@@ -54,11 +54,11 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 28
+  "shown": 29
  },
  "api-discovery": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
    "docs": 0,
    "planning": 0,
@@ -67,7 +67,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 10
+  "shown": 12
  },
  "architecture-mvc": {
   "applied": 0,
@@ -79,12 +79,12 @@
  },
  "auth-change-verification": {
   "applied": 0,
-  "last_shown": "2026-09-26",
+  "last_shown": "2026-09-28",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "autofix-hook-import-order": {
   "applied": 2,
@@ -109,21 +109,21 @@
   "shown": 2
  },
  "browser-verification": {
-  "applied": 3,
-  "last_applied": "2026-09-24",
+  "applied": 4,
+  "last_applied": "2026-09-29",
   "last_shown": "2026-09-27",
   "projects": {
    "planning": 0,
    "project1": 0,
    "scratchpad": 0,
    "video-blade": 0,
-   "video-blade-2": 3
+   "video-blade-2": 4
   },
   "shown": 8
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-29",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -132,11 +132,11 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 24
+  "shown": 26
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
    "divani": 0,
    "planning": 0,
@@ -145,7 +145,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 23
+  "shown": 24
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -167,30 +167,31 @@
  },
  "feature-existence-check": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
    "pet-replicas": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
   "last_shown": "2026-09-27",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "guard-hook-command-parsing": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-29",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "guard-hook-testing": {
   "applied": 1,
@@ -204,7 +205,7 @@
  },
  "kie-ai": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
    "divani": 0,
    "lpdf": 0,
@@ -214,7 +215,7 @@
    "scratchpad": 0,
    "todo": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "lint-first-run": {
   "applied": 0,
@@ -238,32 +239,32 @@
  "llm-output-not-metadata": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-09-24",
+  "last_shown": "2026-09-28",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "llm-prompt-defaults": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
    "planning": 0,
    "project1": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "local-runs-reach-production": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "multi-language-checks": {
   "applied": 0,
@@ -290,6 +291,15 @@
    "src": 0
   },
   "shown": 4
+ },
+ "parallel-subagents": {
+  "applied": 1,
+  "last_applied": "2026-09-29",
+  "last_shown": "2026-09-28",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 1
  },
  "prod-data-ops": {
   "applied": 0,
@@ -338,6 +348,14 @@
   },
   "shown": 5
  },
+ "review-budget-below-fold": {
+  "applied": 0,
+  "last_shown": "2026-09-29",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "simulation-plausibility": {
   "applied": 0,
   "last_shown": "2026-09-27",
@@ -382,30 +400,31 @@
  "token-guarded-endpoints": {
   "applied": 1,
   "last_applied": "2026-09-26",
-  "last_shown": "2026-09-26",
+  "last_shown": "2026-09-29",
   "projects": {
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "ui-silent-failures": {
-  "applied": 1,
-  "last_applied": "2026-09-24",
-  "last_shown": "2026-09-27",
+  "applied": 2,
+  "last_applied": "2026-09-29",
+  "last_shown": "2026-09-28",
   "projects": {
    "planning": 0,
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 2
+  "shown": 3
  },
  "vendor-console-guide": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-28",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "video-ai-audio-asset": {
   "applied": 0,
@@ -420,6 +439,14 @@
   "last_shown": "2026-09-25",
   "projects": {
    "src": 0
+  },
+  "shown": 1
+ },
+ "video-asset-library-curation": {
+  "applied": 0,
+  "last_shown": "2026-09-29",
+  "projects": {
+   "video-blade-2": 0
   },
   "shown": 1
  },
@@ -443,19 +470,20 @@
  "video-product-anchor": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-09-24",
+  "last_shown": "2026-09-28",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "video-text-overlays-and-platforms": {
   "applied": 0,
-  "last_shown": "2026-09-23",
+  "last_shown": "2026-09-28",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "visible-and-persistent-ui-state": {
   "applied": 1,

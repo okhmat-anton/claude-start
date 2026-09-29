@@ -4,7 +4,7 @@
 //   node look.js shot <адрес> [--out папка] [--name имя] [--mobile | --both] [--frames 3]
 //   node look.js run  <сценарий.json> [--out папка]
 //   node look.js open <адрес>                  — обычное окно Chrome для человека, остаётся открытым
-//   общие флаги: --auth auth.json   --readonly   --timeout 180
+//   общие флаги: --auth auth.json   --readonly   --timeout 180   --lang ru-RU (язык браузера, по умолчанию ru-RU)
 //
 // auth.json — как войти:
 //   {"base":"http://127.0.0.1:5190","login":{"path":"/api/auth/login","json":{"username":"…","password":"…"}}}
@@ -29,6 +29,8 @@ const VIEWPORTS = {
   mobile: { width: 390, height: 844, deviceScaleFactor: 2, mobile: true },
 };
 const MOBILE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1";
+let LANG = "ru-RU"; // язык браузера, флаг --lang: на macOS Chrome не слушает --lang, поэтому ещё и Accept-Language
+const acceptLanguage = () => `${LANG},${LANG.split("-")[0]};q=0.8`;
 const KEYS = { Enter: [13, "\r"], Escape: [27, ""], Tab: [9, ""], Backspace: [8, ""], Delete: [46, ""], Space: [32, " "],
   ArrowDown: [40, ""], ArrowUp: [38, ""], ArrowLeft: [37, ""], ArrowRight: [39, ""], Home: [36, ""], End: [35, ""],
   PageUp: [33, ""], PageDown: [34, ""] };
@@ -176,7 +178,7 @@ function connect(wsUrl) {
 // Порт выбирает сам Chrome и пишет его в профиль: случайный порт мог оказаться портом чужого Chrome.
 async function launch(headless, profile) {
   const flags = ["--remote-debugging-port=0", `--user-data-dir=${profile}`, "--no-first-run",
-    "--no-default-browser-check", "--lang=ru-RU", "--window-size=1440,900"];
+    "--no-default-browser-check", `--lang=${LANG}`, "--window-size=1440,900"];
   if (headless) flags.unshift("--headless=new", "--disable-gpu", "--hide-scrollbars");
   const proc = spawn(chromePath(), [...flags, "about:blank"], { stdio: "ignore", detached: true });
   proc.once("error", () => {});
@@ -224,6 +226,7 @@ function dedupe(list) {
 
 async function main() {
   const { pos, opt } = parseArgs(process.argv.slice(2));
+  LANG = opt.lang || LANG;
   const [cmd, target] = pos;
   if (!["shot", "run", "open"].includes(cmd) || !target) { console.error(USAGE); process.exit(1); }
   const auth = opt.auth ? JSON.parse(fs.readFileSync(opt.auth, "utf8")) : {};
@@ -474,7 +477,7 @@ async function main() {
       label = `${vpName} 00`;
       await cdp.send("Emulation.setDeviceMetricsOverride", { width: vp.width, height: vp.height, deviceScaleFactor: vp.deviceScaleFactor, mobile: vp.mobile });
       await cdp.send("Emulation.setTouchEmulationEnabled", vp.mobile ? { enabled: true, maxTouchPoints: 5 } : { enabled: false });
-      await cdp.send("Network.setUserAgentOverride", { userAgent: vp.mobile ? MOBILE_UA : userAgent, acceptLanguage: "ru-RU,ru;q=0.9" });
+      await cdp.send("Network.setUserAgentOverride", { userAgent: vp.mobile ? MOBILE_UA : userAgent, acceptLanguage: acceptLanguage() });
       lines.push("", `${vpName} ${vp.width}×${vp.height}`);
       try { await go(startUrl); } catch (e) { lines.push(`  не открылась стартовая страница: ${e.message}`); continue; }
       const list = scenario.steps || [];
