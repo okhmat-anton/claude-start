@@ -487,5 +487,15 @@
   "stack": [
    "web-ui"
   ]
+ },
+ {
+  "unit": "design-mock-single-storyline",
+  "prompt": "собери макеты дизайна кабинета с заполненными демо-данными, ревью потом посмотрит экраны",
+  "expect": "сюжетн|одна истори|противореч"
+ },
+ {
+  "unit": "fstring-html-fragments",
+  "prompt": "генерирую html f-строками, вложенные f-строки с экранированными кавычками, SyntaxError unexpected character after line continuation character",
+  "expect": "переменн|backslash|\\\\\""
  }
 ]
