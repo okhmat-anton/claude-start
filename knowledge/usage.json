@@ -29,7 +29,7 @@
  },
  "agent-oneoff-script": {
   "applied": 0,
-  "last_shown": "2026-09-29",
+  "last_shown": "2026-09-30",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -37,12 +37,13 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 34
+  "shown": 35
  },
  "agent-shell-state": {
   "applied": 0,
-  "last_shown": "2026-09-29",
+  "last_shown": "2026-09-30",
   "projects": {
+   "3d-printer": 0,
    "_src": 0,
    "ads": 0,
    "akm-news": 0,
@@ -55,7 +56,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 31
+  "shown": 32
  },
  "api-discovery": {
   "applied": 0,
@@ -114,7 +115,7 @@
  "browser-verification": {
   "applied": 4,
   "last_applied": "2026-09-29",
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-30",
   "projects": {
    "planning": 0,
    "project1": 0,
@@ -122,11 +123,11 @@
    "video-blade": 0,
    "video-blade-2": 4
   },
-  "shown": 8
+  "shown": 9
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-09-29",
+  "last_shown": "2026-09-30",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -135,12 +136,13 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 28
+  "shown": 29
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
-  "last_shown": "2026-09-29",
+  "last_shown": "2026-09-30",
   "projects": {
+   "3d-printer": 0,
    "divani": 0,
    "planning": 0,
    "project1": 0,
@@ -148,7 +150,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 25
+  "shown": 26
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -162,11 +164,11 @@
  "external-agent-data": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-09-24",
+  "last_shown": "2026-09-30",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "feature-existence-check": {
   "applied": 0,
@@ -287,13 +289,22 @@
   },
   "shown": 2
  },
- "page-boilerplate-checks": {
+ "mvp-discipline": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-30",
   "projects": {
-   "planning": 0
+   "video-blade-2": 0
   },
   "shown": 1
+ },
+ "page-boilerplate-checks": {
+  "applied": 0,
+  "last_shown": "2026-09-30",
+  "projects": {
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 2
  },
  "paid-api-file-integrity": {
   "applied": 0,
@@ -308,11 +319,11 @@
  "parallel-subagents": {
   "applied": 1,
   "last_applied": "2026-09-29",
-  "last_shown": "2026-09-28",
+  "last_shown": "2026-09-30",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "pixel-server-event-dedup": {
   "applied": 0,
@@ -351,21 +362,21 @@
  },
  "python-fastapi-vue": {
   "applied": 0,
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-09-30",
   "projects": {
    "divani": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "python-selenium-agent-worker": {
   "applied": 0,
-  "last_shown": "2026-09-24",
+  "last_shown": "2026-09-30",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "regex-codemod-spans-functions": {
   "applied": 1,
@@ -387,6 +398,14 @@
   },
   "shown": 2
  },
+ "review-stand-state-drift": {
+  "applied": 0,
+  "last_shown": "2026-09-30",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "simulation-plausibility": {
   "applied": 0,
   "last_shown": "2026-09-27",
@@ -397,7 +416,7 @@
  },
  "stale-server-process": {
   "applied": 0,
-  "last_shown": "2026-09-29",
+  "last_shown": "2026-09-30",
   "projects": {
    "akm-news": 0,
    "divani": 0,
@@ -407,7 +426,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
@@ -459,11 +478,12 @@
  },
  "video-ai-audio-asset": {
   "applied": 0,
-  "last_shown": "2026-09-25",
+  "last_shown": "2026-09-30",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "video-anchor-chain-morph": {
   "applied": 0,
@@ -501,11 +521,11 @@
  "video-product-anchor": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-09-28",
+  "last_shown": "2026-09-30",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "video-text-overlays-and-platforms": {
   "applied": 0,
