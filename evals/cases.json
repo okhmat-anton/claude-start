@@ -527,5 +527,20 @@
     "unit": "review-stand-db-timeout",
     "prompt": "стенд завис, ревьюер получил 500 на главной, в журнале ServerSelectionTimeoutError Docker Desktop",
     "expect": "журнал|таймаут|повтори"
+  },
+  {
+    "unit": "rewrite-port-old-screen-first",
+    "prompt": "переписываем кабинет с нуля, донор — репозиторий первой версии; нужна раскладка страницы песни, сделай как в первой версии",
+    "expect": "старой версии|переносим как было"
+  },
+  {
+    "unit": "log-params-user-visible",
+    "prompt": "журнал генераций показывает params через tojson, положу туда коэффициент наценки для списания",
+    "expect": "отдельным полем|леджер|показ"
+  },
+  {
+    "unit": "agent-instruction-code-must-run",
+    "prompt": "клиент на urllib из протокола для агента падает CERTIFICATE_VERIFY_FAILED на python.org",
+    "expect": "сертификат|исполняй|URLError"
   }
 ]
