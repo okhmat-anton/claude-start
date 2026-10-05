@@ -542,5 +542,15 @@
     "unit": "agent-instruction-code-must-run",
     "prompt": "клиент на urllib из протокола для агента падает CERTIFICATE_VERIFY_FAILED на python.org",
     "expect": "сертификат|исполняй|URLError"
+  },
+  {
+    "unit": "song-lyrics-content-check",
+    "prompt": "тексты прошлых 2х песен не проходят копирайты. Сделай уникальные тексты песен на базе оригиналов",
+    "expect": "размере|цепочки|новые слова"
+  },
+  {
+    "unit": "rule-change-stale-wording",
+    "prompt": "длина кавера теперь не как у исходника — поправь протокол, документацию и подсказки интерфейса",
+    "expect": "grep|формулировк|хардкод"
   }
 ]

@@ -28,7 +28,7 @@
   "shown": 1
  },
  "agent-oneoff-script": {
-  "applied": 1,
+  "applied": 2,
   "last_applied": "2026-10-05",
   "last_shown": "2026-10-05",
   "projects": {
@@ -36,9 +36,9 @@
    "planning": 0,
    "project1": 0,
    "todo": 0,
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 40
+  "shown": 41
  },
  "agent-shell-state": {
   "applied": 0,
@@ -58,7 +58,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 36
+  "shown": 37
  },
  "api-discovery": {
   "applied": 0,
@@ -92,7 +92,7 @@
   "shown": 7
  },
  "autofix-hook-import-order": {
-  "applied": 3,
+  "applied": 4,
   "last_applied": "2026-10-05",
   "last_shown": "2026-10-05",
   "projects": {
@@ -100,19 +100,19 @@
    "foreign": 0,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 3
+   "video-blade-2": 4
   },
-  "shown": 10
+  "shown": 11
  },
  "browser-test-stand": {
   "applied": 2,
   "last_applied": "2026-09-27",
-  "last_shown": "2026-09-23",
+  "last_shown": "2026-10-05",
   "projects": {
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 2
+  "shown": 3
  },
  "browser-verification": {
   "applied": 4,
@@ -138,7 +138,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 32
+  "shown": 33
  },
  "design-mock-single-storyline": {
   "applied": 0,
@@ -160,7 +160,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 28
+  "shown": 29
  },
  "entry-page-not-dashboard": {
   "applied": 0,
@@ -195,7 +195,7 @@
    "pet-replicas": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
@@ -204,7 +204,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "guard-hook-command-parsing": {
   "applied": 0,
@@ -266,7 +266,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "lint-rules-explicit-select": {
   "applied": 1,
@@ -277,7 +277,7 @@
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 6
+  "shown": 7
  },
  "llm-output-not-metadata": {
   "applied": 1,
@@ -410,15 +410,15 @@
   "shown": 3
  },
  "regex-codemod-spans-functions": {
-  "applied": 1,
-  "last_applied": "2026-09-29",
+  "applied": 2,
+  "last_applied": "2026-10-05",
   "last_shown": "2026-10-05",
   "projects": {
    "planning": 0,
    "todo": 0,
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 7
+  "shown": 8
  },
  "review-budget-below-fold": {
   "applied": 2,
@@ -427,7 +427,7 @@
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
  },
  "review-stand-db-timeout": {
   "applied": 1,
@@ -437,7 +437,7 @@
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "review-stand-state-drift": {
   "applied": 0,
@@ -446,7 +446,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "simulation-plausibility": {
   "applied": 0,
@@ -455,6 +455,14 @@
    "video-blade-2": 0
   },
   "shown": 2
+ },
+ "song-lyrics-content-check": {
+  "applied": 0,
+  "last_shown": "2026-10-05",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
  },
  "stale-server-process": {
   "applied": 0,
@@ -479,7 +487,7 @@
    "src": 0,
    "video-blade-2": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "subagent-model-fallback": {
   "applied": 0,
@@ -505,7 +513,7 @@
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 6
+  "shown": 7
  },
  "ui-silent-failures": {
   "applied": 2,
