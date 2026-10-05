@@ -21,11 +21,11 @@
  "agent-interaction": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-09-24",
+  "last_shown": "2026-10-05",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "agent-oneoff-script": {
   "applied": 2,
@@ -89,7 +89,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "autofix-hook-import-order": {
   "applied": 4,
@@ -163,12 +163,13 @@
   "shown": 29
  },
  "entry-page-not-dashboard": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-05",
   "last_shown": "2026-10-05",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -208,13 +209,13 @@
  },
  "guard-hook-command-parsing": {
   "applied": 0,
-  "last_shown": "2026-09-29",
+  "last_shown": "2026-10-05",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 14
+  "shown": 15
  },
  "guard-hook-testing": {
   "applied": 1,
@@ -240,7 +241,7 @@
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "kie-ai": {
   "applied": 0,
@@ -399,7 +400,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -421,11 +422,11 @@
   "shown": 8
  },
  "review-budget-below-fold": {
-  "applied": 2,
+  "applied": 3,
   "last_applied": "2026-10-05",
   "last_shown": "2026-10-05",
   "projects": {
-   "video-blade-2": 2
+   "video-blade-2": 3
   },
   "shown": 4
  },
@@ -449,18 +450,20 @@
   "shown": 4
  },
  "rewrite-port-old-screen-first": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-05",
   "last_shown": "2026-10-05",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 1
   },
   "shown": 1
  },
  "rule-change-stale-wording": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-05",
   "last_shown": "2026-10-05",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 1
   },
   "shown": 1
  },
@@ -534,12 +537,12 @@
  "ui-silent-failures": {
   "applied": 2,
   "last_applied": "2026-09-29",
-  "last_shown": "2026-09-28",
+  "last_shown": "2026-10-05",
   "projects": {
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
  },
  "vendor-console-guide": {
   "applied": 0,
@@ -597,11 +600,11 @@
  "video-product-anchor": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-09-30",
+  "last_shown": "2026-10-05",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "video-text-overlays-and-platforms": {
   "applied": 0,
