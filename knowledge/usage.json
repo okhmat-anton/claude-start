@@ -502,7 +502,7 @@
  },
  "stale-server-process": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-06",
   "projects": {
    "akm-news": 0,
    "divani": 0,
@@ -512,7 +512,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
