@@ -6,7 +6,7 @@ status: candidate
 created: 2026-10-06
 seen_in: [video-blade-2]
 triggers:
-  keywords: [Cache-Control, max-age, публичный API, на сайте старое, не обновилось, порядок, кэш браузера]
+  keywords: [Cache-Control, max-age, публичн, на сайте стар, не обновил, старый порядок, кэш, публичной страниц]
   commands: []
   errors: []
   paths: []
