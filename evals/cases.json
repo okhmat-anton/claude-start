@@ -607,5 +607,40 @@
   "unit": "paid-flow-generic-before-second-consumer",
   "prompt": "фото персонажа — второй потребитель генерации картинок после обложки: удержание, задача, опрос, хранилище, HANDLERS",
   "expect": "общий модуль|цел|второй потребитель"
+ },
+ {
+  "unit": "sticky-action-when-results-first",
+  "prompt": "на телефоне результаты выше формы (order: -1), кнопка «нарисовать» уезжает под прокрутку — липкая кнопка над галереей?",
+  "expect": "плашк|прокрут|IntersectionObserver|за экраном"
+ },
+ {
+  "unit": "shell-form-reset-clears-vmodel",
+  "prompt": "после отказа диалог открылся снова, а поле ссылки пустое — v-model хранит значение, оболочка делает form.reset",
+  "expect": "input.value|руками|showModal"
+ },
+ {
+  "unit": "catalog-names-too-long-for-selects",
+  "prompt": "в закрытом select на телефоне пункт «2 — 20.8 tokens» обрезан, имя модели из каталога не влезает",
+  "expect": "коротк|подпис|только число"
+ },
+ {
+  "unit": "workspace-opens-last-touched",
+  "prompt": "список + панель: какую запись открыть по умолчанию — сейчас rows[0], самая новая, а человек ждёт последнюю, над которой работал",
+  "expect": "активност|updated_at|последн"
+ },
+ {
+  "unit": "idempotent-add-with-visible-state",
+  "prompt": "кнопка «добавить образец» на телефоне без отклика, повторное нажатие делает дубли, окно выбора закрывается после каждого",
+  "expect": "идемпотент|галочк|не закрыва"
+ },
+ {
+  "unit": "replace-copies-before-adding-helper",
+  "prompt": "codemod: заменить 5 копий выражения на хелпер, проверка count == 5 падает — тело помощника содержит то же выражение",
+  "expect": "сначала замени|потом вставляй|исключи"
+ },
+ {
+  "unit": "actions-sheet-not-popover-in-clipped-tile",
+  "prompt": "меню «⋯» внутри карточки обрезается: у плитки overflow: hidden, details summary с position absolute",
+  "expect": "окн|dialog|обреж"
  }
 ]
