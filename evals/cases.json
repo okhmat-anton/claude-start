@@ -642,5 +642,20 @@
   "unit": "actions-sheet-not-popover-in-clipped-tile",
   "prompt": "меню «⋯» внутри карточки обрезается: у плитки overflow: hidden, details summary с position absolute",
   "expect": "окн|dialog|обреж"
+ },
+ {
+  "unit": "vue-range-value-forced-patch",
+  "prompt": "ползунок input type=range дёргается при перетаскивании, :value от настроек, @input пишет в sliderNow",
+  "expect": ":value|@input|то же состояние"
+ },
+ {
+  "unit": "stable-list-mark-changes",
+  "prompt": "список песен прыгает: sort по updated_at поднимает песню наверх при правке, путаюсь где какая",
+  "expect": "дате создания|метк|подсвет"
+ },
+ {
+  "unit": "term-collision-across-locales",
+  "prompt": "новый термин кавер в музыке, а у альбома обложка — в английском словаре оба cover, одно слово два смысла",
+  "expect": "разведи|словар|cover art"
  }
 ]

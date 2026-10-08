@@ -1,13 +1,22 @@
 {
+ "actions-sheet-not-popover-in-clipped-tile": {
+  "applied": 1,
+  "last_applied": "2026-10-08",
+  "last_shown": "2026-10-08",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 1
+ },
  "admin-links-to-app": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-08",
   "projects": {
    "pet-replicas": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "agent-docs-route-guard": {
   "applied": 0,
@@ -378,11 +387,11 @@
   "shown": 1
  },
  "new-action-in-nowrap-row": {
-  "applied": 1,
+  "applied": 2,
   "last_applied": "2026-10-08",
   "last_shown": "2026-10-08",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
   "shown": 1
  },
@@ -438,19 +447,19 @@
  "public-api-cache-hides-fresh-edits": {
   "applied": 1,
   "last_applied": "2026-10-06",
-  "last_shown": "2026-10-06",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "pydantic-patch-nested-exclude-unset": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "python-fastapi-mongo-nuxt": {
   "applied": 0,
@@ -463,13 +472,13 @@
  },
  "python-fastapi-vue": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-08",
   "projects": {
    "divani": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -480,10 +489,10 @@
   "shown": 3
  },
  "refusal-bound-to-sender": {
-  "applied": 1,
+  "applied": 2,
   "last_applied": "2026-10-08",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
   "shown": 0
  },
@@ -545,22 +554,22 @@
   "shown": 5
  },
  "rewrite-port-old-screen-first": {
+  "applied": 3,
+  "last_applied": "2026-10-08",
+  "last_shown": "2026-10-08",
+  "projects": {
+   "video-blade-2": 3
+  },
+  "shown": 2
+ },
+ "rule-change-stale-wording": {
   "applied": 2,
   "last_applied": "2026-10-08",
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 1
- },
- "rule-change-stale-wording": {
-  "applied": 1,
-  "last_applied": "2026-10-05",
-  "last_shown": "2026-10-05",
-  "projects": {
-   "video-blade-2": 1
-  },
-  "shown": 1
+  "shown": 2
  },
  "scoped-key-narrow-gate": {
   "applied": 0,
@@ -580,15 +589,23 @@
  },
  "song-lyrics-content-check": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "ssr-to-spa-same-context": {
   "applied": 0,
-  "last_shown": "2026-10-06",
+  "last_shown": "2026-10-08",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 2
+ },
+ "stable-list-mark-changes": {
+  "applied": 0,
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 0
   },
@@ -632,11 +649,11 @@
  },
  "tests-observable-behavior": {
   "applied": 0,
-  "last_shown": "2026-09-23",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "token-guarded-endpoints": {
   "applied": 1,
