@@ -687,5 +687,35 @@
   "unit": "measure-only-when-visible",
   "prompt": "textarea с авторостом по scrollHeight в скрытой вкладке v-show схлопнулась до 2px",
   "expect": "offsetParent|вид|nextTick"
+ },
+ {
+  "unit": "judge-requirements-per-lane",
+  "prompt": "в цикле с судьёй рэп получил 5 из 10 за структуру: куплеты по 16 тактов, а требования судье говорят куплет не больше 8 строк; автопроверка нашла совпадение с эталоном по тегам секций",
+  "expect": "каждой линии|без тегов|из промта"
+ },
+ {
+  "unit": "clean-context-run-fallback",
+  "prompt": "нужно прогнать промт в чистом контексте через claude -p, а с --bare приходит Not logged in",
+  "expect": "setting-sources"
+ },
+ {
+  "unit": "research-agents-share-ip-quota",
+  "prompt": "запусти четырёх исследователей по темам, пусть читают reddit через rss — у всех пошли 429",
+  "expect": "один читатель|один исполнитель|небраузерн"
+ },
+ {
+  "unit": "list-action-returns-to-card",
+  "prompt": "после создания категории в админке страница перезагружается и открывается сверху, а форма создания стоит в самом низу — ревью говорит, что человек не видит, что сработало",
+  "expect": "якор|заголовк"
+ },
+ {
+  "unit": "details-element-flex-slot",
+  "prompt": "раскрывающаяся форма на details с summary: поставил display flex на details, и тело формы встало рядом с кнопкой, а не под ней",
+  "expect": "слот|text-align|flex-basis"
+ },
+ {
+  "unit": "long-work-progress-statuses",
+  "prompt": "фоновые прогоны идут по часу, владелец пишет: надо чтоб я видел процесс, так не подходит что тупо ожидание без статусов",
+  "expect": "статус|наблюдател"
  }
 ]
