@@ -6,7 +6,7 @@ status: mature
 created: 2026-07-17
 seen_in: [work-video-production, 3d-printer, planning, video-blade-2]
 triggers:
-  keywords: [command not found, файлы в корне, попали в корень, cwd, PATH, относительн, не тот каталог, zsh]
+  keywords: [command not found, файлы в корне, попали в корень, cwd, PATH, относительн, не тот каталог, zsh, параллельн, несколько вызовов, cd ]
   commands: ['curl\s.*\s-o\s', '\bwget\b', '\bfor\s+(path|status)\s+in\b', '\bfor\s+\w+\s+in\s[^;]*\?', '\bcurl\b[^\n]*\shttps?://\S*\?']
   errors: ['command not found', 'No such file or directory', 'no matches found']
   paths: []

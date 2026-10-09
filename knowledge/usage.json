@@ -6,7 +6,7 @@
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "admin-links-to-app": {
   "applied": 0,
@@ -40,7 +40,7 @@
  "agent-oneoff-script": {
   "applied": 2,
   "last_applied": "2026-10-05",
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -48,12 +48,12 @@
    "todo": 0,
    "video-blade-2": 2
   },
-  "shown": 44
+  "shown": 45
  },
  "agent-shell-state": {
-  "applied": 1,
-  "last_applied": "2026-10-08",
-  "last_shown": "2026-10-08",
+  "applied": 2,
+  "last_applied": "2026-10-09",
+  "last_shown": "2026-10-09",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -67,13 +67,13 @@
    "raw": 0,
    "scratchpad": 0,
    "todo": 0,
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 40
+  "shown": 41
  },
  "api-discovery": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "docs": 0,
    "planning": 0,
@@ -82,7 +82,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 14
+  "shown": 15
  },
  "architecture-mvc": {
   "applied": 0,
@@ -107,7 +107,7 @@
  "autofix-hook-import-order": {
   "applied": 6,
   "last_applied": "2026-10-08",
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "_src": 0,
    "foreign": 0,
@@ -115,7 +115,7 @@
    "scratchpad": 0,
    "video-blade-2": 6
   },
-  "shown": 13
+  "shown": 14
  },
  "browser-test-stand": {
   "applied": 2,
@@ -151,17 +151,18 @@
  "codemod-after-formatter-hook": {
   "applied": 2,
   "last_applied": "2026-10-08",
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
+   "planning": 0,
    "projects": 0,
    "raw": 0,
    "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -170,7 +171,16 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 35
+  "shown": 36
+ },
+ "credentials-stay-with-owner": {
+  "applied": 1,
+  "last_applied": "2026-10-09",
+  "last_shown": "2026-10-08",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 1
  },
  "design-mock-single-storyline": {
   "applied": 0,
@@ -182,7 +192,7 @@
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "3d-printer": 0,
    "divani": 0,
@@ -192,24 +202,24 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 31
+  "shown": 32
  },
  "empty-field-default-not-refusal": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "entry-page-not-dashboard": {
   "applied": 1,
   "last_applied": "2026-10-05",
-  "last_shown": "2026-10-07",
+  "last_shown": "2026-10-09",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -223,11 +233,11 @@
  "error-code-text-names-a-place": {
   "applied": 1,
   "last_applied": "2026-10-07",
-  "last_shown": "2026-10-07",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "external-agent-data": {
   "applied": 1,
@@ -240,21 +250,21 @@
  },
  "feature-existence-check": {
   "applied": 0,
-  "last_shown": "2026-10-07",
+  "last_shown": "2026-10-09",
   "projects": {
    "pet-replicas": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "guard-hook-command-parsing": {
   "applied": 0,
@@ -269,20 +279,21 @@
  "guard-hook-testing": {
   "applied": 1,
   "last_applied": "2026-09-27",
-  "last_shown": "2026-09-27",
+  "last_shown": "2026-10-08",
   "projects": {
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "headless-chrome-accept-language": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
+   "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -294,11 +305,11 @@
  },
  "i18n-counts-label-first": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "kie-ai": {
   "applied": 0,
@@ -317,14 +328,14 @@
  },
  "lint-first-run": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "app-design-2": 0,
    "new": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "lint-rules-explicit-select": {
   "applied": 1,
@@ -367,6 +378,23 @@
   },
   "shown": 8
  },
+ "migration-count-before-asking": {
+  "applied": 0,
+  "last_shown": "2026-10-08",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "migration-verify-in-memory": {
+  "applied": 1,
+  "last_applied": "2026-10-09",
+  "last_shown": "2026-10-08",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 1
+ },
  "model-driven-visualizer-channels": {
   "applied": 0,
   "last_shown": "2026-10-07",
@@ -394,20 +422,20 @@
  "new-action-in-nowrap-row": {
   "applied": 2,
   "last_applied": "2026-10-08",
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 1
+  "shown": 2
  },
  "page-boilerplate-checks": {
   "applied": 0,
-  "last_shown": "2026-09-30",
+  "last_shown": "2026-10-08",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "paid-api-file-integrity": {
   "applied": 1,
@@ -498,10 +526,11 @@
  "refusal-bound-to-sender": {
   "applied": 2,
   "last_applied": "2026-10-08",
+  "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 0
+  "shown": 1
  },
  "regex-codemod-spans-functions": {
   "applied": 3,
@@ -517,39 +546,41 @@
  "replay-review-scenario": {
   "applied": 1,
   "last_applied": "2026-10-08",
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
+   "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "review-budget-below-fold": {
   "applied": 3,
   "last_applied": "2026-10-05",
-  "last_shown": "2026-10-08",
-  "projects": {
-   "video-blade-2": 3
-  },
-  "shown": 6
- },
- "review-loop-owner-decisions": {
-  "applied": 2,
-  "last_applied": "2026-10-08",
-  "last_shown": "2026-10-06",
-  "projects": {
-   "video-blade-2": 2
-  },
-  "shown": 1
- },
- "review-stand-db-timeout": {
-  "applied": 3,
-  "last_applied": "2026-10-08",
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "planning": 0,
    "video-blade-2": 3
   },
-  "shown": 6
+  "shown": 7
+ },
+ "review-loop-owner-decisions": {
+  "applied": 3,
+  "last_applied": "2026-10-09",
+  "last_shown": "2026-10-09",
+  "projects": {
+   "video-blade-2": 3
+  },
+  "shown": 2
+ },
+ "review-stand-db-timeout": {
+  "applied": 3,
+  "last_applied": "2026-10-08",
+  "last_shown": "2026-10-09",
+  "projects": {
+   "planning": 0,
+   "video-blade-2": 3
+  },
+  "shown": 7
  },
  "review-stand-state-drift": {
   "applied": 0,
@@ -559,6 +590,14 @@
    "video-blade-2": 0
   },
   "shown": 6
+ },
+ "review-stand-synthetic-export": {
+  "applied": 1,
+  "last_applied": "2026-10-09",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 0
  },
  "rewrite-port-old-screen-first": {
   "applied": 3,
@@ -576,7 +615,7 @@
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 2
+  "shown": 3
  },
  "scoped-key-narrow-gate": {
   "applied": 0,
@@ -588,11 +627,11 @@
  },
  "simulation-plausibility": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-09",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "song-lyrics-content-check": {
   "applied": 0,
@@ -652,7 +691,15 @@
    "reels": 0,
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
+ },
+ "term-collision-across-locales": {
+  "applied": 0,
+  "last_shown": "2026-10-08",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
  },
  "tests-observable-behavior": {
   "applied": 0,
@@ -732,6 +779,14 @@
   "last_shown": "2026-09-18",
   "projects": {
    "project1": 0
+  },
+  "shown": 1
+ },
+ "video-format-pilot-and-hook": {
+  "applied": 0,
+  "last_shown": "2026-10-09",
+  "projects": {
+   "video-blade-2": 0
   },
   "shown": 1
  },
