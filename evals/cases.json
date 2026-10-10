@@ -717,5 +717,45 @@
   "unit": "long-work-progress-statuses",
   "prompt": "фоновые прогоны идут по часу, владелец пишет: надо чтоб я видел процесс, так не подходит что тупо ожидание без статусов",
   "expect": "статус|наблюдател"
+ },
+ {
+  "unit": "vue-local-state-shadows-global-helper",
+  "prompt": "страница ролика на Vue рендерится пустой, тесты зелёные, в консоли duration is not a function",
+  "expect": "глобальн|помощник|форматтер"
+ },
+ {
+  "unit": "shell-submit-skips-prevented",
+  "prompt": "форма поиска с @submit.prevent всё равно уходит POST-ом на адрес страницы, диалог закрылся сам",
+  "expect": "defaultPrevented"
+ },
+ {
+  "unit": "page-context-carries-refusal",
+  "prompt": "сервер редиректит на страницу с ?err=, но отказ не виден, новая страница молчит",
+  "expect": "контекст|err"
+ },
+ {
+  "unit": "provider-result-by-media-type",
+  "prompt": "видеозадача у поставщика success, а parse_task отдаёт пустой результат, mp4 из resultUrls не попадает",
+  "expect": "тип|носител|videos"
+ },
+ {
+  "unit": "catalog-model-without-params-not-offered",
+  "prompt": "у модели каталога params пусто, форма заказа клипа показывает пустую цену и нет длительностей",
+  "expect": "параметр|схем"
+ },
+ {
+  "unit": "headless-touch-hangs-after-modal",
+  "prompt": "look.js на телефоне: после касания, открывшего модальное окно, следующий dispatchTouchEvent висит 20 секунд, ревьюер пишет телефон завис",
+  "expect": "мыш|dispatchMouseEvent"
+ },
+ {
+  "unit": "review-brief-lists-stand-refusals",
+  "prompt": "ревьюер поставил ложный блокер: загрузка файла на стенде отвечает отказом, но на стенде нет хранилища — как писать бриф ревьюера",
+  "expect": "бриф|отказ"
+ },
+ {
+  "unit": "stand-restart-rotates-keys",
+  "prompt": "после перезапуска стенда --keep-data кадры админки показывают экран входа, ключ админки старый",
+  "expect": "свеж|вывод"
  }
 ]
