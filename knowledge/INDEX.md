@@ -100,6 +100,7 @@
 - [lessons/paid-flow-generic-before-second-consumer.md] [candidate] — Перед вторым потребителем платного потока (удержание → задача → опрос → хранилище → списание) вынеси поток в общий модуль с целями (fastapi; from video-blade-2)
 - [lessons/parallel-subagents.md] [candidate] — Волна исполнителей-субагентов — не больше 4 сразу и без их собственных помощников; поиск в сети — один лимит на сессию; прерванного исполнителя продолжать, а не перезапускать (any; from planning)
 - [lessons/param-descriptions-rot.md] [candidate] — Описания параметров протухают вслед за моделью — меняя модель, сверяй каждое утверждение с кодом; первыми врут числа в тексте и обещания про поведение (any; from 3d-printer)
+- [lessons/payment-sandbox-means-test-key.md] [candidate] — Плашка Sandbox на оплате — тестовый ключ шлюза в окружении сервера, не интерфейс: префикс ключа, health шлюза, после смены .env пересоздать контейнер (any, docker; from video-blade-2)
 - [lessons/pixel-server-event-dedup.md] [candidate] — Пиксель Meta + Conversions API — склеивается только пара «браузер первым, сервер вторым» под одним event_id (web-ui; from planning)
 - [lessons/port-search-all-sources.md] [candidate] — Перенос «из прошлого проекта» — сначала поиск по всем соседним репозиториям владельца по именам артефактов, а не только в названном доноре (any; from video-blade-2)
 - [lessons/prior-analysis-outside-tracker.md] [candidate] — Прошлый разбор может лежать вне трекера проекта — в артефактах и чатах; перед планом следующего шага просмотри список артефактов по теме (any; from planning)

@@ -545,10 +545,11 @@
   "last_shown": "2026-10-09",
   "projects": {
    "divani": 0,
+   "payment-gateway": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "public-api-cache-hides-fresh-edits": {
   "applied": 1,

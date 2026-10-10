@@ -757,5 +757,10 @@
   "unit": "stand-restart-rotates-keys",
   "prompt": "после перезапуска стенда --keep-data кадры админки показывают экран входа, ключ админки старый",
   "expect": "свеж|вывод"
+ },
+ {
+  "unit": "payment-sandbox-means-test-key",
+  "prompt": "надо убрать Sandbox при оплате на сайте — на странице оплаты показывает тестовый режим",
+  "expect": "ключ|sk_test|окружен"
  }
 ]
