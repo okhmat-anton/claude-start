@@ -60,3 +60,4 @@ Conventional Commits: `feat|fix|refactor|docs(scope): описание`. Одн�
 агента: компактный CLAUDE.md + .claude/rules/ с glob-привязкой к путям.
 
 <!-- from business-planner /start, 2026-07-22 -->
+- Повторяющийся помощник (формат денег, дат, чисел) — один в общем модуле (`lib/format`), а не копия в каждой странице или шаблоне; принято дважды (08.10 и 10.10.2026, video-blade-2).

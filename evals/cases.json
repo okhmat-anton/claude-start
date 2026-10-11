@@ -762,5 +762,45 @@
   "unit": "payment-sandbox-means-test-key",
   "prompt": "надо убрать Sandbox при оплате на сайте — на странице оплаты показывает тестовый режим",
   "expect": "ключ|sk_test|окружен"
+ },
+ {
+  "unit": "escape-default-stops-media",
+  "prompt": "в лайтбоксе на лендинге второй ролик демо не играет — стоит на 0:00 после закрытия первого по Escape",
+  "expect": "preventDefault|остановить загрузку"
+ },
+ {
+  "unit": "stand-copy-restart-before-record",
+  "prompt": "поправил сценарий демо в static, записал заново — в записи старая подпись, стенд отдаёт старый файл",
+  "expect": "перезапус|curl"
+ },
+ {
+  "unit": "label-claims-need-arithmetic",
+  "prompt": "ставим метку Most popular на тариф Creator рядом с пакетами токенов — выгоднее ли тариф?",
+  "expect": "за единиц|посчита|арифмет"
+ },
+ {
+  "unit": "cta-same-promise-same-target",
+  "prompt": "кнопка Start with a pack в карточке ведёт на регистрацию, а выбор пакета теряется — пустой дешборд",
+  "expect": "grep|тот же адрес|параметр"
+ },
+ {
+  "unit": "empty-state-icon-direct-child",
+  "prompt": "кнопки на пустом экране раздуты — иконка 48px, правило .empty i",
+  "expect": "прямой потомок|>"
+ },
+ {
+  "unit": "bisect-by-patched-page-copies",
+  "prompt": "странность в headless Chrome не воспроизводится правками — как найти причину быстро",
+  "expect": "копи|бисек"
+ },
+ {
+  "unit": "zsh-var-command-no-split",
+  "prompt": "LOOK=\"node look.js\"; $LOOK run сценарий — command not found, 0 кадров",
+  "expect": "целиком|массив|zsh"
+ },
+ {
+  "unit": "replay-review-scenario",
+  "prompt": "ревьюер второй круг подряд пишет, что демо замирают, хотя я чинил по гипотезе и не воспроизводится",
+  "expect": "сценари|шаг|инструмент"
  }
 ]

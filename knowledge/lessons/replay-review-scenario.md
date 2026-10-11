@@ -6,7 +6,7 @@ status: candidate
 created: 2026-10-08
 seen_in: [video-blade-2]
 triggers:
-  keywords: [круг ревью, подтвердить руками, look.js run, сценарий, повторить замечание, report.json]
+  keywords: [круг ревью, подтвердить руками, look.js run, сценарий, повторить замечание, report.json, ревьюер, не воспроизводится, чиню по гипотезе, замечание повторяется]
   commands: ["look\.js run"]
   errors: []
   paths: [".claude/skills/jobs-review/*"]
