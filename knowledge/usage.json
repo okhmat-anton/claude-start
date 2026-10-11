@@ -15,9 +15,10 @@
    "claude-start": 0,
    "pet-replicas": 0,
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "agent-docs-route-guard": {
   "applied": 0,
@@ -30,13 +31,13 @@
   "shown": 4
  },
  "agent-interaction": {
-  "applied": 4,
-  "last_applied": "2026-10-10",
-  "last_shown": "2026-10-10",
+  "applied": 5,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 4
+   "video-blade-2": 5
   },
-  "shown": 5
+  "shown": 6
  },
  "agent-oneoff-script": {
   "applied": 2,
@@ -50,12 +51,12 @@
    "todo": 0,
    "video-blade-2": 2
   },
-  "shown": 49
+  "shown": 52
  },
  "agent-shell-state": {
   "applied": 3,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -71,7 +72,7 @@
    "todo": 0,
    "video-blade-2": 3
   },
-  "shown": 44
+  "shown": 45
  },
  "api-discovery": {
   "applied": 1,
@@ -103,14 +104,15 @@
   "projects": {
    "aw-white": 0,
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "autofix-hook-import-order": {
   "applied": 7,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-11",
   "projects": {
    "_src": 0,
    "foreign": 0,
@@ -118,7 +120,7 @@
    "scratchpad": 0,
    "video-blade-2": 7
   },
-  "shown": 17
+  "shown": 19
  },
  "browser-check-raw-cdp": {
   "applied": 0,
@@ -139,25 +141,25 @@
   "shown": 3
  },
  "browser-verification": {
-  "applied": 7,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "applied": 8,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
    "project1": 0,
    "scratchpad": 0,
    "video-blade": 0,
-   "video-blade-2": 7
+   "video-blade-2": 8
   },
-  "shown": 13
+  "shown": 15
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-11",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "clean-context-run-fallback": {
   "applied": 0,
@@ -179,7 +181,7 @@
    "raw": 0,
    "video-blade-2": 5
   },
-  "shown": 9
+  "shown": 11
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -194,7 +196,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 42
+  "shown": 44
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -206,12 +208,14 @@
   "shown": 1
  },
  "cta-same-promise-same-target": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-11",
   "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 0
+   "payment-gateway": 0,
+   "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "design-mock-single-storyline": {
   "applied": 0,
@@ -225,9 +229,10 @@
   "applied": 0,
   "last_shown": "2026-10-11",
   "projects": {
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
@@ -242,7 +247,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 38
+  "shown": 39
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -263,13 +268,13 @@
   "shown": 2
  },
  "entry-page-not-dashboard": {
-  "applied": 2,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-10",
+  "applied": 3,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 2
+   "video-blade-2": 3
   },
-  "shown": 6
+  "shown": 7
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -293,9 +298,10 @@
   "applied": 0,
   "last_shown": "2026-10-11",
   "projects": {
-   "landing": 0
+   "landing": 0,
+   "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "external-agent-data": {
   "applied": 1,
@@ -318,12 +324,13 @@
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 11
+  "shown": 12
  },
  "guard-hook-command-parsing": {
   "applied": 0,
@@ -333,7 +340,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "guard-hook-testing": {
   "applied": 1,
@@ -347,12 +354,13 @@
  },
  "headless-chrome-accept-language": {
   "applied": 0,
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-11",
   "projects": {
+   "payment-gateway": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 9
+  "shown": 10
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -395,44 +403,45 @@
   "shown": 15
  },
  "label-claims-need-arithmetic": {
-  "applied": 1,
+  "applied": 2,
   "last_applied": "2026-10-11",
   "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 1
+   "payment-gateway": 0,
+   "video-blade-2": 2
   },
-  "shown": 1
+  "shown": 2
  },
  "lint-first-run": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "app-design-2": 0,
    "new": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 18
+  "shown": 20
  },
  "lint-rules-explicit-select": {
   "applied": 1,
   "last_applied": "2026-10-05",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "app-design-2": 0,
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 10
+  "shown": 12
  },
  "list-action-returns-to-card": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-11",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "live-update-own-echo-autosave": {
   "applied": 0,
@@ -473,13 +482,13 @@
   "shown": 9
  },
  "long-work-progress-statuses": {
-  "applied": 1,
-  "last_applied": "2026-10-10",
-  "last_shown": "2026-10-10",
+  "applied": 2,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 2
+  "shown": 3
  },
  "migration-count-before-asking": {
   "applied": 0,
@@ -492,12 +501,13 @@
  "migration-verify-in-memory": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-11",
   "projects": {
+   "payment-gateway": 0,
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "model-driven-visualizer-channels": {
   "applied": 0,
@@ -537,6 +547,15 @@
   "last_shown": "2026-10-09",
   "projects": {
    "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "no-plan-states-at-every-money-entry": {
+  "applied": 1,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
+  "projects": {
+   "video-blade-2": 1
   },
   "shown": 1
  },
@@ -591,14 +610,15 @@
  },
  "prod-data-ops": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "divani": 0,
    "payment-gateway": 0,
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -629,22 +649,23 @@
  },
  "python-fastapi-mongo-nuxt": {
   "applied": 0,
-  "last_shown": "2026-10-01",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "python-fastapi-vue": {
   "applied": 0,
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-11",
   "projects": {
    "divani": 0,
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -666,23 +687,23 @@
  "regex-codemod-spans-functions": {
   "applied": 5,
   "last_applied": "2026-10-10",
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
    "todo": 0,
    "video-blade-2": 5
   },
-  "shown": 14
+  "shown": 15
  },
  "replay-review-scenario": {
-  "applied": 3,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-10",
+  "applied": 4,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
-   "video-blade-2": 3
+   "video-blade-2": 4
   },
-  "shown": 6
+  "shown": 7
  },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
@@ -695,12 +716,13 @@
  "review-budget-below-fold": {
   "applied": 5,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 5
   },
-  "shown": 10
+  "shown": 11
  },
  "review-loop-owner-decisions": {
   "applied": 5,
@@ -713,24 +735,24 @@
   "shown": 4
  },
  "review-stand-db-timeout": {
-  "applied": 5,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "applied": 6,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
-   "video-blade-2": 5
+   "video-blade-2": 6
   },
-  "shown": 10
+  "shown": 11
  },
  "review-stand-state-drift": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 9
+  "shown": 10
  },
  "review-stand-synthetic-export": {
   "applied": 1,
@@ -752,31 +774,32 @@
   "shown": 2
  },
  "rule-change-stale-wording": {
-  "applied": 3,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-10",
+  "applied": 4,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
    "pb": 0,
-   "video-blade-2": 3
+   "video-blade-2": 4
   },
-  "shown": 5
+  "shown": 6
  },
  "sales-playbook": {
-  "applied": 1,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "applied": 2,
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 1
+  "shown": 2
  },
  "scoped-key-narrow-gate": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "simulation-plausibility": {
   "applied": 0,
@@ -833,13 +856,13 @@
   "shown": 19
  },
  "stand-copy-restart-before-record": {
-  "applied": 1,
+  "applied": 2,
   "last_applied": "2026-10-11",
   "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 1
+  "shown": 2
  },
  "stand-restart-rotates-keys": {
   "applied": 1,
@@ -852,7 +875,7 @@
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -860,7 +883,7 @@
    "src": 0,
    "video-blade-2": 0
   },
-  "shown": 27
+  "shown": 28
  },
  "subagent-model-fallback": {
   "applied": 2,
@@ -892,12 +915,13 @@
  "token-guarded-endpoints": {
   "applied": 1,
   "last_applied": "2026-09-26",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 1
   },
-  "shown": 12
+  "shown": 13
  },
  "ui-silent-failures": {
   "applied": 2,
