@@ -97,13 +97,13 @@
  },
  "auth-change-verification": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-11",
   "projects": {
    "aw-white": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "autofix-hook-import-order": {
   "applied": 7,
@@ -117,6 +117,14 @@
    "video-blade-2": 7
   },
   "shown": 17
+ },
+ "browser-check-raw-cdp": {
+  "applied": 0,
+  "last_shown": "2026-10-11",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
  },
  "browser-test-stand": {
   "applied": 2,
@@ -193,6 +201,14 @@
   },
   "shown": 1
  },
+ "cta-same-promise-same-target": {
+  "applied": 0,
+  "last_shown": "2026-10-11",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "design-mock-single-storyline": {
   "applied": 0,
   "last_shown": "2026-10-07",
@@ -259,6 +275,14 @@
    "video-blade-2": 1
   },
   "shown": 2
+ },
+ "escape-default-stops-media": {
+  "applied": 0,
+  "last_shown": "2026-10-11",
+  "projects": {
+   "landing": 0
+  },
+  "shown": 1
  },
  "external-agent-data": {
   "applied": 1,
@@ -358,10 +382,11 @@
   "shown": 15
  },
  "label-claims-need-arithmetic": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-11",
   "last_shown": "2026-10-11",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 1
   },
   "shown": 1
  },
@@ -445,11 +470,11 @@
  },
  "migration-count-before-asking": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-11",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "migration-verify-in-memory": {
   "applied": 1,
@@ -786,13 +811,23 @@
   },
   "shown": 19
  },
- "stand-restart-rotates-keys": {
+ "stand-copy-restart-before-record": {
   "applied": 1,
-  "last_applied": "2026-10-10",
+  "last_applied": "2026-10-11",
+  "last_shown": "2026-10-11",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 0
+  "shown": 1
+ },
+ "stand-restart-rotates-keys": {
+  "applied": 1,
+  "last_applied": "2026-10-10",
+  "last_shown": "2026-10-11",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 1
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
