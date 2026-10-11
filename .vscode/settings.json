@@ -26,7 +26,8 @@
     "statusBarItem.remoteBackground": "#009f88",
     "statusBarItem.remoteForeground": "#15202b",
     "activityBar.activeBorder": "#15202b",
-    "activityBarTop.activeBorder": "#15202b"
+    "activityBarTop.activeBorder": "#15202b",
+    "statusBar.inactiveBackground": "#ffe344"
   },
   "peacock.affectedElements": ["activityBar", "statusBar", "titleBar"]
 }

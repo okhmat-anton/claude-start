@@ -179,7 +179,7 @@
    "raw": 0,
    "video-blade-2": 5
   },
-  "shown": 8
+  "shown": 9
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -194,7 +194,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 41
+  "shown": 42
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -242,7 +242,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 37
+  "shown": 38
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -327,13 +327,13 @@
  },
  "guard-hook-command-parsing": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-11",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "guard-hook-testing": {
   "applied": 1,
