@@ -12,6 +12,7 @@ hook = lambda ev: f'python3 "{kb}/tools/hook.py" {ev}'
 want = {
     "UserPromptSubmit": (None, hook("prompt"), 10),
     "PreToolUse": ("Bash", hook("command"), 10),
+    "PostToolUse": ("AskUserQuestion", hook("ask"), 10),
     "SessionStart": (None, hook("session-start"), 10),
     "Stop": (None, hook("stop"), 15),
 }

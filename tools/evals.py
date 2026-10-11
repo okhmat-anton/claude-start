@@ -3,6 +3,8 @@
 
 Офлайн (бесплатно, по умолчанию): для каждого кейса из evals/cases.json проверяем, что
 нужный урок попадает в топ-3 подбора по промту/команде — это регрессионный тест триггеров.
+Кейс с ключом "tier" проверяет распознавание уровня задачи в промте хуком (hook.detect_tier):
+"tier": "simple|medium|complex" или null, когда уровень не назван и агент должен спросить кнопками.
 
 --live (платно, вручную): прогоняем `claude -p` во временном проекте с подключёнными
 хуками и проверяем, что ответ содержит ожидаемый признак (expect — регулярка).
@@ -18,6 +20,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import hook  # noqa: E402
 import knowledge as kb  # noqa: E402
 
 CASES = kb.ROOT / "evals" / "cases.json"
@@ -26,6 +29,12 @@ CASES = kb.ROOT / "evals" / "cases.json"
 def offline(cases: list[dict]) -> int:
     failed = 0
     for c in cases:
+        if "tier" in c:
+            got = hook.detect_tier(c.get("prompt", ""))
+            ok = got == c["tier"]
+            failed += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} tier={str(c['tier']):<8} got={str(got):<8} «{c.get('prompt', '')[:60]}»")
+            continue
         res = kb.match(prompt=c.get("prompt", ""), command=c.get("command", ""), files=c.get("files", []),
                        stack=c.get("stack"), limit=3, threshold=3 if c.get("prompt") else 4,
                        use_keywords=bool(c.get("prompt")))

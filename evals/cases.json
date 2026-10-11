@@ -812,5 +812,82 @@
   "unit": "no-plan-states-at-every-money-entry",
   "prompt": "сделали подписку обязательной, но кнопка Top up и Buy tokens ведут в закрытые пакеты, дешборд пишет Nothing needs you",
   "expect": "вход|одно действие|контекст"
+ },
+ {
+  "tier": "complex",
+  "prompt": "Сложная: переделать личный кабинет под новый дизайн"
+ },
+ {
+  "tier": "simple",
+  "prompt": "[простая] поправь отступ у кнопки"
+ },
+ {
+  "tier": "medium",
+  "prompt": "задача средней сложности — добавить фильтр по дате в список заказов"
+ },
+ {
+  "tier": null,
+  "prompt": "сделай простую форму обратной связи на главной"
+ },
+ {
+  "tier": "complex",
+  "prompt": "это сложная задача: нужно перенести оплату на новый шлюз"
+ },
+ {
+  "tier": "simple",
+  "prompt": "простая задача, замени текст кнопки на «Сохранить»"
+ },
+ {
+  "tier": null,
+  "prompt": "добавь экспорт в CSV для таблицы клиентов"
+ },
+ {
+  "tier": "medium",
+  "prompt": "сложность: средняя. Нужен фильтр по тегам"
+ },
+ {
+  "tier": "medium",
+  "prompt": "medium: add pagination to the orders list"
+ },
+ {
+  "tier": null,
+  "prompt": "Проверь, почему сложная формула в отчёте считает неверно"
+ },
+ {
+  "tier": null,
+  "prompt": "простой задачи тут нет, задача сложная — переписать модуль оплаты"
+ },
+ {
+  "tier": "complex",
+  "prompt": "#сложная переработать меню на телефоне"
+ },
+ {
+  "tier": null,
+  "prompt": "Сложная формула в отчёте считает неверно, разберись"
+ },
+ {
+  "tier": null,
+  "prompt": "Simple question: how does the hook pick lessons?"
+ },
+ {
+  "tier": null,
+  "prompt": "Средняя кнопка в шапке не кликается, почини"
+ },
+ {
+  "tier": null,
+  "prompt": "сложные задачи у нас обычно долгие; сделай экспорт"
+ },
+ {
+  "tier": "complex",
+  "prompt": "Сложная\nпеределать меню на телефоне"
+ },
+ {
+  "tier": "simple",
+  "prompt": "простая — поправь отступ"
+ },
+ {
+  "unit": "hook-ask-user-question-answers",
+  "prompt": "напиши хук PostToolUse на AskUserQuestion, который записывает ответ владельца кнопками в файл",
+  "expect": "стенограмм|answers|tool_response"
  }
 ]

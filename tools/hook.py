@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Глобальные хуки Claude Code для базы знаний. Вызов: hook.py <event>, JSON хука на stdin.
 
-  prompt         UserPromptSubmit — подмешать подходящие уроки; записать поправку владельца
+  prompt         UserPromptSubmit — подмешать подходящие уроки; записать поправку владельца;
+                 уровень задачи назван в промте — записать, не назван — напомнить спросить кнопками
   command        PreToolUse(Bash) — подмешать уроки по шаблону команды
-  session-start  SessionStart — размер CLAUDE.md, неразобранные поправки, кандидаты в LESSONS.md
-  stop           Stop — напомнить про retro, если правок много, а ретро не было
+  ask            PostToolUse(AskUserQuestion) — записать уровень задачи, выбранный кнопками
+  session-start  SessionStart — размер CLAUDE.md, неразобранные поправки, кандидаты в LESSONS.md, уровень задачи
+  stop           Stop — напомнить про retro, если правок много, а ретро не было (не в простой и средней задаче)
+
+Уровень задачи (простая / средняя / сложная) лежит в ~/.claude/task-tier/<session_id>.json — правило владельца
+(11.10.2026): глубину ревью, упрощения и уроков выбирает он, словом в промте или кнопками до начала работы.
 
 Хук никогда не блокирует работу: любая ошибка внутри — тихий выход 0.
 """
@@ -31,6 +36,86 @@ CORRECTION_MARKERS = re.compile(
 
 
 HEREDOC = re.compile(r"<<-?\s*['\"]?(\w+)['\"]?[^\n]*\n.*?\n\1\s*$", re.S | re.M)
+
+# --------------------------------------------------------------------------- уровень задачи
+
+TIER_DIR = Path.home() / ".claude" / "task-tier"
+TIERS = {"simple": "простая", "medium": "средняя", "complex": "сложная"}
+TIER_PROTOCOL = {
+    "simple": "сделать → тесты и линт → коммит и push; без разбора, плана, ревью, упрощения и retro",
+    "medium": "краткий разбор → план → правки → самопроверка → 1 круг урезанного ревью → упрощение только по диффу "
+    "→ done-check → коммит; без retro",
+    "complex": "полный разбор → план → правки → самопроверка → до 3 кругов взгляда Джобса → упрощение по файлам и "
+    "окружению → done-check → коммит → retro и knowledge-sync",
+}
+_TIER_WORDS = {  # единственное число: «сложные задачи у нас долгие» — не уровень; «средней сложности» — средняя
+    "medium": r"средн(?:яя|юю|ей)(?:\s+сложност\w*)?",
+    "simple": r"прост(?:ая|ую|ой)",
+    "complex": r"сложн(?:ая|ую|ой)",
+}
+# Слово уровня само по себе ничего не значит («сделай простую форму», «Сложная формула считает неверно») —
+# только с якорем: первое слово промта с разделителем после него, метка [..]/#.., рядом со словом «задача»,
+# после «сложность:» / «уровень —». Английское слово — только первым с разделителем, меткой или после «tier:».
+_TIER_ANCHORS = (
+    r"\A\s*[\[\(#]?\s*(?:{w}|{en})[ \t]*(?:[:—\-,.!\]\)\n]|\Z)",
+    r"[\[#](?:{w}|{en})\b",
+    r"\b(?:{w})\s+(?:по\s+сложности\s+)?задач",
+    r"\bзадач\w*\s*(?:[—:\-]\s*)?(?:{w})\b",
+    r"\b(?:сложност\w*|уровень|complexity|tier)\s*[:—\-]?\s*(?:{w}|{en})\b",
+)
+TIER_RE = {t: re.compile("|".join(a.format(w=w, en=t) for a in _TIER_ANCHORS), re.I) for t, w in _TIER_WORDS.items()}  # ключ = английское слово
+# Промт похож на задачу с правками: глагол в повелительном наклонении или инфинитиве целым словом
+# («удали», но не «удалённый»; «add», но не «addresses»); вопрос («…?») задачей не считается.
+TASK_VERBS = re.compile(
+    r"\b(?:сдела(?:й|ть)|добав(?:ь|ить)|исправ(?:ь|ить)|поправ(?:ь|ить)|почин(?:и|ить)|напиш(?:и)|написать|"
+    r"реализ(?:уй|овать)|внедр(?:и|ить)|передел(?:ай|ать)|убер(?:и)|убрать|замен(?:и|ить)|созда(?:й|ть)|"
+    r"настро(?:й|ить)|перенес(?:и|ти)|обнов(?:и|ить)|доработа(?:й|ть)|допиш(?:и)|дописать|вынес(?:и|ти)|"
+    r"удал(?:и|ить)|перепиш(?:и)|переписать|постро(?:й|ить)|собер(?:и)|собрать|подключ(?:и|ить)|прикрут(?:и|ить)|"
+    r"fix|add|implement|refactor|build|create|rewrite|remove)\b",
+    re.I,
+)
+QUESTION = re.compile(r"\?|\A\s*(?:как|почему|зачем|что|где|когда|какой|какая|какие|сколько|можно ли|why|how|what|where)\b", re.I)
+
+
+def looks_like_task(prompt: str) -> bool:
+    """Промт с глаголом правки и без признаков вопроса — повод напомнить про уровень; это подсказка, не решение."""
+    return len(prompt) >= 25 and not QUESTION.search(prompt) and bool(TASK_VERBS.search(prompt))
+
+
+def detect_tier(prompt: str) -> str | None:
+    """Уровень, названный в промте; None — не назван или назван двусмысленно (в обоих случаях — спросить)."""
+    found = [t for t, rx in TIER_RE.items() if rx.search(prompt)]
+    return found[0] if len(found) == 1 else None
+
+
+def tier_of_label(label: str) -> str | None:
+    """Уровень из подписи кнопки («Средняя (Recommended)», «сложная, но без retro»); два уровня в подписи — None."""
+    found = [t for t, pat in (("medium", r"средн|medium"), ("simple", r"прост|simple"), ("complex", r"сложн|complex"))
+             if re.search(pat, label, re.I)]
+    return found[0] if len(found) == 1 else None
+
+
+def _tier_file(session: str) -> Path:
+    return _session_file(TIER_DIR, session, ttl_days=14)  # дольше, чем показы уроков: сессию возобновляют и через неделю
+
+
+def load_tier(session: str) -> dict:
+    try:
+        return json.loads(_tier_file(session).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def save_tier(session: str, tier: str, source: str, project: str) -> None:
+    rec = {"tier": tier, "source": source, "project": project, "at": dt.datetime.now().isoformat(timespec="seconds")}
+    try:
+        _tier_file(session).write_text(json.dumps(rec, ensure_ascii=False), encoding="utf-8")
+    except OSError:
+        pass
+
+
+def tier_line(tier: str, how: str) -> str:
+    return f"Уровень задачи: {TIERS[tier]} ({how}). Протокол: {TIER_PROTOCOL[tier]}."
 
 
 def strip_heredocs(cmd: str) -> str:
@@ -59,16 +144,21 @@ def project_of(cwd: str) -> tuple[Path, str, list[str]]:
     return root, name, stack
 
 
-def shown_set(session: str) -> tuple[Path, set[str]]:
-    SHOWN_DIR.mkdir(parents=True, exist_ok=True)
+def _session_file(d: Path, session: str, ttl_days: int = 2) -> Path:
+    """Файл этой сессии в папке d; файлы старше ttl_days убираются по пути."""
+    d.mkdir(parents=True, exist_ok=True)
     now = dt.datetime.now().timestamp()
-    for f in SHOWN_DIR.glob("*.json"):
+    for f in d.glob("*.json"):
         try:
-            if now - f.stat().st_mtime > 2 * 86400:
+            if now - f.stat().st_mtime > ttl_days * 86400:
                 f.unlink()
         except OSError:
             pass
-    f = SHOWN_DIR / f"{session or 'nosession'}.json"
+    return d / f"{session or 'nosession'}.json"
+
+
+def shown_set(session: str) -> tuple[Path, set[str]]:
+    f = _session_file(SHOWN_DIR, session)
     try:
         return f, set(json.loads(f.read_text(encoding="utf-8")))
     except (OSError, json.JSONDecodeError):
@@ -102,10 +192,28 @@ def on_prompt(inp: dict) -> None:
                 fh.write(f"{dt.date.today().isoformat()} | {excerpt}\n")
         except OSError:
             pass
-    # 2. подходящие уроки
+    # 2. уровень задачи: назван — записать; не назван, а промт похож на задачу — напомнить спросить кнопками
+    session = str(inp.get("session_id", ""))
+    tier = detect_tier(prompt)
+    if tier:
+        save_tier(session, tier, "prompt", project)
+        print(tier_line(tier, "назван в промте"))
+    elif looks_like_task(prompt):
+        saved = load_tier(session).get("tier")
+        if saved in TIERS:
+            print(
+                f"Уровень текущей задачи: {TIERS[saved]} (задан ранее в этой сессии). Это новая задача, а не уточнение "
+                "по текущей — уровень определяется заново: спроси кнопками (skill task-tier)."
+            )
+        else:
+            print(
+                "Уровень задачи не назван. Если это новая задача с правками — спроси кнопками (skill task-tier): "
+                "простая / средняя / сложная, своя оценка первым вариантом. Вопрос, уточнение или ответ на твой вопрос — не спрашивай."
+            )
+    # 3. подходящие уроки
     if len(prompt) < 25:
         return
-    f, shown = shown_set(str(inp.get("session_id", "")))
+    f, shown = shown_set(session)
     res = kb.match(prompt=prompt, stack=stack, limit=3, threshold=3, exclude=shown)
     if not res:
         return
@@ -131,9 +239,43 @@ def on_command(inp: dict) -> None:
     remember_shown(f, shown, [u.name for u, _, _ in res], project)
 
 
+def _answers(tool_response) -> list[tuple[str, str]]:
+    """Пары (вопрос, выбранный вариант) из результата AskUserQuestion: объект с answers или строка «"q"="a"»."""
+    if isinstance(tool_response, dict) and isinstance(tool_response.get("answers"), dict):
+        return [(str(q), str(a)) for q, a in tool_response["answers"].items()]
+    text = tool_response if isinstance(tool_response, str) else json.dumps(tool_response, ensure_ascii=False)
+    return re.findall(r'"((?:[^"\\]|\\.)*)"="((?:[^"\\]|\\.)*)"', text)
+
+
+def on_ask(inp: dict) -> None:
+    if inp.get("tool_name") != "AskUserQuestion":
+        return
+    tin = inp.get("tool_input") or {}
+    about_tier = re.compile(r"сложност|уровень задач|complexity|tier", re.I)
+    tier_questions = {
+        str(q.get("question"))
+        for q in (tin.get("questions") or [])
+        if isinstance(q, dict) and about_tier.search(str(q.get("header") or ""))
+    }
+    for question, label in _answers(inp.get("tool_response")):
+        if question not in tier_questions and not about_tier.search(question):
+            continue
+        tier = tier_of_label(label)
+        if not tier:
+            continue
+        _, project, _ = project_of(inp.get("cwd", ""))
+        save_tier(str(inp.get("session_id", "")), tier, "buttons", project)
+        out = {"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": tier_line(tier, "выбран кнопками, записан")}}
+        print(json.dumps(out, ensure_ascii=False))
+        return
+
+
 def on_session_start(inp: dict) -> None:
     root, _, _ = project_of(inp.get("cwd", ""))
     notes: list[str] = []
+    t = load_tier(str(inp.get("session_id", "")))
+    if t.get("tier") in TIERS:
+        notes.append(tier_line(t["tier"], "выбран ранее в этой сессии"))
     for name in ("CLAUDE.md", "Claude.md"):
         p = root / name
         if p.exists():
@@ -182,6 +324,8 @@ def on_stop(inp: dict) -> None:
     if not (root / "LESSONS.md").exists():
         return
     session = str(inp.get("session_id") or "nosession")
+    if load_tier(session).get("tier") in ("simple", "medium"):
+        return  # по уровню задачи уроки не пишутся — напоминать про retro нечего
     marker = root / ".claude" / f".retro-prompted-{session}"
     if marker.exists():
         return
@@ -222,7 +366,8 @@ def main() -> int:
     event = sys.argv[1] if len(sys.argv) > 1 else ""
     inp = read_input()
     try:
-        {"prompt": on_prompt, "command": on_command, "session-start": on_session_start, "stop": on_stop}.get(event, lambda _: None)(inp)
+        handlers = {"prompt": on_prompt, "command": on_command, "ask": on_ask, "session-start": on_session_start, "stop": on_stop}
+        handlers.get(event, lambda _: None)(inp)
     except Exception as ex:  # noqa: BLE001 — хук не должен ронять работу
         print(f"knowledge hook '{event}' failed: {ex}", file=sys.stderr)
     return 0
