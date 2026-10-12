@@ -2,7 +2,8 @@
 """Глобальные хуки Claude Code для базы знаний. Вызов: hook.py <event>, JSON хука на stdin.
 
   prompt         UserPromptSubmit — подмешать подходящие уроки; записать поправку владельца;
-                 уровень задачи назван в промте — записать, не назван — напомнить спросить кнопками
+                 уровень задачи назван в промте — записать; не назван, а промт похож на задачу — записать
+                 «простая» по умолчанию и напомнить перепроверить (не простая — предложить кнопками)
   command        PreToolUse(Bash) — подмешать уроки по шаблону команды
   ask            PostToolUse(AskUserQuestion) — записать уровень задачи, выбранный кнопками
   session-start  SessionStart — размер CLAUDE.md, неразобранные поправки, кандидаты в LESSONS.md, уровень задачи
@@ -10,6 +11,8 @@
 
 Уровень задачи (простая / средняя / сложная) лежит в ~/.claude/task-tier/<session_id>.json — правило владельца
 (11.10.2026): глубину ревью, упрощения и уроков выбирает он, словом в промте или кнопками до начала работы.
+Уточнение 12.10.2026: уровень не назван — по умолчанию простая; агент перепроверяет и, если задача не простая,
+предлагает выбор кнопками, а не назначает уровень сам.
 
 Хук никогда не блокирует работу: любая ошибка внутри — тихий выход 0.
 """
@@ -118,6 +121,36 @@ def tier_line(tier: str, how: str) -> str:
     return f"Уровень задачи: {TIERS[tier]} ({how}). Протокол: {TIER_PROTOCOL[tier]}."
 
 
+TIER_SOURCE_HOW = {"prompt": "назван в промте", "buttons": "выбран кнопками", "default": "по умолчанию"}
+RECHECK = (
+    "Перепроверь (skill task-tier): новый экран или окно, несколько модулей или больше 3–4 файлов, деньги, доступ "
+    "или данные, неясные требования — тогда не назначай уровень сам, а предложи владельцу кнопками простая / "
+    "средняя / сложная, свою оценку первым вариантом. Признаков нет — назови одной строкой «Уровень: простая "
+    "(по умолчанию)» и делай. Вопрос, уточнение по текущей задаче или ответ на твой вопрос — уровень не трогай."
+)
+
+
+def resolve_tier(prompt: str, saved: dict) -> tuple[str | None, str | None, str]:
+    """(уровень для записи, его источник, строка агенту) по промту и записи сессии; уровень None — не писать.
+
+    Назван в промте — он и пишется. Не назван, а промт похож на задачу — «простая» по умолчанию, но уровень,
+    названный раньше в промте или выбранный кнопками, не перезаписывается: хук не отличает новую задачу от
+    уточнения по текущей, а молча потерять «сложная» дороже, чем лишний раз напомнить.
+    """
+    tier = detect_tier(prompt)
+    if tier:
+        return tier, "prompt", tier_line(tier, TIER_SOURCE_HOW["prompt"])
+    if not looks_like_task(prompt):
+        return None, None, ""
+    prev = saved.get("tier")
+    if prev in TIERS and saved.get("source") != "default":
+        return None, None, (
+            f"Уровень текущей задачи: {TIERS[prev]} (задан ранее в этой сессии). Это новая задача, а не уточнение "
+            f"по текущей — уровень определяется заново: по умолчанию простая. {RECHECK}"
+        )
+    return "simple", "default", f"{tier_line('simple', TIER_SOURCE_HOW['default'] + ': в промте не назван')} {RECHECK}"
+
+
 def strip_heredocs(cmd: str) -> str:
     """Тела heredoc — это содержимое файлов, а не команда: по ним уроки не подбираем."""
     return HEREDOC.sub("<<heredoc>", cmd)
@@ -192,24 +225,14 @@ def on_prompt(inp: dict) -> None:
                 fh.write(f"{dt.date.today().isoformat()} | {excerpt}\n")
         except OSError:
             pass
-    # 2. уровень задачи: назван — записать; не назван, а промт похож на задачу — напомнить спросить кнопками
+    # 2. уровень задачи: назван — записать; не назван, а промт похож на задачу — «простая» по умолчанию и напомнить
+    #    перепроверить (не простая — предложить кнопками)
     session = str(inp.get("session_id", ""))
-    tier = detect_tier(prompt)
-    if tier:
-        save_tier(session, tier, "prompt", project)
-        print(tier_line(tier, "назван в промте"))
-    elif looks_like_task(prompt):
-        saved = load_tier(session).get("tier")
-        if saved in TIERS:
-            print(
-                f"Уровень текущей задачи: {TIERS[saved]} (задан ранее в этой сессии). Это новая задача, а не уточнение "
-                "по текущей — уровень определяется заново: спроси кнопками (skill task-tier)."
-            )
-        else:
-            print(
-                "Уровень задачи не назван. Если это новая задача с правками — спроси кнопками (skill task-tier): "
-                "простая / средняя / сложная, своя оценка первым вариантом. Вопрос, уточнение или ответ на твой вопрос — не спрашивай."
-            )
+    tier, source, line = resolve_tier(prompt, load_tier(session))
+    if tier and source:
+        save_tier(session, tier, source, project)
+    if line:
+        print(line)
     # 3. подходящие уроки
     if len(prompt) < 25:
         return
@@ -265,7 +288,7 @@ def on_ask(inp: dict) -> None:
             continue
         _, project, _ = project_of(inp.get("cwd", ""))
         save_tier(str(inp.get("session_id", "")), tier, "buttons", project)
-        out = {"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": tier_line(tier, "выбран кнопками, записан")}}
+        out = {"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": tier_line(tier, TIER_SOURCE_HOW["buttons"] + ", записан")}}
         print(json.dumps(out, ensure_ascii=False))
         return
 
@@ -275,7 +298,7 @@ def on_session_start(inp: dict) -> None:
     notes: list[str] = []
     t = load_tier(str(inp.get("session_id", "")))
     if t.get("tier") in TIERS:
-        notes.append(tier_line(t["tier"], "выбран ранее в этой сессии"))
+        notes.append(tier_line(t["tier"], TIER_SOURCE_HOW.get(str(t.get("source")), "выбран") + " ранее в этой сессии"))
     for name in ("CLAUDE.md", "Claude.md"):
         p = root / name
         if p.exists():

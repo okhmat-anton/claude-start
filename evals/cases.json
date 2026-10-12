@@ -886,6 +886,78 @@
     "prompt": "простая — поправь отступ"
   },
   {
+    "resolve": {
+      "tier": "simple",
+      "source": "default",
+      "line": "простая \\(по умолчанию.*Перепроверь.*кнопками"
+    },
+    "prompt": "добавь экспорт в CSV для таблицы клиентов"
+  },
+  {
+    "resolve": {
+      "tier": "simple",
+      "source": "default",
+      "line": "по умолчанию"
+    },
+    "saved": {
+      "tier": "simple",
+      "source": "default"
+    },
+    "prompt": "и ещё поправь заголовок колонки на русский язык"
+  },
+  {
+    "resolve": {
+      "tier": null,
+      "source": null,
+      "line": "сложная \\(задан ранее.*по умолчанию простая.*Перепроверь"
+    },
+    "saved": {
+      "tier": "complex",
+      "source": "prompt"
+    },
+    "prompt": "добавь экспорт в CSV для таблицы клиентов"
+  },
+  {
+    "resolve": {
+      "tier": null,
+      "source": null,
+      "line": "средняя \\(задан ранее"
+    },
+    "saved": {
+      "tier": "medium",
+      "source": "buttons"
+    },
+    "prompt": "сделай страницу оплаты с новым дизайном"
+  },
+  {
+    "resolve": {
+      "tier": "medium",
+      "source": "prompt",
+      "line": "средняя \\(назван в промте"
+    },
+    "saved": {
+      "tier": "complex",
+      "source": "buttons"
+    },
+    "prompt": "[средняя] добавь экспорт в CSV для таблицы клиентов"
+  },
+  {
+    "resolve": {
+      "tier": null,
+      "source": null,
+      "line": "^$"
+    },
+    "prompt": "почему хук не подмешивает уроки по команде?"
+  },
+  {
+    "resolve": {
+      "tier": null,
+      "source": null,
+      "line": "^$"
+    },
+    "prompt": "ок, спасибо"
+  },
+  {
     "unit": "hook-ask-user-question-answers",
     "prompt": "напиши хук PostToolUse на AskUserQuestion, который записывает ответ владельца кнопками в файл",
     "expect": "стенограмм|answers|tool_response"

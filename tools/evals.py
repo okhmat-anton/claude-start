@@ -4,7 +4,10 @@
 Офлайн (бесплатно, по умолчанию): для каждого кейса из evals/cases.json проверяем, что
 нужный урок попадает в топ-3 подбора по промту/команде — это регрессионный тест триггеров.
 Кейс с ключом "tier" проверяет распознавание уровня задачи в промте хуком (hook.detect_tier):
-"tier": "simple|medium|complex" или null, когда уровень не назван и агент должен спросить кнопками.
+"tier": "simple|medium|complex" или null, когда уровень не назван.
+Кейс с ключом "resolve" проверяет решение хука по промту и записи сессии "saved" (hook.resolve_tier):
+{"tier", "source", "line"} — что запишется (null — ничего) и регулярка по строке агенту; уровень не назван —
+«простая» по умолчанию, а названный ранее или выбранный кнопками умолчанием не перезаписывается.
 
 --live (платно, вручную): прогоняем `claude -p` во временном проекте с подключёнными
 хуками и проверяем, что ответ содержит ожидаемый признак (expect — регулярка).
@@ -29,6 +32,13 @@ CASES = kb.ROOT / "evals" / "cases.json"
 def offline(cases: list[dict]) -> int:
     failed = 0
     for c in cases:
+        if "resolve" in c:
+            exp = c["resolve"]
+            tier, source, line = hook.resolve_tier(c.get("prompt", ""), c.get("saved") or {})
+            ok = (tier, source) == (exp.get("tier"), exp.get("source")) and re.search(exp.get("line", ""), line) is not None
+            failed += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} resolve={str(exp.get('tier')):<8} got={str(tier):<8} src={str(source):<8} «{c.get('prompt', '')[:50]}»")
+            continue
         if "tier" in c:
             got = hook.detect_tier(c.get("prompt", ""))
             ok = got == c["tier"]
