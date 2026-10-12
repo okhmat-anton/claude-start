@@ -10,7 +10,7 @@
  },
  "admin-links-to-app": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "claude-start": 0,
    "pet-replicas": 0,
@@ -18,17 +18,18 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "agent-docs-route-guard": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-12",
   "projects": {
    "aw-white": 0,
    "planning": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "agent-interaction": {
   "applied": 5,
@@ -53,7 +54,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 54
+  "shown": 57
  },
  "agent-shell-state": {
   "applied": 3,
@@ -75,12 +76,12 @@
    "video-blade-2": 3,
    "video-blade-test": 0
   },
-  "shown": 46
+  "shown": 49
  },
  "api-discovery": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-12",
   "projects": {
    "docs": 0,
    "planning": 0,
@@ -89,7 +90,7 @@
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 17
+  "shown": 18
  },
  "architecture-mvc": {
   "applied": 0,
@@ -115,15 +116,16 @@
  "autofix-hook-import-order": {
   "applied": 7,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "_src": 0,
    "foreign": 0,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 7
+   "video-blade-2": 7,
+   "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 22
  },
  "browser-check-raw-cdp": {
   "applied": 0,
@@ -173,8 +175,8 @@
   "shown": 1
  },
  "codemod-after-formatter-hook": {
-  "applied": 6,
-  "last_applied": "2026-10-11",
+  "applied": 7,
+  "last_applied": "2026-10-12",
   "last_shown": "2026-10-12",
   "projects": {
    "claude-start": 1,
@@ -182,9 +184,10 @@
    "planning": 0,
    "projects": 0,
    "raw": 0,
-   "video-blade-2": 5
+   "video-blade-2": 6,
+   "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 15
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -197,9 +200,10 @@
    "project1": 0,
    "scratchpad": 0,
    "todo": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 45
+  "shown": 48
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -248,9 +252,10 @@
    "project1": 0,
    "raw": 0,
    "todo": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 42
+  "shown": 45
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -299,21 +304,21 @@
  },
  "escape-default-stops-media": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "landing": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "external-agent-data": {
-  "applied": 1,
-  "last_applied": "2026-09-24",
-  "last_shown": "2026-10-10",
+  "applied": 2,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
  },
  "feature-existence-check": {
   "applied": 1,
@@ -327,23 +332,24 @@
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
+   "shots": 0,
    "video-blade-2": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "guard-hook-command-parsing": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 17
+  "shown": 18
  },
  "guard-hook-testing": {
   "applied": 1,
@@ -357,13 +363,14 @@
  },
  "headless-chrome-accept-language": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "payment-gateway": 0,
    "planning": 0,
+   "shots": 0,
    "video-blade-2": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -415,36 +422,46 @@
   },
   "shown": 2
  },
+ "link-looks-like-link": {
+  "applied": 0,
+  "last_shown": "2026-10-12",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "lint-first-run": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "app-design-2": 0,
+   "frontend": 0,
    "new": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 20
+  "shown": 21
  },
  "lint-rules-explicit-select": {
   "applied": 1,
   "last_applied": "2026-10-05",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "app-design-2": 0,
+   "frontend": 0,
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 12
+  "shown": 13
  },
  "list-action-returns-to-card": {
-  "applied": 1,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-11",
+  "applied": 2,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
  },
  "live-update-own-echo-autosave": {
   "applied": 0,
@@ -483,16 +500,24 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "long-work-progress-statuses": {
   "applied": 2,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
+ },
+ "masonry-columns-via-slot": {
+  "applied": 0,
+  "last_shown": "2026-10-12",
+  "projects": {
+   "video-blade-test": 0
+  },
+  "shown": 1
  },
  "migration-count-before-asking": {
   "applied": 0,
@@ -624,6 +649,15 @@
   },
   "shown": 17
  },
+ "proposal-numbers-explicit": {
+  "applied": 1,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 1
+ },
  "provider-result-by-media-type": {
   "applied": 0,
   "last_shown": "2026-10-10",
@@ -644,12 +678,12 @@
  },
  "pydantic-patch-nested-exclude-unset": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "aw-white": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "python-fastapi-mongo-nuxt": {
   "applied": 0,
@@ -691,23 +725,24 @@
  "regex-codemod-spans-functions": {
   "applied": 5,
   "last_applied": "2026-10-10",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "planning": 0,
    "todo": 0,
-   "video-blade-2": 5
+   "video-blade-2": 5,
+   "video-blade-test": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "replay-review-scenario": {
   "applied": 4,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "planning": 0,
    "video-blade-2": 4
   },
-  "shown": 7
+  "shown": 8
  },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
@@ -718,45 +753,46 @@
   "shown": 0
  },
  "review-budget-below-fold": {
-  "applied": 5,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-11",
+  "applied": 6,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 5
+   "video-blade-2": 6
   },
-  "shown": 11
+  "shown": 12
  },
  "review-loop-owner-decisions": {
-  "applied": 5,
-  "last_applied": "2026-10-10",
-  "last_shown": "2026-10-10",
+  "applied": 6,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
   "projects": {
    "pb": 0,
-   "video-blade-2": 5
+   "video-blade-2": 6
   },
-  "shown": 4
+  "shown": 5
  },
  "review-stand-db-timeout": {
   "applied": 6,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "planning": 0,
    "video-blade-2": 6
   },
-  "shown": 11
+  "shown": 12
  },
  "review-stand-state-drift": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
+   "frontend": 0,
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 10
+  "shown": 11
  },
  "review-stand-synthetic-export": {
   "applied": 1,
@@ -807,19 +843,21 @@
  },
  "simulation-plausibility": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "song-lyrics-content-check": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-12",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "spa-keyed-page-loses-input": {
   "applied": 0,
@@ -860,13 +898,13 @@
   "shown": 19
  },
  "stand-copy-restart-before-record": {
-  "applied": 2,
-  "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "applied": 3,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
   "projects": {
-   "video-blade-2": 2
+   "video-blade-2": 3
   },
-  "shown": 2
+  "shown": 3
  },
  "stand-restart-rotates-keys": {
   "applied": 1,
@@ -879,7 +917,7 @@
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -887,7 +925,7 @@
    "src": 0,
    "video-blade-2": 0
   },
-  "shown": 28
+  "shown": 29
  },
  "subagent-model-fallback": {
   "applied": 2,
