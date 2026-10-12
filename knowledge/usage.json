@@ -21,12 +21,13 @@
   "shown": 14
  },
  "agent-docs-route-guard": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-12",
   "last_shown": "2026-10-12",
   "projects": {
    "aw-white": 0,
    "planning": 0,
-   "video-blade-2": 0,
+   "video-blade-2": 1,
    "video-blade-test": 0
   },
   "shown": 5
@@ -47,6 +48,7 @@
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
+   "music-hit": 0,
    "planning": 0,
    "project1": 0,
    "protocols": 0,
@@ -54,7 +56,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 57
+  "shown": 58
  },
  "agent-shell-state": {
   "applied": 3,
