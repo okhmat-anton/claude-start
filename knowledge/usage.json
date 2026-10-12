@@ -18,7 +18,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 14
+  "shown": 15
  },
  "agent-docs-route-guard": {
   "applied": 1,
@@ -30,7 +30,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "agent-interaction": {
   "applied": 5,
@@ -56,11 +56,11 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 58
+  "shown": 60
  },
  "agent-shell-state": {
-  "applied": 3,
-  "last_applied": "2026-10-09",
+  "applied": 4,
+  "last_applied": "2026-10-12",
   "last_shown": "2026-10-12",
   "projects": {
    "3d-printer": 0,
@@ -75,10 +75,10 @@
    "raw": 0,
    "scratchpad": 0,
    "todo": 0,
-   "video-blade-2": 3,
+   "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 49
+  "shown": 51
  },
  "api-discovery": {
   "applied": 1,
@@ -92,7 +92,7 @@
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 18
+  "shown": 19
  },
  "architecture-mvc": {
   "applied": 0,
@@ -122,12 +122,13 @@
   "projects": {
    "_src": 0,
    "foreign": 0,
+   "judge": 0,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 22
+  "shown": 24
  },
  "browser-check-raw-cdp": {
   "applied": 0,
@@ -148,17 +149,17 @@
   "shown": 3
  },
  "browser-verification": {
-  "applied": 8,
-  "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "applied": 9,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
   "projects": {
    "planning": 0,
    "project1": 0,
    "scratchpad": 0,
    "video-blade": 0,
-   "video-blade-2": 8
+   "video-blade-2": 9
   },
-  "shown": 15
+  "shown": 16
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
@@ -169,10 +170,11 @@
   "shown": 2
  },
  "clean-context-run-fallback": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-12",
   "last_shown": "2026-10-09",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 1
   },
   "shown": 1
  },
@@ -189,7 +191,7 @@
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -205,7 +207,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 48
+  "shown": 50
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -257,7 +259,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 45
+  "shown": 46
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -311,7 +313,7 @@
    "landing": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "external-agent-data": {
   "applied": 2,
@@ -341,7 +343,7 @@
    "shots": 0,
    "video-blade-2": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "guard-hook-command-parsing": {
   "applied": 0,
@@ -372,7 +374,7 @@
    "shots": 0,
    "video-blade-2": 0
   },
-  "shown": 11
+  "shown": 12
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -392,12 +394,14 @@
   "shown": 4
  },
  "judge-requirements-per-lane": {
-  "applied": 0,
-  "last_shown": "2026-10-09",
+  "applied": 1,
+  "last_applied": "2026-10-12",
+  "last_shown": "2026-10-12",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "kie-ai": {
   "applied": 0,
@@ -442,7 +446,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "lint-rules-explicit-select": {
   "applied": 1,
@@ -454,7 +458,7 @@
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 13
+  "shown": 14
  },
  "list-action-returns-to-card": {
   "applied": 2,
@@ -502,16 +506,17 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 11
+  "shown": 13
  },
  "long-work-progress-statuses": {
-  "applied": 2,
-  "last_applied": "2026-10-11",
+  "applied": 3,
+  "last_applied": "2026-10-12",
   "last_shown": "2026-10-12",
   "projects": {
-   "video-blade-2": 2
+   "video-blade-2": 3,
+   "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "masonry-columns-via-slot": {
   "applied": 0,
@@ -658,7 +663,7 @@
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -744,7 +749,15 @@
    "planning": 0,
    "video-blade-2": 4
   },
-  "shown": 8
+  "shown": 9
+ },
+ "research-agents-share-ip-quota": {
+  "applied": 0,
+  "last_shown": "2026-10-12",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
  },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
@@ -763,7 +776,7 @@
    "scratchpad": 0,
    "video-blade-2": 6
   },
-  "shown": 12
+  "shown": 13
  },
  "review-loop-owner-decisions": {
   "applied": 6,
@@ -783,7 +796,7 @@
    "planning": 0,
    "video-blade-2": 6
   },
-  "shown": 12
+  "shown": 13
  },
  "review-stand-state-drift": {
   "applied": 1,
@@ -794,7 +807,7 @@
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 11
+  "shown": 12
  },
  "review-stand-synthetic-export": {
   "applied": 1,
@@ -818,12 +831,12 @@
  "rule-change-stale-wording": {
   "applied": 4,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "pb": 0,
    "video-blade-2": 4
   },
-  "shown": 6
+  "shown": 7
  },
  "sales-playbook": {
   "applied": 2,
@@ -859,7 +872,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "spa-keyed-page-loses-input": {
   "applied": 0,
@@ -906,7 +919,7 @@
   "projects": {
    "video-blade-2": 3
   },
-  "shown": 3
+  "shown": 4
  },
  "stand-restart-rotates-keys": {
   "applied": 1,
@@ -927,17 +940,17 @@
    "src": 0,
    "video-blade-2": 0
   },
-  "shown": 29
+  "shown": 30
  },
  "subagent-model-fallback": {
   "applied": 2,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-12",
   "projects": {
    "reels": 0,
    "video-blade-2": 2
   },
-  "shown": 5
+  "shown": 6
  },
  "term-collision-across-locales": {
   "applied": 0,
@@ -959,13 +972,13 @@
  "token-guarded-endpoints": {
   "applied": 1,
   "last_applied": "2026-09-26",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-12",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 1
   },
-  "shown": 13
+  "shown": 14
  },
  "ui-silent-failures": {
   "applied": 2,
