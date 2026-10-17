@@ -10,7 +10,7 @@
  },
  "admin-links-to-app": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "claude-start": 0,
    "pet-replicas": 0,
@@ -18,33 +18,36 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 15
+  "shown": 17
  },
  "agent-docs-route-guard": {
   "applied": 1,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-14",
   "projects": {
    "aw-white": 0,
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 6
+  "shown": 8
  },
  "agent-interaction": {
   "applied": 5,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 5
+   "planning": 0,
+   "video-blade-2": 5,
+   "video-blade-test": 0
   },
-  "shown": 6
+  "shown": 10
  },
  "agent-oneoff-script": {
   "applied": 2,
   "last_applied": "2026-10-05",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -56,12 +59,12 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 60
+  "shown": 70
  },
  "agent-shell-state": {
   "applied": 4,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -73,12 +76,13 @@
    "planning": 0,
    "project1": 0,
    "raw": 0,
+   "rs": 0,
    "scratchpad": 0,
    "todo": 0,
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 51
+  "shown": 60
  },
  "api-discovery": {
   "applied": 1,
@@ -106,19 +110,20 @@
  },
  "auth-change-verification": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-14",
   "projects": {
    "aw-white": 0,
    "planning": 0,
+   "raw": 0,
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 14
+  "shown": 17
  },
  "autofix-hook-import-order": {
   "applied": 7,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "_src": 0,
    "foreign": 0,
@@ -128,7 +133,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 24
+  "shown": 30
  },
  "browser-check-raw-cdp": {
   "applied": 0,
@@ -141,25 +146,26 @@
  "browser-test-stand": {
   "applied": 2,
   "last_applied": "2026-09-27",
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-14",
   "projects": {
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
  },
  "browser-verification": {
   "applied": 9,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
    "project1": 0,
    "scratchpad": 0,
    "video-blade": 0,
-   "video-blade-2": 9
+   "video-blade-2": 9,
+   "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 20
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
@@ -181,21 +187,22 @@
  "codemod-after-formatter-hook": {
   "applied": 7,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "claude-start": 1,
    "landing": 0,
    "planning": 0,
    "projects": 0,
    "raw": 0,
+   "todo": 0,
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 22
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -207,7 +214,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 50
+  "shown": 57
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -215,6 +222,22 @@
   "last_shown": "2026-10-08",
   "projects": {
    "video-blade-2": 1
+  },
+  "shown": 1
+ },
+ "css-grid-max-content-overflow": {
+  "applied": 0,
+  "last_shown": "2026-10-15",
+  "projects": {
+   "scratchpad": 0
+  },
+  "shown": 1
+ },
+ "css-media-before-base-rule": {
+  "applied": 0,
+  "last_shown": "2026-10-16",
+  "projects": {
+   "scratchpad": 0
   },
   "shown": 1
  },
@@ -238,16 +261,17 @@
  },
  "details-element-flex-slot": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-16",
   "projects": {
    "scratchpad": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "3d-printer": 0,
    "claude-start": 0,
@@ -255,21 +279,22 @@
    "planning": 0,
    "project1": 0,
    "raw": 0,
+   "scratchpad": 0,
    "todo": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 46
+  "shown": 53
  },
  "dialog-text-survives-close": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-14",
   "projects": {
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "empty-field-default-not-refusal": {
   "applied": 0,
@@ -280,13 +305,14 @@
   "shown": 2
  },
  "entry-page-not-dashboard": {
-  "applied": 3,
-  "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "applied": 4,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 3
+   "video-blade-2": 4,
+   "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 9
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -308,12 +334,15 @@
  },
  "escape-default-stops-media": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "landing": 0,
-   "video-blade-2": 0
+   "planning": 0,
+   "scratchpad": 0,
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 8
  },
  "external-agent-data": {
   "applied": 2,
@@ -327,23 +356,33 @@
  "feature-existence-check": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-16",
   "projects": {
    "pet-replicas": 0,
+   "scratchpad": 0,
    "video-blade-2": 1
   },
-  "shown": 8
+  "shown": 10
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
    "shots": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 14
+  "shown": 18
+ },
+ "fstring-html-fragments": {
+  "applied": 0,
+  "last_shown": "2026-10-15",
+  "projects": {
+   "scratchpad": 0
+  },
+  "shown": 1
  },
  "guard-hook-command-parsing": {
   "applied": 0,
@@ -367,45 +406,47 @@
  },
  "headless-chrome-accept-language": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "payment-gateway": 0,
    "planning": 0,
    "shots": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 16
  },
  "headless-chrome-pdf": {
   "applied": 0,
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-12",
   "projects": {
+   "raw": 0,
    "scratchpad": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "i18n-counts-label-first": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-12",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "judge-requirements-per-lane": {
-  "applied": 1,
-  "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "applied": 2,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 1,
+   "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "kie-ai": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-14",
   "projects": {
    "divani": 0,
    "lpdf": 0,
@@ -416,7 +457,7 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 16
+  "shown": 18
  },
  "label-claims-need-arithmetic": {
   "applied": 2,
@@ -430,52 +471,59 @@
  },
  "link-looks-like-link": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 0
+   "scratchpad": 0,
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 1
+  "shown": 3
  },
  "lint-first-run": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
    "new": 0,
    "planning": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 22
+  "shown": 25
  },
  "lint-rules-explicit-select": {
   "applied": 1,
   "last_applied": "2026-10-05",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
    "planning": 0,
-   "video-blade-2": 1
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 14
+  "shown": 16
  },
  "list-action-returns-to-card": {
   "applied": 2,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 2
+   "planning": 0,
+   "video-blade-2": 2,
+   "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 9
  },
  "live-update-own-echo-autosave": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "llm-output-not-metadata": {
   "applied": 1,
@@ -498,7 +546,7 @@
  },
  "local-runs-reach-production": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -506,44 +554,47 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 15
  },
  "long-work-progress-statuses": {
-  "applied": 3,
-  "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "applied": 4,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 3,
+   "scratchpad": 0,
+   "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 5
+  "shown": 10
  },
  "masonry-columns-via-slot": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "video-blade-test": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "migration-count-before-asking": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-15",
   "projects": {
+   "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "migration-verify-in-memory": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-16",
   "projects": {
    "payment-gateway": 0,
    "planning": 0,
-   "video-blade-2": 1
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "model-driven-visualizer-channels": {
   "applied": 0,
@@ -580,20 +631,23 @@
  },
  "nginx-stale-upstream-after-recreate": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-15",
   "projects": {
+   "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 3
  },
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 1
+  "shown": 4
  },
  "page-boilerplate-checks": {
   "applied": 0,
@@ -628,13 +682,15 @@
  "parallel-subagents": {
   "applied": 3,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-14",
   "projects": {
    "aw-white": 0,
+   "planning": 0,
    "reels": 0,
+   "scratchpad": 0,
    "video-blade-2": 3
   },
-  "shown": 8
+  "shown": 11
  },
  "pixel-server-event-dedup": {
   "applied": 0,
@@ -646,7 +702,7 @@
  },
  "prod-data-ops": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-16",
   "projects": {
    "divani": 0,
    "payment-gateway": 0,
@@ -654,16 +710,19 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 17
+  "shown": 19
  },
  "proposal-numbers-explicit": {
   "applied": 1,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
+   "planning": 0,
+   "scratchpad": 0,
+   "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 5
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -694,23 +753,24 @@
  },
  "python-fastapi-mongo-nuxt": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "python-fastapi-vue": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-16",
   "projects": {
    "divani": 0,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 11
+  "shown": 14
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -732,32 +792,47 @@
  "regex-codemod-spans-functions": {
   "applied": 5,
   "last_applied": "2026-10-10",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
+   "frontend": 0,
    "planning": 0,
+   "raw": 0,
+   "scratchpad": 0,
    "todo": 0,
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 24
+ },
+ "replace-copies-before-adding-helper": {
+  "applied": 0,
+  "last_shown": "2026-10-16",
+  "projects": {
+   "video-blade-test": 0
+  },
+  "shown": 1
  },
  "replay-review-scenario": {
   "applied": 4,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
-   "video-blade-2": 4
+   "scratchpad": 0,
+   "video-blade-2": 4,
+   "video-blade-test": 0
   },
-  "shown": 9
+  "shown": 13
  },
  "research-agents-share-ip-quota": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-14",
   "projects": {
+   "raw": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 4
  },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
@@ -768,15 +843,26 @@
   "shown": 0
  },
  "review-budget-below-fold": {
-  "applied": 6,
-  "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "applied": 7,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 6
+   "video-blade-2": 7,
+   "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 17
+ },
+ "review-frames-both-viewports": {
+  "applied": 0,
+  "last_shown": "2026-10-15",
+  "projects": {
+   "planning": 0,
+   "scratchpad": 0,
+   "video-blade-2": 0
+  },
+  "shown": 3
  },
  "review-loop-owner-decisions": {
   "applied": 6,
@@ -789,35 +875,39 @@
   "shown": 5
  },
  "review-stand-db-timeout": {
-  "applied": 6,
-  "last_applied": "2026-10-11",
-  "last_shown": "2026-10-12",
+  "applied": 7,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
-   "video-blade-2": 6
+   "scratchpad": 0,
+   "video-blade-2": 7,
+   "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 18
  },
  "review-stand-state-drift": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "frontend": 0,
    "planning": 0,
-   "video-blade-2": 1
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 14
  },
  "review-stand-synthetic-export": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-16",
   "projects": {
    "pb": 0,
-   "video-blade-2": 1
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "rewrite-port-old-screen-first": {
   "applied": 3,
@@ -829,14 +919,15 @@
   "shown": 2
  },
  "rule-change-stale-wording": {
-  "applied": 4,
-  "last_applied": "2026-10-11",
-  "last_shown": "2026-10-12",
+  "applied": 5,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
    "pb": 0,
-   "video-blade-2": 4
+   "video-blade-2": 5,
+   "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 9
  },
  "sales-playbook": {
   "applied": 2,
@@ -849,46 +940,50 @@
  },
  "scoped-key-narrow-gate": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-13",
+  "projects": {
+   "planning": 0,
+   "raw": 0,
+   "scratchpad": 0,
+   "video-blade-2": 0
+  },
+  "shown": 5
+ },
+ "simulation-plausibility": {
+  "applied": 0,
+  "last_shown": "2026-10-16",
+  "projects": {
+   "video-blade-2": 0,
+   "video-blade-test": 0
+  },
+  "shown": 7
+ },
+ "song-lyrics-content-check": {
+  "applied": 0,
+  "last_shown": "2026-10-16",
+  "projects": {
+   "video-blade-2": 0,
+   "video-blade-test": 0
+  },
+  "shown": 7
+ },
+ "spa-keyed-page-loses-input": {
+  "applied": 0,
+  "last_shown": "2026-10-16",
+  "projects": {
+   "video-blade-2": 0,
+   "video-blade-test": 0
+  },
+  "shown": 2
+ },
+ "ssr-to-spa-same-context": {
+  "applied": 0,
+  "last_shown": "2026-10-14",
   "projects": {
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 3
- },
- "simulation-plausibility": {
-  "applied": 0,
-  "last_shown": "2026-10-12",
-  "projects": {
-   "video-blade-2": 0,
-   "video-blade-test": 0
-  },
-  "shown": 6
- },
- "song-lyrics-content-check": {
-  "applied": 0,
-  "last_shown": "2026-10-12",
-  "projects": {
-   "video-blade-2": 0,
-   "video-blade-test": 0
-  },
   "shown": 5
- },
- "spa-keyed-page-loses-input": {
-  "applied": 0,
-  "last_shown": "2026-10-11",
-  "projects": {
-   "video-blade-2": 0
-  },
-  "shown": 1
- },
- "ssr-to-spa-same-context": {
-  "applied": 0,
-  "last_shown": "2026-10-11",
-  "projects": {
-   "video-blade-2": 0
-  },
-  "shown": 3
  },
  "stable-list-mark-changes": {
   "applied": 0,
@@ -900,7 +995,7 @@
  },
  "stale-server-process": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-16",
   "projects": {
    "akm-news": 0,
    "divani": 0,
@@ -908,18 +1003,20 @@
    "pipeline": 0,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 22
  },
  "stand-copy-restart-before-record": {
-  "applied": 3,
-  "last_applied": "2026-10-12",
-  "last_shown": "2026-10-12",
+  "applied": 4,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 3
+   "video-blade-2": 4,
+   "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 6
  },
  "stand-restart-rotates-keys": {
   "applied": 1,
@@ -932,33 +1029,39 @@
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "polymarket": 0,
+   "scratchpad": 0,
    "src": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 30
+  "shown": 33
  },
  "subagent-model-fallback": {
-  "applied": 2,
-  "last_applied": "2026-10-09",
-  "last_shown": "2026-10-12",
+  "applied": 3,
+  "last_applied": "2026-10-16",
+  "last_shown": "2026-10-16",
   "projects": {
+   "raw": 0,
    "reels": 0,
-   "video-blade-2": 2
+   "scratchpad": 0,
+   "video-blade-2": 3,
+   "video-blade-test": 0
   },
-  "shown": 6
+  "shown": 10
  },
  "term-collision-across-locales": {
   "applied": 0,
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-16",
   "projects": {
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 2
+  "shown": 4
  },
  "tests-observable-behavior": {
   "applied": 1,
@@ -972,13 +1075,14 @@
  "token-guarded-endpoints": {
   "applied": 1,
   "last_applied": "2026-09-26",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 1
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 14
+  "shown": 19
  },
  "ui-silent-failures": {
   "applied": 2,
@@ -1001,13 +1105,14 @@
  },
  "video-ai-audio-asset": {
   "applied": 0,
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
    "reels": 0,
-   "video-blade-2": 0
+   "video-blade-2": 0,
+   "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 9
  },
  "video-anchor-chain-morph": {
   "applied": 0,
@@ -1028,13 +1133,14 @@
  },
  "video-cost-accounting": {
   "applied": 0,
-  "last_shown": "2026-10-05",
+  "last_shown": "2026-10-14",
   "projects": {
    "docs": 0,
    "planning": 0,
+   "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "video-extra-hands-faces": {
   "applied": 0,
@@ -1064,12 +1170,14 @@
  "video-product-anchor": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-16",
   "projects": {
    "aw-white": 0,
-   "video-blade-2": 1
+   "scratchpad": 0,
+   "video-blade-2": 1,
+   "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 12
  },
  "video-text-overlays-and-platforms": {
   "applied": 0,
@@ -1087,5 +1195,21 @@
    "video-blade-2": 1
   },
   "shown": 0
+ },
+ "workspace-visual-isolation": {
+  "applied": 0,
+  "last_shown": "2026-10-16",
+  "projects": {
+   "video-blade-test": 0
+  },
+  "shown": 1
+ },
+ "zsh-var-command-no-split": {
+  "applied": 0,
+  "last_shown": "2026-10-15",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
  }
 }

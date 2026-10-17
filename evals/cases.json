@@ -1,990 +1,1010 @@
 [
-  {
-    "unit": "agent-shell-state",
-    "prompt": "после скачивания через curl файлы почему-то оказались в корне репо, а во втором вызове wc: command not found",
-    "expect": "абсолютн|PATH"
-  },
-  {
-    "unit": "stale-server-process",
-    "command": "docker compose up -d --build && curl localhost:4240/api/health"
-  },
-  {
-    "unit": "stale-server-process",
-    "prompt": "поправил роут, но сервер отдаёт старое поведение, хотя статика новая; --reload включён"
-  },
-  {
-    "unit": "guard-hook-command-parsing",
-    "prompt": "напиши PreToolUse хук, который блокирует rm -rf и запись в data/ и .env, но не мешает обычной работе",
-    "expect": "границ|программ|\\.env\\.example|чтение"
-  },
-  {
-    "unit": "guard-hook-testing",
-    "command": "bash .claude/hooks/guard-paths.sh <<'EOF'\n{\"tool_input\":{\"command\":\"rm -rf data\"}}\nEOF"
-  },
-  {
-    "unit": "stuck-binary-ue-processes",
-    "prompt": "ruff check завис и не отвечает уже минуту, правка файла тоже висит"
-  },
-  {
-    "unit": "lint-first-run",
-    "prompt": "давай добавим линтер ruff в проект, там никогда не было линтера, первый прогон дал сотни ошибок",
-    "expect": "конфиг|ложн|два уровн"
-  },
-  {
-    "unit": "lint-rules-explicit-select",
-    "prompt": "ruff ругается B008 Do not perform function call Depends in argument defaults, что делать"
-  },
-  {
-    "unit": "multi-language-checks",
-    "command": "flutter analyze && flutter test"
-  },
-  {
-    "unit": "tests-observable-behavior",
-    "prompt": "смоук-тест на app.routes упал после обновления fastapi, хотя все маршруты работают"
-  },
-  {
-    "unit": "dev-vs-pinned-deps",
-    "prompt": "локально работает, а в образе ImportError: cannot import name из драйвера; requirements запинены"
-  },
-  {
-    "unit": "llm-prompt-defaults",
-    "prompt": "поменял системный промт в дефолтах, задеплоил, а поведение ИИ на проде не изменилось, ошибок нет"
-  },
-  {
-    "unit": "llm-output-not-metadata",
-    "prompt": "парсим валюту регексом из ответа ИИ, и он то и дело переводит подпись единиц, ревьювер пропускает"
-  },
-  {
-    "unit": "local-runs-reach-production",
-    "prompt": "хочу локально проверить форму заявки, отправлю пару тестовых заявок через TestClient с текущим .env, там CRM и бот уведомлений",
-    "expect": "заглуш|пуст(ой|ым) ключ|подмен|боев"
-  },
-  {
-    "unit": "prod-data-ops",
-    "command": "ssh prod 'docker compose exec app python -c \"...\"' && psql -c \"update schedules set ...\""
-  },
-  {
-    "unit": "token-guarded-endpoints",
-    "prompt": "нужен эндпоинт мониторинга под токеном для внешнего дешборда, пока пусть отдаёт нули, потом настроим",
-    "expect": "503|null|токен в пути"
-  },
-  {
-    "unit": "health-endpoint-dependencies",
-    "prompt": "сделай /health с uptime и загрузкой сервера, можно psutil"
-  },
-  {
-    "unit": "env-example-no-secrets",
-    "command": "echo 'MONITORING_TOKEN=' >> .env.example"
-  },
-  {
-    "unit": "ui-silent-failures",
-    "prompt": "пользователь жалуется, что приложение не сохраняет данные и зависает при нажатии, пока идёт поллинг задачи"
-  },
-  {
-    "unit": "visible-and-persistent-ui-state",
-    "prompt": "заказчик говорит, что параметры сбрасываются, когда переключаешь вкладку, и точки не двигаются на сцене"
-  },
-  {
-    "unit": "page-boilerplate-checks",
-    "prompt": "снова разные шапки на новой странице, забыл подключить общий стиль, и на сервере 404 на неё"
-  },
-  {
-    "unit": "mvp-discipline",
-    "prompt": "начинаем новый проект с нуля, прототип: давай сразу заложим соцфункции, kubernetes и микросервисы"
-  },
-  {
-    "unit": "simulation-plausibility",
-    "prompt": "добавил новую силу в симуляцию, тесты зелёные, verdict pass, но картинка какая-то каша, порог теста поставил по первому замеру"
-  },
-  {
-    "unit": "sweep-grid-resolution",
-    "prompt": "перебор параметров на 400 комбинаций дал ноль успешных вариантов, хотя модель верная; и ранняя остановка по плато срабатывает рано"
-  },
-  {
-    "unit": "model-driven-visualizer-channels",
-    "prompt": "добавляем новый канал данных из расчёта в визуализатор: панель показателей и следы, объекты мельче пикселя не видно"
-  },
-  {
-    "unit": "optimization-vs-manufacturability",
-    "prompt": "оптимизация формы даёт горбы и зигзаги, получается некрасиво и не отштампуешь, хотя целевой показатель лучше"
-  },
-  {
-    "unit": "browser-verification",
-    "prompt": "новый слой отрисовки на канвасе ничего не отображается, тесты по статике проходят"
-  },
-  {
-    "unit": "browser-test-stand",
-    "prompt": "подними стенд для e2e на свободном порту с временной БД, креды стенда возьми из .env"
-  },
-  {
-    "unit": "auth-change-verification",
-    "prompt": "починил ссылку для агента, которая давала 403, сессия и логин вроде не трогал"
-  },
-  {
-    "unit": "complaint-history-mining",
-    "prompt": "разбери расшифровки последних сессий и найди, на что заказчик жалуется чаще всего"
-  },
-  {
-    "unit": "external-agent-data",
-    "prompt": "агент через pipeline залил статьи и вся лента падает с ResponseValidationError"
-  },
-  {
-    "unit": "api-discovery",
-    "prompt": "в документации нет нужного эндпоинта, попробую угадать адрес страницы доков по аналогии с соседним"
-  },
-  {
-    "unit": "feature-existence-check",
-    "prompt": "фича экспорта не работает у пользователя, давай починим конфиг; и переиспользуем существующий механизм уведомлений"
-  },
-  {
-    "unit": "agent-interaction",
-    "prompt": "перед каждой платной генерацией нужно согласовать с заказчиком, там 20 контрольных точек, сколько будет стоить"
-  },
-  {
-    "unit": "workspace-visual-isolation",
-    "files": [
-      ".vscode/settings.json"
-    ],
-    "prompt": "настрой peacock цвет окна для проекта"
-  },
-  {
-    "unit": "agent-oneoff-script",
-    "command": "python3 scripts/import.py --user admin --password s3cretPass http://localhost:4240/api/upload"
-  },
-  {
-    "unit": "video-ffmpeg-pitfalls",
-    "command": "ffmpeg -i a.mp4 -i b.mp4 -filter_complex \"[0:v][1:v]xfade=transition=fade:duration=0.3:offset=4[v]\" out.mp4"
-  },
-  {
-    "unit": "video-ffmpeg-pitfalls",
-    "prompt": "ffmpeg падает: First input link main timebase (1/1000000) do not match the corresponding second input link xfade timebase (1/30)"
-  },
-  {
-    "unit": "video-extra-hands-faces",
-    "prompt": "в сгенерированном клипе третья рука и лишнее лицо, перегенерировать или можно кропом?"
-  },
-  {
-    "unit": "video-format-pilot-and-hook",
-    "prompt": "запускаем новый формат роликов, новая рубрика, сделаем сразу партию из 10 штук, первый кадр красивый объект с датой"
-  },
-  {
-    "unit": "video-text-overlays-and-platforms",
-    "prompt": "добавь текст в кадре с адресом сайта и CTA поверх картинки, это для рекламы с продвижением"
-  },
-  {
-    "unit": "paid-api-file-integrity",
-    "prompt": "сборка упала с Invalid data found when processing input на скачанном видео от API, пакет рапортовал провалов: 0"
-  },
-  {
-    "unit": "video-anchor-chain-morph",
-    "prompt": "делаем морф до/после между клипами, стартовый референс возьму из фото"
-  },
-  {
-    "unit": "video-morph-and-motion",
-    "prompt": "i2v на очень медленный наезд вернул неподвижный кадр, и на большом перепаде силуэта морф перекрасил объект вместо смены формы"
-  },
-  {
-    "unit": "video-asset-library-curation",
-    "prompt": "сборка ролика упала, файла трека нет в папке музыки, заказчик его удалил из библиотеки"
-  },
-  {
-    "unit": "video-cost-accounting",
-    "prompt": "посчитай себестоимость ролика: кредиты и время генераций, сколько стоил выпуск"
-  },
-  {
-    "unit": "video-element-consistency",
-    "prompt": "нужна консистентность между клипами серии: одни и те же локации и палитра, модель варьирует исполнение"
-  },
-  {
-    "unit": "video-ai-audio-asset",
-    "prompt": "родной звук клипа тихий, наложу библиотечный щелчок поверх, или собрать с -an и подложить музыку"
-  },
-  {
-    "unit": "video-product-anchor",
-    "prompt": "у клиента каталог студийных рендеров товара, хотим вертикальный товарный ролик 9:16"
-  },
-  {
-    "unit": "param-descriptions-rot",
-    "prompt": "поменял модель и нормировку, описания параметров и tooltip в интерфейсе, наверное, устарели"
-  },
-  {
-    "unit": "kie-ai",
-    "prompt": "интегрируем kie.ai createTask и recordInfo для генерации изображений",
-    "stack": [
-      "python"
-    ]
-  },
-  {
-    "unit": "python-pymunk-2d",
-    "prompt": "цепь из звеньев на pivot в pymunk складывается вбок от плавучести, и collision между звеньями рвёт цепь"
-  },
-  {
-    "unit": "autofix-hook-import-order",
-    "prompt": "после моих правок хук ruff --fix что-то поменял, и приложение падает с NameError: name 'api_projects' is not defined, хотя я добавлял импорт"
-  },
-  {
-    "unit": "fastapi-route-factory-annotations",
-    "prompt": "пишу фабрику однотипных CRUD-роутов FastAPI, модель тела передаю параметром, но pydantic-валидация тела не срабатывает при from __future__ import annotations",
-    "stack": [
-      "fastapi"
-    ]
-  },
-  {
-    "unit": "architecture-mvc",
-    "prompt": "начинаем новый проект — магазин на fastapi: набросай структуру, куда положить контроллеры и роуты",
-    "expect": "controllers|экшен|docstring"
-  },
-  {
-    "unit": "architecture-mvc",
-    "prompt": "добавь эндпоинт GET /order/history в контроллер заказов и не забудь комментарий с роутом",
-    "expect": "async|docstring|history"
-  },
-  {
-    "unit": "cdn-widget-style-isolation",
-    "prompt": "подключил EasyMDE с cdn, а мои стили тёмной темы не применяются и кнопка таблицы в toolbar растянулась",
-    "expect": "контейнер|префикс"
-  },
-  {
-    "unit": "browser-check-raw-cdp",
-    "prompt": "нужен живой прогон в headless chrome через devtools, playwright не установлен, Runtime.evaluate возвращает пустой объект",
-    "expect": "!!|стенд"
-  },
-  {
-    "unit": "architecture-question-restate-purpose",
-    "prompt": "владелец ответил ты не понял, когда я спросил где хранить протоколы: в базе или файлами",
-    "expect": "словами владельца|назначени"
-  },
-  {
-    "unit": "pydantic-patch-nested-exclude-unset",
-    "prompt": "после PATCH во вложенном объекте пропали ключи, model_dump exclude_unset пишет null вместо значений по умолчанию",
-    "expect": "model_fields_set"
-  },
-  {
-    "unit": "agent-docs-route-guard",
-    "prompt": "переношу протокол для агента со старыми эндпоинтами из v1, как проверить что все curl в AGENTS.md живые",
-    "expect": "роутер|маршрут"
-  },
-  {
-    "unit": "port-search-all-sources",
-    "prompt": "вытащи протоколы из прошлого проекта и загрузи в этот, там точно были протоколы по видео",
-    "expect": "соседн|всем"
-  },
-  {
-    "unit": "regex-codemod-spans-functions",
-    "command": "sed -i '' 's/Depends(require_admin)/Depends(_confirmed())/g' app/web/admin.py",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ]
-  },
-  {
-    "unit": "vendor-console-guide",
-    "prompt": "там где ввод S3 должна быть подробная инструкция со ссылками где брать эти ключи",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ],
-    "expect": "ссыл|провер"
-  },
-  {
-    "unit": "vendor-console-guide",
-    "command": "curl -s -L https://developers.cloudflare.com/r2/api/tokens/index.md | head",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ]
-  },
-  {
-    "unit": "mongo-naive-datetime-local-skew",
-    "prompt": "в админке дата уехала на несколько часов, astimezone вроде стоит",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ],
-    "expect": "UTC|tzinfo"
-  },
-  {
-    "unit": "autofix-hook-import-order",
-    "command": ".venv/bin/ruff check app/services/storage.py",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ]
-  },
-  {
-    "unit": "agent-shell-state",
-    "command": "for path in /admin/a /admin/b; do curl -s \"https://example.com$path\"; done",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ]
-  },
-  {
-    "unit": "stale-server-process",
-    "command": "pkill -f \"python stand.py\"",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ]
-  },
-  {
-    "unit": "token-guarded-endpoints",
-    "command": "grep -oE 'https?://[^ ]+' monitoring | while read u; do curl -s -o /dev/null -w '%{http_code}' \"$u\"; done",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ]
-  },
-  {
-    "unit": "admin-links-to-app",
-    "prompt": "надо в админке добавить ссылку на app",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ],
-    "expect": "приложен|ссылк"
-  },
-  {
-    "unit": "admin-links-to-app",
-    "prompt": "сделай админку для нового проекта: пользователи и настройки",
-    "stack": [
-      "python",
-      "fastapi"
-    ]
-  },
-  {
-    "unit": "credentials-stay-with-owner",
-    "prompt": "и настрой хранилище из прошлого проекта (там уже есть настройки s3)",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ],
-    "expect": "форм|владел"
-  },
-  {
-    "unit": "agent-shell-state",
-    "command": "for route in /login /admin/login?key=x; do curl -s \"$B$route\"; done",
-    "stack": [
-      "python",
-      "fastapi",
-      "kie-ai",
-      "ffmpeg",
-      "docker",
-      "web-ui",
-      "llm"
-    ]
-  },
-  {
-    "unit": "mongo-ms-sort-tiebreak",
-    "prompt": "тест иногда падает: самый свежий проект по sort created_at выбирается не тот",
-    "stack": [
-      "python",
-      "fastapi"
-    ]
-  },
-  {
-    "unit": "fetch-login-redirect-cookie",
-    "prompt": "инструмент кадров логинится формой через fetch, вход вроде прошёл, но на скриншотах опять экран входа — cookie теряется после 303",
-    "stack": [
-      "web-ui"
-    ]
-  },
-  {
-    "unit": "review-loop-owner-decisions",
-    "prompt": "субагент ревью третий круг подряд ставит 7/10 и одно и то же замечание, хотя владелец это решение уже принял",
-    "stack": [
-      "llm"
-    ]
-  },
-  {
-    "unit": "review-budget-below-fold",
-    "prompt": "урезанное ревью по report.txt без кадров говорит, что формы смены пароля нет, а она есть ниже сгиба",
-    "stack": [
-      "web-ui"
-    ]
-  },
-  {
-    "unit": "settings-doc-new-field-defaults",
-    "prompt": "добавил новое поле discount в умолчания настроек, а в базе скидки везде 0 — старый документ перекрывает",
-    "stack": [
-      "python"
-    ]
-  },
-  {
-    "unit": "headless-chrome-accept-language",
-    "prompt": "кадры стенда снимаются по-русски, хотя запускаю headless Chrome с --lang=en-US и проверяю английский интерфейс",
-    "stack": [
-      "web-ui"
-    ]
-  },
-  {
-    "unit": "review-stand-state-drift",
-    "prompt": "после круга ревью субагентом look.js отдаёт пустой отчёт без шагов, вход на стенд по auth.json даёт 401",
-    "stack": [
-      "web-ui"
-    ]
-  },
-  {
-    "unit": "subagent-model-fallback",
-    "prompt": "субагент ревью упал с 429 session limit, потом ENOTFOUND — как не терять круг",
-    "stack": [
-      "llm"
-    ]
-  },
-  {
-    "unit": "css-sibling-margin-in-grid",
-    "prompt": "в новой сетке card-grid второй элемент каждого ряда ниже первого на 16 px, карточки ступенькой",
-    "stack": [
-      "web-ui"
-    ]
-  },
-  {
-    "unit": "design-mock-single-storyline",
-    "prompt": "собери макеты дизайна кабинета с заполненными демо-данными, ревью потом посмотрит экраны",
-    "expect": "сюжетн|одна истори|противореч"
-  },
-  {
-    "unit": "fstring-html-fragments",
-    "prompt": "генерирую html f-строками, вложенные f-строки с экранированными кавычками, SyntaxError unexpected character after line continuation character",
-    "expect": "переменн|backslash|\\\\\""
-  },
-  {
-    "unit": "jinja-dict-key-named-items",
-    "prompt": "в шаблоне jinja вместо списка показывает <built-in method items of dict object>, словарь с ключом items",
-    "expect": "\\['items'\\]|переимен"
-  },
-  {
-    "unit": "figure-default-margin-in-tiles",
-    "prompt": "миниатюры в сетке карточек крошечные, figure с классом tile рисуется уже колонки",
-    "expect": "margin|отступ"
-  },
-  {
-    "unit": "i18n-counts-label-first",
-    "prompt": "в подписи получилось «1 things need you», нужен plural, множественное число в locales на 9 языков",
-    "expect": "метк|после|Label"
-  },
-  {
-    "unit": "redesign-grep-tests-for-markup",
-    "prompt": "после редизайна страницы упал тест, который ищет stat-value в разметке дешборда",
-    "expect": "grep|видим|текст"
-  },
-  {
-    "unit": "entry-page-not-dashboard",
-    "prompt": "добавил блок на дешборд, но вход после логина ведёт в обзор проекта и ревьюер блок не нашёл — стартовый экран /",
-    "expect": "include|/ после входа|куда ведёт"
-  },
-  {
-    "unit": "review-stand-db-timeout",
-    "prompt": "стенд завис, ревьюер получил 500 на главной, в журнале ServerSelectionTimeoutError Docker Desktop",
-    "expect": "журнал|таймаут|повтори"
-  },
-  {
-    "unit": "rewrite-port-old-screen-first",
-    "prompt": "переписываем кабинет с нуля, донор — репозиторий первой версии; нужна раскладка страницы песни, сделай как в первой версии",
-    "expect": "старой версии|переносим как было"
-  },
-  {
-    "unit": "log-params-user-visible",
-    "prompt": "журнал генераций показывает params через tojson, положу туда коэффициент наценки для списания",
-    "expect": "отдельным полем|леджер|показ"
-  },
-  {
-    "unit": "agent-instruction-code-must-run",
-    "prompt": "клиент на urllib из протокола для агента падает CERTIFICATE_VERIFY_FAILED на python.org",
-    "expect": "сертификат|исполняй|URLError"
-  },
-  {
-    "unit": "song-lyrics-content-check",
-    "prompt": "тексты прошлых 2х песен не проходят копирайты. Сделай уникальные тексты песен на базе оригиналов",
-    "expect": "размере|цепочки|новые слова"
-  },
-  {
-    "unit": "rule-change-stale-wording",
-    "prompt": "длина кавера теперь не как у исходника — поправь протокол, документацию и подсказки интерфейса",
-    "expect": "grep|формулировк|хардкод"
-  },
-  {
-    "unit": "ssr-to-spa-same-context",
-    "prompt": "каждая кнопка перезагружает страницу и песня обрывается, переведи кабинет на Vue без перезагрузок",
-    "expect": "контекст|JSON-ом|next"
-  },
-  {
-    "unit": "test-number-substring-flaky",
-    "prompt": "тест падает через раз: assert \"1.3\" not in response.text, а код не менялся",
-    "expect": "ключу|разделител|время"
-  },
-  {
-    "unit": "public-api-cache-hides-fresh-edits",
-    "prompt": "поменял порядок треков в кабинете, а на публичной странице сайта всё ещё старый порядок",
-    "expect": "Cache-Control|no-cache|кэш"
-  },
-  {
-    "unit": "error-code-text-names-a-place",
-    "prompt": "новая генерация картинок бросает те же коды ошибок, что и музыка — текст ошибки говорит про вкладку Текст",
-    "expect": "свой код|текст ошибки|другой экран"
-  },
-  {
-    "unit": "new-action-in-nowrap-row",
-    "prompt": "добавил ещё одну иконку действия в строку версии, строка nowrap — иконка вылезла за карточку",
-    "expect": "кадр|28 px|перенос"
-  },
-  {
-    "unit": "refusal-bound-to-sender",
-    "prompt": "после неудачного рисования окно «по ссылке» открывается с чужой ошибкой, отказ сервера ?err показан не там, диалог закрылся",
-    "expect": "sent|действ|отложенн"
-  },
-  {
-    "unit": "spa-keyed-page-loses-input",
-    "prompt": "на странице списка с первым элементом по умолчанию после формы текст стёрся и страница прыгнула наверх, компонент :key по пути, редирект после формы",
-    "expect": "back|тот же путь|пересозда"
-  },
-  {
-    "unit": "empty-field-default-not-refusal",
-    "prompt": "у нового персонажа без описания кнопка молчит, обязательное поле пустой промт даёт отказ «сначала опишите», новичок",
-    "expect": "пустому значению|смысл|не обязательн"
-  },
-  {
-    "unit": "codemod-after-formatter-hook",
-    "prompt": "скрипт замен упал: assert old in s, якорь не найден после ruff format, хук после правки переписал строки",
-    "expect": "перечитай|целиком|идемпотент"
-  },
-  {
-    "unit": "replay-review-scenario",
-    "prompt": "круг ревью исчерпан, в отчёте «подтвердить руками», хочу повторить замечание ревьюера сценарием look.js run из report.json",
-    "expect": "сценари|повтор|до починки"
-  },
-  {
-    "unit": "paid-flow-generic-before-second-consumer",
-    "prompt": "фото персонажа — второй потребитель генерации картинок после обложки: удержание, задача, опрос, хранилище, HANDLERS",
-    "expect": "общий модуль|цел|второй потребитель"
-  },
-  {
-    "unit": "sticky-action-when-results-first",
-    "prompt": "на телефоне результаты выше формы (order: -1), кнопка «нарисовать» уезжает под прокрутку — липкая кнопка над галереей?",
-    "expect": "плашк|прокрут|IntersectionObserver|за экраном"
-  },
-  {
-    "unit": "shell-form-reset-clears-vmodel",
-    "prompt": "после отказа диалог открылся снова, а поле ссылки пустое — v-model хранит значение, оболочка делает form.reset",
-    "expect": "input.value|руками|showModal"
-  },
-  {
-    "unit": "catalog-names-too-long-for-selects",
-    "prompt": "в закрытом select на телефоне пункт «2 — 20.8 tokens» обрезан, имя модели из каталога не влезает",
-    "expect": "коротк|подпис|только число"
-  },
-  {
-    "unit": "workspace-opens-last-touched",
-    "prompt": "список + панель: какую запись открыть по умолчанию — сейчас rows[0], самая новая, а человек ждёт последнюю, над которой работал",
-    "expect": "активност|updated_at|последн"
-  },
-  {
-    "unit": "idempotent-add-with-visible-state",
-    "prompt": "кнопка «добавить образец» на телефоне без отклика, повторное нажатие делает дубли, окно выбора закрывается после каждого",
-    "expect": "идемпотент|галочк|не закрыва"
-  },
-  {
-    "unit": "replace-copies-before-adding-helper",
-    "prompt": "codemod: заменить 5 копий выражения на хелпер, проверка count == 5 падает — тело помощника содержит то же выражение",
-    "expect": "сначала замени|потом вставляй|исключи"
-  },
-  {
-    "unit": "actions-sheet-not-popover-in-clipped-tile",
-    "prompt": "меню «⋯» внутри карточки обрезается: у плитки overflow: hidden, details summary с position absolute",
-    "expect": "окн|dialog|обреж"
-  },
-  {
-    "unit": "vue-range-value-forced-patch",
-    "prompt": "ползунок input type=range дёргается при перетаскивании, :value от настроек, @input пишет в sliderNow",
-    "expect": ":value|@input|то же состояние"
-  },
-  {
-    "unit": "stable-list-mark-changes",
-    "prompt": "список песен прыгает: sort по updated_at поднимает песню наверх при правке, путаюсь где какая",
-    "expect": "дате создания|метк|подсвет"
-  },
-  {
-    "unit": "term-collision-across-locales",
-    "prompt": "новый термин кавер в музыке, а у альбома обложка — в английском словаре оба cover, одно слово два смысла",
-    "expect": "разведи|словар|cover art"
-  },
-  {
-    "unit": "migration-count-before-asking",
-    "prompt": "перенеси данные стратегии и контент-плана с первой версии проекта, бэкап базы в планировщике",
-    "expect": "запрос|числа|какого проекта"
-  },
-  {
-    "unit": "migration-verify-in-memory",
-    "prompt": "написал скрипт импорта из старой версии с пересчётом ссылок и отметкой v1_id, как проверить миграцию до сервера",
-    "expect": "дважды|памяти|ссылк"
-  },
-  {
-    "unit": "review-stand-synthetic-export",
-    "prompt": "нужны данные на стенде ревью для страниц после переноса, боевые показывать субагенту нельзя, демо-данные не заполняют новые поля",
-    "expect": "вымышлен|импорт|выгрузк"
-  },
-  {
-    "unit": "review-brief-no-secret-files",
-    "prompt": "составляю бриф субагенту-ревьюеру стенда: инструмент входит по auth.json через флаг --auth, кадры в папку",
-    "expect": "не открыва|не чита|не печата|относительн"
-  },
-  {
-    "unit": "dialog-text-survives-close",
-    "prompt": "в окне записи есть textarea сценария и кнопка Сохранить, по Esc и Отмена окно закрывается — как не терять набранное",
-    "expect": "cancel|одн[ау] функци|черновик|Esc"
-  },
-  {
-    "unit": "measure-only-when-visible",
-    "prompt": "textarea с авторостом по scrollHeight в скрытой вкладке v-show схлопнулась до 2px",
-    "expect": "offsetParent|вид|nextTick"
-  },
-  {
-    "unit": "judge-requirements-per-lane",
-    "prompt": "в цикле с судьёй рэп получил 5 из 10 за структуру: куплеты по 16 тактов, а требования судье говорят куплет не больше 8 строк; автопроверка нашла совпадение с эталоном по тегам секций",
-    "expect": "каждой линии|без тегов|из промта"
-  },
-  {
-    "unit": "clean-context-run-fallback",
-    "prompt": "нужно прогнать промт в чистом контексте через claude -p, а с --bare приходит Not logged in",
-    "expect": "setting-sources"
-  },
-  {
-    "unit": "research-agents-share-ip-quota",
-    "prompt": "запусти четырёх исследователей по темам, пусть читают reddit через rss — у всех пошли 429",
-    "expect": "один читатель|один исполнитель|небраузерн"
-  },
-  {
-    "unit": "list-action-returns-to-card",
-    "prompt": "после создания категории в админке страница перезагружается и открывается сверху, а форма создания стоит в самом низу — ревью говорит, что человек не видит, что сработало",
-    "expect": "якор|заголовк"
-  },
-  {
-    "unit": "details-element-flex-slot",
-    "prompt": "раскрывающаяся форма на details с summary: поставил display flex на details, и тело формы встало рядом с кнопкой, а не под ней",
-    "expect": "слот|text-align|flex-basis"
-  },
-  {
-    "unit": "long-work-progress-statuses",
-    "prompt": "фоновые прогоны идут по часу, владелец пишет: надо чтоб я видел процесс, так не подходит что тупо ожидание без статусов",
-    "expect": "статус|наблюдател"
-  },
-  {
-    "unit": "vue-local-state-shadows-global-helper",
-    "prompt": "страница ролика на Vue рендерится пустой, тесты зелёные, в консоли duration is not a function",
-    "expect": "глобальн|помощник|форматтер"
-  },
-  {
-    "unit": "shell-submit-skips-prevented",
-    "prompt": "форма поиска с @submit.prevent всё равно уходит POST-ом на адрес страницы, диалог закрылся сам",
-    "expect": "defaultPrevented"
-  },
-  {
-    "unit": "page-context-carries-refusal",
-    "prompt": "сервер редиректит на страницу с ?err=, но отказ не виден, новая страница молчит",
-    "expect": "контекст|err"
-  },
-  {
-    "unit": "provider-result-by-media-type",
-    "prompt": "видеозадача у поставщика success, а parse_task отдаёт пустой результат, mp4 из resultUrls не попадает",
-    "expect": "тип|носител|videos"
-  },
-  {
-    "unit": "catalog-model-without-params-not-offered",
-    "prompt": "у модели каталога params пусто, форма заказа клипа показывает пустую цену и нет длительностей",
-    "expect": "параметр|схем"
-  },
-  {
-    "unit": "headless-touch-hangs-after-modal",
-    "prompt": "look.js на телефоне: после касания, открывшего модальное окно, следующий dispatchTouchEvent висит 20 секунд, ревьюер пишет телефон завис",
-    "expect": "мыш|dispatchMouseEvent"
-  },
-  {
-    "unit": "review-brief-lists-stand-refusals",
-    "prompt": "ревьюер поставил ложный блокер: загрузка файла на стенде отвечает отказом, но на стенде нет хранилища — как писать бриф ревьюера",
-    "expect": "бриф|отказ"
-  },
-  {
-    "unit": "stand-restart-rotates-keys",
-    "prompt": "после перезапуска стенда --keep-data кадры админки показывают экран входа, ключ админки старый",
-    "expect": "свеж|вывод"
-  },
-  {
-    "unit": "payment-sandbox-means-test-key",
-    "prompt": "надо убрать Sandbox при оплате на сайте — на странице оплаты показывает тестовый режим",
-    "expect": "ключ|sk_test|окружен"
-  },
-  {
-    "unit": "escape-default-stops-media",
-    "prompt": "в лайтбоксе на лендинге второй ролик демо не играет — стоит на 0:00 после закрытия первого по Escape",
-    "expect": "preventDefault|остановить загрузку"
-  },
-  {
-    "unit": "stand-copy-restart-before-record",
-    "prompt": "поправил сценарий демо в static, записал заново — в записи старая подпись, стенд отдаёт старый файл",
-    "expect": "перезапус|curl"
-  },
-  {
-    "unit": "label-claims-need-arithmetic",
-    "prompt": "ставим метку Most popular на тариф Creator рядом с пакетами токенов — выгоднее ли тариф?",
-    "expect": "за единиц|посчита|арифмет"
-  },
-  {
-    "unit": "cta-same-promise-same-target",
-    "prompt": "кнопка Start with a pack в карточке ведёт на регистрацию, а выбор пакета теряется — пустой дешборд",
-    "expect": "grep|тот же адрес|параметр"
-  },
-  {
-    "unit": "empty-state-icon-direct-child",
-    "prompt": "кнопки на пустом экране раздуты — иконка 48px, правило .empty i",
-    "expect": "прямой потомок|>"
-  },
-  {
-    "unit": "bisect-by-patched-page-copies",
-    "prompt": "странность в headless Chrome не воспроизводится правками — как найти причину быстро",
-    "expect": "копи|бисек"
-  },
-  {
-    "unit": "zsh-var-command-no-split",
-    "prompt": "LOOK=\"node look.js\"; $LOOK run сценарий — command not found, 0 кадров",
-    "expect": "целиком|массив|zsh"
-  },
-  {
-    "unit": "replay-review-scenario",
-    "prompt": "ревьюер второй круг подряд пишет, что демо замирают, хотя я чинил по гипотезе и не воспроизводится",
-    "expect": "сценари|шаг|инструмент"
-  },
-  {
-    "unit": "masonry-columns-via-slot",
-    "prompt": "на дешборде между карточками слева дыры по 100 px, блоки выровнены по строкам правой колонки",
-    "expect": "слот|контейнер|независим"
-  },
-  {
-    "unit": "no-plan-states-at-every-money-entry",
-    "prompt": "сделали подписку обязательной, но кнопка Top up и Buy tokens ведут в закрытые пакеты, дешборд пишет Nothing needs you",
-    "expect": "вход|одно действие|контекст"
-  },
-  {
-    "tier": "complex",
-    "prompt": "Сложная: переделать личный кабинет под новый дизайн"
-  },
-  {
-    "tier": "simple",
-    "prompt": "[простая] поправь отступ у кнопки"
-  },
-  {
-    "tier": "medium",
-    "prompt": "задача средней сложности — добавить фильтр по дате в список заказов"
-  },
-  {
-    "tier": null,
-    "prompt": "сделай простую форму обратной связи на главной"
-  },
-  {
-    "tier": "complex",
-    "prompt": "это сложная задача: нужно перенести оплату на новый шлюз"
-  },
-  {
-    "tier": "simple",
-    "prompt": "простая задача, замени текст кнопки на «Сохранить»"
-  },
-  {
-    "tier": null,
-    "prompt": "добавь экспорт в CSV для таблицы клиентов"
-  },
-  {
-    "tier": "medium",
-    "prompt": "сложность: средняя. Нужен фильтр по тегам"
-  },
-  {
-    "tier": "medium",
-    "prompt": "medium: add pagination to the orders list"
-  },
-  {
-    "tier": null,
-    "prompt": "Проверь, почему сложная формула в отчёте считает неверно"
-  },
-  {
-    "tier": null,
-    "prompt": "простой задачи тут нет, задача сложная — переписать модуль оплаты"
-  },
-  {
-    "tier": "complex",
-    "prompt": "#сложная переработать меню на телефоне"
-  },
-  {
-    "tier": null,
-    "prompt": "Сложная формула в отчёте считает неверно, разберись"
-  },
-  {
-    "tier": null,
-    "prompt": "Simple question: how does the hook pick lessons?"
-  },
-  {
-    "tier": null,
-    "prompt": "Средняя кнопка в шапке не кликается, почини"
-  },
-  {
-    "tier": null,
-    "prompt": "сложные задачи у нас обычно долгие; сделай экспорт"
-  },
-  {
-    "tier": "complex",
-    "prompt": "Сложная\nпеределать меню на телефоне"
-  },
-  {
-    "tier": "simple",
-    "prompt": "простая — поправь отступ"
-  },
-  {
-    "resolve": {
-      "tier": "simple",
-      "source": "default",
-      "line": "простая \\(по умолчанию.*Перепроверь.*кнопками"
-    },
-    "prompt": "добавь экспорт в CSV для таблицы клиентов"
-  },
-  {
-    "resolve": {
-      "tier": "simple",
-      "source": "default",
-      "line": "по умолчанию"
-    },
-    "saved": {
-      "tier": "simple",
-      "source": "default"
-    },
-    "prompt": "и ещё поправь заголовок колонки на русский язык"
-  },
-  {
-    "resolve": {
-      "tier": null,
-      "source": null,
-      "line": "сложная \\(задан ранее.*по умолчанию простая.*Перепроверь"
-    },
-    "saved": {
-      "tier": "complex",
-      "source": "prompt"
-    },
-    "prompt": "добавь экспорт в CSV для таблицы клиентов"
-  },
-  {
-    "resolve": {
-      "tier": null,
-      "source": null,
-      "line": "средняя \\(задан ранее"
-    },
-    "saved": {
-      "tier": "medium",
-      "source": "buttons"
-    },
-    "prompt": "сделай страницу оплаты с новым дизайном"
-  },
-  {
-    "resolve": {
-      "tier": "medium",
-      "source": "prompt",
-      "line": "средняя \\(назван в промте"
-    },
-    "saved": {
-      "tier": "complex",
-      "source": "buttons"
-    },
-    "prompt": "[средняя] добавь экспорт в CSV для таблицы клиентов"
-  },
-  {
-    "resolve": {
-      "tier": null,
-      "source": null,
-      "line": "^$"
-    },
-    "prompt": "почему хук не подмешивает уроки по команде?"
-  },
-  {
-    "resolve": {
-      "tier": null,
-      "source": null,
-      "line": "^$"
-    },
-    "prompt": "ок, спасибо"
-  },
-  {
-    "unit": "hook-ask-user-question-answers",
-    "prompt": "напиши хук PostToolUse на AskUserQuestion, который записывает ответ владельца кнопками в файл",
-    "expect": "стенограмм|answers|tool_response"
-  },
-  {
-    "unit": "css-grid-max-content-overflow",
-    "prompt": "полоса гарантий со значками сверстана grid-template-columns: repeat(4, max-content), на ноутбуке строка обрезана и страница прокручивается вбок",
-    "expect": "auto-fit|minmax|max-content"
-  },
-  {
-    "unit": "css-media-before-base-rule",
-    "prompt": "на телефоне страница тарифа шире экрана: карточка .package с flex-wrap в @media, список уехал во вторую колонку вправо",
-    "expect": "медиа-блок|после базовых|свой класс"
-  },
-  {
-    "unit": "review-frames-both-viewports",
-    "prompt": "снял кадры look.js shot --both перед кругом ревью, посмотрел только компьютер, телефон не смотрел",
-    "expect": "оба|телефонный кадр"
-  },
-  {
-    "unit": "proposal-numbers-explicit",
-    "prompt": "владелец принял предложение по тарифам с лимитом 100 мест, а потом сказал, что мест должно быть 5; вопрос про места он не понял",
-    "expect": "отдельным пунктом|своими словами"
-  },
-  {
-    "unit": "link-looks-like-link",
-    "prompt": "ревью: ссылку на стену в карточке не нашли, она внутри жирного текста преимущества, в меню пункта нет",
-    "expect": "цветом ссылки|пунктом в меню"
-  }
+ {
+  "unit": "agent-shell-state",
+  "prompt": "после скачивания через curl файлы почему-то оказались в корне репо, а во втором вызове wc: command not found",
+  "expect": "абсолютн|PATH"
+ },
+ {
+  "unit": "stale-server-process",
+  "command": "docker compose up -d --build && curl localhost:4240/api/health"
+ },
+ {
+  "unit": "stale-server-process",
+  "prompt": "поправил роут, но сервер отдаёт старое поведение, хотя статика новая; --reload включён"
+ },
+ {
+  "unit": "guard-hook-command-parsing",
+  "prompt": "напиши PreToolUse хук, который блокирует rm -rf и запись в data/ и .env, но не мешает обычной работе",
+  "expect": "границ|программ|\\.env\\.example|чтение"
+ },
+ {
+  "unit": "guard-hook-testing",
+  "command": "bash .claude/hooks/guard-paths.sh <<'EOF'\n{\"tool_input\":{\"command\":\"rm -rf data\"}}\nEOF"
+ },
+ {
+  "unit": "stuck-binary-ue-processes",
+  "prompt": "ruff check завис и не отвечает уже минуту, правка файла тоже висит"
+ },
+ {
+  "unit": "lint-first-run",
+  "prompt": "давай добавим линтер ruff в проект, там никогда не было линтера, первый прогон дал сотни ошибок",
+  "expect": "конфиг|ложн|два уровн"
+ },
+ {
+  "unit": "lint-rules-explicit-select",
+  "prompt": "ruff ругается B008 Do not perform function call Depends in argument defaults, что делать"
+ },
+ {
+  "unit": "multi-language-checks",
+  "command": "flutter analyze && flutter test"
+ },
+ {
+  "unit": "tests-observable-behavior",
+  "prompt": "смоук-тест на app.routes упал после обновления fastapi, хотя все маршруты работают"
+ },
+ {
+  "unit": "dev-vs-pinned-deps",
+  "prompt": "локально работает, а в образе ImportError: cannot import name из драйвера; requirements запинены"
+ },
+ {
+  "unit": "llm-prompt-defaults",
+  "prompt": "поменял системный промт в дефолтах, задеплоил, а поведение ИИ на проде не изменилось, ошибок нет"
+ },
+ {
+  "unit": "llm-output-not-metadata",
+  "prompt": "парсим валюту регексом из ответа ИИ, и он то и дело переводит подпись единиц, ревьювер пропускает"
+ },
+ {
+  "unit": "local-runs-reach-production",
+  "prompt": "хочу локально проверить форму заявки, отправлю пару тестовых заявок через TestClient с текущим .env, там CRM и бот уведомлений",
+  "expect": "заглуш|пуст(ой|ым) ключ|подмен|боев"
+ },
+ {
+  "unit": "prod-data-ops",
+  "command": "ssh prod 'docker compose exec app python -c \"...\"' && psql -c \"update schedules set ...\""
+ },
+ {
+  "unit": "token-guarded-endpoints",
+  "prompt": "нужен эндпоинт мониторинга под токеном для внешнего дешборда, пока пусть отдаёт нули, потом настроим",
+  "expect": "503|null|токен в пути"
+ },
+ {
+  "unit": "health-endpoint-dependencies",
+  "prompt": "сделай /health с uptime и загрузкой сервера, можно psutil"
+ },
+ {
+  "unit": "env-example-no-secrets",
+  "command": "echo 'MONITORING_TOKEN=' >> .env.example"
+ },
+ {
+  "unit": "ui-silent-failures",
+  "prompt": "пользователь жалуется, что приложение не сохраняет данные и зависает при нажатии, пока идёт поллинг задачи"
+ },
+ {
+  "unit": "visible-and-persistent-ui-state",
+  "prompt": "заказчик говорит, что параметры сбрасываются, когда переключаешь вкладку, и точки не двигаются на сцене"
+ },
+ {
+  "unit": "page-boilerplate-checks",
+  "prompt": "снова разные шапки на новой странице, забыл подключить общий стиль, и на сервере 404 на неё"
+ },
+ {
+  "unit": "mvp-discipline",
+  "prompt": "начинаем новый проект с нуля, прототип: давай сразу заложим соцфункции, kubernetes и микросервисы"
+ },
+ {
+  "unit": "simulation-plausibility",
+  "prompt": "добавил новую силу в симуляцию, тесты зелёные, verdict pass, но картинка какая-то каша, порог теста поставил по первому замеру"
+ },
+ {
+  "unit": "sweep-grid-resolution",
+  "prompt": "перебор параметров на 400 комбинаций дал ноль успешных вариантов, хотя модель верная; и ранняя остановка по плато срабатывает рано"
+ },
+ {
+  "unit": "model-driven-visualizer-channels",
+  "prompt": "добавляем новый канал данных из расчёта в визуализатор: панель показателей и следы, объекты мельче пикселя не видно"
+ },
+ {
+  "unit": "optimization-vs-manufacturability",
+  "prompt": "оптимизация формы даёт горбы и зигзаги, получается некрасиво и не отштампуешь, хотя целевой показатель лучше"
+ },
+ {
+  "unit": "browser-verification",
+  "prompt": "новый слой отрисовки на канвасе ничего не отображается, тесты по статике проходят"
+ },
+ {
+  "unit": "browser-test-stand",
+  "prompt": "подними стенд для e2e на свободном порту с временной БД, креды стенда возьми из .env"
+ },
+ {
+  "unit": "auth-change-verification",
+  "prompt": "починил ссылку для агента, которая давала 403, сессия и логин вроде не трогал"
+ },
+ {
+  "unit": "complaint-history-mining",
+  "prompt": "разбери расшифровки последних сессий и найди, на что заказчик жалуется чаще всего"
+ },
+ {
+  "unit": "external-agent-data",
+  "prompt": "агент через pipeline залил статьи и вся лента падает с ResponseValidationError"
+ },
+ {
+  "unit": "api-discovery",
+  "prompt": "в документации нет нужного эндпоинта, попробую угадать адрес страницы доков по аналогии с соседним"
+ },
+ {
+  "unit": "feature-existence-check",
+  "prompt": "фича экспорта не работает у пользователя, давай починим конфиг; и переиспользуем существующий механизм уведомлений"
+ },
+ {
+  "unit": "agent-interaction",
+  "prompt": "перед каждой платной генерацией нужно согласовать с заказчиком, там 20 контрольных точек, сколько будет стоить"
+ },
+ {
+  "unit": "workspace-visual-isolation",
+  "files": [
+   ".vscode/settings.json"
+  ],
+  "prompt": "настрой peacock цвет окна для проекта"
+ },
+ {
+  "unit": "agent-oneoff-script",
+  "command": "python3 scripts/import.py --user admin --password s3cretPass http://localhost:4240/api/upload"
+ },
+ {
+  "unit": "video-ffmpeg-pitfalls",
+  "command": "ffmpeg -i a.mp4 -i b.mp4 -filter_complex \"[0:v][1:v]xfade=transition=fade:duration=0.3:offset=4[v]\" out.mp4"
+ },
+ {
+  "unit": "video-ffmpeg-pitfalls",
+  "prompt": "ffmpeg падает: First input link main timebase (1/1000000) do not match the corresponding second input link xfade timebase (1/30)"
+ },
+ {
+  "unit": "video-extra-hands-faces",
+  "prompt": "в сгенерированном клипе третья рука и лишнее лицо, перегенерировать или можно кропом?"
+ },
+ {
+  "unit": "video-format-pilot-and-hook",
+  "prompt": "запускаем новый формат роликов, новая рубрика, сделаем сразу партию из 10 штук, первый кадр красивый объект с датой"
+ },
+ {
+  "unit": "video-text-overlays-and-platforms",
+  "prompt": "добавь текст в кадре с адресом сайта и CTA поверх картинки, это для рекламы с продвижением"
+ },
+ {
+  "unit": "paid-api-file-integrity",
+  "prompt": "сборка упала с Invalid data found when processing input на скачанном видео от API, пакет рапортовал провалов: 0"
+ },
+ {
+  "unit": "video-anchor-chain-morph",
+  "prompt": "делаем морф до/после между клипами, стартовый референс возьму из фото"
+ },
+ {
+  "unit": "video-morph-and-motion",
+  "prompt": "i2v на очень медленный наезд вернул неподвижный кадр, и на большом перепаде силуэта морф перекрасил объект вместо смены формы"
+ },
+ {
+  "unit": "video-asset-library-curation",
+  "prompt": "сборка ролика упала, файла трека нет в папке музыки, заказчик его удалил из библиотеки"
+ },
+ {
+  "unit": "video-cost-accounting",
+  "prompt": "посчитай себестоимость ролика: кредиты и время генераций, сколько стоил выпуск"
+ },
+ {
+  "unit": "video-element-consistency",
+  "prompt": "нужна консистентность между клипами серии: одни и те же локации и палитра, модель варьирует исполнение"
+ },
+ {
+  "unit": "video-ai-audio-asset",
+  "prompt": "родной звук клипа тихий, наложу библиотечный щелчок поверх, или собрать с -an и подложить музыку"
+ },
+ {
+  "unit": "video-product-anchor",
+  "prompt": "у клиента каталог студийных рендеров товара, хотим вертикальный товарный ролик 9:16"
+ },
+ {
+  "unit": "param-descriptions-rot",
+  "prompt": "поменял модель и нормировку, описания параметров и tooltip в интерфейсе, наверное, устарели"
+ },
+ {
+  "unit": "kie-ai",
+  "prompt": "интегрируем kie.ai createTask и recordInfo для генерации изображений",
+  "stack": [
+   "python"
+  ]
+ },
+ {
+  "unit": "python-pymunk-2d",
+  "prompt": "цепь из звеньев на pivot в pymunk складывается вбок от плавучести, и collision между звеньями рвёт цепь"
+ },
+ {
+  "unit": "autofix-hook-import-order",
+  "prompt": "после моих правок хук ruff --fix что-то поменял, и приложение падает с NameError: name 'api_projects' is not defined, хотя я добавлял импорт"
+ },
+ {
+  "unit": "fastapi-route-factory-annotations",
+  "prompt": "пишу фабрику однотипных CRUD-роутов FastAPI, модель тела передаю параметром, но pydantic-валидация тела не срабатывает при from __future__ import annotations",
+  "stack": [
+   "fastapi"
+  ]
+ },
+ {
+  "unit": "architecture-mvc",
+  "prompt": "начинаем новый проект — магазин на fastapi: набросай структуру, куда положить контроллеры и роуты",
+  "expect": "controllers|экшен|docstring"
+ },
+ {
+  "unit": "architecture-mvc",
+  "prompt": "добавь эндпоинт GET /order/history в контроллер заказов и не забудь комментарий с роутом",
+  "expect": "async|docstring|history"
+ },
+ {
+  "unit": "cdn-widget-style-isolation",
+  "prompt": "подключил EasyMDE с cdn, а мои стили тёмной темы не применяются и кнопка таблицы в toolbar растянулась",
+  "expect": "контейнер|префикс"
+ },
+ {
+  "unit": "browser-check-raw-cdp",
+  "prompt": "нужен живой прогон в headless chrome через devtools, playwright не установлен, Runtime.evaluate возвращает пустой объект",
+  "expect": "!!|стенд"
+ },
+ {
+  "unit": "architecture-question-restate-purpose",
+  "prompt": "владелец ответил ты не понял, когда я спросил где хранить протоколы: в базе или файлами",
+  "expect": "словами владельца|назначени"
+ },
+ {
+  "unit": "pydantic-patch-nested-exclude-unset",
+  "prompt": "после PATCH во вложенном объекте пропали ключи, model_dump exclude_unset пишет null вместо значений по умолчанию",
+  "expect": "model_fields_set"
+ },
+ {
+  "unit": "agent-docs-route-guard",
+  "prompt": "переношу протокол для агента со старыми эндпоинтами из v1, как проверить что все curl в AGENTS.md живые",
+  "expect": "роутер|маршрут"
+ },
+ {
+  "unit": "port-search-all-sources",
+  "prompt": "вытащи протоколы из прошлого проекта и загрузи в этот, там точно были протоколы по видео",
+  "expect": "соседн|всем"
+ },
+ {
+  "unit": "regex-codemod-spans-functions",
+  "command": "sed -i '' 's/Depends(require_admin)/Depends(_confirmed())/g' app/web/admin.py",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ]
+ },
+ {
+  "unit": "vendor-console-guide",
+  "prompt": "там где ввод S3 должна быть подробная инструкция со ссылками где брать эти ключи",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ],
+  "expect": "ссыл|провер"
+ },
+ {
+  "unit": "vendor-console-guide",
+  "command": "curl -s -L https://developers.cloudflare.com/r2/api/tokens/index.md | head",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ]
+ },
+ {
+  "unit": "mongo-naive-datetime-local-skew",
+  "prompt": "в админке дата уехала на несколько часов, astimezone вроде стоит",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ],
+  "expect": "UTC|tzinfo"
+ },
+ {
+  "unit": "autofix-hook-import-order",
+  "command": ".venv/bin/ruff check app/services/storage.py",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ]
+ },
+ {
+  "unit": "agent-shell-state",
+  "command": "for path in /admin/a /admin/b; do curl -s \"https://example.com$path\"; done",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ]
+ },
+ {
+  "unit": "stale-server-process",
+  "command": "pkill -f \"python stand.py\"",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ]
+ },
+ {
+  "unit": "token-guarded-endpoints",
+  "command": "grep -oE 'https?://[^ ]+' monitoring | while read u; do curl -s -o /dev/null -w '%{http_code}' \"$u\"; done",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ]
+ },
+ {
+  "unit": "admin-links-to-app",
+  "prompt": "надо в админке добавить ссылку на app",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ],
+  "expect": "приложен|ссылк"
+ },
+ {
+  "unit": "admin-links-to-app",
+  "prompt": "сделай админку для нового проекта: пользователи и настройки",
+  "stack": [
+   "python",
+   "fastapi"
+  ]
+ },
+ {
+  "unit": "credentials-stay-with-owner",
+  "prompt": "и настрой хранилище из прошлого проекта (там уже есть настройки s3)",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ],
+  "expect": "форм|владел"
+ },
+ {
+  "unit": "agent-shell-state",
+  "command": "for route in /login /admin/login?key=x; do curl -s \"$B$route\"; done",
+  "stack": [
+   "python",
+   "fastapi",
+   "kie-ai",
+   "ffmpeg",
+   "docker",
+   "web-ui",
+   "llm"
+  ]
+ },
+ {
+  "unit": "mongo-ms-sort-tiebreak",
+  "prompt": "тест иногда падает: самый свежий проект по sort created_at выбирается не тот",
+  "stack": [
+   "python",
+   "fastapi"
+  ]
+ },
+ {
+  "unit": "fetch-login-redirect-cookie",
+  "prompt": "инструмент кадров логинится формой через fetch, вход вроде прошёл, но на скриншотах опять экран входа — cookie теряется после 303",
+  "stack": [
+   "web-ui"
+  ]
+ },
+ {
+  "unit": "review-loop-owner-decisions",
+  "prompt": "субагент ревью третий круг подряд ставит 7/10 и одно и то же замечание, хотя владелец это решение уже принял",
+  "stack": [
+   "llm"
+  ]
+ },
+ {
+  "unit": "review-budget-below-fold",
+  "prompt": "урезанное ревью по report.txt без кадров говорит, что формы смены пароля нет, а она есть ниже сгиба",
+  "stack": [
+   "web-ui"
+  ]
+ },
+ {
+  "unit": "settings-doc-new-field-defaults",
+  "prompt": "добавил новое поле discount в умолчания настроек, а в базе скидки везде 0 — старый документ перекрывает",
+  "stack": [
+   "python"
+  ]
+ },
+ {
+  "unit": "headless-chrome-accept-language",
+  "prompt": "кадры стенда снимаются по-русски, хотя запускаю headless Chrome с --lang=en-US и проверяю английский интерфейс",
+  "stack": [
+   "web-ui"
+  ]
+ },
+ {
+  "unit": "review-stand-state-drift",
+  "prompt": "после круга ревью субагентом look.js отдаёт пустой отчёт без шагов, вход на стенд по auth.json даёт 401",
+  "stack": [
+   "web-ui"
+  ]
+ },
+ {
+  "unit": "subagent-model-fallback",
+  "prompt": "субагент ревью упал с 429 session limit, потом ENOTFOUND — как не терять круг",
+  "stack": [
+   "llm"
+  ]
+ },
+ {
+  "unit": "css-sibling-margin-in-grid",
+  "prompt": "в новой сетке card-grid второй элемент каждого ряда ниже первого на 16 px, карточки ступенькой",
+  "stack": [
+   "web-ui"
+  ]
+ },
+ {
+  "unit": "design-mock-single-storyline",
+  "prompt": "собери макеты дизайна кабинета с заполненными демо-данными, ревью потом посмотрит экраны",
+  "expect": "сюжетн|одна истори|противореч"
+ },
+ {
+  "unit": "fstring-html-fragments",
+  "prompt": "генерирую html f-строками, вложенные f-строки с экранированными кавычками, SyntaxError unexpected character after line continuation character",
+  "expect": "переменн|backslash|\\\\\""
+ },
+ {
+  "unit": "jinja-dict-key-named-items",
+  "prompt": "в шаблоне jinja вместо списка показывает <built-in method items of dict object>, словарь с ключом items",
+  "expect": "\\['items'\\]|переимен"
+ },
+ {
+  "unit": "figure-default-margin-in-tiles",
+  "prompt": "миниатюры в сетке карточек крошечные, figure с классом tile рисуется уже колонки",
+  "expect": "margin|отступ"
+ },
+ {
+  "unit": "i18n-counts-label-first",
+  "prompt": "в подписи получилось «1 things need you», нужен plural, множественное число в locales на 9 языков",
+  "expect": "метк|после|Label"
+ },
+ {
+  "unit": "redesign-grep-tests-for-markup",
+  "prompt": "после редизайна страницы упал тест, который ищет stat-value в разметке дешборда",
+  "expect": "grep|видим|текст"
+ },
+ {
+  "unit": "entry-page-not-dashboard",
+  "prompt": "добавил блок на дешборд, но вход после логина ведёт в обзор проекта и ревьюер блок не нашёл — стартовый экран /",
+  "expect": "include|/ после входа|куда ведёт"
+ },
+ {
+  "unit": "review-stand-db-timeout",
+  "prompt": "стенд завис, ревьюер получил 500 на главной, в журнале ServerSelectionTimeoutError Docker Desktop",
+  "expect": "журнал|таймаут|повтори"
+ },
+ {
+  "unit": "rewrite-port-old-screen-first",
+  "prompt": "переписываем кабинет с нуля, донор — репозиторий первой версии; нужна раскладка страницы песни, сделай как в первой версии",
+  "expect": "старой версии|переносим как было"
+ },
+ {
+  "unit": "log-params-user-visible",
+  "prompt": "журнал генераций показывает params через tojson, положу туда коэффициент наценки для списания",
+  "expect": "отдельным полем|леджер|показ"
+ },
+ {
+  "unit": "agent-instruction-code-must-run",
+  "prompt": "клиент на urllib из протокола для агента падает CERTIFICATE_VERIFY_FAILED на python.org",
+  "expect": "сертификат|исполняй|URLError"
+ },
+ {
+  "unit": "song-lyrics-content-check",
+  "prompt": "тексты прошлых 2х песен не проходят копирайты. Сделай уникальные тексты песен на базе оригиналов",
+  "expect": "размере|цепочки|новые слова"
+ },
+ {
+  "unit": "rule-change-stale-wording",
+  "prompt": "длина кавера теперь не как у исходника — поправь протокол, документацию и подсказки интерфейса",
+  "expect": "grep|формулировк|хардкод"
+ },
+ {
+  "unit": "ssr-to-spa-same-context",
+  "prompt": "каждая кнопка перезагружает страницу и песня обрывается, переведи кабинет на Vue без перезагрузок",
+  "expect": "контекст|JSON-ом|next"
+ },
+ {
+  "unit": "test-number-substring-flaky",
+  "prompt": "тест падает через раз: assert \"1.3\" not in response.text, а код не менялся",
+  "expect": "ключу|разделител|время"
+ },
+ {
+  "unit": "public-api-cache-hides-fresh-edits",
+  "prompt": "поменял порядок треков в кабинете, а на публичной странице сайта всё ещё старый порядок",
+  "expect": "Cache-Control|no-cache|кэш"
+ },
+ {
+  "unit": "error-code-text-names-a-place",
+  "prompt": "новая генерация картинок бросает те же коды ошибок, что и музыка — текст ошибки говорит про вкладку Текст",
+  "expect": "свой код|текст ошибки|другой экран"
+ },
+ {
+  "unit": "new-action-in-nowrap-row",
+  "prompt": "добавил ещё одну иконку действия в строку версии, строка nowrap — иконка вылезла за карточку",
+  "expect": "кадр|28 px|перенос"
+ },
+ {
+  "unit": "refusal-bound-to-sender",
+  "prompt": "после неудачного рисования окно «по ссылке» открывается с чужой ошибкой, отказ сервера ?err показан не там, диалог закрылся",
+  "expect": "sent|действ|отложенн"
+ },
+ {
+  "unit": "spa-keyed-page-loses-input",
+  "prompt": "на странице списка с первым элементом по умолчанию после формы текст стёрся и страница прыгнула наверх, компонент :key по пути, редирект после формы",
+  "expect": "back|тот же путь|пересозда"
+ },
+ {
+  "unit": "empty-field-default-not-refusal",
+  "prompt": "у нового персонажа без описания кнопка молчит, обязательное поле пустой промт даёт отказ «сначала опишите», новичок",
+  "expect": "пустому значению|смысл|не обязательн"
+ },
+ {
+  "unit": "codemod-after-formatter-hook",
+  "prompt": "скрипт замен упал: assert old in s, якорь не найден после ruff format, хук после правки переписал строки",
+  "expect": "перечитай|целиком|идемпотент"
+ },
+ {
+  "unit": "replay-review-scenario",
+  "prompt": "круг ревью исчерпан, в отчёте «подтвердить руками», хочу повторить замечание ревьюера сценарием look.js run из report.json",
+  "expect": "сценари|повтор|до починки"
+ },
+ {
+  "unit": "paid-flow-generic-before-second-consumer",
+  "prompt": "фото персонажа — второй потребитель генерации картинок после обложки: удержание, задача, опрос, хранилище, HANDLERS",
+  "expect": "общий модуль|цел|второй потребитель"
+ },
+ {
+  "unit": "sticky-action-when-results-first",
+  "prompt": "на телефоне результаты выше формы (order: -1), кнопка «нарисовать» уезжает под прокрутку — липкая кнопка над галереей?",
+  "expect": "плашк|прокрут|IntersectionObserver|за экраном"
+ },
+ {
+  "unit": "shell-form-reset-clears-vmodel",
+  "prompt": "после отказа диалог открылся снова, а поле ссылки пустое — v-model хранит значение, оболочка делает form.reset",
+  "expect": "input.value|руками|showModal"
+ },
+ {
+  "unit": "catalog-names-too-long-for-selects",
+  "prompt": "в закрытом select на телефоне пункт «2 — 20.8 tokens» обрезан, имя модели из каталога не влезает",
+  "expect": "коротк|подпис|только число"
+ },
+ {
+  "unit": "workspace-opens-last-touched",
+  "prompt": "список + панель: какую запись открыть по умолчанию — сейчас rows[0], самая новая, а человек ждёт последнюю, над которой работал",
+  "expect": "активност|updated_at|последн"
+ },
+ {
+  "unit": "idempotent-add-with-visible-state",
+  "prompt": "кнопка «добавить образец» на телефоне без отклика, повторное нажатие делает дубли, окно выбора закрывается после каждого",
+  "expect": "идемпотент|галочк|не закрыва"
+ },
+ {
+  "unit": "replace-copies-before-adding-helper",
+  "prompt": "codemod: заменить 5 копий выражения на хелпер, проверка count == 5 падает — тело помощника содержит то же выражение",
+  "expect": "сначала замени|потом вставляй|исключи"
+ },
+ {
+  "unit": "actions-sheet-not-popover-in-clipped-tile",
+  "prompt": "меню «⋯» внутри карточки обрезается: у плитки overflow: hidden, details summary с position absolute",
+  "expect": "окн|dialog|обреж"
+ },
+ {
+  "unit": "vue-range-value-forced-patch",
+  "prompt": "ползунок input type=range дёргается при перетаскивании, :value от настроек, @input пишет в sliderNow",
+  "expect": ":value|@input|то же состояние"
+ },
+ {
+  "unit": "stable-list-mark-changes",
+  "prompt": "список песен прыгает: sort по updated_at поднимает песню наверх при правке, путаюсь где какая",
+  "expect": "дате создания|метк|подсвет"
+ },
+ {
+  "unit": "term-collision-across-locales",
+  "prompt": "новый термин кавер в музыке, а у альбома обложка — в английском словаре оба cover, одно слово два смысла",
+  "expect": "разведи|словар|cover art"
+ },
+ {
+  "unit": "migration-count-before-asking",
+  "prompt": "перенеси данные стратегии и контент-плана с первой версии проекта, бэкап базы в планировщике",
+  "expect": "запрос|числа|какого проекта"
+ },
+ {
+  "unit": "migration-verify-in-memory",
+  "prompt": "написал скрипт импорта из старой версии с пересчётом ссылок и отметкой v1_id, как проверить миграцию до сервера",
+  "expect": "дважды|памяти|ссылк"
+ },
+ {
+  "unit": "review-stand-synthetic-export",
+  "prompt": "нужны данные на стенде ревью для страниц после переноса, боевые показывать субагенту нельзя, демо-данные не заполняют новые поля",
+  "expect": "вымышлен|импорт|выгрузк"
+ },
+ {
+  "unit": "review-brief-no-secret-files",
+  "prompt": "составляю бриф субагенту-ревьюеру стенда: инструмент входит по auth.json через флаг --auth, кадры в папку",
+  "expect": "не открыва|не чита|не печата|относительн"
+ },
+ {
+  "unit": "dialog-text-survives-close",
+  "prompt": "в окне записи есть textarea сценария и кнопка Сохранить, по Esc и Отмена окно закрывается — как не терять набранное",
+  "expect": "cancel|одн[ау] функци|черновик|Esc"
+ },
+ {
+  "unit": "measure-only-when-visible",
+  "prompt": "textarea с авторостом по scrollHeight в скрытой вкладке v-show схлопнулась до 2px",
+  "expect": "offsetParent|вид|nextTick"
+ },
+ {
+  "unit": "judge-requirements-per-lane",
+  "prompt": "в цикле с судьёй рэп получил 5 из 10 за структуру: куплеты по 16 тактов, а требования судье говорят куплет не больше 8 строк; автопроверка нашла совпадение с эталоном по тегам секций",
+  "expect": "каждой линии|без тегов|из промта"
+ },
+ {
+  "unit": "clean-context-run-fallback",
+  "prompt": "нужно прогнать промт в чистом контексте через claude -p, а с --bare приходит Not logged in",
+  "expect": "setting-sources"
+ },
+ {
+  "unit": "research-agents-share-ip-quota",
+  "prompt": "запусти четырёх исследователей по темам, пусть читают reddit через rss — у всех пошли 429",
+  "expect": "один читатель|один исполнитель|небраузерн"
+ },
+ {
+  "unit": "list-action-returns-to-card",
+  "prompt": "после создания категории в админке страница перезагружается и открывается сверху, а форма создания стоит в самом низу — ревью говорит, что человек не видит, что сработало",
+  "expect": "якор|заголовк"
+ },
+ {
+  "unit": "details-element-flex-slot",
+  "prompt": "раскрывающаяся форма на details с summary: поставил display flex на details, и тело формы встало рядом с кнопкой, а не под ней",
+  "expect": "слот|text-align|flex-basis"
+ },
+ {
+  "unit": "long-work-progress-statuses",
+  "prompt": "фоновые прогоны идут по часу, владелец пишет: надо чтоб я видел процесс, так не подходит что тупо ожидание без статусов",
+  "expect": "статус|наблюдател"
+ },
+ {
+  "unit": "vue-local-state-shadows-global-helper",
+  "prompt": "страница ролика на Vue рендерится пустой, тесты зелёные, в консоли duration is not a function",
+  "expect": "глобальн|помощник|форматтер"
+ },
+ {
+  "unit": "shell-submit-skips-prevented",
+  "prompt": "форма поиска с @submit.prevent всё равно уходит POST-ом на адрес страницы, диалог закрылся сам",
+  "expect": "defaultPrevented"
+ },
+ {
+  "unit": "page-context-carries-refusal",
+  "prompt": "сервер редиректит на страницу с ?err=, но отказ не виден, новая страница молчит",
+  "expect": "контекст|err"
+ },
+ {
+  "unit": "provider-result-by-media-type",
+  "prompt": "видеозадача у поставщика success, а parse_task отдаёт пустой результат, mp4 из resultUrls не попадает",
+  "expect": "тип|носител|videos"
+ },
+ {
+  "unit": "catalog-model-without-params-not-offered",
+  "prompt": "у модели каталога params пусто, форма заказа клипа показывает пустую цену и нет длительностей",
+  "expect": "параметр|схем"
+ },
+ {
+  "unit": "headless-touch-hangs-after-modal",
+  "prompt": "look.js на телефоне: после касания, открывшего модальное окно, следующий dispatchTouchEvent висит 20 секунд, ревьюер пишет телефон завис",
+  "expect": "мыш|dispatchMouseEvent"
+ },
+ {
+  "unit": "review-brief-lists-stand-refusals",
+  "prompt": "ревьюер поставил ложный блокер: загрузка файла на стенде отвечает отказом, но на стенде нет хранилища — как писать бриф ревьюера",
+  "expect": "бриф|отказ"
+ },
+ {
+  "unit": "stand-restart-rotates-keys",
+  "prompt": "после перезапуска стенда --keep-data кадры админки показывают экран входа, ключ админки старый",
+  "expect": "свеж|вывод"
+ },
+ {
+  "unit": "payment-sandbox-means-test-key",
+  "prompt": "надо убрать Sandbox при оплате на сайте — на странице оплаты показывает тестовый режим",
+  "expect": "ключ|sk_test|окружен"
+ },
+ {
+  "unit": "escape-default-stops-media",
+  "prompt": "в лайтбоксе на лендинге второй ролик демо не играет — стоит на 0:00 после закрытия первого по Escape",
+  "expect": "preventDefault|остановить загрузку"
+ },
+ {
+  "unit": "stand-copy-restart-before-record",
+  "prompt": "поправил сценарий демо в static, записал заново — в записи старая подпись, стенд отдаёт старый файл",
+  "expect": "перезапус|curl"
+ },
+ {
+  "unit": "label-claims-need-arithmetic",
+  "prompt": "ставим метку Most popular на тариф Creator рядом с пакетами токенов — выгоднее ли тариф?",
+  "expect": "за единиц|посчита|арифмет"
+ },
+ {
+  "unit": "cta-same-promise-same-target",
+  "prompt": "кнопка Start with a pack в карточке ведёт на регистрацию, а выбор пакета теряется — пустой дешборд",
+  "expect": "grep|тот же адрес|параметр"
+ },
+ {
+  "unit": "empty-state-icon-direct-child",
+  "prompt": "кнопки на пустом экране раздуты — иконка 48px, правило .empty i",
+  "expect": "прямой потомок|>"
+ },
+ {
+  "unit": "bisect-by-patched-page-copies",
+  "prompt": "странность в headless Chrome не воспроизводится правками — как найти причину быстро",
+  "expect": "копи|бисек"
+ },
+ {
+  "unit": "zsh-var-command-no-split",
+  "prompt": "LOOK=\"node look.js\"; $LOOK run сценарий — command not found, 0 кадров",
+  "expect": "целиком|массив|zsh"
+ },
+ {
+  "unit": "replay-review-scenario",
+  "prompt": "ревьюер второй круг подряд пишет, что демо замирают, хотя я чинил по гипотезе и не воспроизводится",
+  "expect": "сценари|шаг|инструмент"
+ },
+ {
+  "unit": "masonry-columns-via-slot",
+  "prompt": "на дешборде между карточками слева дыры по 100 px, блоки выровнены по строкам правой колонки",
+  "expect": "слот|контейнер|независим"
+ },
+ {
+  "unit": "no-plan-states-at-every-money-entry",
+  "prompt": "сделали подписку обязательной, но кнопка Top up и Buy tokens ведут в закрытые пакеты, дешборд пишет Nothing needs you",
+  "expect": "вход|одно действие|контекст"
+ },
+ {
+  "tier": "complex",
+  "prompt": "Сложная: переделать личный кабинет под новый дизайн"
+ },
+ {
+  "tier": "simple",
+  "prompt": "[простая] поправь отступ у кнопки"
+ },
+ {
+  "tier": "medium",
+  "prompt": "задача средней сложности — добавить фильтр по дате в список заказов"
+ },
+ {
+  "tier": null,
+  "prompt": "сделай простую форму обратной связи на главной"
+ },
+ {
+  "tier": "complex",
+  "prompt": "это сложная задача: нужно перенести оплату на новый шлюз"
+ },
+ {
+  "tier": "simple",
+  "prompt": "простая задача, замени текст кнопки на «Сохранить»"
+ },
+ {
+  "tier": null,
+  "prompt": "добавь экспорт в CSV для таблицы клиентов"
+ },
+ {
+  "tier": "medium",
+  "prompt": "сложность: средняя. Нужен фильтр по тегам"
+ },
+ {
+  "tier": "medium",
+  "prompt": "medium: add pagination to the orders list"
+ },
+ {
+  "tier": null,
+  "prompt": "Проверь, почему сложная формула в отчёте считает неверно"
+ },
+ {
+  "tier": null,
+  "prompt": "простой задачи тут нет, задача сложная — переписать модуль оплаты"
+ },
+ {
+  "tier": "complex",
+  "prompt": "#сложная переработать меню на телефоне"
+ },
+ {
+  "tier": null,
+  "prompt": "Сложная формула в отчёте считает неверно, разберись"
+ },
+ {
+  "tier": null,
+  "prompt": "Simple question: how does the hook pick lessons?"
+ },
+ {
+  "tier": null,
+  "prompt": "Средняя кнопка в шапке не кликается, почини"
+ },
+ {
+  "tier": null,
+  "prompt": "сложные задачи у нас обычно долгие; сделай экспорт"
+ },
+ {
+  "tier": "complex",
+  "prompt": "Сложная\nпеределать меню на телефоне"
+ },
+ {
+  "tier": "simple",
+  "prompt": "простая — поправь отступ"
+ },
+ {
+  "resolve": {
+   "tier": "simple",
+   "source": "default",
+   "line": "простая \\(по умолчанию.*Перепроверь.*кнопками"
+  },
+  "prompt": "добавь экспорт в CSV для таблицы клиентов"
+ },
+ {
+  "resolve": {
+   "tier": "simple",
+   "source": "default",
+   "line": "по умолчанию"
+  },
+  "saved": {
+   "tier": "simple",
+   "source": "default"
+  },
+  "prompt": "и ещё поправь заголовок колонки на русский язык"
+ },
+ {
+  "resolve": {
+   "tier": null,
+   "source": null,
+   "line": "сложная \\(задан ранее.*по умолчанию простая.*Перепроверь"
+  },
+  "saved": {
+   "tier": "complex",
+   "source": "prompt"
+  },
+  "prompt": "добавь экспорт в CSV для таблицы клиентов"
+ },
+ {
+  "resolve": {
+   "tier": null,
+   "source": null,
+   "line": "средняя \\(задан ранее"
+  },
+  "saved": {
+   "tier": "medium",
+   "source": "buttons"
+  },
+  "prompt": "сделай страницу оплаты с новым дизайном"
+ },
+ {
+  "resolve": {
+   "tier": "medium",
+   "source": "prompt",
+   "line": "средняя \\(назван в промте"
+  },
+  "saved": {
+   "tier": "complex",
+   "source": "buttons"
+  },
+  "prompt": "[средняя] добавь экспорт в CSV для таблицы клиентов"
+ },
+ {
+  "resolve": {
+   "tier": null,
+   "source": null,
+   "line": "^$"
+  },
+  "prompt": "почему хук не подмешивает уроки по команде?"
+ },
+ {
+  "resolve": {
+   "tier": null,
+   "source": null,
+   "line": "^$"
+  },
+  "prompt": "ок, спасибо"
+ },
+ {
+  "unit": "hook-ask-user-question-answers",
+  "prompt": "напиши хук PostToolUse на AskUserQuestion, который записывает ответ владельца кнопками в файл",
+  "expect": "стенограмм|answers|tool_response"
+ },
+ {
+  "unit": "css-grid-max-content-overflow",
+  "prompt": "полоса гарантий со значками сверстана grid-template-columns: repeat(4, max-content), на ноутбуке строка обрезана и страница прокручивается вбок",
+  "expect": "auto-fit|minmax|max-content"
+ },
+ {
+  "unit": "css-media-before-base-rule",
+  "prompt": "на телефоне страница тарифа шире экрана: карточка .package с flex-wrap в @media, список уехал во вторую колонку вправо",
+  "expect": "медиа-блок|после базовых|свой класс"
+ },
+ {
+  "unit": "review-frames-both-viewports",
+  "prompt": "снял кадры look.js shot --both перед кругом ревью, посмотрел только компьютер, телефон не смотрел",
+  "expect": "оба|телефонный кадр"
+ },
+ {
+  "unit": "proposal-numbers-explicit",
+  "prompt": "владелец принял предложение по тарифам с лимитом 100 мест, а потом сказал, что мест должно быть 5; вопрос про места он не понял",
+  "expect": "отдельным пунктом|своими словами"
+ },
+ {
+  "unit": "link-looks-like-link",
+  "prompt": "ревью: ссылку на стену в карточке не нашли, она внутри жирного текста преимущества, в меню пункта нет",
+  "expect": "цветом ссылки|пунктом в меню"
+ },
+ {
+  "unit": "css-root-class-collision",
+  "prompt": "сделал новый компонент вкладки, дал корневой класс brief, а на компьютере вкладка разъехалась колонками",
+  "expect": "grep|префикс"
+ },
+ {
+  "unit": "stale-poll-rollback",
+  "prompt": "на странице опрос refresh каждые 5 секунд, удалил вопрос — а он вернулся, второе удаление дало 404",
+  "expect": "updated_at|старше"
+ },
+ {
+  "unit": "judge-rules-interact",
+  "prompt": "вписал правила судьи в протокол после круга с судьёй, а во втором круге регрессия — старые ответы стали пустыми",
+  "expect": "сверь|модели данных"
+ },
+ {
+  "unit": "settings-save-model",
+  "prompt": "добавил настройку в форму настроек с кнопкой Save, а ревьюер ушёл со страницы и выбор не сохранился",
+  "expect": "сразу по выбору|Saved"
+ }
 ]
