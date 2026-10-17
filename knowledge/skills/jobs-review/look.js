@@ -16,6 +16,7 @@
 //   {"shot":"имя","frames":1}   {"click":"text=Сохранить" | "#id"}   {"type":"#поле","text":"…","clear":true}
 //   {"press":"Enter" | "End" | "Meta+ArrowRight"}   {"select":"text=кусок текста"}   {"go":"/другая.html"}
 //   {"wait":"text=Готово" | "#id" | 1500,"timeout":5000}   {"scroll":600,"in":"#список"}
+//   {"file":"input[type=file]","path":"/абсолютный/путь/фото.png","nth":0} — выбрать файл в поле загрузки (CSS-селектор)
 // Итог — кадры PNG и report.txt в папке --out: шаги, что можно нажать на экране, ошибки страницы,
 // упавшие запросы, тексты диалогов. Шаг не удался — кадр «fail» и переход к следующему размеру экрана.
 const { spawn } = require("child_process");
@@ -451,6 +452,19 @@ async function main() {
         await sleep(300);
         await settle(6000);
         return { ok: true, info: [`нажата ${s.press}`] };
+      }
+      if (s.file) {
+        // Как человек, выбравший файл в окне: поле получает файл, страница — событие change
+        const { root } = await cdp.send("DOM.getDocument", { depth: -1, pierce: true });
+        const { nodeIds } = await cdp.send("DOM.querySelectorAll", { nodeId: root.nodeId, selector: String(s.file) });
+        const nodeId = (nodeIds || [])[+(s.nth || 0)];
+        if (!nodeId) return { ok: false, info: [`нет поля файла: ${s.file}`] };
+        const file = path.resolve(String(s.path || ""));
+        if (!fs.existsSync(file)) return { ok: false, info: [`нет файла: ${file}`] };
+        await cdp.send("DOM.setFileInputFiles", { files: [file], nodeId });
+        await sleep(300);
+        await settle(10000);
+        return { ok: true, info: [`выбран файл ${path.basename(file)} в ${s.file}${(nodeIds || []).length > 1 ? `, таких полей ${(nodeIds || []).length}` : ""}`] };
       }
       if (s.wait !== undefined) {
         if (typeof s.wait === "number") { await sleep(s.wait); return { ok: true, info: [`пауза ${s.wait} мс`] }; }

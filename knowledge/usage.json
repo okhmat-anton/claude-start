@@ -9,7 +9,8 @@
   "shown": 2
  },
  "admin-links-to-app": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
    "claude-start": 0,
@@ -62,8 +63,8 @@
   "shown": 70
  },
  "agent-shell-state": {
-  "applied": 4,
-  "last_applied": "2026-10-12",
+  "applied": 5,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
    "3d-printer": 0,
@@ -154,8 +155,8 @@
   "shown": 4
  },
  "browser-verification": {
-  "applied": 9,
-  "last_applied": "2026-10-12",
+  "applied": 10,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
@@ -240,6 +241,12 @@
    "scratchpad": 0
   },
   "shown": 1
+ },
+ "css-root-class-collision": {
+  "applied": 1,
+  "last_applied": "2026-10-17",
+  "projects": {},
+  "shown": 0
  },
  "cta-same-promise-same-target": {
   "applied": 1,
@@ -354,8 +361,8 @@
   "shown": 4
  },
  "feature-existence-check": {
-  "applied": 1,
-  "last_applied": "2026-10-09",
+  "applied": 2,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
    "pet-replicas": 0,
@@ -843,8 +850,8 @@
   "shown": 0
  },
  "review-budget-below-fold": {
-  "applied": 7,
-  "last_applied": "2026-10-16",
+  "applied": 8,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
@@ -855,9 +862,11 @@
   "shown": 17
  },
  "review-frames-both-viewports": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-15",
   "projects": {
+   "akm-news": 1,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 0
@@ -875,8 +884,8 @@
   "shown": 5
  },
  "review-stand-db-timeout": {
-  "applied": 7,
-  "last_applied": "2026-10-16",
+  "applied": 8,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
    "planning": 0,
@@ -919,10 +928,11 @@
   "shown": 2
  },
  "rule-change-stale-wording": {
-  "applied": 5,
-  "last_applied": "2026-10-16",
+  "applied": 7,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
+   "akm-news": 1,
    "pb": 0,
    "video-blade-2": 5,
    "video-blade-test": 0
@@ -948,6 +958,12 @@
    "video-blade-2": 0
   },
   "shown": 5
+ },
+ "settings-save-model": {
+  "applied": 1,
+  "last_applied": "2026-10-17",
+  "projects": {},
+  "shown": 0
  },
  "simulation-plausibility": {
   "applied": 0,
@@ -994,7 +1010,8 @@
   "shown": 1
  },
  "stale-server-process": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-17",
   "last_shown": "2026-10-16",
   "projects": {
    "akm-news": 0,
