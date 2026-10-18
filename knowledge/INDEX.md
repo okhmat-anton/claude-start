@@ -111,7 +111,7 @@
 - [lessons/mvp-discipline.md] — MVP-дисциплина — ядро прежде обвязки, этапы со списком «чего сознательно НЕТ», лёгкая инфраструктура на ноль пользователей, критерий «автор сам пользуется» (any; from jym-bro-2, 3d-printer, 3d-printer-one)
 - [lessons/new-action-in-nowrap-row.md] [candidate] — Новая кнопка в строке без переноса вылезает за карточку — кадр на узкой ширине (web-ui; from video-blade-2)
 - [lessons/nginx-stale-upstream-after-recreate.md] [candidate] — nginx в compose держит старый адрес пересозданного контейнера — 502 при живом приложении; nginx -s reload или resolver (docker; from planning)
-- [lessons/no-build-in-live-dev-dir.md] [candidate] — Проверочная сборка в папке работающего dev-сервера перезаписывает его служебный каталог — стенд отдаёт 500 на всё (nuxt; from akm-news)
+- [lessons/no-build-in-live-dev-dir.md] — Пока по стенду идёт ревью — стенд не пересобирать и не перезапускать, правки ждут конца круга; сборка в папке живого dev-сервера даёт 500 на всё (any; from akm-news)
 - [lessons/no-plan-states-at-every-money-entry.md] [candidate] — Закрыл возможность условием (тариф, роль, лимит) — пройди все входы, которые её обещают, и поставь одно действие-выход; «есть ли право» — одно поле контекста (any; from video-blade-2)
 - [lessons/optimization-vs-manufacturability.md] [candidate] — Оптимизатор с одним критерием лепит неизготовимую геометрию — вторая технологическая мера, доводка при допуске, гладкость как отличие от себя заглаженной (python, any; from 3d-printer)
 - [lessons/owner-task-before-plan-order.md] [candidate] — Задача из промта важнее порядка плана: план предлагает начать с другого (даже со срочного) — спросить кнопками до первой правки (any; from akm-news)
