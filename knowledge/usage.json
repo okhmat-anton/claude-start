@@ -768,6 +768,14 @@
   },
   "shown": 11
  },
+ "pdf-report": {
+  "applied": 1,
+  "last_applied": "2026-10-21",
+  "projects": {
+   "game-3": 1
+  },
+  "shown": 0
+ },
  "pixel-server-event-dedup": {
   "applied": 0,
   "last_shown": "2026-09-29",
@@ -872,6 +880,14 @@
   },
   "shown": 1
  },
+ "reddit-research": {
+  "applied": 1,
+  "last_applied": "2026-10-21",
+  "projects": {
+   "game-3": 1
+  },
+  "shown": 0
+ },
  "refusal-bound-to-sender": {
   "applied": 2,
   "last_applied": "2026-10-08",
@@ -916,6 +932,14 @@
    "video-blade-test": 0
   },
   "shown": 13
+ },
+ "research": {
+  "applied": 1,
+  "last_applied": "2026-10-21",
+  "projects": {
+   "game-3": 1
+  },
+  "shown": 0
  },
  "research-agents-share-ip-quota": {
   "applied": 0,
