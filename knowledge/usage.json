@@ -122,12 +122,13 @@
   "shown": 17
  },
  "autofix-hook-import-order": {
-  "applied": 7,
-  "last_applied": "2026-10-09",
+  "applied": 8,
+  "last_applied": "2026-10-18",
   "last_shown": "2026-10-16",
   "projects": {
    "_src": 0,
    "foreign": 0,
+   "game-3": 1,
    "judge": 0,
    "planning": 0,
    "scratchpad": 0,
@@ -392,20 +393,23 @@
   "shown": 1
  },
  "guard-hook-command-parsing": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-18",
   "last_shown": "2026-10-12",
   "projects": {
    "akm-news": 0,
+   "game-3": 1,
    "planning": 0,
    "video-blade-2": 0
   },
   "shown": 18
  },
  "guard-hook-testing": {
-  "applied": 1,
-  "last_applied": "2026-09-27",
+  "applied": 2,
+  "last_applied": "2026-10-18",
   "last_shown": "2026-10-08",
   "projects": {
+   "game-3": 1,
    "planning": 0,
    "video-blade-2": 1
   },
@@ -431,6 +435,14 @@
    "scratchpad": 0
   },
   "shown": 2
+ },
+ "health-endpoint-dependencies": {
+  "applied": 1,
+  "last_applied": "2026-10-18",
+  "projects": {
+   "game-3": 1
+  },
+  "shown": 0
  },
  "i18n-counts-label-first": {
   "applied": 1,
@@ -500,12 +512,13 @@
   "shown": 25
  },
  "lint-rules-explicit-select": {
-  "applied": 1,
-  "last_applied": "2026-10-05",
+  "applied": 2,
+  "last_applied": "2026-10-18",
   "last_shown": "2026-10-16",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
+   "game-3": 1,
    "planning": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
@@ -620,9 +633,11 @@
   "shown": 2
  },
  "mvp-discipline": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-18",
   "last_shown": "2026-09-30",
   "projects": {
+   "game-3": 1,
    "video-blade-2": 0
   },
   "shown": 1
@@ -1010,13 +1025,14 @@
   "shown": 1
  },
  "stale-server-process": {
-  "applied": 1,
-  "last_applied": "2026-10-17",
+  "applied": 2,
+  "last_applied": "2026-10-18",
   "last_shown": "2026-10-16",
   "projects": {
    "akm-news": 0,
    "divani": 0,
    "foreign": 0,
+   "game-3": 1,
    "pipeline": 0,
    "planning": 0,
    "scratchpad": 0,
@@ -1090,10 +1106,11 @@
   "shown": 3
  },
  "token-guarded-endpoints": {
-  "applied": 1,
-  "last_applied": "2026-09-26",
+  "applied": 2,
+  "last_applied": "2026-10-18",
   "last_shown": "2026-10-16",
   "projects": {
+   "game-3": 1,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 1,
