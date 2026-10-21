@@ -32,7 +32,7 @@
 
 - [improvements/new-feature-visible-before-data.md] [candidate] — Новая возможность видна до первых данных — пункт меню и вкладка не прячутся за «есть данные», пустое состояние говорит, кто и как наполнит (solution; web-ui; агент 4, владелец —; from video-blade-2)
 - [improvements/record-actions-visible-buttons.md] [candidate] — Действия у записи — видимыми кнопками столбиком, а не в меню «ещё» за тремя точками; длинное пояснение — во всплывающей подсказке (module; web-ui; агент 3, владелец —; from planning)
-- [improvements/untracked-build-artifacts.md] [candidate] — Кэш интерпретатора и служебные файлы ОС не отслеживаются git — .gitignore и снятие с учёта, иначе каждый прогон пачкает копии и клоны (module; any; агент 4, владелец —; from claude-start)
+- [improvements/untracked-build-artifacts.md] [candidate] — Кэш интерпретатора и служебные файлы ОС не отслеживаются git — .gitignore и снятие с учёта, иначе каждый прогон пачкает копии и клоны (module; any; агент 4, владелец 5; from claude-start)
 
 ## Уроки
 

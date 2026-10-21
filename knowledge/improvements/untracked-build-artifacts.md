@@ -7,7 +7,7 @@ status: candidate
 created: 2026-10-21
 seen_in: [claude-start]
 benefit: 4
-rating:
+rating: 5
 triggers:
   keywords: [__pycache__, .pyc, .DS_Store, gitignore, git status грязн, незакоммиченн]
   commands: []

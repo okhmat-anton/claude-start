@@ -136,7 +136,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 32
  },
  "blind-judge-anchors": {
   "applied": 0,
@@ -568,7 +568,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "list-action-returns-to-card": {
   "applied": 2,
@@ -1299,7 +1299,9 @@
     "date": "2026-10-21"
    }
   },
-  "scores": {}
+  "scores": {
+   "claude-start": 5.0
+  }
  },
  "vendor-console-guide": {
   "applied": 0,
