@@ -1051,5 +1051,44 @@
   "unit": "app-store",
   "prompt": "как оформить страницу игры в App Store: скриншоты, подзаголовок, честно написать, что дальше покупка",
   "expect": "TRY BEFORE|скриншот"
+ },
+ {
+  "unit": "new-feature-visible-before-data",
+  "kinds": [
+   "improvements"
+  ],
+  "prompt": "добавь в кабинет вкладку «Сценарии»; пока нет данных, вкладку не показываем",
+  "files": [
+   "frontend/pages/cabinet.vue"
+  ]
+ },
+ {
+  "unit": "record-actions-visible-buttons",
+  "kinds": [
+   "improvements"
+  ],
+  "prompt": "в списке проектов действия у карточки лежат в меню «ещё», добавь туда ещё «архивировать»",
+  "files": [
+   "static/projects.html"
+  ]
+ },
+ {
+  "cwd": "/private/tmp/claude-501/x/scratchpad/kbcopy",
+  "project": ""
+ },
+ {
+  "cwd": "/tmp/demo-project",
+  "project": ""
+ },
+ {
+  "cwd": "<repo>",
+  "project": "claude-start"
+ },
+ {
+  "unit": "untracked-build-artifacts",
+  "kinds": [
+   "improvements"
+  ],
+  "prompt": "в git status постоянно висят tools/__pycache__/*.pyc и .DS_Store, хотя я их не трогал"
  }
 ]

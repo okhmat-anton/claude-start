@@ -6,7 +6,9 @@
   index                 пересобрать knowledge/INDEX.md из шапок файлов
   match                 подобрать единицы под промт / команду / файлы (для хуков)
   hit <name>            отметить, что урок реально применён (счётчик в usage.json)
-  new <name> ...        создать каркас новой единицы в правильном формате
+  new <name> ...        создать каркас новой единицы в правильном формате (--improvement — улучшение)
+  improvements          подобрать улучшения из базы под проект: по стеку и задаче, без решённых в нём, по рейтингу
+  vote <name> ...       записать ответ владельца на улучшение (принято / отклонено / отложено / не применимо) и оценку
   gc                    отчёт для уборки: дубли, протухшее, кандидаты на зрелость
   stats                 сводка по базе
   show <name>           напечатать единицу
@@ -15,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+from collections import namedtuple
 import fnmatch
 import json
 import os
@@ -26,8 +29,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 KB = ROOT / "knowledge"
 USAGE = KB / "usage.json"
-KINDS = {"lessons": "lesson", "stacks": "stack", "skills": "skill"}
+INDEX = KB / "INDEX.md"
+KINDS = {"lessons": "lesson", "stacks": "stack", "skills": "skill", "improvements": "improvement"}
 STATUSES = {"candidate", "mature", "archived"}
+LIFECYCLE = ("lesson", "improvement")  # единицы с жизненным циклом: статус, дата, проекты, обязательные триггеры
+MATURE_PROJECTS = 2  # зрелость — замечено (урок) или принято (улучшение) в стольких проектах
+REQUIRED_BLOCKS = {"lesson": (("Урок", "## Правило"),), "improvement": (("Когда",), ("Предложение",))}  # варианты через «или»
+IMPROVEMENT_KINDS = {"solution", "module", "code"}  # что улучшает: решение задачи, модуль, где шла работа, код
+VOTES = ("accepted", "rejected", "deferred", "na")  # ответ владельца: принято / отклонено / отложено / не применимо
+VOTE_RU = {"accepted": "принято", "rejected": "отклонено", "deferred": "отложено", "na": "не применимо"}
+RETRY_DAYS = {"deferred": 30, "na": 180}  # отложенное предлагается снова через месяц, «не применимо» перепроверяется через полгода
+_DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 DESC_MAX = 160
 PROSE_MAX = 30
 TRIGGER_KEYS = ("keywords", "commands", "errors", "paths")
@@ -68,10 +80,24 @@ def _unquote(v: str) -> str:
     return v
 
 
+def _front_end(text: str) -> int:
+    """Где кончается шапка (---…---); -1 — шапки нет."""
+    return text.find("\n---", 3) if text.startswith("---") else -1
+
+
+def _days_since(iso: str, today: dt.date | None = None) -> int | None:
+    try:
+        return ((today or dt.date.today()) - dt.date.fromisoformat(iso)).days
+    except ValueError:
+        return None
+
+
+def _maturity(projects: list[str]) -> str:
+    return "mature" if len(set(projects)) >= MATURE_PROJECTS else "candidate"
+
+
 def parse_frontmatter(text: str) -> tuple[dict, str]:
-    if not text.startswith("---"):
-        return {}, text
-    end = text.find("\n---", 3)
+    end = _front_end(text)
     if end < 0:
         return {}, text
     head = text[3:end].strip("\n")
@@ -138,12 +164,16 @@ class Unit:
         self.description = str(self.meta.get("description") or "")
         self.index_line = str(self.meta.get("index") or self.description)
         self.stack = _as_list(self.meta.get("stack")) or ["any"]
-        self.status = str(self.meta.get("status") or ("mature" if self.kind != "lesson" else ""))
+        self.status = str(self.meta.get("status") or ("" if self.kind in LIFECYCLE else "mature"))
         self.seen_in = _as_list(self.meta.get("seen_in"))
         self.created = str(self.meta.get("created") or "")
         self.scope = str(self.meta.get("scope") or "project")
         trig = self.meta.get("triggers") or {}
         self.triggers = {k: _as_list(trig.get(k)) for k in TRIGGER_KEYS} if isinstance(trig, dict) else {k: [] for k in TRIGGER_KEYS}
+        self.ikind = str(self.meta.get("kind") or "")  # улучшение: solution | module | code
+        self.benefit = _as_number(self.meta.get("benefit"))  # улучшение: оценка выгоды агентом 1–5
+        self.rating = _as_number(self.meta.get("rating"))  # улучшение: оценка владельца 1–5, None — не оценивал
+        self.revised = str(self.meta.get("revised") or "")  # улучшение: дата переформулировки — ответы старше неё не считаются
 
     # prose lines: without fenced code, tables, blank lines
     def prose_lines(self) -> int:
@@ -165,12 +195,22 @@ class Unit:
         return self.name
 
     def age_days(self, today: dt.date | None = None) -> int | None:
-        if not self.created:
-            return None
-        try:
-            return ((today or dt.date.today()) - dt.date.fromisoformat(self.created)).days
-        except ValueError:
-            return None
+        return _days_since(self.created, today) if self.created else None
+
+
+def _as_number(v) -> float | None:
+    if v is None or v == "" or isinstance(v, (dict, list)):
+        return None
+    try:
+        return float(v)
+    except ValueError:
+        return None
+
+
+def _fmt_num(v: float | None) -> str:
+    if v is None:
+        return "—"
+    return str(int(v)) if float(v).is_integer() else f"{v:.1f}"
 
 
 def _as_list(v) -> list[str]:
@@ -181,7 +221,7 @@ def _as_list(v) -> list[str]:
     return [str(v)]
 
 
-def load_units(kinds=("lessons", "stacks", "skills")) -> list[Unit]:
+def load_units(kinds=("lessons", "stacks", "skills", "improvements")) -> list[Unit]:
     units = []
     for d in kinds:
         base = KB / d
@@ -255,24 +295,34 @@ def lint(units: list[Unit] | None = None) -> list[str]:
             e("пустой description")
         if len(u.index_line) > DESC_MAX:
             e(f"строка для INDEX длиннее {DESC_MAX} символов ({len(u.index_line)}); укороти description или добавь index:")
-        if u.kind == "lesson":
+        if u.kind in LIFECYCLE:
             if u.status not in STATUSES:
                 e(f"status '{u.status}' не из {sorted(STATUSES)}")
-            if not u.created or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", u.created):
+            if not u.created or not _DATE_RE.fullmatch(u.created):
                 e("created должен быть датой YYYY-MM-DD")
-            if not u.seen_in:
-                e("seen_in пуст — откуда урок?")
+            if not u.seen_in and not u.revised:
+                e("seen_in пуст — в каком проекте это появилось?")
             if not any(u.triggers.values()):
                 e("нет ни одного триггера (triggers.keywords/commands/errors/paths)")
             if len(u.triggers["keywords"]) < 2:
-                e("меньше двух keywords — хук почти никогда не покажет урок")
+                e("меньше двух keywords — триггеры почти никогда не найдут единицу")
             n = u.prose_lines()
             if n > PROSE_MAX:
                 e(f"тело {n} строк прозы при норме {PROSE_MAX} — разрежь на несколько единиц")
             if not u.body.lstrip().startswith("# "):
                 e("тело начинается не с заголовка '# '")
-            if "Урок" not in u.body and "## Правило" not in u.body:
-                e("в теле нет блока «Урок» (что делать в следующий раз)")
+            for alternatives in REQUIRED_BLOCKS[u.kind]:
+                if not any(a in u.body for a in alternatives):
+                    e(f"в теле нет блока «{alternatives[0]}»")
+            if u.kind == "improvement":
+                if u.ikind not in IMPROVEMENT_KINDS:
+                    e(f"kind '{u.ikind}' не из {sorted(IMPROVEMENT_KINDS)} — что улучшает: решение, модуль или код")
+                if u.benefit is None or not (1 <= u.benefit <= 5):
+                    e("benefit — оценка выгоды агентом, от 1 до 5")
+                if u.rating is not None and not (1 <= u.rating <= 5):
+                    e("rating — оценка владельца от 1 до 5 (пусто — ещё не оценивал)")
+                if u.revised and not _DATE_RE.fullmatch(u.revised):
+                    e("revised — дата переформулировки YYYY-MM-DD")
             for pat in u.triggers["commands"] + u.triggers["errors"]:
                 try:
                     re.compile(pat)
@@ -294,10 +344,10 @@ def build_index(units: list[Unit] | None = None) -> str:
         "",
         "Файл генерируется: `python3 tools/knowledge.py index`. Руками не править — правь шапку единицы.",
         "Формат: `- [путь] — описание (стек; from проекты)`. Статус кандидата помечен `[candidate]`.",
+        "Улучшение: `(что улучшает; стек; агент — оценка выгоды, владелец — его оценка; from проекты)`.",
         "",
     ]
-    order = {"skill": 0, "stack": 1, "lesson": 2}
-    for kind, title in (("skill", "## Скиллы"), ("stack", "## Стеки"), ("lesson", "## Уроки")):
+    for kind, title in (("skill", "## Скиллы"), ("stack", "## Стеки"), ("improvement", "## Улучшения"), ("lesson", "## Уроки")):
         group = [u for u in units if u.kind == kind and u.status != "archived"]
         if not group:
             continue
@@ -306,7 +356,9 @@ def build_index(units: list[Unit] | None = None) -> str:
         for u in sorted(group, key=lambda x: x.name):
             tag = " [candidate]" if u.status == "candidate" else ""
             src = f"; from {', '.join(u.seen_in)}" if u.seen_in else ""
-            lines.append(f"- [{u.rel}]{tag} — {u.index_line} ({', '.join(u.stack)}{src})")
+            what = f"{u.ikind}; " if u.kind == "improvement" else ""
+            score = f"; агент {_fmt_num(u.benefit)}, владелец {_fmt_num(u.rating)}" if u.kind == "improvement" else ""
+            lines.append(f"- [{u.rel}]{tag} — {u.index_line} ({what}{', '.join(u.stack)}{score}{src})")
         lines.append("")
     archived = [u for u in units if u.status == "archived"]
     if archived:
@@ -325,40 +377,54 @@ def _kw_weight(kw: str) -> int:
     return 4 if (len(kw) >= 12 or re.search(r"[^\w\s]|\d", kw)) else 2
 
 
+def _stack_ok(u: Unit, stack: list[str] | None) -> bool:
+    return not stack or "any" in u.stack or bool(set(s.lower() for s in u.stack) & set(s.lower() for s in stack))
+
+
+Query = namedtuple("Query", "prompt command files text")  # text — склейка в нижнем регистре, считается один раз на подбор
+
+
+def _query(prompt: str = "", command: str = "", files: list[str] | None = None) -> Query:
+    files = files or []
+    return Query(prompt, command, files, " ".join([prompt, command, " ".join(files)]).lower())
+
+
+def _trigger_score(u: Unit, q: Query, use_keywords: bool = True) -> tuple[int, list[str]]:
+    """Сколько триггеров единицы совпало с запросом — и какие именно."""
+    score, why = 0, []
+    for kw in (u.triggers["keywords"] if use_keywords else []):
+        if kw.lower() in q.text:
+            score += _kw_weight(kw)
+            why.append(f"kw:{kw}")
+    if q.command:
+        for pat in u.triggers["commands"]:
+            if re.search(pat, q.command):
+                score += 5
+                why.append(f"cmd:{pat}")
+    for pat in u.triggers["errors"]:
+        if re.search(pat, q.prompt + " " + q.command, flags=re.I):
+            score += 5
+            why.append(f"err:{pat}")
+    for f in q.files:
+        for pat in u.triggers["paths"]:
+            if fnmatch.fnmatch(f, pat) or fnmatch.fnmatch(Path(f).name, pat):
+                score += 3
+                why.append(f"path:{pat}")
+                break
+    return score, why
+
+
 def match(prompt: str = "", command: str = "", files: list[str] | None = None, stack: list[str] | None = None,
           limit: int = 3, threshold: int = 3, exclude: set[str] | None = None, kinds=("lessons", "stacks"),
           use_keywords: bool = True) -> list[tuple[Unit, int, list[str]]]:
-    files = files or []
     exclude = exclude or set()
-    text = " ".join([prompt, command, " ".join(files)]).lower()
     usage = load_usage()
+    q = _query(prompt, command, files)
     scored = []
     for u in load_units(kinds):
-        if u.status == "archived" or u.name in exclude:
+        if u.status == "archived" or u.name in exclude or not _stack_ok(u, stack):
             continue
-        if stack and "any" not in u.stack and not set(s.lower() for s in u.stack) & set(s.lower() for s in stack):
-            continue
-        score, why = 0, []
-        for kw in (u.triggers["keywords"] if use_keywords else []):
-            if kw.lower() in text:
-                w = _kw_weight(kw)
-                score += w
-                why.append(f"kw:{kw}")
-        if command:
-            for pat in u.triggers["commands"]:
-                if re.search(pat, command):
-                    score += 5
-                    why.append(f"cmd:{pat}")
-        for pat in u.triggers["errors"]:
-            if re.search(pat, prompt + " " + command, flags=re.I):
-                score += 5
-                why.append(f"err:{pat}")
-        for f in files:
-            for pat in u.triggers["paths"]:
-                if fnmatch.fnmatch(f, pat) or fnmatch.fnmatch(Path(f).name, pat):
-                    score += 3
-                    why.append(f"path:{pat}")
-                    break
+        score, why = _trigger_score(u, q, use_keywords)
         if score >= threshold:
             applied = usage.get(u.name, {}).get("applied", 0)
             scored.append((score, applied, u, why))
@@ -371,6 +437,144 @@ def render_hint(u: Unit, full: bool = True, max_lines: int = 40) -> str:
     if not full:
         body = "\n".join(body.splitlines()[:max_lines])
     return f"[база знаний · {u.name}] {u.description}\n{body}\n"
+
+
+# --------------------------------------------------------------------------- improvements
+
+
+def _live(rec: dict, revised: str = "") -> dict:
+    """Ответы проектов, которые ещё в силе: после переформулировки единицы (revised) прежние ответы не считаются."""
+    return {p: d for p, d in (rec.get("decisions") or {}).items() if not revised or str(d.get("date", "")) >= revised}
+
+
+def _voted(rec: dict, answer: str, revised: str = "") -> list[str]:
+    """Проекты, ответившие так; единственный источник счётчиков — история decisions."""
+    return [p for p, d in _live(rec, revised).items() if d.get("answer") == answer]
+
+
+def _rating(rec: dict, revised: str = "") -> float | None:
+    """Средняя оценка владельца по проектам, где улучшение принято и ответ в силе."""
+    accepted = _voted(rec, "accepted", revised)
+    scores = [float(s) for p, s in (rec.get("scores") or {}).items() if p in accepted]
+    return round(sum(scores) / len(scores), 1) if scores else None
+
+
+def decided_in(rec: dict, project: str, revised: str = "") -> str | None:
+    """Ответ проекта, пока он в силе: отложенное и «не применимо» со временем предлагаются снова."""
+    d = _live(rec, revised).get(project) or {}
+    answer = d.get("answer")
+    if answer in RETRY_DAYS:
+        age = _days_since(str(d.get("date", "")))
+        if age is None or age >= RETRY_DAYS[answer]:
+            return None
+    return answer
+
+
+def improvements(project: str = "", stack: list[str] | None = None, prompt: str = "", files: list[str] | None = None,
+                 include_all: bool = False) -> list[dict]:
+    """Улучшения под проект: по стеку, без решённых в нём; сперва совпавшие с задачей, затем по оценке владельца,
+    балансу принято/отклонено и оценке агента."""
+    usage = load_usage()
+    q = _query(prompt, "", files)
+    rows = []
+    for u in load_units(("improvements",)):
+        if u.status == "archived" or not _stack_ok(u, stack):
+            continue
+        rec = usage.get(u.name, {})
+        decided = decided_in(rec, project, u.revised) if project else None
+        if decided and not include_all:
+            continue
+        score, why = _trigger_score(u, q)
+        rows.append({
+            "unit": u, "score": score, "why": why, "decided": decided, "rating": _rating(rec, u.revised),
+            "accepted": len(_voted(rec, "accepted", u.revised)), "rejected": len(_voted(rec, "rejected", u.revised)),
+        })
+    unrated = 2.5  # ещё не оценённое идёт после оценённого на 3 и выше, но раньше оценённого на 2 и ниже
+    rows.sort(key=lambda r: (-r["score"], -(r["rating"] if r["rating"] is not None else unrated),
+                             -(r["accepted"] - r["rejected"]), -(r["unit"].benefit or 0), r["unit"].name))
+    return rows
+
+
+def render_improvement(r: dict, full: bool = False) -> str:
+    u = r["unit"]
+    head = (
+        f"[улучшение · {u.name}] {u.description}\n"
+        f"  {u.ikind}; {', '.join(u.stack)}; владелец {_fmt_num(r['rating'])}, агент {_fmt_num(u.benefit)}; "
+        f"принято {r['accepted']}, отклонено {r['rejected']}; from {', '.join(u.seen_in) or '—'}"
+        + (f"; совпало: {', '.join(r['why'])}" if r["why"] else "")
+        + (f"; в этом проекте: {r['decided']}" if r["decided"] else "")
+    )
+    return head + ("\n" + u.body.strip() + "\n" if full else "")
+
+
+def _set_front(text: str, key: str, value: str) -> str:
+    """Заменить строку `key: …` в шапке единицы вместе с блочным списком под ней; нет такой — вставить перед triggers:."""
+    end = _front_end(text)
+    if end < 0:
+        raise SystemExit("у единицы нет шапки (frontmatter) — сначала приведи её к формату, см. lint")
+    head, rest = text[:end], text[end:]
+    line = f"{key}: {value}".rstrip()
+    pat = rf"^{key}:[^\n]*(?:\n[ \t]*-[^\n]*)*"
+    if re.search(pat, head, flags=re.M):
+        head = re.sub(pat, lambda _: line, head, count=1, flags=re.M)
+    elif re.search(r"^triggers:", head, flags=re.M):
+        head = re.sub(r"^triggers:", lambda _: f"{line}\ntriggers:", head, count=1, flags=re.M)
+    else:
+        head += f"\n{line}"
+    return head + rest
+
+
+def _record_decision(data: dict, name: str, project: str, answer: str, score: float | None = None, reason: str = "") -> dict:
+    """Ответ проекта в usage.json: последний ответ проекта, его причина и оценка; отказ снимает оценку."""
+    rec = data.setdefault(name, {})
+    decision = {"answer": answer, "date": dt.date.today().isoformat()}
+    if reason:
+        decision["reason"] = reason
+    rec.setdefault("decisions", {})[project] = decision
+    scores = rec.setdefault("scores", {})
+    if score is not None:
+        scores[project] = score
+    elif answer != "accepted":
+        scores.pop(project, None)  # оценка ставится сделанному; отказ её снимает
+    return rec
+
+
+def _sync_unit(u: Unit, rec: dict) -> Unit:
+    """Шапка улучшения — производная от истории ответов: seen_in — принявшие проекты, status — зрелость по ним
+    (архив не трогается), rating — средняя оценка владельца. Переписывает файл, возвращает перечитанную единицу."""
+    accepted = _voted(rec, "accepted", u.revised)
+    text = u.path.read_text(encoding="utf-8")
+    text = _set_front(text, "seen_in", f"[{', '.join(accepted)}]")
+    if u.status != "archived":
+        text = _set_front(text, "status", _maturity(accepted))
+    rating = _rating(rec, u.revised)
+    text = _set_front(text, "rating", _fmt_num(rating) if rating is not None else "")
+    u.path.write_text(text, encoding="utf-8")
+    return Unit(u.path)
+
+
+def vote(name: str, project: str, answer: str, score: float | None = None, reason: str = "", memory: str = "") -> str:
+    """Ответ владельца на улучшение: история в usage.json, шапка единицы и INDEX.md — следом; memory — путь к
+    simplify-memory.md проекта, туда дописывается строка ответа (один шаг вместо двух, решение владельца 21.10.2026)."""
+    if score is not None and not (1 <= score <= 5):
+        raise SystemExit("оценка владельца — от 1 до 5")
+    if score is not None and answer != "accepted":
+        raise SystemExit("оценка ставится только сделанному улучшению (--answer accepted)")
+    if not project:
+        raise SystemExit("--project обязателен: решения и зрелость считаются по проектам")
+    u = find_unit(name)
+    if not u or u.kind != "improvement":
+        raise SystemExit(f"улучшения '{name}' нет (knowledge/improvements/{name}.md)")
+    data = load_usage()
+    rec = _record_decision(data, name, project, answer, score, reason)
+    save_usage(data)
+    u = _sync_unit(u, rec)
+    INDEX.write_text(build_index(), encoding="utf-8")
+    if memory:
+        with open(memory, "a", encoding="utf-8") as fh:
+            fh.write(f"| {dt.date.today().isoformat()} | улучшение из базы {name}: {u.description} | {VOTE_RU[answer]} | {reason} |\n")
+    return (f"{name}: {project} — {answer}" + (f", оценка {_fmt_num(score)}" if score is not None else "")
+            + f"; принято в {len(_voted(rec, 'accepted', u.revised))} проект(ах), status: {u.status}, rating: {_fmt_num(u.rating)}")
 
 
 # --------------------------------------------------------------------------- gc
@@ -394,7 +598,7 @@ def gc_report(fetch: bool = True) -> str:
     out += [f"- {e}" for e in errs]
     out.append("")
 
-    promote = [u for u in lessons if u.status == "candidate" and len(set(u.seen_in)) >= 2]
+    promote = [u for u in units if u.kind in LIFECYCLE and u.status == "candidate" and _maturity(u.seen_in) == "mature"]
     out.append("## Кандидаты, замеченные в двух и более проектах → status: mature")
     out += [f"- {u.name} (seen_in: {', '.join(u.seen_in)})" for u in promote] or ["- нет"]
     out.append("")
@@ -437,6 +641,23 @@ def gc_report(fetch: bool = True) -> str:
     out += big or ["- нет"]
     out.append("")
 
+    rows = []
+    for u in units:
+        if u.kind != "improvement" or u.status == "archived":
+            continue
+        rec = usage.get(u.name, {})
+        acc, rej = len(_voted(rec, "accepted", u.revised)), len(_voted(rec, "rejected", u.revised))
+        rating = _rating(rec, u.revised)
+        if rej >= 2 and acc == 0:
+            rows.append(f"- {u.name}: отклонено в {rej} проектах, не принято нигде — в архив или переформулировать")
+        if rating is not None and rating <= 2:
+            rows.append(f"- {u.name}: оценка владельца {_fmt_num(rating)} — переформулировать или в архив")
+        if len(_live(rec, u.revised)) >= 3 and acc == 0 and rej == 0:
+            rows.append(f"- {u.name}: {len(dec)} раз отложено или не применимо, не принято нигде — сузь триггеры или в архив")
+    out.append("## Улучшения: продвинуть или убрать")
+    out += rows or ["- нет"]
+    out.append("")
+
     if fetch:
         git("fetch", "-q", "origin")
     behind = git("rev-list", "--count", "HEAD..origin/main")
@@ -464,6 +685,15 @@ def stats_text(units: list[Unit] | None = None, usage: dict | None = None) -> st
         f"- уроков: {len(lessons)} ({', '.join(f'{k}: {v}' for k, v in sorted(by_status.items()))}); стеков: {sum(u.kind == 'stack' for u in units)}; скиллов: {sum(u.kind == 'skill' for u in units)}",
         f"- показов хуками всего: {shown}; применений: {applied}",
     ]
+    imps = [u for u in units if u.kind == "improvement"]
+    if imps:
+        acc = sum(len(_voted(usage.get(u.name, {}), "accepted", u.revised)) for u in imps)
+        rej = sum(len(_voted(usage.get(u.name, {}), "rejected", u.revised)) for u in imps)
+        rated = [r for r in (_rating(usage.get(u.name, {}), u.revised) for u in imps) if r is not None]
+        lines.append(
+            f"- улучшений: {len(imps)} ({sum(u.status == 'mature' for u in imps)} зрелых); голосов: принято {acc}, отклонено {rej}"
+            + (f"; средняя оценка владельца {sum(rated) / len(rated):.1f}" if rated else "")
+        )
     if top and top[0][1].get("applied", 0):
         lines.append("- чаще всего применялись: " + ", ".join(f"{n} ({r.get('applied', 0)})" for n, r in top if r.get("applied", 0)))
     return "\n".join(lines)
@@ -495,28 +725,67 @@ triggers:
 """
 
 
-def new_unit(name: str, description: str, stack: list[str], seen_in: list[str], keywords: list[str], title: str | None) -> Path:
+IMPROVEMENT_TEMPLATE = """---
+name: {name}
+description: {description}
+kind: {kind}
+stack: [{stack}]
+status: {status}
+created: {today}
+seen_in: [{seen_in}]
+benefit: {benefit}
+rating:
+triggers:
+  keywords: [{keywords}]
+  commands: []
+  errors: []
+  paths: []
+---
+# {title}
+
+Когда: <признак, по которому улучшение применимо, — одна-две строки, без имён проекта и путей>
+
+Предложение: <вопрос владельцу его словами: что изменить, что он получит, цена — «… Делаем?»>
+
+Выгода: <что получит владелец или пользователь>. Цена: <~строк / файлов / минут>.
+"""
+
+
+def new_unit(name: str, description: str, stack: list[str], seen_in: list[str], keywords: list[str], title: str | None,
+             improvement: bool = False, kind: str = "", benefit: int = 0) -> Path:
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", name):
         raise SystemExit("имя единицы — латиница, цифры и дефис (kebab-case)")
-    path = KB / "lessons" / f"{name}.md"
+    fields = dict(
+        name=name, description=description, stack=", ".join(stack or ["any"]), today=dt.date.today().isoformat(),
+        seen_in=", ".join(seen_in), keywords=", ".join(keywords), title=title or description,
+    )
+    if improvement:
+        if kind not in IMPROVEMENT_KINDS:
+            raise SystemExit(f"--kind — один из: {', '.join(sorted(IMPROVEMENT_KINDS))} (решение, модуль, код)")
+        if not 1 <= benefit <= 5:
+            raise SystemExit("--benefit — оценка выгоды агентом, от 1 до 5")
+        path = KB / "improvements" / f"{name}.md"
+        text = IMPROVEMENT_TEMPLATE.format(kind=kind, benefit=benefit, status=_maturity(seen_in), **fields)
+    else:
+        path = KB / "lessons" / f"{name}.md"
+        text = TEMPLATE.format(**fields)
     if path.exists():
         raise SystemExit(f"{path} уже существует — дописывай в него, а не создавай дубль")
-    path.write_text(
-        TEMPLATE.format(
-            name=name,
-            description=description,
-            stack=", ".join(stack or ["any"]),
-            today=dt.date.today().isoformat(),
-            seen_in=", ".join(seen_in),
-            keywords=", ".join(keywords),
-            title=title or description,
-        ),
-        encoding="utf-8",
-    )
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+    if improvement and seen_in:  # проект-источник уже принял улучшение — это его первый голос
+        data = load_usage()
+        for proj in seen_in:
+            _record_decision(data, name, proj, "accepted")
+        save_usage(data)
     return path
 
 
 # --------------------------------------------------------------------------- cli
+
+
+def _csv(s: str) -> list[str]:
+    return [x.strip() for x in s.split(",") if x.strip()]
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -546,6 +815,23 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--seen-in", default="")
     p.add_argument("--keywords", default="")
     p.add_argument("--title", default="")
+    p.add_argument("--improvement", action="store_true", help="улучшение (knowledge/improvements/), а не урок")
+    p.add_argument("--kind", default="", help="улучшение: solution | module | code")
+    p.add_argument("--benefit", type=int, default=0, help="улучшение: оценка выгоды агентом 1–5")
+    p = sub.add_parser("improvements")
+    p.add_argument("--project", default="", help="без решённых в этом проекте (отложенное — снова через 30 дней, «не применимо» — через полгода)")
+    p.add_argument("--stack", default="")
+    p.add_argument("--prompt", default="", help="цель задачи — совпавшие по триггерам идут первыми")
+    p.add_argument("--files", default="", help="изменённые файлы через запятую")
+    p.add_argument("--all", action="store_true", help="показать и решённые в проекте, с их ответом")
+    p.add_argument("--full", action="store_true", help="с телом единицы (блоки «Когда», «Предложение», «Выгода»)")
+    p = sub.add_parser("vote")
+    p.add_argument("name")
+    p.add_argument("--project", required=True)
+    p.add_argument("--answer", required=True, choices=VOTES)
+    p.add_argument("--score", type=float, default=None, help="оценка владельца 1–5 после того, как он увидел результат")
+    p.add_argument("--reason", default="", help="причина, если владелец назвал: в историю и в память проекта")
+    p.add_argument("--memory", default="", help="путь к .claude/simplify-memory.md проекта — строка ответа допишется сама")
     p = sub.add_parser("gc")
     p.add_argument("--no-fetch", action="store_true")
     sub.add_parser("stats")
@@ -561,19 +847,17 @@ def main(argv: list[str] | None = None) -> int:
         return 1 if errs else 0
     if a.cmd == "index":
         text = build_index()
-        idx = KB / "INDEX.md"
         if a.check:
-            same = idx.exists() and idx.read_text(encoding="utf-8") == text
+            same = INDEX.exists() and INDEX.read_text(encoding="utf-8") == text
             print("INDEX.md актуален" if same else "INDEX.md устарел — запусти index")
             return 0 if same else 1
-        idx.write_text(text, encoding="utf-8")
+        INDEX.write_text(text, encoding="utf-8")
         print(f"INDEX.md пересобран: {text.count(chr(10))} строк")
         return 0
     if a.cmd == "match":
         res = match(
-            prompt=a.prompt, command=a.command, files=[f for f in a.files.split(",") if f],
-            stack=[s for s in a.stack.split(",") if s], limit=a.limit, threshold=a.threshold,
-            exclude=set(x for x in a.exclude.split(",") if x), use_keywords=not a.no_keywords,
+            prompt=a.prompt, command=a.command, files=_csv(a.files), stack=_csv(a.stack), limit=a.limit,
+            threshold=a.threshold, exclude=set(_csv(a.exclude)), use_keywords=not a.no_keywords,
         )
         if a.format == "json":
             print(json.dumps([{"name": u.name, "score": s, "why": w, "path": u.rel} for u, s, w in res], ensure_ascii=False))
@@ -591,11 +875,23 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{a.name}: применение записано")
         return 0
     if a.cmd == "new":
+        if (a.kind or a.benefit) and not a.improvement:
+            raise SystemExit("--kind и --benefit — только вместе с --improvement")
         path = new_unit(
-            a.name, a.description, [s.strip() for s in a.stack.split(",") if s.strip()],
-            [s.strip() for s in a.seen_in.split(",") if s.strip()], [s.strip() for s in a.keywords.split(",") if s.strip()], a.title or None,
+            a.name, a.description, _csv(a.stack), _csv(a.seen_in), _csv(a.keywords), a.title or None,
+            improvement=a.improvement, kind=a.kind, benefit=a.benefit,
         )
         print(f"создан {path.relative_to(ROOT)} — заполни тело и триггеры, потом lint + index")
+        return 0
+    if a.cmd == "improvements":
+        rows = improvements(project=a.project, stack=_csv(a.stack), prompt=a.prompt, files=_csv(a.files), include_all=a.all)
+        if not rows:
+            print("в базе нет улучшений под этот проект" + (" (решённые скрыты: --all)" if a.project else ""))
+        for r in rows:
+            print(render_improvement(r, full=a.full))
+        return 0
+    if a.cmd == "vote":
+        print(vote(a.name, a.project, a.answer, a.score, a.reason, a.memory))
         return 0
     if a.cmd == "gc":
         print(gc_report(fetch=not a.no_fetch))

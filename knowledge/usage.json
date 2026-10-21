@@ -19,7 +19,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 17
+  "shown": 18
  },
  "agent-docs-route-guard": {
   "applied": 1,
@@ -60,7 +60,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 71
+  "shown": 74
  },
  "agent-shell-state": {
   "applied": 5,
@@ -83,7 +83,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 60
+  "shown": 61
  },
  "api-discovery": {
   "applied": 1,
@@ -120,7 +120,7 @@
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 17
+  "shown": 18
  },
  "autofix-hook-import-order": {
   "applied": 8,
@@ -136,7 +136,17 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 30
+  "shown": 31
+ },
+ "blind-judge-anchors": {
+  "applied": 0,
+  "last_shown": "2026-10-21",
+  "projects": {
+   "claude-start": 0,
+   "planning": 0,
+   "video-blade-2": 0
+  },
+  "shown": 3
  },
  "browser-check-raw-cdp": {
   "applied": 0,
@@ -188,11 +198,11 @@
   "shown": 1
  },
  "codemod-after-formatter-hook": {
-  "applied": 7,
+  "applied": 8,
   "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
-   "claude-start": 1,
+   "claude-start": 2,
    "landing": 0,
    "planning": 0,
    "projects": 0,
@@ -201,7 +211,7 @@
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 22
+  "shown": 24
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -217,7 +227,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 58
+  "shown": 61
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -301,7 +311,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 53
+  "shown": 55
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -362,7 +372,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 8
+  "shown": 9
  },
  "external-agent-data": {
   "applied": 2,
@@ -397,7 +407,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -410,14 +420,14 @@
  "guard-hook-command-parsing": {
   "applied": 1,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-10-18",
+  "last_shown": "2026-10-21",
   "projects": {
    "akm-news": 0,
    "game-3": 1,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "guard-hook-testing": {
   "applied": 2,
@@ -441,7 +451,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -482,10 +492,11 @@
   "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
+   "scratchpad": 0,
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "judge-rules-interact": {
   "applied": 1,
@@ -543,7 +554,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 25
+  "shown": 26
  },
  "lint-rules-explicit-select": {
   "applied": 2,
@@ -579,7 +590,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "llm-output-not-metadata": {
   "applied": 1,
@@ -592,13 +603,13 @@
  },
  "llm-prompt-defaults": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-10-21",
   "projects": {
    "planning": 0,
    "project1": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "local-runs-reach-production": {
   "applied": 0,
@@ -622,7 +633,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "masonry-columns-via-slot": {
   "applied": 0,
@@ -691,11 +702,23 @@
  "new-action-in-nowrap-row": {
   "applied": 2,
   "last_applied": "2026-10-08",
-  "last_shown": "2026-10-10",
+  "last_shown": "2026-10-21",
   "projects": {
+   "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 3
+  "shown": 4
+ },
+ "new-feature-visible-before-data": {
+  "applied": 0,
+  "decisions": {
+   "video-blade-2": {
+    "answer": "accepted",
+    "date": "2026-10-21"
+   }
+  },
+  "projects": {},
+  "shown": 0
  },
  "nginx-stale-upstream-after-recreate": {
   "applied": 0,
@@ -862,7 +885,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 14
+  "shown": 15
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -879,6 +902,17 @@
    "video-blade-2": 0
   },
   "shown": 1
+ },
+ "record-actions-visible-buttons": {
+  "applied": 0,
+  "decisions": {
+   "planning": {
+    "answer": "accepted",
+    "date": "2026-10-21"
+   }
+  },
+  "projects": {},
+  "shown": 0
  },
  "reddit-research": {
   "applied": 1,
@@ -910,7 +944,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 24
+  "shown": 25
  },
  "replace-copies-before-adding-helper": {
   "applied": 0,
@@ -931,7 +965,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "research": {
   "applied": 1,
@@ -952,6 +986,14 @@
   },
   "shown": 4
  },
+ "revert-from-journal-not-live": {
+  "applied": 0,
+  "last_shown": "2026-10-21",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
   "last_applied": "2026-10-10",
@@ -970,19 +1012,19 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 17
+  "shown": 18
  },
  "review-frames-both-viewports": {
   "applied": 2,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-15",
+  "last_shown": "2026-10-21",
   "projects": {
    "akm-news": 1,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "review-loop-owner-decisions": {
   "applied": 7,
@@ -1004,7 +1046,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "review-stand-state-drift": {
   "applied": 1,
@@ -1021,13 +1063,14 @@
  "review-stand-synthetic-export": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-16",
+  "last_shown": "2026-10-21",
   "projects": {
    "pb": 0,
+   "planning": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "review-tool-native-select": {
   "applied": 1,
@@ -1077,7 +1120,7 @@
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "settings-save-model": {
   "applied": 1,
@@ -1140,7 +1183,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "stale-server-process": {
   "applied": 2,
@@ -1148,6 +1191,7 @@
   "last_shown": "2026-10-21",
   "projects": {
    "akm-news": 0,
+   "claude-start": 0,
    "divani": 0,
    "foreign": 0,
    "game-3": 1,
@@ -1157,7 +1201,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 22
+  "shown": 24
  },
  "stand-copy-restart-before-record": {
   "applied": 4,
@@ -1191,7 +1235,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 33
+  "shown": 35
  },
  "subagent-model-fallback": {
   "applied": 3,
@@ -1247,6 +1291,15 @@
    "video-blade-2": 2
   },
   "shown": 4
+ },
+ "untracked-build-artifacts": {
+  "decisions": {
+   "claude-start": {
+    "answer": "accepted",
+    "date": "2026-10-21"
+   }
+  },
+  "scores": {}
  },
  "vendor-console-guide": {
   "applied": 0,
@@ -1324,14 +1377,14 @@
  "video-product-anchor": {
   "applied": 1,
   "last_applied": "2026-09-24",
-  "last_shown": "2026-10-16",
+  "last_shown": "2026-10-21",
   "projects": {
    "aw-white": 0,
    "scratchpad": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "video-text-overlays-and-platforms": {
   "applied": 0,
@@ -1360,10 +1413,11 @@
  },
  "zsh-var-command-no-split": {
   "applied": 0,
-  "last_shown": "2026-10-15",
+  "last_shown": "2026-10-21",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "scratchpad": 0
   },
-  "shown": 1
+  "shown": 2
  }
 }

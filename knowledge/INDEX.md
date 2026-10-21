@@ -2,9 +2,11 @@
 
 Файл генерируется: `python3 tools/knowledge.py index`. Руками не править — правь шапку единицы.
 Формат: `- [путь] — описание (стек; from проекты)`. Статус кандидата помечен `[candidate]`.
+Улучшение: `(что улучшает; стек; агент — оценка выгоды, владелец — его оценка; from проекты)`.
 
 ## Скиллы
 
+- [skills/improve-sweep/SKILL.md] — Прогон базы улучшений по проекту — подбор по стеку и рейтингу, применимость по коду, кнопки владельцу, vote, принятые — по уровню, оценка после результата (any)
 - [skills/jobs-review/SKILL.md] — Взгляд Джобса — ревью готового интерфейса субагентом «вижу впервые» с планкой Apple: стенд, кадры и клики в Chrome без окна (look.js), итог владельцу в Chrome (any)
 - [skills/knowledge-gc/SKILL.md] — Ежемесячная уборка базы знаний по отчёту knowledge.py gc — дубли, длинные, неприменяемые, кандидаты в зрелые, синхронизация клона (any)
 - [skills/pdf-report/SKILL.md] — Оформленный PDF из markdown по набору GET /api/pdf-kit планировщика; отчёт по ресёрчу, документ инвестору; графики SVG, картинки, Chrome, проверка растром (node, any)
@@ -26,6 +28,12 @@
 - [stacks/python-pymunk-2d.md] — pymunk — цепи на pivot, лёгкие тела в среде, детерминизм через space.shapes, быстрые тела ловить геометрией, масса 3D-детали, аналитические моды для волн (pymunk, python)
 - [stacks/python-selenium-agent-worker.md] — Браузерные боты + агент-воркер поверх REST — API-first, SQLite+APScheduler на VPS, sent только по подтверждению страницы, скриншот+DOM на падении (selenium, python, fastapi)
 
+## Улучшения
+
+- [improvements/new-feature-visible-before-data.md] [candidate] — Новая возможность видна до первых данных — пункт меню и вкладка не прячутся за «есть данные», пустое состояние говорит, кто и как наполнит (solution; web-ui; агент 4, владелец —; from video-blade-2)
+- [improvements/record-actions-visible-buttons.md] [candidate] — Действия у записи — видимыми кнопками столбиком, а не в меню «ещё» за тремя точками; длинное пояснение — во всплывающей подсказке (module; web-ui; агент 3, владелец —; from planning)
+- [improvements/untracked-build-artifacts.md] [candidate] — Кэш интерпретатора и служебные файлы ОС не отслеживаются git — .gitignore и снятие с учёта, иначе каждый прогон пачкает копии и клоны (module; any; агент 4, владелец —; from claude-start)
+
 ## Уроки
 
 - [lessons/actions-sheet-not-popover-in-clipped-tile.md] [candidate] — Действия карточки в контейнере с overflow: hidden — окном-списком на dialog, не выпадающим меню внутри карточки: обрежется (web-ui; from video-blade-2)
@@ -36,7 +44,7 @@
 - [lessons/agent-instruction-code-must-run.md] [candidate] — Код из инструкции для агента исполняй на чистой машине: urllib на macOS (python.org) падает без корневых сертификатов и URLError (llm; from video-blade-2)
 - [lessons/agent-interaction.md] — Контрольные точки длинной задачи — выбор кнопкой, а не текстом; цена платной операции в самом вопросе; брак называть до заказчика (any; from work-video-production, 3d-printer-one, planning)
 - [lessons/agent-oneoff-script.md] [candidate] — Одноразовый скрипт агента — с main-guard, абсолютным окружением и клиентом, который сам читает env; креды не в argv (python, any; from 3d-printer)
-- [lessons/agent-shell-state.md] — PATH и cwd не живут между Bash-вызовами агента — абсолютные пути, export PATH, ls по адресу назначения после записи (any; from work-video-production, 3d-printer, planning, video-blade-2)
+- [lessons/agent-shell-state.md] — PATH и cwd не живут между Bash-вызовами агента — абсолютные пути, export PATH, ls по адресу назначения после записи (any; from work-video-production, 3d-printer, planning, video-blade-2, claude-start)
 - [lessons/api-discovery.md] — Недокументированный эндпоинт не угадывать — вторичные доки → журнал → живой GET → пробная запись на одном объекте; у внешнего сервиса сначала openapi.json (any; from work-video-production, planning)
 - [lessons/architecture-question-restate-purpose.md] [candidate] — Вопрос владельцу о смене хранения или архитектуры — сначала его словами, что это за вещь и что для её потребителя не меняется, потом выбор (any; from video-blade-2)
 - [lessons/auth-change-verification.md] [candidate] — Любая правка аутентификации проверяется тремя входами отдельно — логин в свежей сессии, токен в заголовке, ссылка-ключ; открытая вкладка врёт (any; from planning)

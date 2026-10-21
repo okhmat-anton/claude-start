@@ -8,6 +8,10 @@
 Кейс с ключом "resolve" проверяет решение хука по промту и записи сессии "saved" (hook.resolve_tier):
 {"tier", "source", "line"} — что запишется (null — ничего) и регулярка по строке агенту; уровень не назван —
 «простая» по умолчанию, а названный ранее или выбранный кнопками умолчанием не перезаписывается.
+Кейс с ключом "kinds" (например ["improvements"]) ищет в этих разделах базы — так проверяются триггеры улучшений,
+по которым simplify-review и improve-sweep подбирают их под задачу.
+Кейс с ключом "cwd" проверяет, какую папку хук считает проектом (hook.project_of): "project" — ожидаемое имя,
+"" — не проект (временная папка, рабочая копия в scratchpad); "<repo>" в cwd — корень этого репозитория.
 
 --live (платно, вручную): прогоняем `claude -p` во временном проекте с подключёнными
 хуками и проверяем, что ответ содержит ожидаемый признак (expect — регулярка).
@@ -39,6 +43,12 @@ def offline(cases: list[dict]) -> int:
             failed += not ok
             print(f"{'ok  ' if ok else 'FAIL'} resolve={str(exp.get('tier')):<8} got={str(tier):<8} src={str(source):<8} «{c.get('prompt', '')[:50]}»")
             continue
+        if "cwd" in c:
+            got = hook.project_of(c["cwd"].replace("<repo>", str(kb.ROOT)))[1]
+            ok = got == c["project"]
+            failed += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} project={c['project']!r:<16} got={got!r:<16} «{c['cwd'][:50]}»")
+            continue
         if "tier" in c:
             got = hook.detect_tier(c.get("prompt", ""))
             ok = got == c["tier"]
@@ -47,7 +57,7 @@ def offline(cases: list[dict]) -> int:
             continue
         res = kb.match(prompt=c.get("prompt", ""), command=c.get("command", ""), files=c.get("files", []),
                        stack=c.get("stack"), limit=3, threshold=3 if c.get("prompt") else 4,
-                       use_keywords=bool(c.get("prompt")))
+                       use_keywords=bool(c.get("prompt")), kinds=tuple(c.get("kinds") or ("lessons", "stacks")))
         names = [u.name for u, _, _ in res]
         ok = c["unit"] in names
         failed += not ok

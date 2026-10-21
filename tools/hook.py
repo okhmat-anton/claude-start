@@ -6,7 +6,8 @@
                  «простая» по умолчанию и напомнить перепроверить (не простая — предложить кнопками)
   command        PreToolUse(Bash) — подмешать уроки по шаблону команды
   ask            PostToolUse(AskUserQuestion) — записать уровень задачи, выбранный кнопками
-  session-start  SessionStart — размер CLAUDE.md, неразобранные поправки, кандидаты в LESSONS.md, уровень задачи
+  session-start  SessionStart — размер CLAUDE.md, неразобранные поправки, кандидаты в LESSONS.md, уровень задачи,
+                 улучшения из базы, не решённые в проекте
   stop           Stop — напомнить про retro, если правок много, а ретро не было (не в простой и средней задаче)
 
 Уровень задачи (простая / средняя / сложная) лежит в ~/.claude/task-tier/<session_id>.json — правило владельца
@@ -46,10 +47,10 @@ TIER_DIR = Path.home() / ".claude" / "task-tier"
 TIERS = {"simple": "простая", "medium": "средняя", "complex": "сложная"}
 TIER_PROTOCOL = {
     "simple": "сделать → тесты и линт → коммит и push; без разбора, плана, ревью, упрощения и retro",
-    "medium": "краткий разбор → план → правки → самопроверка → 1 круг урезанного ревью → упрощение только по диффу "
-    "→ done-check → коммит; без retro",
+    "medium": "краткий разбор → план → правки → самопроверка → 1 круг урезанного ревью → упрощение только по диффу, "
+    "улучшения по модулю → done-check → коммит; без retro",
     "complex": "полный разбор → план → правки → самопроверка → до 3 кругов взгляда Джобса → упрощение по файлам и "
-    "окружению → done-check → коммит → retro и knowledge-sync",
+    "окружению, улучшения по модулю → done-check → коммит → retro и knowledge-sync",
 }
 _TIER_WORDS = {  # единственное число: «сложные задачи у нас долгие» — не уровень; «средней сложности» — средняя
     "medium": r"средн(?:яя|юю|ей)(?:\s+сложност\w*)?",
@@ -164,9 +165,20 @@ def read_input() -> dict:
         return {}
 
 
+TEMP_ROOTS = ("/tmp/", "/private/tmp/", "/var/folders/")
+
+
+def is_project(root: Path) -> bool:
+    """Проект — папка со своим .claude/ или корнем git. Временные папки и рабочие копии в scratchpad проектом
+    не считаются: иначе их имена оседают в статистике usage.json (решение владельца, 21.10.2026)."""
+    if "scratchpad" in root.parts or f"{root}/".startswith(TEMP_ROOTS):
+        return False
+    return (root / ".claude").is_dir() or (root / ".git").exists()
+
+
 def project_of(cwd: str) -> tuple[Path, str, list[str]]:
     root = Path(cwd or os.getcwd())
-    name = root.name
+    name = root.name if is_project(root) else ""
     stack: list[str] = []
     cfg = root / ".claude" / "knowledge.json"
     if cfg.exists():
@@ -294,7 +306,7 @@ def on_ask(inp: dict) -> None:
 
 
 def on_session_start(inp: dict) -> None:
-    root, _, _ = project_of(inp.get("cwd", ""))
+    root, project, stack = project_of(inp.get("cwd", ""))
     notes: list[str] = []
     t = load_tier(str(inp.get("session_id", "")))
     if t.get("tier") in TIERS:
@@ -317,6 +329,10 @@ def on_session_start(inp: dict) -> None:
         unsent = len(re.findall(r"Повторений:\**\s*1\b", txt))
         if unsent >= 8:
             notes.append(f"В LESSONS.md {unsent} незрелых уроков. Зрелость считается по проектам, а не по повторам внутри одного: отправь их кандидатами в базу знаний (skill knowledge-sync).")
+    if project and (root / ".claude" / "knowledge.json").exists():  # база подключена — напомнить про улучшения, не решённые здесь
+        pending = len(kb.improvements(project=project, stack=stack))
+        if pending:
+            notes.append(f"В базе улучшений {pending} не решённых в этом проекте — прогнать по слову владельца: skill improve-sweep.")
     if notes:
         print("Система самообучения:\n- " + "\n- ".join(notes))
 
