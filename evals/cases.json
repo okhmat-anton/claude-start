@@ -1006,5 +1006,25 @@
   "unit": "settings-save-model",
   "prompt": "добавил настройку в форму настроек с кнопкой Save, а ревьюер ушёл со страницы и выбор не сохранился",
   "expect": "сразу по выбору|Saved"
+ },
+ {
+  "unit": "vue-immediate-watch-before-handler",
+  "prompt": "компонент падает при открытии: ReferenceError Cannot access 'save' before initialization, в script setup стоит watch с immediate",
+  "expect": "выше|function"
+ },
+ {
+  "unit": "field-second-write-path",
+  "prompt": "сделал карточке настройки автосохранение своей ручкой, а после Save общей формы настроек значение сбрасывается в пусто",
+  "expect": "общей формы|одна дорога|второй путь"
+ },
+ {
+  "unit": "review-tool-native-select",
+  "prompt": "ревьюер на стенде не смог выбрать пункт выпадающего списка через look.js и пишет, что настройка не удержалась",
+  "expect": "API|не умеет"
+ },
+ {
+  "unit": "utcnow-isoformat-js-local",
+  "prompt": "подпись Edited в кабинете показывает время правки на 7 часов вперёд, updated_at отдаёт utcnow isoformat без зоны",
+  "expect": "\\+00:00|смещени"
  }
 ]
