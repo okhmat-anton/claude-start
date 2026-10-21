@@ -19,7 +19,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "agent-docs-route-guard": {
   "applied": 1,
@@ -33,6 +33,14 @@
    "video-blade-test": 0
   },
   "shown": 8
+ },
+ "agent-instruction-code-must-run": {
+  "applied": 0,
+  "last_shown": "2026-10-21",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
  },
  "agent-interaction": {
   "applied": 5,
@@ -60,7 +68,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 74
+  "shown": 75
  },
  "agent-shell-state": {
   "applied": 5,
@@ -83,12 +91,12 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 61
+  "shown": 63
  },
  "api-discovery": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-21",
   "projects": {
    "docs": 0,
    "planning": 0,
@@ -97,7 +105,7 @@
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 19
+  "shown": 20
  },
  "architecture-mvc": {
   "applied": 0,
@@ -136,7 +144,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 32
+  "shown": 33
  },
  "blind-judge-anchors": {
   "applied": 0,
@@ -167,18 +175,18 @@
   "shown": 4
  },
  "browser-verification": {
-  "applied": 10,
-  "last_applied": "2026-10-17",
+  "applied": 11,
+  "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "planning": 0,
    "project1": 0,
    "scratchpad": 0,
    "video-blade": 0,
-   "video-blade-2": 9,
+   "video-blade-2": 10,
    "video-blade-test": 0
   },
-  "shown": 20
+  "shown": 21
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
@@ -211,7 +219,7 @@
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 24
+  "shown": 25
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -227,7 +235,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 61
+  "shown": 62
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -311,7 +319,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 55
+  "shown": 56
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -372,7 +380,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 9
+  "shown": 10
  },
  "external-agent-data": {
   "applied": 2,
@@ -407,7 +415,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -427,7 +435,7 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "guard-hook-testing": {
   "applied": 2,
@@ -451,7 +459,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 17
+  "shown": 18
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -488,24 +496,24 @@
   "shown": 5
  },
  "judge-requirements-per-lane": {
-  "applied": 2,
+  "applied": 3,
   "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "scratchpad": 0,
-   "video-blade-2": 2,
+   "video-blade-2": 3,
    "video-blade-test": 0
   },
   "shown": 4
  },
  "judge-rules-interact": {
-  "applied": 1,
+  "applied": 2,
   "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 1
+  "shown": 2
  },
  "kie-ai": {
   "applied": 0,
@@ -541,7 +549,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "lint-first-run": {
   "applied": 0,
@@ -554,7 +562,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 26
+  "shown": 28
  },
  "lint-rules-explicit-select": {
   "applied": 2,
@@ -568,7 +576,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 17
+  "shown": 18
  },
  "list-action-returns-to-card": {
   "applied": 2,
@@ -825,7 +833,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "proposal-numbers-explicit": {
   "applied": 1,
@@ -909,9 +917,15 @@
    "planning": {
     "answer": "accepted",
     "date": "2026-10-21"
+   },
+   "video-blade-2": {
+    "answer": "rejected",
+    "date": "2026-10-21",
+    "reason": "в кабинете карточки с медиа: частое действие на виду, редкие — в «⋯» со словами (решение владельца 08.10.2026, подтверждено 21.10.2026); правило planning — для списков без карточек"
    }
   },
   "projects": {},
+  "scores": {},
   "shown": 0
  },
  "reddit-research": {
@@ -965,7 +979,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 14
+  "shown": 16
  },
  "research": {
   "applied": 1,
@@ -984,7 +998,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "revert-from-journal-not-live": {
   "applied": 0,
@@ -1003,16 +1017,16 @@
   "shown": 0
  },
  "review-budget-below-fold": {
-  "applied": 8,
-  "last_applied": "2026-10-17",
+  "applied": 9,
+  "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 7,
+   "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 20
  },
  "review-frames-both-viewports": {
   "applied": 2,
@@ -1037,16 +1051,16 @@
   "shown": 5
  },
  "review-stand-db-timeout": {
-  "applied": 8,
-  "last_applied": "2026-10-17",
+  "applied": 9,
+  "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 7,
+   "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 21
  },
  "review-stand-state-drift": {
   "applied": 1,
@@ -1058,7 +1072,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 14
+  "shown": 15
  },
  "review-stand-synthetic-export": {
   "applied": 1,
@@ -1090,16 +1104,16 @@
   "shown": 2
  },
  "rule-change-stale-wording": {
-  "applied": 7,
-  "last_applied": "2026-10-17",
-  "last_shown": "2026-10-16",
+  "applied": 8,
+  "last_applied": "2026-10-21",
+  "last_shown": "2026-10-21",
   "projects": {
    "akm-news": 1,
    "pb": 0,
-   "video-blade-2": 5,
+   "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 9
+  "shown": 10
  },
  "sales-playbook": {
   "applied": 2,
@@ -1204,15 +1218,15 @@
   "shown": 24
  },
  "stand-copy-restart-before-record": {
-  "applied": 4,
+  "applied": 5,
   "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "stand": 0,
-   "video-blade-2": 4,
+   "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 6
+  "shown": 8
  },
  "stand-restart-rotates-keys": {
   "applied": 1,
@@ -1235,7 +1249,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 35
+  "shown": 36
  },
  "subagent-model-fallback": {
   "applied": 3,
@@ -1253,12 +1267,12 @@
  },
  "term-collision-across-locales": {
   "applied": 0,
-  "last_shown": "2026-10-16",
+  "last_shown": "2026-10-21",
   "projects": {
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "tests-observable-behavior": {
   "applied": 1,
@@ -1280,7 +1294,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 21
  },
  "ui-silent-failures": {
   "applied": 2,
@@ -1296,6 +1310,10 @@
   "decisions": {
    "claude-start": {
     "answer": "accepted",
+    "date": "2026-10-21"
+   },
+   "video-blade-2": {
+    "answer": "na",
     "date": "2026-10-21"
    }
   },
