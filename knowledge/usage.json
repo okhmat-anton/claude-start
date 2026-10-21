@@ -973,24 +973,24 @@
   "shown": 17
  },
  "review-frames-both-viewports": {
-  "applied": 1,
-  "last_applied": "2026-10-17",
+  "applied": 2,
+  "last_applied": "2026-10-21",
   "last_shown": "2026-10-15",
   "projects": {
    "akm-news": 1,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 0
+   "video-blade-2": 1
   },
   "shown": 3
  },
  "review-loop-owner-decisions": {
-  "applied": 6,
-  "last_applied": "2026-10-12",
+  "applied": 7,
+  "last_applied": "2026-10-21",
   "last_shown": "2026-10-12",
   "projects": {
    "pb": 0,
-   "video-blade-2": 6
+   "video-blade-2": 7
   },
   "shown": 5
  },
@@ -1028,6 +1028,14 @@
    "video-blade-test": 0
   },
   "shown": 4
+ },
+ "review-tool-native-select": {
+  "applied": 1,
+  "last_applied": "2026-10-21",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 0
  },
  "rewrite-port-old-screen-first": {
   "applied": 3,
