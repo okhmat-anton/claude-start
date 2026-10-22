@@ -128,7 +128,7 @@
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "autofix-hook-import-order": {
   "applied": 8,
@@ -263,10 +263,13 @@
   "shown": 1
  },
  "css-root-class-collision": {
-  "applied": 1,
-  "last_applied": "2026-10-17",
-  "projects": {},
-  "shown": 0
+  "applied": 3,
+  "last_applied": "2026-10-22",
+  "last_shown": "2026-10-21",
+  "projects": {
+   "video-blade-2": 2
+  },
+  "shown": 1
  },
  "cta-same-promise-same-target": {
   "applied": 1,
@@ -277,6 +280,23 @@
    "video-blade-2": 1
   },
   "shown": 2
+ },
+ "default-open-item-pinned-in-url": {
+  "applied": 0,
+  "last_shown": "2026-10-22",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
+ "deleted-by-whom-capsule": {
+  "decisions": {
+   "video-blade-2": {
+    "answer": "accepted",
+    "date": "2026-10-22"
+   }
+  },
+  "scores": {}
  },
  "dependent-request-from-response": {
   "applied": 0,
@@ -349,7 +369,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 9
+  "shown": 10
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -380,7 +400,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "external-agent-data": {
   "applied": 2,
@@ -415,7 +435,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 20
+  "shown": 21
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -459,7 +479,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -472,11 +492,12 @@
  },
  "headless-touch-hangs-after-modal": {
   "applied": 0,
-  "last_shown": "2026-10-21",
+  "last_shown": "2026-10-22",
   "projects": {
-   "tasks": 0
+   "tasks": 0,
+   "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "health-endpoint-dependencies": {
   "applied": 1,
@@ -513,7 +534,7 @@
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 2
+  "shown": 3
  },
  "kie-ai": {
   "applied": 0,
@@ -549,7 +570,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "lint-first-run": {
   "applied": 0,
@@ -588,17 +609,18 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 9
+  "shown": 10
  },
  "live-update-own-echo-autosave": {
-  "applied": 0,
+  "applied": 2,
+  "last_applied": "2026-10-22",
   "last_shown": "2026-10-21",
   "projects": {
    "tasks": 0,
-   "video-blade-2": 0,
+   "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "llm-output-not-metadata": {
   "applied": 1,
@@ -621,7 +643,7 @@
  },
  "local-runs-reach-production": {
   "applied": 0,
-  "last_shown": "2026-10-21",
+  "last_shown": "2026-10-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -629,7 +651,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "long-work-progress-statuses": {
   "applied": 4,
@@ -641,7 +663,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 11
+  "shown": 12
  },
  "masonry-columns-via-slot": {
   "applied": 0,
@@ -675,11 +697,11 @@
  },
  "model-driven-visualizer-channels": {
   "applied": 0,
-  "last_shown": "2026-10-07",
+  "last_shown": "2026-10-22",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "mongo-naive-datetime-local-skew": {
   "applied": 1,
@@ -715,7 +737,7 @@
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 4
+  "shown": 5
  },
  "new-feature-visible-before-data": {
   "applied": 0,
@@ -741,10 +763,11 @@
  "no-build-in-live-dev-dir": {
   "applied": 1,
   "last_applied": "2026-10-21",
+  "last_shown": "2026-10-21",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 0
+  "shown": 1
  },
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
@@ -845,7 +868,7 @@
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 5
+  "shown": 6
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -893,7 +916,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -946,8 +969,8 @@
   "shown": 3
  },
  "regex-codemod-spans-functions": {
-  "applied": 5,
-  "last_applied": "2026-10-10",
+  "applied": 7,
+  "last_applied": "2026-10-22",
   "last_shown": "2026-10-21",
   "projects": {
    "frontend": 0,
@@ -955,10 +978,10 @@
    "raw": 0,
    "scratchpad": 0,
    "todo": 0,
-   "video-blade-2": 5,
+   "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 25
+  "shown": 26
  },
  "replace-copies-before-adding-helper": {
   "applied": 0,
@@ -980,6 +1003,14 @@
    "video-blade-test": 0
   },
   "shown": 16
+ },
+ "rerender-keeps-typed-input": {
+  "applied": 0,
+  "last_shown": "2026-10-22",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
  },
  "research": {
   "applied": 1,
@@ -1006,15 +1037,16 @@
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
   "last_applied": "2026-10-10",
+  "last_shown": "2026-10-21",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 0
+  "shown": 1
  },
  "review-budget-below-fold": {
   "applied": 9,
@@ -1028,17 +1060,25 @@
   },
   "shown": 20
  },
+ "review-file-uploads": {
+  "applied": 0,
+  "last_shown": "2026-10-21",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "review-frames-both-viewports": {
-  "applied": 2,
+  "applied": 3,
   "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "akm-news": 1,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 4
+  "shown": 5
  },
  "review-loop-owner-decisions": {
   "applied": 7,
@@ -1072,7 +1112,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "review-stand-synthetic-export": {
   "applied": 1,
@@ -1089,10 +1129,11 @@
  "review-tool-native-select": {
   "applied": 1,
   "last_applied": "2026-10-21",
+  "last_shown": "2026-10-21",
   "projects": {
    "video-blade-2": 1
   },
-  "shown": 0
+  "shown": 1
  },
  "rewrite-port-old-screen-first": {
   "applied": 3,
@@ -1144,25 +1185,25 @@
    "tasks": 0,
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "simulation-plausibility": {
   "applied": 0,
-  "last_shown": "2026-10-16",
+  "last_shown": "2026-10-21",
   "projects": {
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "song-lyrics-content-check": {
   "applied": 0,
-  "last_shown": "2026-10-16",
+  "last_shown": "2026-10-21",
   "projects": {
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "spa-keyed-page-loses-input": {
   "applied": 0,
@@ -1175,12 +1216,12 @@
  },
  "ssr-to-spa-same-context": {
   "applied": 0,
-  "last_shown": "2026-10-14",
+  "last_shown": "2026-10-21",
   "projects": {
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "stable-list-mark-changes": {
   "applied": 0,
@@ -1197,11 +1238,11 @@
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "stale-server-process": {
-  "applied": 2,
-  "last_applied": "2026-10-18",
+  "applied": 3,
+  "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "akm-news": 0,
@@ -1212,10 +1253,10 @@
    "pipeline": 0,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 0,
+   "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 24
+  "shown": 25
  },
  "stand-copy-restart-before-record": {
   "applied": 5,
@@ -1252,18 +1293,18 @@
   "shown": 36
  },
  "subagent-model-fallback": {
-  "applied": 3,
-  "last_applied": "2026-10-16",
+  "applied": 4,
+  "last_applied": "2026-10-21",
   "last_shown": "2026-10-21",
   "projects": {
    "planning": 0,
    "raw": 0,
    "reels": 0,
    "scratchpad": 0,
-   "video-blade-2": 3,
+   "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "term-collision-across-locales": {
   "applied": 0,
@@ -1431,13 +1472,22 @@
   },
   "shown": 1
  },
+ "write-on-get-echo-loop": {
+  "applied": 0,
+  "last_shown": "2026-10-22",
+  "projects": {
+   "video-blade-2": 0
+  },
+  "shown": 1
+ },
  "zsh-var-command-no-split": {
   "applied": 0,
   "last_shown": "2026-10-21",
   "projects": {
    "planning": 0,
-   "scratchpad": 0
+   "scratchpad": 0,
+   "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  }
 }
