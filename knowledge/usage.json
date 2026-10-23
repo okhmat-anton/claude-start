@@ -414,16 +414,16 @@
   "shown": 4
  },
  "feature-existence-check": {
-  "applied": 2,
-  "last_applied": "2026-10-17",
-  "last_shown": "2026-10-21",
+  "applied": 3,
+  "last_applied": "2026-10-23",
+  "last_shown": "2026-10-23",
   "projects": {
    "pet-replicas": 0,
    "scratchpad": 0,
    "tasks": 0,
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
-  "shown": 10
+  "shown": 11
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
@@ -553,14 +553,14 @@
   "shown": 19
  },
  "label-claims-need-arithmetic": {
-  "applied": 2,
-  "last_applied": "2026-10-11",
-  "last_shown": "2026-10-11",
+  "applied": 3,
+  "last_applied": "2026-10-23",
+  "last_shown": "2026-10-23",
   "projects": {
    "payment-gateway": 0,
-   "video-blade-2": 2
+   "video-blade-2": 3
   },
-  "shown": 2
+  "shown": 3
  },
  "link-looks-like-link": {
   "applied": 0,
@@ -793,10 +793,12 @@
   "shown": 4
  },
  "page-copy-within-order-limits": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-23",
   "last_shown": "2026-10-22",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "video-blade-2": 1
   },
   "shown": 1
  },
@@ -1081,25 +1083,25 @@
   "shown": 1
  },
  "review-frames-both-viewports": {
-  "applied": 3,
-  "last_applied": "2026-10-21",
-  "last_shown": "2026-10-21",
+  "applied": 4,
+  "last_applied": "2026-10-23",
+  "last_shown": "2026-10-23",
   "projects": {
    "akm-news": 1,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 2
+   "video-blade-2": 3
   },
-  "shown": 5
+  "shown": 6
  },
  "review-loop-owner-decisions": {
-  "applied": 7,
-  "last_applied": "2026-10-21",
+  "applied": 8,
+  "last_applied": "2026-10-23",
   "last_shown": "2026-10-22",
   "projects": {
    "pb": 0,
    "planning": 0,
-   "video-blade-2": 7
+   "video-blade-2": 8
   },
   "shown": 6
  },
@@ -1140,11 +1142,11 @@
   "shown": 5
  },
  "review-tool-native-select": {
-  "applied": 1,
-  "last_applied": "2026-10-21",
+  "applied": 2,
+  "last_applied": "2026-10-23",
   "last_shown": "2026-10-21",
   "projects": {
-   "video-blade-2": 1
+   "video-blade-2": 2
   },
   "shown": 1
  },
@@ -1199,6 +1201,14 @@
    "video-blade-2": 0
   },
   "shown": 6
+ },
+ "second-stand-during-review": {
+  "applied": 1,
+  "last_applied": "2026-10-23",
+  "projects": {
+   "video-blade-2": 1
+  },
+  "shown": 0
  },
  "settings-save-model": {
   "applied": 1,

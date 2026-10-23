@@ -86,6 +86,7 @@
 - [lessons/empty-field-default-not-refusal.md] [candidate] — На пути создания свободный текст не обязателен: пустому значению — смысл (нейтральный вариант), а не отказ «сначала опишите» (web-ui; from video-blade-2)
 - [lessons/empty-state-icon-direct-child.md] [candidate] — Большая иконка блока (пустой экран) — только прямой потомок: .empty > i, иначе иконки кнопок внутри раздуваются (web-ui; from video-blade-2)
 - [lessons/entry-page-not-dashboard.md] [candidate] — Новое на «главную» клади туда, куда реально ведёт / после входа (общий include); ревью стартует с /, иначе блок не увидят (web-ui; from video-blade-2)
+- [lessons/entry-price-from-purchase-path.md] [candidate] — «Начать от $X» на сайте — по обработчику покупки, а не по прайсу: пакет, который продаётся только к тарифу, — не цена входа (any; from video-blade-2)
 - [lessons/env-example-no-secrets.md] [candidate] — В .env.example — только комментарий с именем переменной и откуда взять значение; пустой ключ в примере перекроет настоящий при автодописывании в рабочий env (any; from ai-business-advisor-websites)
 - [lessons/error-code-text-names-a-place.md] [candidate] — Общий код ошибки несёт текст про другой экран — новому сценарию свой код (any; from video-blade-2)
 - [lessons/escape-default-stops-media.md] [candidate] — Escape в модалке без preventDefault — браузерное «остановить загрузку» глушит следующее медиа: ролик после первого стоит на 0:00 (headless Chrome) (web-ui; from video-blade-2)
