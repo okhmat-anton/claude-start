@@ -119,7 +119,8 @@ def save_tier(session: str, tier: str, source: str, project: str) -> None:
 
 
 def tier_line(tier: str, how: str) -> str:
-    return f"Уровень задачи: {TIERS[tier]} ({how}). Протокол: {TIER_PROTOCOL[tier]}."
+    return (f"Уровень задачи: {TIERS[tier]} ({how}). Протокол: {TIER_PROTOCOL[tier]}. "
+            "Ход задач (skill task-log): записи ещё нет — заведи сейчас; этапы отмечай по ходу, закрой в конце.")
 
 
 TIER_SOURCE_HOW = {"prompt": "назван в промте", "buttons": "выбран кнопками", "default": "по умолчанию"}
