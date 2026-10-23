@@ -1169,5 +1169,61 @@
       "improvements"
     ],
     "prompt": "значок «в работе» у генерации появляется только когда задача стартовала у поставщика, а не когда заказ записан"
+  },
+  {
+    "unit": "page-copy-within-order-limits",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "напиши для страницы модели фразу для агента и краткое описание — с 4K и кадром 3:2"
+  },
+  {
+    "unit": "from-price-charged-variants",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "посчитай цену от для карточки модели по вариантам прайса, там есть input и with video"
+  },
+  {
+    "unit": "variant-tie-input-rate",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "списание за видео у модели с тарифами with video и no video выбирает вариант по очкам"
+  },
+  {
+    "unit": "published-model-id-is-order-id",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "на странице модели кнопка Copy id — какой model id показать у пары image-to-image"
+  },
+  {
+    "unit": "schema-validator-throttle",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "прогони разметку json-ld всех страниц через validator.schema.org, отвечает 405 и 302"
+  },
+  {
+    "unit": "ask-where-pages-live",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "сделай SEO-страницы моделей — в документации или на сайте лендинга?"
+  },
+  {
+    "unit": "scrape-embedded-page-json",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "собери описания и примеры со страниц чужого каталога моделей на next.js, там __NEXT_DATA__"
+  },
+  {
+    "unit": "parallel-writers-fact-packets",
+    "kinds": [
+      "lessons"
+    ],
+    "prompt": "напиши тексты для 49 страниц моделей — авторами-субагентами по пакетам фактов"
   }
 ]
