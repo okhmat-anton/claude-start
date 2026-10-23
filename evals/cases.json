@@ -1232,5 +1232,14 @@
       "lessons"
     ],
     "prompt": "на странице цены написать «token packs start at $5» — можно ли начать с пакета без тарифа"
+  },
+  {
+    "unit": "knowledge-clone-autostash-conflict",
+    "prompt": "git pull в клоне базы знаний выдал Applying autostash resulted in conflicts, в style-base маркеры конфликта — что делать?",
+    "expect": "обе стороны|stash drop"
+  },
+  {
+    "unit": "knowledge-clone-autostash-conflict",
+    "command": "git -C ~/.claude/knowledge-repo/claude-start pull --rebase --autostash"
   }
 ]

@@ -112,6 +112,7 @@
 - [lessons/journal-entry-id.md] [candidate] — Записи журнала правок — со своим id, время — не ключ: создание и удаление в одну миллисекунду дают две записи с одним временем, откат попадает не в тот снимок (any; from planning)
 - [lessons/judge-requirements-per-lane.md] [candidate] — Цикл промт→судья: требования судье — из промта каждой линии (такты рэпа, слова EDM), автопроверки без тегов; иначе судья штрафует правила самого промта (llm; from video-blade-2)
 - [lessons/judge-rules-interact.md] [candidate] — Советы судьи из цикла промт→судья — в протокол только после сверки с действующими правилами и моделью данных, затем круг на тех же образцах (llm; from video-blade-2)
+- [lessons/knowledge-clone-autostash-conflict.md] [candidate] — Незакоммиченная правка в клоне базы знаний (style-base) при следующем pull — конфликт автостэша: слить обе стороны, stash drop, правила коммитить в конце задачи (any; from tech)
 - [lessons/label-claims-need-arithmetic.md] [candidate] — Метка «популярный/выгодный» и слово «выгоднее» — только после арифметики цены за единицу против соседних вариантов (any; from video-blade-2)
 - [lessons/link-looks-like-link.md] [candidate] — Переход, ради которого пришёл человек, — отдельной строкой цветом ссылки и пунктом меню, не ссылкой внутри жирного текста (web-ui; from video-blade-2)
 - [lessons/lint-first-run.md] — Первый линтер в непроверявшемся коде — «ноль зависимостей» про рантайм; два уровня проверок; сначала чинить конфиг под принятые приёмы, потом читать находки (any; from planning, ai-business-advisor, 3d-printer)

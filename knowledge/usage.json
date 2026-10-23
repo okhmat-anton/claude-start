@@ -56,7 +56,7 @@
  "agent-oneoff-script": {
   "applied": 2,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-10-23",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -64,11 +64,12 @@
    "planning": 0,
    "project1": 0,
    "protocols": 0,
+   "tech": 0,
    "todo": 0,
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 77
+  "shown": 78
  },
  "agent-shell-state": {
   "applied": 6,
@@ -209,18 +210,19 @@
  "codemod-after-formatter-hook": {
   "applied": 8,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-10-23",
   "projects": {
    "claude-start": 2,
    "landing": 0,
    "planning": 0,
    "projects": 0,
    "raw": 0,
+   "tech": 0,
    "todo": 0,
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 26
+  "shown": 27
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -449,25 +451,27 @@
  "guard-hook-command-parsing": {
   "applied": 1,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-10-21",
+  "last_shown": "2026-10-23",
   "projects": {
    "akm-news": 0,
    "game-3": 1,
    "planning": 0,
+   "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 20
+  "shown": 21
  },
  "guard-hook-testing": {
   "applied": 2,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-10-08",
+  "last_shown": "2026-10-23",
   "projects": {
    "game-3": 1,
    "planning": 0,
+   "tech": 0,
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "headless-chrome-accept-language": {
   "applied": 0,
@@ -1162,12 +1166,13 @@
  "rm-rf-not-in-command-chains": {
   "applied": 1,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-10-23",
   "projects": {
    "planning": 0,
+   "tech": 0,
    "video-blade-2": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "rule-change-stale-wording": {
   "applied": 8,
