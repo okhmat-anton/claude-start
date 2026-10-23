@@ -556,6 +556,14 @@
   },
   "shown": 19
  },
+ "knowledge-clone-autostash-conflict": {
+  "applied": 0,
+  "last_shown": "2026-10-23",
+  "projects": {
+   "tech": 0
+  },
+  "shown": 1
+ },
  "label-claims-need-arithmetic": {
   "applied": 3,
   "last_applied": "2026-10-23",
