@@ -3,9 +3,9 @@ name: untracked-build-artifacts
 description: Кэш интерпретатора и служебные файлы ОС не отслеживаются git — .gitignore и снятие с учёта, иначе каждый прогон пачкает копии и клоны
 kind: module
 stack: [any]
-status: candidate
+status: mature
 created: 2026-10-21
-seen_in: [claude-start]
+seen_in: [claude-start, akm-news]
 benefit: 4
 rating: 5
 triggers:
