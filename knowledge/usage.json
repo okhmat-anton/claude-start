@@ -11,7 +11,7 @@
  "admin-links-to-app": {
   "applied": 1,
   "last_applied": "2026-10-17",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -20,7 +20,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 20
+  "shown": 21
  },
  "agent-docs-route-guard": {
   "applied": 2,
@@ -58,7 +58,7 @@
  "agent-oneoff-script": {
   "applied": 2,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -71,7 +71,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 82
+  "shown": 83
  },
  "agent-shell-state": {
   "applied": 8,
@@ -137,7 +137,7 @@
  "autofix-hook-import-order": {
   "applied": 8,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "_src": 0,
    "foreign": 0,
@@ -148,7 +148,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 36
+  "shown": 37
  },
  "bisect-by-patched-page-copies": {
   "applied": 0,
@@ -221,7 +221,7 @@
  "codemod-after-formatter-hook": {
   "applied": 9,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "claude-start": 2,
@@ -234,11 +234,11 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 30
+  "shown": 31
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -250,7 +250,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 67
+  "shown": 68
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -280,11 +280,11 @@
  "css-root-class-collision": {
   "applied": 3,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-10-21",
+  "last_shown": "2026-10-24",
   "projects": {
    "video-blade-2": 2
   },
-  "shown": 1
+  "shown": 2
  },
  "cta-same-promise-same-target": {
   "applied": 1,
@@ -351,7 +351,7 @@
  "dev-vs-pinned-deps": {
   "applied": 1,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "3d-printer": 0,
    "akm-news": 0,
@@ -365,7 +365,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 61
+  "shown": 62
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -617,7 +617,7 @@
  },
  "lint-first-run": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
@@ -626,12 +626,12 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 32
  },
  "lint-rules-explicit-select": {
   "applied": 2,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
@@ -640,7 +640,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 20
+  "shown": 21
  },
  "list-action-returns-to-card": {
   "applied": 2,
@@ -701,7 +701,7 @@
  "long-work-progress-statuses": {
   "applied": 6,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -710,7 +710,7 @@
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "masonry-columns-via-slot": {
   "applied": 0,
@@ -799,24 +799,25 @@
  },
  "nginx-stale-upstream-after-recreate": {
   "applied": 0,
-  "last_shown": "2026-10-15",
+  "last_shown": "2026-10-24",
   "projects": {
+   "akm-news": 0,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "no-build-in-live-dev-dir": {
   "applied": 2,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 1,
    "frontend": 0,
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
@@ -940,14 +941,14 @@
  "proposal-numbers-explicit": {
   "applied": 1,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 8
+  "shown": 9
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -978,17 +979,17 @@
  },
  "python-fastapi-mongo-nuxt": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "python-fastapi-vue": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "divani": 0,
@@ -997,7 +998,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -1179,26 +1180,26 @@
  "review-stand-db-timeout": {
   "applied": 9,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 25
+  "shown": 26
  },
  "review-stand-state-drift": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "frontend": 0,
    "planning": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "review-stand-synthetic-export": {
   "applied": 1,
@@ -1235,14 +1236,14 @@
  "rm-rf-not-in-command-chains": {
   "applied": 3,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 1,
    "planning": 0,
    "tech": 0,
    "video-blade-2": 2
   },
-  "shown": 4
+  "shown": 5
  },
  "rule-change-stale-wording": {
   "applied": 9,
@@ -1255,6 +1256,15 @@
    "video-blade-test": 0
   },
   "shown": 12
+ },
+ "run-once-objects-recreate-per-lifespan": {
+  "applied": 0,
+  "last_shown": "2026-10-24",
+  "projects": {
+   "akm-news": 0,
+   "video-blade-2": 0
+  },
+  "shown": 2
  },
  "sales-playbook": {
   "applied": 2,
@@ -1291,6 +1301,14 @@
    "video-blade-2": 1
   },
   "shown": 0
+ },
+ "secret-in-scheduled-agent-prompts": {
+  "applied": 0,
+  "last_shown": "2026-10-24",
+  "projects": {
+   "akm-news": 0
+  },
+  "shown": 1
  },
  "settings-save-model": {
   "applied": 1,
@@ -1362,7 +1380,7 @@
  "stale-server-process": {
   "applied": 4,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -1375,28 +1393,28 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 30
+  "shown": 31
  },
  "stand-copy-restart-before-record": {
   "applied": 5,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "stand": 0,
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 9
+  "shown": 10
  },
  "stand-mirrors-prod-process-flags": {
   "applied": 1,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 1,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "stand-restart-rotates-keys": {
   "applied": 1,
@@ -1409,7 +1427,7 @@
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -1419,7 +1437,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 40
+  "shown": 41
  },
  "subagent-model-fallback": {
   "applied": 5,
@@ -1453,6 +1471,15 @@
    "video-blade-test": 0
   },
   "shown": 7
+ },
+ "testclient-sse-get-never-returns": {
+  "applied": 0,
+  "last_shown": "2026-10-24",
+  "projects": {
+   "akm-news": 0,
+   "video-blade-2": 0
+  },
+  "shown": 2
  },
  "tests-observable-behavior": {
   "applied": 1,
