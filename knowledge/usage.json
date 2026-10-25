@@ -58,7 +58,7 @@
  "agent-oneoff-script": {
   "applied": 3,
   "last_applied": "2026-10-24",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -71,7 +71,7 @@
    "video-blade-2": 3,
    "video-blade-test": 0
   },
-  "shown": 84
+  "shown": 85
  },
  "agent-shell-state": {
   "applied": 8,
@@ -229,7 +229,7 @@
  "codemod-after-formatter-hook": {
   "applied": 9,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "claude-start": 2,
@@ -242,11 +242,11 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 32
+  "shown": 33
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -258,7 +258,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 69
+  "shown": 70
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -1127,7 +1127,7 @@
  },
  "research-agents-share-ip-quota": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -1135,7 +1135,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "revert-from-journal-not-live": {
   "applied": 0,
@@ -1465,7 +1465,7 @@
  "subagent-model-fallback": {
   "applied": 5,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 1,
    "planning": 0,
@@ -1475,7 +1475,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "subagent-returns-text-not-files": {
   "applied": 1,
