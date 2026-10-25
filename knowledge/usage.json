@@ -56,8 +56,8 @@
   "shown": 12
  },
  "agent-oneoff-script": {
-  "applied": 2,
-  "last_applied": "2026-10-21",
+  "applied": 3,
+  "last_applied": "2026-10-24",
   "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
@@ -68,7 +68,7 @@
    "protocols": 0,
    "tech": 0,
    "todo": 0,
-   "video-blade-2": 2,
+   "video-blade-2": 3,
    "video-blade-test": 0
   },
   "shown": 83
@@ -707,15 +707,15 @@
   "shown": 19
  },
  "long-work-progress-statuses": {
-  "applied": 6,
-  "last_applied": "2026-10-23",
+  "applied": 8,
+  "last_applied": "2026-10-25",
   "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "planning": 0,
    "scratchpad": 0,
    "tasks": 0,
-   "video-blade-2": 6,
+   "video-blade-2": 8,
    "video-blade-test": 0
   },
   "shown": 17
@@ -1143,14 +1143,14 @@
   "shown": 2
  },
  "review-budget-below-fold": {
-  "applied": 9,
-  "last_applied": "2026-10-21",
+  "applied": 10,
+  "last_applied": "2026-10-24",
   "last_shown": "2026-10-23",
   "projects": {
    "frontend": 0,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 8,
+   "video-blade-2": 9,
    "video-blade-test": 0
   },
   "shown": 24
@@ -1164,14 +1164,14 @@
   "shown": 2
  },
  "review-frames-both-viewports": {
-  "applied": 6,
-  "last_applied": "2026-10-23",
+  "applied": 7,
+  "last_applied": "2026-10-25",
   "last_shown": "2026-10-23",
   "projects": {
    "akm-news": 2,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 4
+   "video-blade-2": 5
   },
   "shown": 8
  },
@@ -1187,13 +1187,13 @@
   "shown": 7
  },
  "review-stand-db-timeout": {
-  "applied": 9,
-  "last_applied": "2026-10-21",
+  "applied": 10,
+  "last_applied": "2026-10-24",
   "last_shown": "2026-10-24",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 8,
+   "video-blade-2": 9,
    "video-blade-test": 0
   },
   "shown": 26
@@ -1243,25 +1243,25 @@
   "shown": 2
  },
  "rm-rf-not-in-command-chains": {
-  "applied": 3,
-  "last_applied": "2026-10-23",
+  "applied": 4,
+  "last_applied": "2026-10-24",
   "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 1,
    "planning": 0,
    "tech": 0,
-   "video-blade-2": 2
+   "video-blade-2": 3
   },
   "shown": 5
  },
  "rule-change-stale-wording": {
-  "applied": 9,
-  "last_applied": "2026-10-23",
+  "applied": 10,
+  "last_applied": "2026-10-25",
   "last_shown": "2026-10-23",
   "projects": {
    "akm-news": 2,
    "pb": 0,
-   "video-blade-2": 6,
+   "video-blade-2": 7,
    "video-blade-test": 0
   },
   "shown": 12
@@ -1405,12 +1405,12 @@
   "shown": 31
  },
  "stand-copy-restart-before-record": {
-  "applied": 5,
-  "last_applied": "2026-10-21",
+  "applied": 6,
+  "last_applied": "2026-10-24",
   "last_shown": "2026-10-24",
   "projects": {
    "stand": 0,
-   "video-blade-2": 5,
+   "video-blade-2": 6,
    "video-blade-test": 0
   },
   "shown": 10
