@@ -76,7 +76,7 @@
  "agent-shell-state": {
   "applied": 8,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -94,12 +94,12 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 69
+  "shown": 70
  },
  "api-discovery": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "docs": 0,
    "planning": 0,
@@ -108,7 +108,15 @@
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 22
+  "shown": 23
+ },
+ "app-store": {
+  "applied": 0,
+  "last_shown": "2026-10-24",
+  "projects": {
+   "akm-news": 0
+  },
+  "shown": 1
  },
  "architecture-mvc": {
   "applied": 0,
@@ -475,7 +483,7 @@
  "guard-hook-command-parsing": {
   "applied": 1,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "akm-news": 0,
    "game-3": 1,
@@ -483,7 +491,7 @@
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 22
+  "shown": 23
  },
  "guard-hook-testing": {
   "applied": 2,
@@ -688,7 +696,7 @@
  "local-runs-reach-production": {
   "applied": 1,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -696,7 +704,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "long-work-progress-statuses": {
   "applied": 6,
@@ -733,14 +741,15 @@
  "migration-verify-in-memory": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-24",
   "projects": {
+   "akm-news": 0,
    "payment-gateway": 0,
    "planning": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "model-driven-visualizer-channels": {
   "applied": 0,
@@ -1489,6 +1498,12 @@
    "video-blade-2": 1
   },
   "shown": 3
+ },
+ "title-dedupe-full-name": {
+  "applied": 0,
+  "last_shown": "2026-10-24",
+  "projects": {},
+  "shown": 1
  },
  "token-guarded-endpoints": {
   "applied": 2,
