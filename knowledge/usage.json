@@ -724,12 +724,12 @@
   "shown": 19
  },
  "long-work-progress-statuses": {
-  "applied": 8,
-  "last_applied": "2026-10-25",
+  "applied": 9,
+  "last_applied": "2026-10-26",
   "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
-   "claude-start": 0,
+   "claude-start": 1,
    "planning": 0,
    "scratchpad": 0,
    "tasks": 0,
@@ -908,13 +908,13 @@
   "shown": 1
  },
  "parallel-subagents": {
-  "applied": 3,
-  "last_applied": "2026-10-21",
+  "applied": 4,
+  "last_applied": "2026-10-26",
   "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "aw-white": 0,
-   "claude-start": 0,
+   "claude-start": 1,
    "planning": 0,
    "reels": 0,
    "scratchpad": 0,
@@ -1140,10 +1140,12 @@
   "shown": 0
  },
  "research-agents-share-ip-quota": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-26",
   "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
+   "claude-start": 1,
    "planning": 0,
    "raw": 0,
    "scratchpad": 0,
@@ -1503,9 +1505,10 @@
   "shown": 14
  },
  "subagent-returns-text-not-files": {
-  "applied": 1,
-  "last_applied": "2026-10-22",
+  "applied": 2,
+  "last_applied": "2026-10-26",
   "projects": {
+   "claude-start": 1,
    "video-blade-2": 1
   },
   "shown": 0
