@@ -47,13 +47,13 @@
  "agent-interaction": {
   "applied": 6,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "agent-oneoff-script": {
   "applied": 3,
@@ -76,7 +76,7 @@
  "agent-shell-state": {
   "applied": 8,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -94,12 +94,12 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 70
+  "shown": 71
  },
  "api-discovery": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "docs": 0,
    "planning": 0,
@@ -108,7 +108,7 @@
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 23
+  "shown": 24
  },
  "app-store": {
   "applied": 0,
@@ -130,7 +130,7 @@
  },
  "auth-change-verification": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "aw-white": 0,
    "frontend": 0,
@@ -140,7 +140,7 @@
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 20
+  "shown": 21
  },
  "autofix-hook-import-order": {
   "applied": 8,
@@ -166,13 +166,13 @@
  },
  "blind-judge-anchors": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "claude-start": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "browser-check-raw-cdp": {
   "applied": 0,
@@ -306,11 +306,12 @@
  },
  "default-open-item-pinned-in-url": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
+   "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "deleted-by-whom-capsule": {
   "decisions": {
@@ -359,7 +360,7 @@
  "dev-vs-pinned-deps": {
   "applied": 1,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "3d-printer": 0,
    "akm-news": 0,
@@ -373,7 +374,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 62
+  "shown": 63
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -431,7 +432,7 @@
  },
  "escape-default-stops-media": {
   "applied": 0,
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "landing": 0,
    "planning": 0,
@@ -440,7 +441,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "external-agent-data": {
   "applied": 2,
@@ -466,7 +467,7 @@
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "frontend": 0,
    "planning": 0,
@@ -476,7 +477,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 26
+  "shown": 27
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -513,7 +514,7 @@
  },
  "headless-chrome-accept-language": {
   "applied": 0,
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "payment-gateway": 0,
    "planning": 0,
@@ -522,7 +523,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 24
+  "shown": 25
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -631,7 +632,7 @@
  },
  "lint-first-run": {
   "applied": 0,
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
@@ -640,7 +641,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 33
+  "shown": 34
  },
  "lint-rules-explicit-select": {
   "applied": 2,
@@ -723,7 +724,7 @@
  "long-work-progress-statuses": {
   "applied": 8,
   "last_applied": "2026-10-25",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -732,16 +733,24 @@
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "masonry-columns-via-slot": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "video-blade-test": 0
   },
-  "shown": 3
+  "shown": 4
+ },
+ "measure-dependency-cost-before-arguing": {
+  "applied": 0,
+  "last_shown": "2026-10-25",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
  },
  "migration-count-before-asking": {
   "applied": 0,
@@ -897,7 +906,7 @@
  "parallel-subagents": {
   "applied": 3,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "aw-white": 0,
@@ -906,7 +915,7 @@
    "scratchpad": 0,
    "video-blade-2": 3
   },
-  "shown": 12
+  "shown": 13
  },
  "payment-sandbox-means-test-key": {
   "applied": 0,
@@ -964,14 +973,14 @@
  "proposal-numbers-explicit": {
   "applied": 1,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 10
+  "shown": 11
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -984,12 +993,12 @@
  "public-api-cache-hides-fresh-edits": {
   "applied": 1,
   "last_applied": "2026-10-06",
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "pydantic-patch-nested-exclude-unset": {
   "applied": 0,
@@ -1099,7 +1108,7 @@
  "replay-review-scenario": {
   "applied": 4,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
@@ -1107,7 +1116,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "rerender-keeps-typed-input": {
   "applied": 0,
@@ -1159,7 +1168,7 @@
  "review-budget-below-fold": {
   "applied": 10,
   "last_applied": "2026-10-24",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "frontend": 0,
    "planning": 0,
@@ -1167,7 +1176,7 @@
    "video-blade-2": 9,
    "video-blade-test": 0
   },
-  "shown": 25
+  "shown": 26
  },
  "review-file-uploads": {
   "applied": 0,
@@ -1203,14 +1212,14 @@
  "review-stand-db-timeout": {
   "applied": 10,
   "last_applied": "2026-10-24",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 9,
    "video-blade-test": 0
   },
-  "shown": 27
+  "shown": 28
  },
  "review-stand-state-drift": {
   "applied": 1,
@@ -1259,14 +1268,14 @@
  "rm-rf-not-in-command-chains": {
   "applied": 4,
   "last_applied": "2026-10-24",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 1,
    "planning": 0,
    "tech": 0,
    "video-blade-2": 3
   },
-  "shown": 5
+  "shown": 6
  },
  "rule-change-stale-wording": {
   "applied": 10,
@@ -1300,13 +1309,15 @@
  },
  "schema-validator-throttle": {
   "applied": 0,
-  "last_shown": "2026-10-23",
-  "projects": {},
-  "shown": 1
+  "last_shown": "2026-10-25",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 2
  },
  "scoped-key-narrow-gate": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "frontend": 0,
    "planning": 0,
@@ -1315,7 +1326,7 @@
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "second-stand-during-review": {
   "applied": 1,
@@ -1392,13 +1403,13 @@
  },
  "stale-poll-rollback": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 8
+  "shown": 9
  },
  "stale-server-process": {
   "applied": 4,
@@ -1448,9 +1459,17 @@
   },
   "shown": 1
  },
+ "starlette-subapp-overwrites-scope-app": {
+  "applied": 0,
+  "last_shown": "2026-10-25",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
+ },
  "stuck-binary-ue-processes": {
   "applied": 0,
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "planning": 0,
@@ -1460,7 +1479,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 42
+  "shown": 43
  },
  "subagent-model-fallback": {
   "applied": 5,
@@ -1497,12 +1516,13 @@
  },
  "testclient-sse-get-never-returns": {
   "applied": 0,
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
+   "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "tests-observable-behavior": {
   "applied": 1,
@@ -1561,6 +1581,12 @@
   "scores": {
    "claude-start": 5.0
   }
+ },
+ "us-real-estate-open-data": {
+  "applied": 0,
+  "last_shown": "2026-10-25",
+  "projects": {},
+  "shown": 1
  },
  "vendor-console-guide": {
   "applied": 0,
@@ -1689,12 +1715,12 @@
  },
  "zsh-var-command-no-split": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  }
 }
