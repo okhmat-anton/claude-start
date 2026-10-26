@@ -71,7 +71,7 @@
    "video-blade-2": 3,
    "video-blade-test": 0
   },
-  "shown": 85
+  "shown": 86
  },
  "agent-shell-state": {
   "applied": 8,
@@ -145,7 +145,7 @@
  "autofix-hook-import-order": {
   "applied": 8,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "_src": 0,
    "foreign": 0,
@@ -156,7 +156,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 38
+  "shown": 39
  },
  "bisect-by-patched-page-copies": {
   "applied": 0,
@@ -242,7 +242,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 33
+  "shown": 34
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -258,7 +258,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 70
+  "shown": 71
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -456,14 +456,15 @@
  "feature-existence-check": {
   "applied": 3,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "pet-replicas": 0,
+   "planning": 0,
    "scratchpad": 0,
    "tasks": 0,
    "video-blade-2": 2
   },
-  "shown": 11
+  "shown": 12
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
@@ -527,12 +528,13 @@
  },
  "headless-chrome-pdf": {
   "applied": 0,
-  "last_shown": "2026-10-12",
+  "last_shown": "2026-10-25",
   "projects": {
+   "planning": 0,
    "raw": 0,
    "scratchpad": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "headless-touch-hangs-after-modal": {
   "applied": 0,
@@ -727,13 +729,14 @@
   "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
+   "claude-start": 0,
    "planning": 0,
    "scratchpad": 0,
    "tasks": 0,
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "masonry-columns-via-slot": {
   "applied": 0,
@@ -843,13 +846,14 @@
  "no-build-in-live-dev-dir": {
   "applied": 2,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 1,
    "frontend": 0,
+   "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
@@ -910,12 +914,13 @@
   "projects": {
    "akm-news": 0,
    "aw-white": 0,
+   "claude-start": 0,
    "planning": 0,
    "reels": 0,
    "scratchpad": 0,
    "video-blade-2": 3
   },
-  "shown": 13
+  "shown": 14
  },
  "payment-sandbox-means-test-key": {
   "applied": 0,
@@ -1148,12 +1153,13 @@
  },
  "revert-from-journal-not-live": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
+   "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
@@ -1414,7 +1420,7 @@
  "stale-server-process": {
   "applied": 4,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-10-24",
+  "last_shown": "2026-10-25",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -1427,7 +1433,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 32
+  "shown": 33
  },
  "stand-copy-restart-before-record": {
   "applied": 6,
@@ -1696,6 +1702,14 @@
    "video-blade-2": 1
   },
   "shown": 0
+ },
+ "vue-local-state-shadows-global-helper": {
+  "applied": 0,
+  "last_shown": "2026-10-25",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
  },
  "workspace-visual-isolation": {
   "applied": 0,
