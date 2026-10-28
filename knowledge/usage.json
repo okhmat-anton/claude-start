@@ -231,11 +231,12 @@
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
-  "last_shown": "2026-10-11",
+  "last_shown": "2026-10-28",
   "projects": {
+   "gym-bro-3": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "clean-context-run-fallback": {
   "applied": 1,
@@ -791,6 +792,14 @@
   },
   "shown": 23
  },
+ "look-text-click-counter": {
+  "applied": 0,
+  "last_shown": "2026-10-28",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "masonry-columns-via-slot": {
   "applied": 0,
   "last_shown": "2026-10-25",
@@ -1012,11 +1021,12 @@
  },
  "pixel-server-event-dedup": {
   "applied": 0,
-  "last_shown": "2026-09-29",
+  "last_shown": "2026-10-28",
   "projects": {
+   "gym-bro-3": 0,
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "plan-task-ask-executor-capacity-focus": {
   "applied": 0,
