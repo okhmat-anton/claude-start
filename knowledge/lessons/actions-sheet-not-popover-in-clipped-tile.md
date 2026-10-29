@@ -2,9 +2,9 @@
 name: actions-sheet-not-popover-in-clipped-tile
 description: Действия карточки в контейнере с overflow: hidden — окном-списком на dialog, не выпадающим меню внутри карточки: обрежется
 stack: [web-ui]
-status: candidate
+status: mature
 created: 2026-10-08
-seen_in: [video-blade-2]
+seen_in: [video-blade-2, gym-bro-3]
 triggers:
   keywords: [overflow: hidden, меню в карточке, обрезается, details summary, popover, ⋯]
   commands: []

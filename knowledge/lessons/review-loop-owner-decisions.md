@@ -2,9 +2,9 @@
 name: review-loop-owner-decisions
 description: Решение владельца, которое ревью примет за недостаток, — явным пунктом в бриф и роль субагента «решение владельца, не замечание», иначе оценка стоит на плато
 stack: [llm]
-status: candidate
+status: mature
 created: 2026-09-29
-seen_in: [video-blade-2]
+seen_in: [video-blade-2, gym-bro-3]
 triggers:
   keywords: [плато оценки, решение владельца, субагент ревью, не замечание, одно замечание каждый круг]
   commands: []

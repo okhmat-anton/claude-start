@@ -1,10 +1,10 @@
 {
  "actions-sheet-not-popover-in-clipped-tile": {
-  "applied": 1,
-  "last_applied": "2026-10-08",
+  "applied": 2,
+  "last_applied": "2026-10-29",
   "last_shown": "2026-10-28",
   "projects": {
-   "gym-bro-3": 0,
+   "gym-bro-3": 1,
    "video-blade-2": 1
   },
   "shown": 3
@@ -287,11 +287,12 @@
  },
  "connect-page-recovery-path": {
   "applied": 0,
-  "last_shown": "2026-10-27",
+  "last_shown": "2026-10-29",
   "projects": {
-   "3d-printer": 0
+   "3d-printer": 0,
+   "gym-bro-3": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -357,19 +358,21 @@
  },
  "dependent-request-from-response": {
   "applied": 0,
-  "last_shown": "2026-10-21",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 0,
    "tasks": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "design-mock-single-storyline": {
   "applied": 0,
-  "last_shown": "2026-10-23",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "details-element-flex-slot": {
   "applied": 0,
@@ -514,11 +517,27 @@
   },
   "shown": 30
  },
+ "field-second-write-path": {
+  "applied": 0,
+  "last_shown": "2026-10-29",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "fstring-html-fragments": {
   "applied": 0,
   "last_shown": "2026-10-15",
   "projects": {
    "scratchpad": 0
+  },
+  "shown": 1
+ },
+ "gray-hint-numbers-look-entered": {
+  "applied": 0,
+  "last_shown": "2026-10-29",
+  "projects": {
+   "gym-bro-3": 0
   },
   "shown": 1
  },
@@ -639,15 +658,16 @@
  },
  "knowledge-clone-autostash-conflict": {
   "applied": 0,
-  "last_shown": "2026-10-26",
+  "last_shown": "2026-10-29",
   "projects": {
    "3d-printer": 0,
    "akm-news": 0,
    "claude-start": 0,
+   "gym-bro-3": 0,
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "label-claims-need-arithmetic": {
   "applied": 4,
@@ -725,14 +745,15 @@
  "live-update-own-echo-autosave": {
   "applied": 2,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 0,
    "planning": 0,
    "tasks": 0,
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "llm-output-not-metadata": {
   "applied": 2,
@@ -819,6 +840,14 @@
   },
   "shown": 3
  },
+ "menu-link-tab-anchor": {
+  "applied": 0,
+  "last_shown": "2026-10-29",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "migration-count-before-asking": {
   "applied": 0,
   "last_shown": "2026-10-28",
@@ -884,14 +913,15 @@
   "shown": 1
  },
  "new-action-in-nowrap-row": {
-  "applied": 2,
-  "last_applied": "2026-10-08",
-  "last_shown": "2026-10-26",
+  "applied": 3,
+  "last_applied": "2026-10-29",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 1,
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 6
+  "shown": 7
  },
  "new-feature-visible-before-data": {
   "applied": 0,
@@ -931,13 +961,14 @@
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-27",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "owner-task-before-plan-order": {
   "applied": 0,
@@ -1301,15 +1332,16 @@
   "shown": 13
  },
  "review-loop-owner-decisions": {
-  "applied": 9,
-  "last_applied": "2026-10-23",
-  "last_shown": "2026-10-23",
+  "applied": 10,
+  "last_applied": "2026-10-29",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 1,
    "pb": 0,
    "planning": 0,
    "video-blade-2": 9
   },
-  "shown": 7
+  "shown": 8
  },
  "review-stand-db-timeout": {
   "applied": 10,
@@ -1475,16 +1507,23 @@
   },
   "shown": 7
  },
+ "shell-form-reset-clears-vmodel": {
+  "applied": 0,
+  "last_shown": "2026-10-29",
+  "projects": {},
+  "shown": 1
+ },
  "simulation-plausibility": {
   "applied": 0,
-  "last_shown": "2026-10-27",
+  "last_shown": "2026-10-29",
   "projects": {
    "claude-start": 0,
+   "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "song-lyrics-content-check": {
   "applied": 0,
@@ -1498,21 +1537,23 @@
  },
  "spa-keyed-page-loses-input": {
   "applied": 0,
-  "last_shown": "2026-10-16",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "ssr-to-spa-same-context": {
   "applied": 0,
-  "last_shown": "2026-10-21",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 0,
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "stable-list-mark-changes": {
   "applied": 0,
@@ -1584,6 +1625,14 @@
   },
   "shown": 1
  },
+ "starlette-add-route-function-is-request-handler": {
+  "applied": 0,
+  "last_shown": "2026-10-29",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "starlette-subapp-overwrites-scope-app": {
   "applied": 0,
   "last_shown": "2026-10-25",
@@ -1645,14 +1694,14 @@
  },
  "testclient-sse-get-never-returns": {
   "applied": 0,
-  "last_shown": "2026-10-27",
+  "last_shown": "2026-10-29",
   "projects": {
    "3d-printer": 0,
    "akm-news": 0,
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "tests-observable-behavior": {
   "applied": 1,
@@ -1665,9 +1714,11 @@
  },
  "title-dedupe-full-name": {
   "applied": 0,
-  "last_shown": "2026-10-24",
-  "projects": {},
-  "shown": 1
+  "last_shown": "2026-10-29",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 2
  },
  "token-guarded-endpoints": {
   "applied": 2,
@@ -1827,12 +1878,14 @@
   "shown": 3
  },
  "visible-and-persistent-ui-state": {
-  "applied": 1,
-  "last_applied": "2026-09-24",
+  "applied": 2,
+  "last_applied": "2026-10-29",
+  "last_shown": "2026-10-29",
   "projects": {
+   "gym-bro-3": 1,
    "video-blade-2": 1
   },
-  "shown": 0
+  "shown": 1
  },
  "vue-local-state-shadows-global-helper": {
   "applied": 0,
