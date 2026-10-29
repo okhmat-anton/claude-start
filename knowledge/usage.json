@@ -151,8 +151,8 @@
   "shown": 21
  },
  "autofix-hook-import-order": {
-  "applied": 8,
-  "last_applied": "2026-10-18",
+  "applied": 9,
+  "last_applied": "2026-10-27",
   "last_shown": "2026-10-27",
   "projects": {
    "3d-printer": 0,
@@ -162,7 +162,7 @@
    "judge": 0,
    "planning": 0,
    "scratchpad": 0,
-   "video-blade-2": 7,
+   "video-blade-2": 8,
    "video-blade-test": 0
   },
   "shown": 41
@@ -1593,13 +1593,13 @@
   "shown": 36
  },
  "stand-copy-restart-before-record": {
-  "applied": 7,
-  "last_applied": "2026-10-26",
+  "applied": 8,
+  "last_applied": "2026-10-27",
   "last_shown": "2026-10-27",
   "projects": {
    "planning": 1,
    "stand": 0,
-   "video-blade-2": 6,
+   "video-blade-2": 7,
    "video-blade-test": 0
   },
   "shown": 12
