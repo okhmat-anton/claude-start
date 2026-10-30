@@ -4,7 +4,7 @@ description: Пока по стенду идёт ревью — стенд не 
 stack: [any]
 status: mature
 created: 2026-10-17
-seen_in: [akm-news]
+seen_in: [akm-news, gym-bro-3]
 triggers:
   keywords: [nuxt build, сборка, .nuxt, 500 на всех страницах, стенд сломался, dev-сервер, перезапуск стенда, 502 на стенде, ревью идёт, круг ревью]
   commands: ['nuxt build', 'npm run build', 'vite build', 'pkill -f .*uvicorn', 'pkill -f .*node']
