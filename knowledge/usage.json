@@ -54,12 +54,13 @@
   "shown": 2
  },
  "architecture-mvc": {
-  "applied": 0,
-  "last_shown": "2026-10-29",
+  "applied": 1,
+  "last_applied": "2026-10-30",
+  "last_shown": "2026-10-30",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "auth-change-verification": {
   "applied": 1,
@@ -117,11 +118,11 @@
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
-  "last_shown": "2026-10-29",
+  "last_shown": "2026-10-30",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "clean-context-run-fallback": {
   "applied": 1,
@@ -168,6 +169,14 @@
   },
   "shown": 3
  },
+ "default-open-item-pinned-in-url": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "dependent-request-from-response": {
   "applied": 0,
   "last_shown": "2026-10-29",
@@ -186,12 +195,12 @@
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
-  "last_shown": "2026-10-29",
+  "last_shown": "2026-10-30",
   "projects": {
    "ai-business-advisor-websites": 0,
    "gym-bro-3": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "env-example-no-secrets": {
   "applied": 1,
@@ -215,6 +224,22 @@
   "last_shown": "2026-10-29",
   "projects": {},
   "shown": 2
+ },
+ "eval-judge-real-model-recorded": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
+ "eval-sim-starts-from-app-state": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
@@ -382,6 +407,14 @@
   },
   "shown": 1
  },
+ "llm-prompt-defaults": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "local-runs-reach-production": {
   "applied": 1,
   "last_applied": "2026-10-30",
@@ -403,6 +436,15 @@
   },
   "shown": 4
  },
+ "look-text-click-counter": {
+  "applied": 1,
+  "last_applied": "2026-10-30",
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "masonry-columns-via-slot": {
   "applied": 0,
   "last_shown": "2026-10-29",
@@ -421,6 +463,14 @@
   },
   "shown": 2
  },
+ "menu-link-tab-anchor": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "mock-two-states-fresh-and-demo": {
   "applied": 1,
   "last_applied": "2026-10-29",
@@ -431,13 +481,14 @@
   "shown": 2
  },
  "multi-language-checks": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-10-30",
   "last_shown": "2026-10-30",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "no-build-in-live-dev-dir": {
   "applied": 0,
@@ -446,6 +497,12 @@
    "planning": 0
   },
   "shown": 3
+ },
+ "optional-field-default-overwrites": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {},
+  "shown": 1
  },
  "page-copy-within-order-limits": {
   "applied": 0,
@@ -482,6 +539,22 @@
   },
   "shown": 3
  },
+ "prompt-field-reaches-model-test": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
+ "proposal-numbers-explicit": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "python-fastapi-vue": {
   "applied": 1,
   "last_applied": "2026-10-29",
@@ -491,7 +564,7 @@
    "gym-bro-3": 1,
    "planning": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "regex-codemod-spans-functions": {
   "applied": 0,
@@ -713,6 +786,14 @@
    "gym-bro-3": 0
   },
   "shown": 2
+ },
+ "visible-and-persistent-ui-state": {
+  "applied": 0,
+  "last_shown": "2026-10-30",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
  },
  "workspace-visual-isolation": {
   "applied": 0,
