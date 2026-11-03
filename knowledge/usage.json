@@ -452,11 +452,11 @@
  },
  "embedded-postgres-when-docker-stuck": {
   "applied": 0,
-  "last_shown": "2026-11-02",
+  "last_shown": "2026-11-03",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "empty-field-default-not-refusal": {
   "applied": 0,
@@ -1212,12 +1212,13 @@
  "prompt-field-reaches-model-test": {
   "applied": 1,
   "last_applied": "2026-11-01",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "calibri": 0,
-   "gym-bro-3": 0
+   "gym-bro-3": 0,
+   "planning": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "prompt-numbers-carry-their-count": {
   "applied": 0,
@@ -1347,7 +1348,7 @@
  "regex-codemod-spans-functions": {
   "applied": 7,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "frontend": 0,
    "gym-bro-3": 0,
@@ -1359,7 +1360,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 32
  },
  "render-before-model-eval": {
   "applied": 1,
@@ -1424,14 +1425,20 @@
   },
   "shown": 8
  },
+ "restricted-key-gate-same-parser": {
+  "applied": 0,
+  "last_shown": "2026-11-03",
+  "projects": {},
+  "shown": 1
+ },
  "revert-from-journal-not-live": {
   "applied": 0,
-  "last_shown": "2026-10-31",
+  "last_shown": "2026-11-03",
   "projects": {
    "gym-bro-3": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "review-brief-lists-stand-refusals": {
   "applied": 1,
@@ -1631,13 +1638,13 @@
  "settings-save-model": {
   "applied": 1,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-03",
   "projects": {
    "gym-bro-3": 0,
    "tasks": 0,
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "simulation-plausibility": {
   "applied": 0,
@@ -1829,6 +1836,12 @@
    "video-blade-2": 1
   },
   "shown": 5
+ },
+ "title-dedupe-full-name": {
+  "applied": 0,
+  "last_shown": "2026-11-03",
+  "projects": {},
+  "shown": 1
  },
  "token-guarded-endpoints": {
   "applied": 2,
