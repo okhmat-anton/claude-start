@@ -785,6 +785,14 @@
   },
   "shown": 1
  },
+ "limit-rounds-down-in-person-units": {
+  "applied": 0,
+  "last_shown": "2026-11-03",
+  "projects": {
+   "planning": 0
+  },
+  "shown": 1
+ },
  "link-looks-like-link": {
   "applied": 0,
   "last_shown": "2026-11-01",
