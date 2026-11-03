@@ -47,20 +47,20 @@
   "shown": 1
  },
  "agent-interaction": {
-  "applied": 5,
-  "last_applied": "2026-10-29",
-  "last_shown": "2026-10-30",
+  "applied": 6,
+  "last_applied": "2026-11-03",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0,
-   "planning": 0,
+   "planning": 1,
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 11
+  "shown": 12
  },
  "agent-oneoff-script": {
-  "applied": 3,
-  "last_applied": "2026-11-01",
+  "applied": 4,
+  "last_applied": "2026-11-02",
   "last_shown": "2026-11-01",
   "projects": {
    "akm-news": 0,
@@ -69,7 +69,7 @@
    "gym-bro-3": 1,
    "local-ai-coder-test": 0,
    "music-hit": 0,
-   "planning": 0,
+   "planning": 1,
    "project1": 0,
    "protocols": 0,
    "tech": 0,
@@ -82,7 +82,7 @@
  "agent-shell-state": {
   "applied": 6,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -103,7 +103,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 69
+  "shown": 70
  },
  "api-discovery": {
   "applied": 1,
@@ -144,7 +144,7 @@
  "auth-change-verification": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-10-31",
+  "last_shown": "2026-11-02",
   "projects": {
    "aw-white": 0,
    "gym-bro-3": 0,
@@ -154,7 +154,7 @@
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "autofix-hook-import-order": {
   "applied": 8,
@@ -175,17 +175,17 @@
   "shown": 38
  },
  "blind-judge-anchors": {
-  "applied": 2,
-  "last_applied": "2026-11-01",
-  "last_shown": "2026-11-01",
+  "applied": 3,
+  "last_applied": "2026-11-02",
+  "last_shown": "2026-11-02",
   "projects": {
    "claude-start": 0,
    "gym-bro-3": 1,
-   "planning": 0,
+   "planning": 1,
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "branching-form-progress-pessimistic": {
   "applied": 0,
@@ -302,11 +302,12 @@
  "confirm-sheet-safe-action-under-finger": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
-   "gym-bro-3": 0
+   "gym-bro-3": 0,
+   "planning": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "connect-page-recovery-path": {
   "applied": 0,
@@ -327,11 +328,11 @@
  },
  "css-grid-max-content-overflow": {
   "applied": 0,
-  "last_shown": "2026-10-15",
+  "last_shown": "2026-11-03",
   "projects": {
    "scratchpad": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "css-media-before-base-rule": {
   "applied": 1,
@@ -419,7 +420,7 @@
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
    "3d-printer": 0,
    "ai-business-advisor-websites": 0,
@@ -437,7 +438,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 63
+  "shown": 64
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -507,7 +508,7 @@
  },
  "escape-default-stops-media": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -519,7 +520,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 16
+  "shown": 17
  },
  "eval-judge-real-model-recorded": {
   "applied": 1,
@@ -565,7 +566,7 @@
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -577,7 +578,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 26
+  "shown": 27
  },
  "field-second-write-path": {
   "applied": 0,
@@ -590,11 +591,11 @@
  "first-commit-sweeps-key-files": {
   "applied": 1,
   "last_applied": "2026-11-01",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -651,7 +652,7 @@
  "headless-chrome-accept-language": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -663,7 +664,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 24
+  "shown": 25
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -712,17 +713,18 @@
   "shown": 1
  },
  "judge-requirements-per-lane": {
-  "applied": 4,
-  "last_applied": "2026-11-01",
-  "last_shown": "2026-11-01",
+  "applied": 5,
+  "last_applied": "2026-11-02",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 1,
+   "planning": 1,
    "scratchpad": 0,
    "tech": 0,
    "video-blade-2": 3,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "judge-rules-interact": {
   "applied": 2,
@@ -735,15 +737,15 @@
   "shown": 3
  },
  "kie-ai": {
-  "applied": 2,
-  "last_applied": "2026-11-01",
+  "applied": 3,
+  "last_applied": "2026-11-02",
   "last_shown": "2026-11-01",
   "projects": {
    "divani": 0,
    "gym-bro-3": 1,
    "lpdf": 0,
    "pet-replicas": 0,
-   "planning": 0,
+   "planning": 1,
    "project1": 0,
    "scratchpad": 0,
    "todo": 0,
@@ -752,11 +754,12 @@
   "shown": 21
  },
  "knowledge-clone-autostash-conflict": {
-  "applied": 1,
-  "last_applied": "2026-10-23",
+  "applied": 2,
+  "last_applied": "2026-11-02",
   "last_shown": "2026-11-01",
   "projects": {
    "calibri": 0,
+   "planning": 1,
    "tech": 1
   },
   "shown": 2
@@ -826,7 +829,7 @@
  "list-action-returns-to-card": {
   "applied": 2,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
@@ -835,7 +838,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "live-update-assert-by-wait-step": {
   "applied": 0,
@@ -897,7 +900,7 @@
  "long-work-progress-statuses": {
   "applied": 5,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "ai-business-advisor-websites": 0,
    "gym-bro-3": 1,
@@ -909,7 +912,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "look-text-click-counter": {
   "applied": 1,
@@ -1056,12 +1059,12 @@
   "shown": 3
  },
  "no-build-in-live-dev-dir": {
-  "applied": 2,
-  "last_applied": "2026-11-01",
+  "applied": 3,
+  "last_applied": "2026-11-03",
   "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0,
-   "planning": 0,
+   "planning": 1,
    "video-blade-2": 1
   },
   "shown": 6
@@ -1127,18 +1130,18 @@
   "shown": 1
  },
  "parallel-subagents": {
-  "applied": 3,
-  "last_applied": "2026-10-21",
-  "last_shown": "2026-10-23",
+  "applied": 4,
+  "last_applied": "2026-11-02",
+  "last_shown": "2026-11-02",
   "projects": {
    "aw-white": 0,
-   "planning": 0,
+   "planning": 1,
    "reels": 0,
    "scratchpad": 0,
    "tech": 0,
    "video-blade-2": 3
   },
-  "shown": 12
+  "shown": 13
  },
  "patch-script-anchors-vs-formatter": {
   "applied": 1,
@@ -1167,11 +1170,12 @@
   "shown": 0
  },
  "pipe-tail-hides-exit-code": {
-  "applied": 2,
-  "last_applied": "2026-11-01",
+  "applied": 3,
+  "last_applied": "2026-11-02",
   "last_shown": "2026-11-01",
   "projects": {
-   "gym-bro-3": 0
+   "gym-bro-3": 0,
+   "planning": 1
   },
   "shown": 2
  },
@@ -1224,19 +1228,19 @@
   "shown": 1
  },
  "proposal-numbers-explicit": {
-  "applied": 1,
-  "last_applied": "2026-10-12",
-  "last_shown": "2026-11-01",
+  "applied": 2,
+  "last_applied": "2026-11-03",
+  "last_shown": "2026-11-03",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
-   "planning": 0,
+   "planning": 1,
    "scratchpad": 0,
    "tech": 0,
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 10
+  "shown": 11
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -1375,20 +1379,20 @@
   "shown": 1
  },
  "replay-review-scenario": {
-  "applied": 4,
-  "last_applied": "2026-10-29",
-  "last_shown": "2026-11-01",
+  "applied": 5,
+  "last_applied": "2026-11-03",
+  "last_shown": "2026-11-02",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
-   "planning": 0,
+   "planning": 1,
    "scratchpad": 0,
    "stand": 0,
    "tech": 0,
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "rerender-keeps-typed-input": {
   "applied": 0,
@@ -1407,17 +1411,18 @@
   "shown": 0
  },
  "research-agents-share-ip-quota": {
-  "applied": 0,
-  "last_shown": "2026-10-29",
+  "applied": 1,
+  "last_applied": "2026-11-02",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0,
-   "planning": 0,
+   "planning": 1,
    "raw": 0,
    "scratchpad": 0,
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "revert-from-journal-not-live": {
   "applied": 0,
@@ -1438,19 +1443,19 @@
   "shown": 1
  },
  "review-budget-below-fold": {
-  "applied": 9,
-  "last_applied": "2026-10-29",
-  "last_shown": "2026-11-01",
+  "applied": 10,
+  "last_applied": "2026-11-02",
+  "last_shown": "2026-11-02",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
-   "planning": 0,
+   "planning": 1,
    "scratchpad": 0,
    "tech": 0,
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 25
+  "shown": 26
  },
  "review-file-uploads": {
   "applied": 0,
@@ -1490,7 +1495,7 @@
  "review-stand-db-timeout": {
   "applied": 9,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -1500,7 +1505,7 @@
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 26
+  "shown": 27
  },
  "review-stand-state-drift": {
   "applied": 1,
@@ -1593,7 +1598,7 @@
  },
  "scoped-key-narrow-gate": {
   "applied": 0,
-  "last_shown": "2026-10-29",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
@@ -1602,7 +1607,7 @@
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "screen-variants-share-composable": {
   "applied": 0,
@@ -1756,7 +1761,7 @@
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -1770,12 +1775,12 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 41
+  "shown": 42
  },
  "subagent-model-fallback": {
   "applied": 4,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-10-29",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
@@ -1786,7 +1791,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 13
+  "shown": 14
  },
  "subagent-returns-text-not-files": {
   "applied": 1,
@@ -1909,11 +1914,11 @@
  },
  "video-asset-library-curation": {
   "applied": 0,
-  "last_shown": "2026-10-09",
+  "last_shown": "2026-11-03",
   "projects": {
    "video-blade-2": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "video-cost-accounting": {
   "applied": 0,
@@ -1981,6 +1986,12 @@
    "gym-bro-3": 0,
    "video-blade-2": 1
   },
+  "shown": 1
+ },
+ "vue-local-state-shadows-global-helper": {
+  "applied": 0,
+  "last_shown": "2026-11-03",
+  "projects": {},
   "shown": 1
  },
  "workspace-visual-isolation": {
