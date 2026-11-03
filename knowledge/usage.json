@@ -175,13 +175,13 @@
   "shown": 38
  },
  "blind-judge-anchors": {
-  "applied": 3,
-  "last_applied": "2026-11-02",
+  "applied": 4,
+  "last_applied": "2026-11-03",
   "last_shown": "2026-11-02",
   "projects": {
    "claude-start": 0,
    "gym-bro-3": 1,
-   "planning": 1,
+   "planning": 2,
    "tech": 0,
    "video-blade-2": 0
   },
@@ -254,13 +254,14 @@
   "shown": 3
  },
  "code-checks-only-for-prompt-rules": {
-  "applied": 1,
-  "last_applied": "2026-11-02",
-  "last_shown": "2026-11-01",
+  "applied": 2,
+  "last_applied": "2026-11-03",
+  "last_shown": "2026-11-03",
   "projects": {
-   "gym-bro-3": 0
+   "gym-bro-3": 0,
+   "planning": 1
   },
-  "shown": 1
+  "shown": 2
  },
  "codemod-after-formatter-hook": {
   "applied": 9,
@@ -523,12 +524,13 @@
   "shown": 17
  },
  "eval-judge-real-model-recorded": {
-  "applied": 1,
-  "last_applied": "2026-11-01",
+  "applied": 2,
+  "last_applied": "2026-11-03",
   "last_shown": "2026-11-01",
   "projects": {
    "calibri": 0,
-   "gym-bro-3": 0
+   "gym-bro-3": 0,
+   "planning": 1
   },
   "shown": 3
  },
@@ -553,16 +555,17 @@
  "feature-existence-check": {
   "applied": 3,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
    "pet-replicas": 0,
+   "planning": 0,
    "scratchpad": 0,
    "tasks": 0,
    "video-blade-2": 2
   },
-  "shown": 14
+  "shown": 15
  },
  "fetch-login-redirect-cookie": {
   "applied": 0,
@@ -1363,11 +1366,12 @@
   "shown": 32
  },
  "render-before-model-eval": {
-  "applied": 1,
-  "last_applied": "2026-11-02",
+  "applied": 2,
+  "last_applied": "2026-11-03",
   "last_shown": "2026-11-02",
   "projects": {
-   "gym-bro-3": 0
+   "gym-bro-3": 0,
+   "planning": 1
   },
   "shown": 1
  },
@@ -2009,21 +2013,23 @@
  },
  "workspace-visual-isolation": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-03",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
+   "planning": 0,
    "video-blade-test": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "write-on-get-echo-loop": {
   "applied": 0,
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-11-03",
   "projects": {
+   "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "zsh-var-command-no-split": {
   "applied": 0,
