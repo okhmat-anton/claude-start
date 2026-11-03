@@ -254,7 +254,8 @@
   "shown": 3
  },
  "code-checks-only-for-prompt-rules": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-11-02",
   "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0
@@ -1140,7 +1141,8 @@
   "shown": 12
  },
  "patch-script-anchors-vs-formatter": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-11-02",
   "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0
@@ -1356,7 +1358,8 @@
   "shown": 31
  },
  "render-before-model-eval": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-11-02",
   "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0
@@ -1683,7 +1686,7 @@
  },
  "stale-poll-rollback": {
   "applied": 0,
-  "last_shown": "2026-10-31",
+  "last_shown": "2026-11-02",
   "projects": {
    "ai-business-advisor-websites": 0,
    "gym-bro-3": 0,
@@ -1691,7 +1694,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "stale-server-process": {
   "applied": 4,
