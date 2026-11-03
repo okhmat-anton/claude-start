@@ -12,8 +12,9 @@
  "admin-links-to-app": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
+   "calibri": 0,
    "claude-start": 0,
    "gym-bro-3": 1,
    "pet-replicas": 0,
@@ -22,7 +23,7 @@
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 23
+  "shown": 24
  },
  "agent-docs-route-guard": {
   "applied": 1,
@@ -58,8 +59,8 @@
   "shown": 11
  },
  "agent-oneoff-script": {
-  "applied": 2,
-  "last_applied": "2026-10-29",
+  "applied": 3,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "akm-news": 0,
@@ -119,6 +120,15 @@
   },
   "shown": 22
  },
+ "app-store": {
+  "applied": 0,
+  "last_shown": "2026-11-02",
+  "projects": {
+   "calibri": 0,
+   "gym-bro-3": 0
+  },
+  "shown": 2
+ },
  "architecture-mvc": {
   "applied": 1,
   "last_applied": "2026-10-30",
@@ -165,8 +175,8 @@
   "shown": 38
  },
  "blind-judge-anchors": {
-  "applied": 1,
-  "last_applied": "2026-10-29",
+  "applied": 2,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "claude-start": 0,
@@ -195,8 +205,8 @@
   "shown": 2
  },
  "browser-test-stand": {
-  "applied": 2,
-  "last_applied": "2026-10-29",
+  "applied": 3,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 1,
@@ -243,9 +253,17 @@
   },
   "shown": 3
  },
+ "code-checks-only-for-prompt-rules": {
+  "applied": 0,
+  "last_shown": "2026-11-01",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "codemod-after-formatter-hook": {
-  "applied": 8,
-  "last_applied": "2026-10-29",
+  "applied": 9,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "ai-business-advisor-websites": 0,
@@ -283,11 +301,11 @@
  "confirm-sheet-safe-action-under-finger": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "connect-page-recovery-path": {
   "applied": 0,
@@ -430,6 +448,14 @@
   },
   "shown": 6
  },
+ "embedded-postgres-when-docker-stuck": {
+  "applied": 0,
+  "last_shown": "2026-11-02",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "empty-field-default-not-refusal": {
   "applied": 0,
   "last_shown": "2026-10-21",
@@ -471,12 +497,12 @@
  "error-code-text-names-a-place": {
   "applied": 1,
   "last_applied": "2026-10-07",
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0,
    "video-blade-2": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "escape-default-stops-media": {
   "applied": 0,
@@ -561,7 +587,8 @@
   "shown": 1
  },
  "first-commit-sweeps-key-files": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0
@@ -611,6 +638,15 @@
   },
   "shown": 5
  },
+ "harness-background-processes": {
+  "applied": 1,
+  "last_applied": "2026-11-01",
+  "last_shown": "2026-11-01",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "headless-chrome-accept-language": {
   "applied": 1,
   "last_applied": "2026-10-29",
@@ -659,12 +695,20 @@
  "i18n-counts-label-first": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0,
    "video-blade-2": 1
   },
-  "shown": 5
+  "shown": 6
+ },
+ "i18n-key-from-code": {
+  "applied": 0,
+  "last_shown": "2026-11-02",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
  },
  "judge-requirements-per-lane": {
   "applied": 4,
@@ -736,7 +780,7 @@
  },
  "link-looks-like-link": {
   "applied": 0,
-  "last_shown": "2026-10-31",
+  "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
@@ -745,7 +789,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "lint-first-run": {
   "applied": 0,
@@ -781,7 +825,7 @@
  "list-action-returns-to-card": {
   "applied": 2,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-10-31",
+  "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
@@ -790,7 +834,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "live-update-assert-by-wait-step": {
   "applied": 0,
@@ -825,19 +869,19 @@
  },
  "llm-prompt-defaults": {
   "applied": 0,
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "project1": 0,
    "video-blade-2": 0
   },
-  "shown": 8
+  "shown": 9
  },
  "local-runs-reach-production": {
   "applied": 1,
   "last_applied": "2026-10-30",
-  "last_shown": "2026-10-31",
+  "last_shown": "2026-11-01",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -847,7 +891,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "long-work-progress-statuses": {
   "applied": 5,
@@ -923,23 +967,24 @@
  "migration-verify-in-memory": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-21",
+  "last_shown": "2026-11-01",
   "projects": {
+   "gym-bro-3": 0,
    "payment-gateway": 0,
    "planning": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "mock-two-states-fresh-and-demo": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "model-driven-visualizer-channels": {
   "applied": 0,
@@ -1010,25 +1055,27 @@
   "shown": 3
  },
  "no-build-in-live-dev-dir": {
-  "applied": 1,
-  "last_applied": "2026-10-21",
-  "last_shown": "2026-10-30",
+  "applied": 2,
+  "last_applied": "2026-11-01",
+  "last_shown": "2026-11-01",
   "projects": {
+   "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 5
+  "shown": 6
  },
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-11-02",
   "projects": {
+   "calibri": 0,
    "planning": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "optional-field-default-overwrites": {
   "applied": 0,
@@ -1055,7 +1102,7 @@
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "paid-api-file-integrity": {
   "applied": 1,
@@ -1092,6 +1139,14 @@
   },
   "shown": 12
  },
+ "patch-script-anchors-vs-formatter": {
+  "applied": 0,
+  "last_shown": "2026-11-02",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "payment-sandbox-means-test-key": {
   "applied": 0,
   "last_shown": "2026-11-01",
@@ -1110,8 +1165,8 @@
   "shown": 0
  },
  "pipe-tail-hides-exit-code": {
-  "applied": 1,
-  "last_applied": "2026-10-30",
+  "applied": 2,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0
@@ -1136,7 +1191,7 @@
  },
  "prod-data-ops": {
   "applied": 0,
-  "last_shown": "2026-10-31",
+  "last_shown": "2026-11-02",
   "projects": {
    "ai-business-advisor-websites": 0,
    "divani": 0,
@@ -1146,16 +1201,25 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "prompt-field-reaches-model-test": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0
   },
   "shown": 3
+ },
+ "prompt-numbers-carry-their-count": {
+  "applied": 0,
+  "last_shown": "2026-11-01",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
  },
  "proposal-numbers-explicit": {
   "applied": 1,
@@ -1291,6 +1355,14 @@
   },
   "shown": 31
  },
+ "render-before-model-eval": {
+  "applied": 0,
+  "last_shown": "2026-11-02",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "replace-copies-before-adding-helper": {
   "applied": 0,
   "last_shown": "2026-10-16",
@@ -1398,7 +1470,7 @@
    "tech": 0,
    "video-blade-2": 3
   },
-  "shown": 9
+  "shown": 10
  },
  "review-loop-owner-decisions": {
   "applied": 8,
@@ -1483,12 +1555,12 @@
    "tech": 0,
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "rule-change-stale-wording": {
   "applied": 8,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-10-29",
+  "last_shown": "2026-11-01",
   "projects": {
    "akm-news": 1,
    "gym-bro-3": 0,
@@ -1496,7 +1568,7 @@
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "run-once-objects-recreate-per-lifespan": {
   "applied": 0,
@@ -1561,14 +1633,14 @@
  },
  "simulation-plausibility": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-02",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "song-lyrics-content-check": {
   "applied": 0,
@@ -1607,7 +1679,7 @@
    "gym-bro-3": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "stale-poll-rollback": {
   "applied": 0,
@@ -1622,8 +1694,8 @@
   "shown": 7
  },
  "stale-server-process": {
-  "applied": 3,
-  "last_applied": "2026-10-21",
+  "applied": 4,
+  "last_applied": "2026-11-01",
   "last_shown": "2026-11-01",
   "projects": {
    "akm-news": 0,
@@ -1668,6 +1740,14 @@
   "last_shown": "2026-10-11",
   "projects": {
    "video-blade-2": 1
+  },
+  "shown": 1
+ },
+ "starlette-subapp-overwrites-scope-app": {
+  "applied": 0,
+  "last_shown": "2026-11-02",
+  "projects": {
+   "gym-bro-3": 0
   },
   "shown": 1
  },
@@ -1735,12 +1815,12 @@
  "tests-observable-behavior": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-01",
   "projects": {
    "gym-bro-3": 0,
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "token-guarded-endpoints": {
   "applied": 2,
@@ -1771,11 +1851,12 @@
  "units-in-text-as-tokens": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-10-30",
+  "last_shown": "2026-11-02",
   "projects": {
+   "calibri": 0,
    "gym-bro-3": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "untracked-build-artifacts": {
   "decisions": {
