@@ -61,7 +61,7 @@
  "agent-oneoff-script": {
   "applied": 4,
   "last_applied": "2026-11-02",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-04",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -77,12 +77,12 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 83
+  "shown": 84
  },
  "agent-shell-state": {
   "applied": 6,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-11-03",
+  "last_shown": "2026-11-04",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -104,7 +104,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 71
+  "shown": 72
  },
  "api-discovery": {
   "applied": 1,
@@ -267,7 +267,7 @@
  "codemod-after-formatter-hook": {
   "applied": 10,
   "last_applied": "2026-11-04",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-04",
   "projects": {
    "ai-business-advisor-websites": 0,
    "claude-start": 2,
@@ -281,7 +281,7 @@
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 30
+  "shown": 31
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -605,11 +605,12 @@
  "first-commit-sweeps-key-files": {
   "applied": 1,
   "last_applied": "2026-11-01",
-  "last_shown": "2026-11-03",
+  "last_shown": "2026-11-04",
   "projects": {
-   "gym-bro-3": 0
+   "gym-bro-3": 0,
+   "planning": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -1246,12 +1247,12 @@
  "pipe-tail-hides-exit-code": {
   "applied": 3,
   "last_applied": "2026-11-02",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-04",
   "projects": {
    "gym-bro-3": 0,
    "planning": 1
   },
-  "shown": 2
+  "shown": 3
  },
  "pixel-server-event-dedup": {
   "applied": 0,
@@ -1430,7 +1431,7 @@
  "regex-codemod-spans-functions": {
   "applied": 7,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-11-03",
+  "last_shown": "2026-11-04",
   "projects": {
    "frontend": 0,
    "gym-bro-3": 0,
@@ -1442,7 +1443,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 32
+  "shown": 33
  },
  "render-before-model-eval": {
   "applied": 2,
