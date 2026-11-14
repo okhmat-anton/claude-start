@@ -2,10 +2,10 @@
 // Программа техзаданий (навык spec-write): папка ТЗ, очередь прохода по пунктам, проверка строения и готовности
 // к запуску. Node 20+, без пакетов. Порядок работы — SKILL.md рядом.
 //
-//   node tz.js new <имя> [--root <проект>] [--small]     создать technical-docs/<имя>/ с ТЗ и протоколом
+//   node tz.js new <имя> ["Название"] [--root <проект>] [--small]   создать technical-docs/<имя>/ с ТЗ и протоколом
 //   node tz.js check <ТЗ> [--launch] [--root <проект>]   строение; --launch — можно ли запускать
-//   node tz.js next <ТЗ>                                  следующий пункт на проход
-//   node tz.js stamp <ТЗ> <П7> <итог> [--touch П4,П11]    отметить; --touch — вернуть задетые в очередь
+//   node tz.js next <ТЗ> [--all]                          следующий пункт на проход; --all — вся очередь
+//   node tz.js stamp <ТЗ> <П7[,П8]> <итог> [--touch П4,П11]   отметить; --touch — вернуть задетые в очередь
 //   node tz.js status <ТЗ>                                счёт одной строкой
 //   node tz.js index [--root <проект>]                    пересобрать оглавление technical-docs/README.md
 //
@@ -18,7 +18,6 @@ const crypto = require("crypto");
 
 const DOCS = "technical-docs";
 const VERDICTS = ["чисто", "исправлен", "вопрос", "показ"];
-const VERDICT_ALIAS = { "уточнён": "исправлен", "уточнен": "исправлен" };
 const SOURCES = ["владелец", "решение", "допущение", "защита", "правило"];
 const SOURCE_RE = new RegExp(`\\[(${SOURCES.join("|")})[^\\]]*\\]`, "i");
 const SOURCE_STRIP = new RegExp(`[*_]*\\[(?:${SOURCES.join("|")})[^\\]]*\\][*_]*`, "gi");
@@ -47,7 +46,7 @@ const VAGUE = new RegExp("(?<![а-яё])(" + [
   "гибк[а-яё]*", "оптимальн[а-яё]*", "нормальн[а-яё]*", "корректн[а-яё]*", "при необходимости", "по возможности",
   "и т\\. ?[дп]\\.", "и так далее", "и прочее", "например", "желательно", "как-нибудь", "несколько", "достаточно",
 ].join("|") + ")(?![а-яё])", "gi");
-const LIMIT_ITEMS = 40, LIMIT_STAGES = 7, LIMIT_SMALL = 14;
+const LIMIT_ITEMS = 40, LIMIT_STAGES = 7, LIMIT_SMALL = 14, LIMIT_ITEM_CHARS = 450;
 const INDEX_START = "<!-- tz-index:start -->", INDEX_END = "<!-- tz-index:end -->";
 
 function fail(msg) { console.error(msg); process.exit(1); }
@@ -159,6 +158,8 @@ function loadState(file) {
 }
 function saveState(file, state) { fs.writeFileSync(statePath(file), JSON.stringify(state, null, 2) + "\n"); }
 
+const isWaiting = (state, it) => { const s = state.items[it.id]; return !!s && s.hash === it.hash && s.verdict === "вопрос"; };
+
 // Пункт в очереди, пока не отмечен, пока его текст изменился после отметки и пока он «исправлен» или «задет».
 function queue(doc, state) {
   const out = [];
@@ -171,51 +172,41 @@ function queue(doc, state) {
   return out;
 }
 
-// Пункты о том же: общие основы слов. Подсказка для поиска конфликтов и задетых правкой, не приговор.
-function related(doc, id) {
-  const stems = t => new Set((t.toLowerCase().replace(SOURCE_STRIP, " ").match(/[а-яёa-z]{5,}/g) || []).map(w => w.slice(0, 5)));
-  const all = doc.items.map(it => ({ id: it.id, stems: stems(it.text) }));
-  const df = new Map();
-  for (const a of all) for (const s of a.stems) df.set(s, (df.get(s) || 0) + 1);
-  const common = Math.max(2, all.length * 0.35);
-  const me = all.find(a => a.id === id);
-  if (!me) return [];
-  return all.filter(a => a.id !== id)
-    .map(a => ({ id: a.id, n: [...a.stems].filter(s => me.stems.has(s) && df.get(s) <= common).length }))
-    .filter(a => a.n >= 2).sort((a, b) => b.n - a.n).slice(0, 5).map(a => a.id);
-}
-
-// touch — номера пунктов строкой («П4,П11», «П2–П6») или списком.
-function stamp(file, id, verdict, touch = []) {
+// ids — «П7» или несколько через запятую («П7,П8»); touch — номера строкой («П4,П11», «П2–П6») или списком.
+function stamp(file, ids, verdict, touch = []) {
   const doc = read(file);
-  const item = doc.items.find(it => it.id === id);
-  if (!item) throw new Error(`Пункта ${id} в ТЗ нет`);
-  verdict = VERDICT_ALIAS[verdict] || verdict;
+  const own = Array.isArray(ids) ? ids : String(ids || "").split(/[,\s]+/).filter(Boolean);
+  if (!own.length) throw new Error("Назови пункт: П7 или П7,П8");
+  for (const id of own) if (!doc.items.some(it => it.id === id)) throw new Error(`Пункта ${id} в ТЗ нет`);
   if (!VERDICTS.includes(verdict)) throw new Error(`Итог — один из: ${VERDICTS.join(", ")}`);
   const refs = Array.isArray(touch) ? touch.map(t => ({ id: t, ranged: false })) : expandIds(touch);
   if (!Array.isArray(touch) && touch && !refs.length) throw new Error("--touch: не вижу номеров пунктов — пиши П4,П11 или П2–П6");
   const state = loadState(file);
-  const today = new Date().toISOString().slice(0, 10);
-  const prev = state.items[id];
-  // «исправлен» — текст менялся: отпечаток не пишется, и пункт остаётся в очереди до итога «чисто».
-  state.items[id] = { hash: verdict === "исправлен" ? "" : item.hash, pass: (prev ? prev.pass : 0) + 1, verdict, t: today };
+  const d = new Date();
+  const today = [d.getFullYear(), d.getMonth() + 1, d.getDate()].map(n => String(n).padStart(2, "0")).join("-");
+  for (const id of own) {
+    const item = doc.items.find(it => it.id === id), prev = state.items[id];
+    const back = (prev ? prev.back || 0 : 0) + (prev && prev.hash !== item.hash ? 1 : 0); // вернулся: исправлен, задет или текст изменился
+    // «исправлен» — текст менялся: отпечаток не пишется, и пункт остаётся в очереди до итога «чисто».
+    state.items[id] = { hash: verdict === "исправлен" ? "" : item.hash, pass: (prev ? prev.pass : 0) + 1, back, verdict, t: today };
+  }
   const touched = [];
   for (const ref of refs) {
-    if (ref.id === id) continue;
+    if (own.includes(ref.id)) continue;
     if (!doc.items.some(it => it.id === ref.id)) { if (ref.ranged) continue; throw new Error(`Задетого пункта ${ref.id} в ТЗ нет`); }
     const p = state.items[ref.id];
-    state.items[ref.id] = { hash: "", pass: p ? p.pass : 0, verdict: "задет", t: today };
+    state.items[ref.id] = { hash: "", pass: p ? p.pass : 0, back: p ? p.back || 0 : 0, verdict: "задет", t: today };
     touched.push(ref.id);
   }
   saveState(file, state);
-  return { doc, state, verdict, touched };
+  return { doc, state, verdict, ids: own, touched };
 }
 
 function statusLine(doc, state) {
   const q = queue(doc, state);
   const live = doc.items.filter(it => state.items[it.id] && state.items[it.id].hash === it.hash);
-  const waiting = live.filter(it => state.items[it.id].verdict === "вопрос").length;
-  const repeat = live.filter(it => state.items[it.id].pass > 1).length;
+  const waiting = live.filter(it => isWaiting(state, it)).length;
+  const repeat = live.filter(it => state.items[it.id].back > 0 && !isWaiting(state, it)).length;
   const bySource = SOURCES.map(s => [s, doc.items.filter(it => it.source === s).length]).filter(([, n]) => n)
     .map(([s, n]) => `${s} ${n}`).join(", ");
   const stops = doc.stages.filter(st => /^стоп/i.test(st.check || "")).length;
@@ -265,7 +256,7 @@ function protocolSection(text, re) {
   const heads = [];
   lines.forEach((l, i) => { const m = l.match(/^##\s+(.*?)\s*$/); if (m) heads.push({ title: m[1], line: i }); });
   const idx = heads.findIndex(h => re.test(h.title));
-  if (idx < 0) return "";
+  if (idx < 0) return null;
   const next = heads.slice(idx + 1).find(h => PROTOCOL_HEADS.some(r => r.test(h.title)));
   return lines.slice(heads[idx].line + 1, next ? next.line : lines.length).join("\n");
 }
@@ -288,8 +279,10 @@ function check(file, opts = {}) {
     if (!it.source) E.push(`${it.id}: нет источника — ${SOURCES.map(s => `[${s}]`).join(", ")}`);
     const vague = [...new Set((it.text.replace(SOURCE_STRIP, " ").match(VAGUE) || []).map(s => s.toLowerCase()))];
     if (vague.length) W.push(`${it.id}: расплывчато — «${vague.join("», «")}»: замени числом или признаком, который можно показать`);
+    if (it.text.length > LIMIT_ITEM_CHARS) W.push(`${it.id}: длинный пункт (${it.text.length} знаков) — скорее всего, это два пункта`);
   }
 
+  const steps = doc.body(doc.section(/увидите|сценарий/i)).filter(l => /^\s*\d+[.)]\s+\S/.test(l)).length;
   const placed = new Map();
   const place = (ref, where) => {
     if (!seen.has(ref.id)) { if (!ref.ranged) E.push(`${where} ссылается на ${ref.id}, которого в ТЗ нет`); return; }
@@ -311,6 +304,8 @@ function check(file, opts = {}) {
       if (c.replace(/^без остановки[\s—–:,-]*/i, "").length < 5) E.push(`${name}: «без остановки» без причины`);
     } else E.push(`${name}: «Точка проверки» начинается со слова «стоп» или «без остановки»`);
     if (idx === doc.stages.length - 1 && c && !/^стоп/i.test(c)) E.push(`${name}: последний этап всегда кончается остановкой — это приёмка`);
+    const named = [...c.matchAll(/шаг[а-яё]*\s+(\d+)(?:\s*[–—-]\s*(\d+))?/gi)].flatMap(m => [+m[1], +(m[2] || m[1])]);
+    if (steps && named.length && Math.max(...named) > steps) W.push(`${name}: точка проверки называет шаг ${Math.max(...named)}, а в сценарии шагов ${steps}`);
   });
   if (doc.stages.length) for (const it of doc.items) if (!placed.has(it.id)) E.push(`${it.id} не попал ни в один этап`);
 
@@ -321,30 +316,29 @@ function check(file, opts = {}) {
   }
 
   const small = /^малое/i.test(doc.fields["Объём"] || "");
-  const steps = doc.body(doc.section(/увидите|сценарий/i)).filter(l => /^\s*\d+[.)]\s+\S/.test(l)).length;
   if (doc.section(/увидите|сценарий/i) && steps < 3) W.push("в сценарии «Что вы увидите» меньше трёх шагов — пункты не из чего выводить");
   if (small && doc.items.length > LIMIT_SMALL) W.push(`малое ТЗ, а пунктов ${doc.items.length}: больше ${LIMIT_SMALL} — это уже полное, с читателями и рецензентом простоты`);
   if (doc.items.length > LIMIT_ITEMS) W.push(`пунктов ${doc.items.length} — больше ${LIMIT_ITEMS}: предложи владельцу разрезать на два ТЗ`);
   if (doc.stages.length > LIMIT_STAGES) W.push(`этапов ${doc.stages.length} — больше ${LIMIT_STAGES}: предложи владельцу разрезать на два ТЗ`);
-  const guessed = doc.items.filter(it => it.source === "допущение").map(it => it.id);
+  const guessed = doc.items.filter(it => it.source === "допущение" && !isWaiting(state, it)).map(it => it.id);
   if (doc.items.length >= 6 && guessed.length * 3 > doc.items.length) W.push(`больше трети пунктов — твои допущения (${guessed.join(", ")}): покажи список владельцу`);
 
   if (opts.launch) {
     for (const q of queue(doc, state)) E.push(`${q.item.id}: ${q.reason}`);
-    for (const it of doc.items) {
-      const s = state.items[it.id];
-      if (s && s.hash === it.hash && s.verdict === "вопрос") E.push(`${it.id}: ждёт ответа владельца`);
-    }
+    for (const it of doc.items) if (isWaiting(state, it)) E.push(`${it.id}: ждёт ответа владельца`);
     const open = doc.body(doc.section(/открытые вопросы/i)).map(l => l.trim()).filter(l => l && !isNothing(l));
-    if (open.length) E.push(`в «Открытых вопросах» ${open.length} строк — ТЗ с неотвеченными вопросами не запускается`);
-    if (!small) {
-      const pf = protocolPath(file);
-      if (!fs.existsSync(pf)) E.push(`нет протокола прохода ${path.basename(pf)} — у полного ТЗ в нём ответы двух читателей и рецензента простоты`);
-      else {
-        const text = fs.readFileSync(pf, "utf8");
-        for (const [name, re] of READERS) {
-          if (protocolSection(text, re).replace(/\s/g, "").length < 80) E.push(`в протоколе пуст раздел «${name}»`);
-        }
+    if (open.length) E.push("в «Открытых вопросах» есть неотвеченное — такое ТЗ не запускается");
+    // Полному ТЗ нужны оба читателя и рецензент простоты. Малому — только рецензент, и только пока его раздел
+    // стоит в протоколе: у ТЗ без экрана раздел удаляют.
+    const pf = protocolPath(file);
+    if (!fs.existsSync(pf)) {
+      if (!small) E.push(`нет протокола прохода ${path.basename(pf)} — у полного ТЗ в нём ответы двух читателей и рецензента простоты`);
+    } else {
+      const text = fs.readFileSync(pf, "utf8");
+      for (const [name, re] of small ? READERS.slice(2) : READERS) {
+        const body = protocolSection(text, re);
+        if (body === null && small) continue;
+        if ((body || "").replace(/\s/g, "").length < 80) E.push(`в протоколе пуст раздел «${name}»${small ? " — у ТЗ без экрана удали этот раздел" : ""}`);
       }
     }
   }
@@ -353,10 +347,10 @@ function check(file, opts = {}) {
 
 // ---------------------------------------------------------------- папка и оглавление
 
-const PROTOCOL = small => `# Протокол прохода: {{имя}}
+const PROTOCOL = small => `# Протокол прохода: {{название}}
 
-Что нашли в ТЗ и что с этим сделали. Ответы читателей и рецензента — целиком, как пришли.
-${small ? "" : "\n## Читатель 1\n\n## Читатель 2\n\n## Рецензент простоты\n"}
+Что нашли в ТЗ и что с этим сделали. ${small ? "Ответ рецензента" : "Ответы читателей и рецензента"} — целиком, как пришли.
+${small ? "\n## Рецензент простоты\n\n<!-- Малому ТЗ рецензент нужен, если человек что-то видит на экране. Экрана нет — удали этот раздел. -->\n" : "\n## Читатель 1\n\n## Читатель 2\n\n## Рецензент простоты\n"}
 ## Находки и что с ними сделано
 
 | Пункт | Что нашли | Кто нашёл | Путь | Итог |
@@ -388,13 +382,16 @@ function tzFiles(root) {
 function buildIndex(root) {
   const base = path.join(root, DOCS);
   const cell = s => String(s || "—").replace(/\|/g, "/").replace(/\s+/g, " ").trim();
+  const clip = (s, n) => (s.length <= n ? s : s.slice(0, n).replace(/\s+\S*$/, "") + "…");
   const rows = tzFiles(root).map(rel => {
     const text = fs.readFileSync(path.join(base, rel), "utf8");
     const doc = parse(text);
     const date = (text.slice(0, 600).match(/\d{2}\.\d{2}\.\d{4}/) || ["—"])[0];
-    const brief = doc.body(doc.section(/коротко/i)).map(l => l.trim()).find(Boolean) || "";
+    const kor = doc.body(doc.section(/коротко/i)).map(l => l.trim());
+    const from = kor.findIndex(Boolean), to = from < 0 ? -1 : kor.findIndex((l, i) => i > from && !l);
+    const brief = from < 0 ? "" : kor.slice(from, to < 0 ? undefined : to).join(" ");
     const title = doc.title.replace(/^ТЗ:\s*/i, "").trim() || rel;
-    return `| [${cell(title)}](${rel.split(path.sep).join("/")}) | ${cell(doc.fields["Статус"])} | ${date} | ${cell(brief).slice(0, 140)} |`;
+    return `| [${cell(title)}](${rel.split(path.sep).join("/")}) | ${cell(doc.fields["Статус"])} | ${date} | ${clip(cell(brief), 140)} |`;
   });
   const block = [INDEX_START, "| Техзадание | Статус | Дата | Коротко |", "|---|---|---|---|", ...rows, INDEX_END].join("\n");
   const file = path.join(base, "README.md");
@@ -420,7 +417,8 @@ function create(name, opts = {}) {
   if (fs.existsSync(dir)) throw new Error(`Папка ${path.join(DOCS, name)} уже есть — дорабатывай ТЗ в ней`);
   const d = new Date();
   const today = [d.getDate(), d.getMonth() + 1].map(n => String(n).padStart(2, "0")).join(".") + "." + d.getFullYear();
-  const fill = s => s.replace(/\{\{имя\}\}/g, name).replace(/\{\{дата\}\}/g, today);
+  const title = String(opts.title || "").trim() || name;
+  const fill = s => s.replace(/\{\{название\}\}/g, title).replace(/\{\{имя\}\}/g, name).replace(/\{\{дата\}\}/g, today);
   let tpl = fill(fs.readFileSync(path.join(__dirname, "TEMPLATE.md"), "utf8"));
   if (opts.small) tpl = tpl.replace(/^Объём: полное$/m, "Объём: малое");
   fs.mkdirSync(dir, { recursive: true });
@@ -433,17 +431,21 @@ function create(name, opts = {}) {
 
 // ---------------------------------------------------------------- команды
 
-function printNext(doc, state) {
+function printNext(doc, state, all) {
   const q = queue(doc, state);
-  if (!q.length) { console.log("Очередь пуста. " + statusLine(doc, state)); return; }
-  const { item, reason } = q[0];
-  console.log(`${item.id} — ${reason} (в очереди ${q.length})`);
-  console.log(item.text);
-  const rel = related(doc, item.id);
-  if (rel.length) console.log(`Возможно связаны: ${rel.join(", ")}`);
+  const waiting = doc.items.filter(it => isWaiting(state, it)).map(it => it.id);
+  const tail = waiting.length ? ` Ждут ответа владельца: ${waiting.join(", ")} — ответ вписан, отметь пункт заново.` : "";
+  if (!q.length) { console.log("Очередь пуста. " + statusLine(doc, state) + tail); return; }
+  for (const { item, reason } of all ? q : q.slice(0, 1)) {
+    console.log(`${item.id} — ${reason}${all ? "" : ` (в очереди ${q.length})`}`);
+    // Прямые ссылки («см. П4») — первые кандидаты в задетые, когда пункт правят.
+    const refs = doc.items.filter(o => o.id !== item.id && new RegExp(item.id + "(?!\\d)").test(o.text)).map(o => o.id);
+    console.log(item.text + (refs.length ? `\nНа него ссылаются: ${refs.join(", ")}` : "") + (all ? "\n" : ""));
+  }
+  if (all) console.log(`В очереди ${q.length}.${tail}`);
 }
 
-const FLAGS = { new: ["root", "small"], check: ["root", "launch"], next: [], stamp: ["touch"], status: [], index: ["root"] };
+const FLAGS = { new: ["root", "small"], check: ["root", "launch"], next: ["all"], stamp: ["touch"], status: [], index: ["root"] };
 
 function main(argv) {
   const [cmd, ...rest] = argv;
@@ -461,11 +463,11 @@ function main(argv) {
     return args[0];
   };
   try {
-    if (!FLAGS[cmd]) fail("Команды: new <имя> · check <ТЗ> [--launch] · next <ТЗ> · stamp <ТЗ> <П7> <итог> [--touch П4,П11] · status <ТЗ> · index");
+    if (!FLAGS[cmd]) fail("Команды: new <имя> [\"Название\"] · check <ТЗ> [--launch] · next <ТЗ> [--all] · stamp <ТЗ> <П7[,П8]> <итог> [--touch П4,П11] · status <ТЗ> · index");
     const unknown = Object.keys(flags).filter(f => !FLAGS[cmd].includes(f));
     if (unknown.length) fail(`У команды ${cmd} нет ключа --${unknown[0]}${FLAGS[cmd].length ? `; есть: ${FLAGS[cmd].map(f => "--" + f).join(", ")}` : ""}`);
     if (cmd === "new") {
-      const tz = create(args[0], flags);
+      const tz = create(args[0], { ...flags, title: args.slice(1).join(" ") });
       console.log(`Создано: ${path.relative(process.cwd(), tz)} и протокол рядом; оглавление — ${DOCS}/README.md`);
     } else if (cmd === "check") {
       const r = check(need(), flags);
@@ -476,13 +478,13 @@ function main(argv) {
       if (r.errors.length) process.exit(1);
     } else if (cmd === "next") {
       const file = need();
-      printNext(read(file), loadState(file));
+      printNext(read(file), loadState(file), flags.all);
     } else if (cmd === "stamp") {
       const file = need();
       if ("touch" in flags && !flags.touch) fail("--touch: назови задетые пункты — П4,П11 или П2–П6");
       const r = stamp(file, args[1], args[2], flags.touch || "");
-      const back = r.verdict === "исправлен" ? [args[1], ...r.touched] : r.touched;
-      console.log(`${args[1]}: ${r.verdict}${back.length ? `; в очереди снова: ${back.join(", ")}` : ""}. Дальше:`);
+      const back = r.verdict === "исправлен" ? [...r.ids, ...r.touched] : r.touched;
+      console.log(`${r.ids.join(", ")}: ${r.verdict}${back.length ? `; в очереди снова: ${back.join(", ")}` : ""}. Дальше:`);
       printNext(r.doc, r.state);
     } else if (cmd === "status") {
       const file = need();
@@ -495,4 +497,4 @@ function main(argv) {
 }
 
 if (require.main === module) main(process.argv.slice(2));
-module.exports = { parse, check, queue, related, stamp, statusLine, create, buildIndex, loadState, VERDICTS, SOURCES };
+module.exports = { parse, check, queue, stamp, statusLine, create, buildIndex, loadState, VERDICTS, SOURCES };

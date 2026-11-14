@@ -86,8 +86,10 @@ const GOOD = `# ТЗ: Корзина заметок
 Нет.
 `;
 
+const made = [];
+const tmp = () => { const d = fs.mkdtempSync(path.join(os.tmpdir(), "tz-test-")); made.push(d); return d; };
 function project(text, { git = true } = {}) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), "tz-test-"));
+  const root = tmp();
   if (git) fs.mkdirSync(path.join(root, ".git"));
   fs.mkdirSync(path.join(root, "app"));
   fs.writeFileSync(path.join(root, "app", "notes.js"), "");
@@ -214,8 +216,7 @@ const tests = {
     assert.deepStrictEqual(q.map(x => x.item.id), ["П4"], "«исправлен» из очереди не убирает");
     assert.match(q[0].reason, /исправлен — пройди заново/);
     has(tz.check(file, { launch: true }).errors, /П4: исправлен — пройди заново/);
-    tz.stamp(file, "П4", "уточнён");
-    assert.strictEqual(queueOf(file).length, 1, "«уточнён» — то же, что «исправлен»");
+    assert.throws(() => tz.stamp(file, "П4", "уточнён"), /Итог — один из: чисто, исправлен, вопрос, показ/);
     tz.stamp(file, "П4", "чисто");
     assert.deepStrictEqual(tz.check(file, { launch: true }).errors, []);
     assert.match(tz.statusLine(tz.parse(fs.readFileSync(file, "utf8")), tz.loadState(file)), /пройдено 5 \(повторно 1\)/);
@@ -254,13 +255,13 @@ const tests = {
     const open = GOOD.replace(/## 10\. Открытые вопросы\n\nНет\./, "## 10. Открытые вопросы\n\n1. Сколько дней хранить?");
     let p = project(open);
     stampAll(p.file);
-    has(tz.check(p.file, { launch: true }).errors, /в «Открытых вопросах» 1 строк/);
+    has(tz.check(p.file, { launch: true }).errors, /в «Открытых вопросах» есть неотвеченное/);
     p = project(GOOD.replace(/## 10\. Открытые вопросы\n\nНет\./, "## 10. Открытые вопросы\n\nНет — все закрыты 13.11.2026."));
     stampAll(p.file);
     assert.deepStrictEqual(tz.check(p.file, { launch: true }).errors, []);
     p = project(GOOD.replace(/## 10\. Открытые вопросы\n\nНет\./, "## 10. Открытые вопросы\n\nНет ли смысла хранить дольше?"));
     stampAll(p.file);
-    has(tz.check(p.file, { launch: true }).errors, /в «Открытых вопросах» 1 строк/);
+    has(tz.check(p.file, { launch: true }).errors, /в «Открытых вопросах» есть неотвеченное/);
   },
   "полное ТЗ без читателей и рецензента не запускается; их заголовки раздел не обрывают"() {
     const { file } = project(swap("Объём: малое", "Объём: полное"));
@@ -273,6 +274,17 @@ const tests = {
     has(errs, /пуст раздел «Рецензент простоты»/);
     assert(!errs.some(e => /Читатель/.test(e)), "ответ читателя со своими заголовками второго уровня — не пустой раздел");
     fs.writeFileSync(pf, fs.readFileSync(pf, "utf8").replace("## Рецензент простоты\n", "## Рецензент простоты\n\n## Вердикт: УПРОСТИТЬ — простота 6/10\n\nУбрать настройки корзины, оставить одну кнопку «Вернуть» и подпись о сроке хранения.\n"));
+    assert.deepStrictEqual(tz.check(file, { launch: true }).errors, []);
+  },
+  "малое ТЗ с экраном ждёт рецензента простоты; раздел удалён — экрана нет, запуск разрешён"() {
+    const { file, dir } = project(GOOD);
+    stampAll(file);
+    const pf = path.join(dir, "protocol_trash.md");
+    fs.writeFileSync(pf, "# Протокол\n\n## Рецензент простоты\n\n<!-- подсказка -->\n\n## Находки и что с ними сделано\n\n| Пункт | Что нашли |\n|---|---|\n");
+    has(tz.check(file, { launch: true }).errors, /пуст раздел «Рецензент простоты» — у ТЗ без экрана удали этот раздел/);
+    fs.writeFileSync(pf, "# Протокол\n\n## Находки и что с ними сделано\n");
+    assert.deepStrictEqual(tz.check(file, { launch: true }).errors, []);
+    fs.writeFileSync(pf, "# Протокол\n\n## Рецензент простоты\n\n### Вердикт: УПРОСТИТЬ — простота 8/10\n\nНа телефоне клавиатура закрывает найденное; на пустой странице поле поиска перехватывает первую заметку.\n");
     assert.deepStrictEqual(tz.check(file, { launch: true }).errors, []);
   },
   "испорченный файл отметок не перезаписывается молча; пустой — не роняет"() {
@@ -289,7 +301,7 @@ const tests = {
     assert.deepStrictEqual(tz.check(file).errors, []);
   },
   "новая папка ТЗ: файлы, оглавление, незаполненный шаблон не проходит"() {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), "tz-test-"));
+    const root = tmp();
     const file = tz.create("council", { root });
     assert.strictEqual(path.relative(root, file), path.join("technical-docs", "council", "tz_council.md"));
     assert(fs.existsSync(path.join(root, "technical-docs", "council", "protocol_council.md")));
@@ -302,16 +314,18 @@ const tests = {
     has(errs, /этап 1: остановка без «Где смотреть/);
     assert.throws(() => tz.create("council", { root }), /уже есть/);
     assert.throws(() => tz.create("Мой раздел", { root }), /латиницей/);
-    const small = tz.create("tiny", { root, small: true });
-    assert.match(fs.readFileSync(small, "utf8"), /^Объём: малое$/m);
-    assert(!/Читатель 1/.test(fs.readFileSync(path.join(path.dirname(small), "protocol_tiny.md"), "utf8")));
+    const small = tz.create("tiny", { root, small: true, title: "Поиск в заметках" });
+    assert.match(fs.readFileSync(small, "utf8"), /^# ТЗ: Поиск в заметках\n[\s\S]*^Объём: малое$/m);
+    const tinyProtocol = path.join(path.dirname(small), "protocol_tiny.md");
+    assert(!/читател/i.test(fs.readFileSync(tinyProtocol, "utf8")), "малому ТЗ читатели не нужны");
+    assert.match(fs.readFileSync(tinyProtocol, "utf8"), /^## Рецензент простоты$/m);
     fs.writeFileSync(readmePath, readme.replace("# Техдокументы проекта", "# Техдокументы проекта\n\nСвоя строка владельца.") + "\nВажное после таблицы.\n");
     assert.strictEqual(tz.buildIndex(root).count, 2);
     const again = fs.readFileSync(readmePath, "utf8");
     assert.match(again, /Своя строка владельца/);
     assert.match(again, /Важное после таблицы/);
     assert.strictEqual(again.match(/tz-index:start/g).length, 1);
-    assert.match(again, /tiny\/tz_tiny\.md/);
+    assert.match(again, /\[Поиск в заметках\]\(tiny\/tz_tiny\.md\)/);
     fs.writeFileSync(readmePath, again.replace("<!-- tz-index:end -->", ""));
     assert.throws(() => tz.buildIndex(root), /потерян один из маркеров оглавления/);
     assert.match(fs.readFileSync(readmePath, "utf8"), /Важное после таблицы/, "при потерянном маркере чужой текст не тронут");
@@ -346,9 +360,48 @@ const tests = {
     }
     for (const v of tz.VERDICTS) assert(skill.includes("`" + v + "`"), `итог «${v}» не описан в SKILL.md`);
   },
-  "связанные пункты — без самого пункта"() {
-    const rel = tz.related(tz.parse(GOOD), "П1");
-    assert(Array.isArray(rel) && !rel.includes("П1"));
+  "несколько пунктов одной отметкой; вся очередь одной командой; длинный пункт — замечание"() {
+    const { file } = project(GOOD);
+    assert.deepStrictEqual(tz.stamp(file, "П1,П2, П3", "чисто").ids, ["П1", "П2", "П3"]);
+    assert.deepStrictEqual(queueOf(file).map(x => x.item.id), ["П4", "П5"]);
+    assert.throws(() => tz.stamp(file, "П4,П77", "чисто"), /Пункта П77 в ТЗ нет/);
+    assert.deepStrictEqual(queueOf(file).map(x => x.item.id), ["П4", "П5"], "отметка с несуществующим пунктом не пишется вовсе");
+    const all = cli("next", file, "--all");
+    assert.match(all.stdout, /П4 — ещё не пройден\n[\s\S]*П5 — ещё не пройден\n[\s\S]*В очереди 2\./);
+    const one = cli("next", file);
+    assert.match(one.stdout, /^П4 — ещё не пройден \(в очереди 2\)/);
+    assert(!/П5 —/.test(one.stdout));
+    const long = tz.check(project(swap("новые сверху.", "новые сверху. " + "Каждая строка показывает название, дату и кнопку. ".repeat(10))).file);
+    has(long.warnings, /П3: длинный пункт \(\d+ знаков\)/);
+  },
+  "очередь подсказывает, кто ссылается на пункт и кто ждёт ответа; «повторно» — только вернувшиеся после правки"() {
+    const { file } = project(swap("**П5.** Корзину видит только владелец заметок.", "**П5.** Корзину (П3) и срок из П4 видит только владелец заметок."));
+    assert.match(cli("next", file, "--all").stdout, /П3 — ещё не пройден\n[^\n]*\nНа него ссылаются: П5/);
+    stampAll(file);
+    tz.stamp(file, "П4", "вопрос");
+    const r = cli("next", file);
+    assert.match(r.stdout, /Очередь пуста\. .*повторно 0.*Ждут ответа владельца: П4/);
+    tz.stamp(file, "П4", "чисто");
+    assert.match(cli("status", file).stdout, /пройдено 5 \(повторно 0\)/, "вопрос → ответ без правки текста — не «повторно»");
+  },
+  "точка проверки называет шаг, которого нет в сценарии, — замечание"() {
+    has(tz.check(project(swap("стоп — шаги 1–2 сценария", "стоп — шаги 1–8 сценария")).file).warnings, /этап 1: точка проверки называет шаг 8, а в сценарии шагов 3/);
+  },
+  "оглавление берёт первый абзац «Коротко» целиком и режет по слову"() {
+    const { root, file } = project(swap("Удалённые заметки лежат в корзине 30 дней, их можно вернуть.", "Удалённые заметки лежат в корзине\n30 дней, их можно вернуть одним нажатием — и из строки внизу страницы, и со страницы корзины, пока срок не вышел.\n\nВторой абзац."));
+    tz.buildIndex(root);
+    const row = fs.readFileSync(path.join(root, "technical-docs", "README.md"), "utf8").split("\n").find(l => l.includes("tz_trash.md"));
+    assert.match(row, /Удалённые заметки лежат в корзине 30 дней, их можно вернуть одним нажатием/);
+    assert.match(row, /…\s\|$/);
+    assert(!row.includes("Второй абзац"));
+  },
+  "допущение, уже вынесенное в вопрос владельцу, в замечание о допущениях не идёт"() {
+    const extra = Array.from({ length: 4 }, (_, i) => `**П${20 + i}.** Строка ${i + 1} показывает дату создания. *[допущение: как в списке]*`).join("\n\n");
+    const text = swap("## 6. Принятые риски", extra + "\n\n## 6. Принятые риски").replace("- Пункты: П3, П4", "- Пункты: П3, П4, П20–П23");
+    const { file } = project(text);
+    has(tz.check(file).warnings, /больше трети пунктов — твои допущения \(П3, П20, П21, П22, П23\)/);
+    tz.stamp(file, "П20,П21,П22", "вопрос");
+    assert(!tz.check(file).warnings.some(w => /больше трети/.test(w)), "три из пяти допущений уже у владельца");
   },
 };
 
@@ -356,6 +409,7 @@ let failed = 0;
 for (const [name, fn] of Object.entries(tests)) {
   try { fn(); console.log("ok   " + name); } catch (e) { failed++; console.log("FAIL " + name + "\n     " + String(e.message).split("\n").join("\n     ")); }
 }
+for (const d of made) fs.rmSync(d, { recursive: true, force: true });
 const total = Object.keys(tests).length;
 console.log(failed ? `tz.js: упало ${failed} из ${total}` : `tz.js: проверок прошло ${total} из ${total}`);
 process.exit(failed ? 1 : 0);
