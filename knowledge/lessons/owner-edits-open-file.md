@@ -7,7 +7,7 @@ status: candidate
 created: 2026-10-25
 seen_in: [planning]
 triggers:
-  keywords: [changed on disk, String to replace not found, правка не легла, файл открыт у владельца, вопросы в файле]
+  keywords: [changed on disk, String to replace not found, правка не легла, файл открыт у владельца, вопросы в файле, заметка владельца, по заметке]
   commands: []
   errors: [String to replace not found, changed on disk]
   paths: []
@@ -23,3 +23,5 @@ triggers:
   перечитай и слей, не повторяй вслепую.
 - Видно, что он отвечает прямо сейчас, — файл больше не трогай, только сохрани снимок в git.
 - Признак: «changed on disk» или «String to replace not found» в файле, который ты создал сам.
+- Заметку владельца, по которой пишешь ТЗ или план, перечитай прямо перед работой и перед сдачей: он дописывает
+  её между твоими ходами — прочитанная в начале сессии, она уже неполная.
