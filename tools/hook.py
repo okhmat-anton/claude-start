@@ -119,9 +119,20 @@ def save_tier(session: str, tier: str, source: str, project: str) -> None:
         pass
 
 
-def tier_line(tier: str, how: str) -> str:
+# Средняя и сложная задача начинается с предложения доработать постановку техзаданием (правило владельца, 13.11.2026).
+SPEC_OFFER = (
+    " Техзадание (skill spec-write): до разбора и плана предложи владельцу одним вопросом кнопками, заголовок "
+    "«Техзадание», — «Доработать постановку техзаданием?»: малое ТЗ / полное ТЗ / нет, обычный разбор; рекомендуемое "
+    "первым (средняя — малое, сложная — полное). Не спрашивай, если ТЗ уже есть («выполни ТЗ …»), владелец сам "
+    "сказал «с ТЗ» или «без ТЗ», ты уже спрашивал об этом в текущей задаче либо это вопрос без правок или уточнение."
+)
+
+
+def tier_line(tier: str, how: str, offer: bool = False) -> str:
+    """offer — задача только что получила уровень (назван в промте или выбран кнопками): время предложить ТЗ."""
     return (f"Уровень задачи: {TIERS[tier]} ({how}). Протокол: {TIER_PROTOCOL[tier]}. "
-            "Ход задач (skill task-log): записи ещё нет — заведи сейчас; этапы отмечай по ходу, закрой в конце.")
+            "Ход задач (skill task-log): записи ещё нет — заведи сейчас; этапы отмечай по ходу, закрой в конце."
+            + (SPEC_OFFER if offer and tier != "simple" else ""))
 
 
 TIER_SOURCE_HOW = {"prompt": "назван в промте", "buttons": "выбран кнопками", "default": "по умолчанию"}
@@ -142,7 +153,8 @@ def resolve_tier(prompt: str, saved: dict) -> tuple[str | None, str | None, str]
     """
     tier = detect_tier(prompt)
     if tier:
-        return tier, "prompt", tier_line(tier, TIER_SOURCE_HOW["prompt"])
+        # предложение ТЗ — только задаче: «Сложная задача вчера упала — почему?» называет уровень, но это вопрос
+        return tier, "prompt", tier_line(tier, TIER_SOURCE_HOW["prompt"], offer=looks_like_task(prompt))
     if not looks_like_task(prompt):
         return None, None, ""
     prev = saved.get("tier")
@@ -302,7 +314,7 @@ def on_ask(inp: dict) -> None:
             continue
         _, project, _ = project_of(inp.get("cwd", ""))
         save_tier(str(inp.get("session_id", "")), tier, "buttons", project)
-        out = {"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": tier_line(tier, TIER_SOURCE_HOW["buttons"] + ", записан")}}
+        out = {"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": tier_line(tier, TIER_SOURCE_HOW["buttons"] + ", записан", offer=True)}}
         print(json.dumps(out, ensure_ascii=False))
         return
 

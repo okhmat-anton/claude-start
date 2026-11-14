@@ -1241,5 +1241,57 @@
   {
     "unit": "knowledge-clone-autostash-conflict",
     "command": "git -C ~/.claude/knowledge-repo/claude-start pull --rebase --autostash"
+  },
+  {
+    "resolve": {
+      "tier": "complex",
+      "source": "prompt",
+      "line": "сложная \\(назван в промте.*Техзадание \\(skill spec-write\\).*кнопками.*сложная — полное"
+    },
+    "prompt": "Сложная: переделать личный кабинет под новый дизайн"
+  },
+  {
+    "resolve": {
+      "tier": "medium",
+      "source": "prompt",
+      "line": "средняя \\(назван в промте.*Доработать постановку техзаданием"
+    },
+    "prompt": "задача средней сложности — добавить фильтр по дате в список заказов"
+  },
+  {
+    "resolve": {
+      "tier": "simple",
+      "source": "prompt",
+      "line": "^(?!.*skill spec-write).*простая \\(назван в промте"
+    },
+    "prompt": "[простая] поправь отступ у кнопки"
+  },
+  {
+    "resolve": {
+      "tier": null,
+      "source": null,
+      "line": "^(?!.*skill spec-write).*сложная \\(задан ранее"
+    },
+    "saved": {
+      "tier": "complex",
+      "source": "prompt"
+    },
+    "prompt": "добавь экспорт в CSV для таблицы клиентов"
+  },
+  {
+    "resolve": {
+      "tier": "complex",
+      "source": "prompt",
+      "line": "^(?!.*skill spec-write).*сложная \\(назван в промте"
+    },
+    "prompt": "Сложная задача вчера упала — почему сервер не отвечает?"
+  },
+  {
+    "resolve": {
+      "tier": "complex",
+      "source": "prompt",
+      "line": "^(?!.*skill spec-write).*сложная \\(назван в промте"
+    },
+    "prompt": "Сложная: продолжай, ответ на твой вопрос — вариант А"
   }
 ]

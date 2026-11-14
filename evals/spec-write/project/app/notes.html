@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Заметки</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; background: #f6f5f2; color: #1d1d1f; }
+  main { max-width: 640px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 28px; margin: 0 0 16px; }
+  form { display: flex; gap: 8px; margin-bottom: 20px; }
+  input { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid #c9c7c1; border-radius: 10px; font: inherit; }
+  button { padding: 10px 14px; border: 0; border-radius: 10px; background: #1d1d1f; color: #fff; font: inherit; cursor: pointer; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { display: flex; gap: 12px; align-items: flex-start; background: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; }
+  li div { flex: 1; min-width: 0; }
+  li b { display: block; }
+  li span { color: #6e6e73; font-size: 14px; }
+  li button { background: transparent; color: #b3261e; padding: 4px 8px; }
+  .empty { color: #6e6e73; padding: 24px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Заметки</h1>
+  <form id="add">
+    <input id="title" placeholder="Новая заметка" autocomplete="off">
+    <button type="submit">Добавить</button>
+  </form>
+  <ul id="list"></ul>
+  <p class="empty" id="empty" hidden>Пока ничего нет. Запишите первую заметку.</p>
+</main>
+<script src="/notes.js"></script>
+</body>
+</html>

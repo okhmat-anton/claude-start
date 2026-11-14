@@ -78,6 +78,9 @@ const THREAD = `(() => {
     // Переадресация увела с поиска (на ветку, на проверку) — её комментарии за выдачу не выдаём.
     const at = (await evalJs("location.href")) || "";
     if (!/\/search/.test(at)) return fail(`Поиск открыл не страницу поиска: ${at}`);
+    // Поиск по словам Reddit закрывает целиком: пустой список без причины выглядел бы как «ничего не нашлось».
+    const blocked = await evalJs("/blocked by network security/i.test(document.body ? document.body.innerText : '')");
+    if (blocked) return fail("Reddit закрыл поиск по словам (blocked by network security) — бери ленты (list) и «похожие обсуждения»");
     // Страница поиска: карточки без компонентов — берём ссылки на обсуждения и цифры из текста карточки.
     for (let i = 0; i < 4; i++) { await evalJs("window.scrollTo(0, document.body.scrollHeight)"); await sleep(1500); }
     data = await evalJs(`(() => {

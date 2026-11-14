@@ -25,6 +25,12 @@ node reddit.js thread "https://www.reddit.com/r/PPC/comments/<id>/<slug>/" out.j
 Формат: `list`/`search` → `[{title, score, comments, link}]`; `thread` → `{title, score, commentCount, body,
 comments:[{author, score, depth, text}]}`.
 
+**Поиск по словам закрыт** (проверено 13.11.2026): страница поиска отвечает «You've been blocked by network
+security», `search` возвращает пустой список с кодом 2 и причиной. Ленты и ветки открываются. Темы ищи так:
+ленты нужных сообществ (`list` с `/top/?t=year` и `/top/?t=all`) → на странице каждой прочитанной ветки блок
+«похожие обсуждения» (ссылки `a[href*="/comments/"]` вне самой ветки) → по ним дальше. Так за один заход
+собирается 30–40 веток по теме; перекос к тому, что Reddit считает похожим, назови в отчёте.
+
 ## Что внутри и почему так
 
 - Новый интерфейс Reddit прячет текст в теневом DOM: `document.body.innerText` почти пуст. Берём атрибуты
