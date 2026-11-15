@@ -303,3 +303,5 @@
 - [lessons/workspace-visual-isolation.md] — Окно каждого проекта помечается тёмным приглушённым Peacock-цветом — нет .vscode/settings.json → создать, есть → не трогать; проверить занятые цвета (any; from hr, planning)
 - [lessons/write-on-get-echo-loop.md] [candidate] — Запись на GET (просмотрено, посев, превью), которая публикует событие живого обновления, зацикливает вкладку: она перечитывает себя по кругу (fastapi, web-ui; from video-blade-2)
 - [lessons/zsh-var-command-no-split.md] [candidate] — В zsh команда в переменной ($CMD run …) не разбивается на слова и молча падает «command not found» — пиши команду целиком или массивом (any; from video-blade-2)
+- [lessons/refine-request-is-the-task.md] [candidate] — Просьба «доработай описание задачи» — сама работа: дорабатывается заметка владельца на месте, вопрос «оформить ли техзаданием?» не задаётся — from planning
+- [lessons/show-new-rules-on-new-work.md] [candidate] — Новые правила качества показывают на новых работах из проверочного цикла, а не переделкой готового; переделка — только по просьбе — from planning
