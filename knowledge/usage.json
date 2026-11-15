@@ -61,8 +61,8 @@
   "shown": 17
  },
  "agent-oneoff-script": {
-  "applied": 5,
-  "last_applied": "2026-11-13",
+  "applied": 6,
+  "last_applied": "2026-11-14",
   "last_shown": "2026-11-14",
   "projects": {
    "akm-news": 0,
@@ -71,7 +71,7 @@
    "gym-bro-3": 1,
    "local-ai-coder-test": 0,
    "music-hit": 0,
-   "planning": 1,
+   "planning": 2,
    "project1": 0,
    "protocols": 0,
    "protoss-app": 0,
@@ -107,7 +107,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 76
+  "shown": 77
  },
  "api-discovery": {
   "applied": 1,
@@ -188,13 +188,13 @@
   "shown": 1
  },
  "blind-judge-anchors": {
-  "applied": 5,
-  "last_applied": "2026-11-13",
+  "applied": 6,
+  "last_applied": "2026-11-14",
   "last_shown": "2026-11-14",
   "projects": {
    "claude-start": 0,
    "gym-bro-3": 1,
-   "planning": 2,
+   "planning": 3,
    "protoss-app": 0,
    "tech": 0,
    "video-blade-2": 0
@@ -259,12 +259,13 @@
   "shown": 3
  },
  "clean-context-run-fallback": {
-  "applied": 2,
-  "last_applied": "2026-11-01",
+  "applied": 3,
+  "last_applied": "2026-11-14",
   "last_shown": "2026-11-14",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 1,
+   "planning": 1,
    "video-blade-2": 1
   },
   "shown": 4
@@ -302,7 +303,7 @@
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-14",
   "projects": {
    "akm-news": 0,
    "claude-start": 0,
@@ -316,7 +317,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 72
+  "shown": 73
  },
  "confirm-sheet-safe-action-under-finger": {
   "applied": 1,
@@ -423,14 +424,14 @@
   "shown": 2
  },
  "deploy-command-alone": {
-  "applied": 1,
-  "last_applied": "2026-11-12",
+  "applied": 2,
+  "last_applied": "2026-11-14",
   "last_shown": "2026-11-14",
   "projects": {
    "akm-news": 1,
-   "planning": 0
+   "planning": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "design-mock-single-storyline": {
   "applied": 0,
@@ -504,13 +505,13 @@
  },
  "embedded-postgres-when-docker-stuck": {
   "applied": 0,
-  "last_shown": "2026-11-12",
+  "last_shown": "2026-11-14",
   "projects": {
    "akm-news": 0,
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "empty-field-default-not-refusal": {
   "applied": 0,
@@ -587,13 +588,13 @@
   "shown": 1
  },
  "eval-judge-real-model-recorded": {
-  "applied": 2,
-  "last_applied": "2026-11-03",
+  "applied": 3,
+  "last_applied": "2026-11-14",
   "last_shown": "2026-11-14",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
-   "planning": 1
+   "planning": 2
   },
   "shown": 4
  },
@@ -799,12 +800,12 @@
   "shown": 1
  },
  "judge-requirements-per-lane": {
-  "applied": 5,
-  "last_applied": "2026-11-02",
+  "applied": 6,
+  "last_applied": "2026-11-14",
   "last_shown": "2026-11-14",
   "projects": {
    "gym-bro-3": 1,
-   "planning": 1,
+   "planning": 2,
    "scratchpad": 0,
    "tech": 0,
    "video-blade-2": 3,
@@ -1004,15 +1005,15 @@
   "shown": 19
  },
  "long-work-progress-statuses": {
-  "applied": 5,
-  "last_applied": "2026-10-29",
+  "applied": 6,
+  "last_applied": "2026-11-14",
   "last_shown": "2026-11-14",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
    "gym-bro-3": 1,
    "local-ai-coder-test": 0,
-   "planning": 0,
+   "planning": 1,
    "protoss-app": 0,
    "scratchpad": 0,
    "tasks": 0,
@@ -1399,7 +1400,7 @@
  },
  "prod-data-ops": {
   "applied": 0,
-  "last_shown": "2026-11-02",
+  "last_shown": "2026-11-14",
   "projects": {
    "ai-business-advisor-websites": 0,
    "divani": 0,
@@ -1409,7 +1410,7 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 22
+  "shown": 23
  },
  "prompt-field-reaches-model-test": {
   "applied": 1,
@@ -1483,12 +1484,12 @@
  },
  "python-fastapi-mongo-nuxt": {
   "applied": 0,
-  "last_shown": "2026-11-12",
+  "last_shown": "2026-11-14",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "python-fastapi-vue": {
   "applied": 1,
