@@ -2,17 +2,18 @@
  "actions-sheet-not-popover-in-clipped-tile": {
   "applied": 1,
   "last_applied": "2026-10-08",
-  "last_shown": "2026-11-03",
+  "last_shown": "2026-11-16",
   "projects": {
    "gym-bro-3": 0,
+   "protoss-app": 0,
    "video-blade-2": 1
   },
-  "shown": 3
+  "shown": 4
  },
  "admin-links-to-app": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-14",
+  "last_shown": "2026-11-15",
   "projects": {
    "calibri": 0,
    "claude-start": 0,
@@ -24,7 +25,7 @@
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 25
+  "shown": 27
  },
  "agent-docs-route-guard": {
   "applied": 1,
@@ -58,14 +59,15 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 17
+  "shown": 19
  },
  "agent-oneoff-script": {
-  "applied": 6,
-  "last_applied": "2026-11-14",
+  "applied": 7,
+  "last_applied": "2026-11-16",
   "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 0,
+   "calibri": 0,
    "claude-start": 0,
    "game-3": 0,
    "gym-bro-3": 1,
@@ -74,13 +76,14 @@
    "planning": 2,
    "project1": 0,
    "protocols": 0,
-   "protoss-app": 0,
+   "protos-1": 0,
+   "protoss-app": 1,
    "tech": 0,
    "todo": 0,
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 95
+  "shown": 103
  },
  "agent-shell-state": {
   "applied": 7,
@@ -99,6 +102,7 @@
    "music-hit": 0,
    "planning": 0,
    "project1": 0,
+   "protos-1": 0,
    "raw": 0,
    "rs": 0,
    "scratchpad": 0,
@@ -107,7 +111,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 80
+  "shown": 82
  },
  "api-discovery": {
   "applied": 1,
@@ -177,7 +181,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 43
+  "shown": 44
  },
  "bisect-by-patched-page-copies": {
   "applied": 0,
@@ -224,21 +228,23 @@
  "browser-test-stand": {
   "applied": 4,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-16",
   "projects": {
+   "calibri": 0,
    "gym-bro-3": 1,
    "planning": 0,
    "tech": 0,
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 11
+  "shown": 13
  },
  "browser-verification": {
   "applied": 11,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-14",
+  "last_shown": "2026-11-16",
   "projects": {
+   "calibri": 0,
    "gym-bro-3": 1,
    "planning": 0,
    "project1": 0,
@@ -248,7 +254,7 @@
    "video-blade-2": 10,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 33
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
@@ -280,11 +286,11 @@
    "gym-bro-3": 0,
    "planning": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "codemod-after-formatter-hook": {
-  "applied": 10,
-  "last_applied": "2026-11-04",
+  "applied": 11,
+  "last_applied": "2026-11-16",
   "last_shown": "2026-11-16",
   "projects": {
    "ai-business-advisor-websites": 0,
@@ -294,25 +300,28 @@
    "landing": 0,
    "planning": 0,
    "projects": 0,
-   "protoss-app": 0,
+   "protoss-app": 1,
    "raw": 0,
    "tech": 0,
    "todo": 0,
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 41
+  "shown": 45
  },
  "complaint-history-mining": {
   "applied": 0,
   "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 0,
+   "calibri": 0,
    "claude-start": 0,
    "gym-bro-3": 0,
    "landing": 0,
    "planning": 0,
    "project1": 0,
+   "protos-1": 0,
+   "protoss-app": 0,
    "scratchpad": 0,
    "tech": 0,
    "todo": 0,
@@ -320,7 +329,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 75
+  "shown": 81
  },
  "confirm-sheet-safe-action-under-finger": {
   "applied": 1,
@@ -334,11 +343,12 @@
  },
  "connect-page-recovery-path": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-15",
   "projects": {
-   "calibri": 0
+   "calibri": 0,
+   "protoss-app": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "credentials-stay-with-owner": {
   "applied": 1,
@@ -380,13 +390,13 @@
  "css-root-class-collision": {
   "applied": 3,
   "last_applied": "2026-10-22",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-11",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 6
+  "shown": 7
  },
  "cta-same-promise-same-target": {
   "applied": 1,
@@ -405,7 +415,7 @@
    "gym-bro-3": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "deleted-by-whom-capsule": {
   "decisions": {
@@ -432,9 +442,10 @@
   "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 1,
+   "gym-bro-3": 0,
    "planning": 1
   },
-  "shown": 6
+  "shown": 8
  },
  "design-mock-single-storyline": {
   "applied": 0,
@@ -457,11 +468,11 @@
  },
  "dev-proxy-forwards-cookies": {
   "applied": 0,
-  "last_shown": "2026-11-03",
+  "last_shown": "2026-11-12",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "dev-vs-pinned-deps": {
   "applied": 0,
@@ -470,6 +481,7 @@
    "3d-printer": 0,
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
+   "calibri": 0,
    "claude-start": 0,
    "divani": 0,
    "game-3": 0,
@@ -485,7 +497,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 73
+  "shown": 76
  },
  "dialog-text-survives-close": {
   "applied": 1,
@@ -514,7 +526,7 @@
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "empty-field-default-not-refusal": {
   "applied": 0,
@@ -527,11 +539,11 @@
  },
  "empty-state-icon-direct-child": {
   "applied": 0,
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-04",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "entry-page-not-dashboard": {
   "applied": 4,
@@ -580,7 +592,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 21
+  "shown": 23
  },
  "eval-cases-invariants-new-field": {
   "applied": 0,
@@ -591,13 +603,14 @@
   "shown": 1
  },
  "eval-judge-real-model-recorded": {
-  "applied": 3,
-  "last_applied": "2026-11-14",
+  "applied": 4,
+  "last_applied": "2026-11-16",
   "last_shown": "2026-11-15",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
    "planning": 2,
+   "protoss-app": 1,
    "training-3": 0
   },
   "shown": 5
@@ -635,6 +648,14 @@
   },
   "shown": 15
  },
+ "feed-order-time-keyset": {
+  "applied": 0,
+  "last_shown": "2026-11-04",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "fetch-login-redirect-cookie": {
   "applied": 0,
   "last_shown": "2026-11-16",
@@ -649,7 +670,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 33
  },
  "field-second-write-path": {
   "applied": 0,
@@ -665,11 +686,12 @@
   "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 0,
+   "calibri": 0,
    "gym-bro-3": 0,
    "planning": 0,
    "protoss-app": 0
   },
-  "shown": 13
+  "shown": 19
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -709,7 +731,7 @@
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 25
+  "shown": 26
  },
  "guard-hook-testing": {
   "applied": 2,
@@ -726,13 +748,14 @@
  "harness-background-processes": {
   "applied": 2,
   "last_applied": "2026-11-12",
-  "last_shown": "2026-11-15",
+  "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 1,
    "gym-bro-3": 0,
-   "planning": 0
+   "planning": 0,
+   "protoss-app": 0
   },
-  "shown": 4
+  "shown": 6
  },
  "headless-chrome-accept-language": {
   "applied": 1,
@@ -749,7 +772,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 29
+  "shown": 31
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -762,12 +785,13 @@
  },
  "headless-touch-hangs-after-modal": {
   "applied": 0,
-  "last_shown": "2026-10-22",
+  "last_shown": "2026-11-16",
   "projects": {
+   "calibri": 0,
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "health-endpoint-dependencies": {
   "applied": 1,
@@ -810,12 +834,13 @@
   "projects": {
    "gym-bro-3": 1,
    "planning": 2,
+   "protoss-app": 0,
    "scratchpad": 0,
    "tech": 0,
    "video-blade-2": 3,
    "video-blade-test": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "judge-rules-interact": {
   "applied": 2,
@@ -844,21 +869,21 @@
    "todo": 0,
    "video-blade-2": 0
   },
-  "shown": 25
+  "shown": 27
  },
  "knowledge-clone-autostash-conflict": {
-  "applied": 5,
-  "last_applied": "2026-11-14",
+  "applied": 9,
+  "last_applied": "2026-11-16",
   "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 1,
    "calibri": 0,
    "gym-bro-3": 1,
    "planning": 1,
-   "protoss-app": 1,
+   "protoss-app": 5,
    "tech": 1
   },
-  "shown": 8
+  "shown": 11
  },
  "label-claims-need-arithmetic": {
   "applied": 3,
@@ -885,11 +910,13 @@
   "projects": {
    "akm-news": 0,
    "calibri": 0,
+   "gym-bro-3": 0,
    "planning": 0,
+   "protos-1": 0,
    "protoss-app": 0,
    "training-3": 0
   },
-  "shown": 12
+  "shown": 16
  },
  "link-looks-like-link": {
   "applied": 0,
@@ -899,12 +926,13 @@
    "calibri": 0,
    "gym-bro-3": 0,
    "planning": 0,
+   "protoss-app": 0,
    "scratchpad": 0,
    "tasks": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 14
+  "shown": 15
  },
  "lint-first-run": {
   "applied": 0,
@@ -919,12 +947,12 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 35
+  "shown": 36
  },
  "lint-rules-explicit-select": {
   "applied": 2,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-11",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
@@ -935,7 +963,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 22
+  "shown": 23
  },
  "list-action-returns-to-card": {
   "applied": 2,
@@ -959,7 +987,7 @@
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "live-update-own-echo-autosave": {
   "applied": 2,
@@ -998,21 +1026,22 @@
  "local-runs-reach-production": {
   "applied": 1,
   "last_applied": "2026-10-30",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-15",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
    "gym-bro-3": 0,
    "planning": 0,
+   "protoss-app": 0,
    "tech": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 21
  },
  "long-work-progress-statuses": {
-  "applied": 6,
-  "last_applied": "2026-11-14",
+  "applied": 7,
+  "last_applied": "2026-11-15",
   "last_shown": "2026-11-16",
   "projects": {
    "ai-business-advisor-websites": 0,
@@ -1020,14 +1049,14 @@
    "gym-bro-3": 1,
    "local-ai-coder-test": 0,
    "planning": 1,
-   "protoss-app": 0,
+   "protoss-app": 1,
    "scratchpad": 0,
    "tasks": 0,
    "tech": 0,
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 28
+  "shown": 31
  },
  "look-text-click-counter": {
   "applied": 1,
@@ -1076,7 +1105,7 @@
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "menu-link-tab-anchor": {
   "applied": 0,
@@ -1093,33 +1122,35 @@
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
+   "protoss-app": 0,
    "video-blade-2": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "migration-verify-in-memory": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-11-01",
+  "last_shown": "2026-11-16",
   "projects": {
    "gym-bro-3": 0,
    "payment-gateway": 0,
    "planning": 0,
+   "protoss-app": 0,
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "mock-two-states-fresh-and-demo": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-14",
+  "last_shown": "2026-11-15",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "protoss-app": 0
   },
-  "shown": 6
+  "shown": 8
  },
  "mockup-review-prune-variants": {
   "applied": 0,
@@ -1220,11 +1251,12 @@
   "last_shown": "2026-11-12",
   "projects": {
    "akm-news": 0,
+   "gym-bro-3": 0,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "no-build-in-live-dev-dir": {
   "applied": 4,
@@ -1236,7 +1268,7 @@
    "planning": 1,
    "video-blade-2": 1
   },
-  "shown": 7
+  "shown": 8
  },
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
@@ -1266,7 +1298,7 @@
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "owner-task-before-plan-order": {
   "applied": 0,
@@ -1331,16 +1363,16 @@
    "tech": 0,
    "video-blade-2": 3
   },
-  "shown": 18
+  "shown": 19
  },
  "patch-script-anchors-vs-formatter": {
   "applied": 1,
   "last_applied": "2026-11-02",
-  "last_shown": "2026-11-02",
+  "last_shown": "2026-11-11",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "payment-sandbox-means-test-key": {
   "applied": 0,
@@ -1369,16 +1401,18 @@
   "shown": 1
  },
  "pipe-tail-hides-exit-code": {
-  "applied": 6,
-  "last_applied": "2026-11-14",
+  "applied": 8,
+  "last_applied": "2026-11-16",
   "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 1,
+   "calibri": 0,
    "gym-bro-3": 0,
    "planning": 1,
-   "protoss-app": 1
+   "protos-1": 0,
+   "protoss-app": 3
   },
-  "shown": 14
+  "shown": 22
  },
  "pixel-server-event-dedup": {
   "applied": 0,
@@ -1449,17 +1483,18 @@
  "proposal-numbers-explicit": {
   "applied": 2,
   "last_applied": "2026-11-03",
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-15",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
    "planning": 1,
+   "protoss-app": 0,
    "scratchpad": 0,
    "tech": 0,
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 15
+  "shown": 16
  },
  "provider-result-by-media-type": {
   "applied": 0,
@@ -1512,7 +1547,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "python-selenium-agent-worker": {
   "applied": 0,
@@ -1557,10 +1592,12 @@
   "shown": 0
  },
  "refine-request-is-the-task": {
-  "applied": 0,
+  "applied": 2,
+  "last_applied": "2026-11-16",
   "last_shown": "2026-11-15",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "protoss-app": 2
   },
   "shown": 1
  },
@@ -1581,6 +1618,7 @@
    "frontend": 0,
    "gym-bro-3": 0,
    "planning": 0,
+   "protoss-app": 0,
    "raw": 0,
    "scratchpad": 0,
    "tech": 0,
@@ -1588,7 +1626,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 39
+  "shown": 40
  },
  "render-before-model-eval": {
   "applied": 2,
@@ -1622,17 +1660,18 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 26
+  "shown": 28
  },
  "rerender-keeps-typed-input": {
   "applied": 0,
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-16",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
+   "protoss-app": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "research": {
   "applied": 1,
@@ -1699,16 +1738,17 @@
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 33
  },
  "review-file-uploads": {
   "applied": 0,
   "last_shown": "2026-11-14",
   "projects": {
+   "gym-bro-3": 0,
    "protoss-app": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "review-frames-both-viewports": {
   "applied": 5,
@@ -1751,7 +1791,7 @@
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 32
+  "shown": 34
  },
  "review-stand-state-drift": {
   "applied": 1,
@@ -1808,11 +1848,12 @@
    "calibri": 0,
    "gym-bro-3": 0,
    "planning": 0,
+   "protos-1": 0,
    "protoss-app": 0,
    "tech": 0,
    "video-blade-2": 1
   },
-  "shown": 10
+  "shown": 13
  },
  "rule-change-stale-wording": {
   "applied": 8,
@@ -1838,7 +1879,7 @@
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 8
+  "shown": 9
  },
  "sales-playbook": {
   "applied": 2,
@@ -1877,9 +1918,10 @@
   "last_shown": "2026-11-13",
   "projects": {
    "calibri": 0,
+   "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "second-stand-during-review": {
   "applied": 1,
@@ -1920,9 +1962,10 @@
   "last_shown": "2026-11-14",
   "projects": {
    "akm-news": 1,
+   "gym-bro-3": 0,
    "protoss-app": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "simulation-plausibility": {
   "applied": 0,
@@ -1954,6 +1997,14 @@
    "video-blade-test": 0
   },
   "shown": 2
+ },
+ "sse-fastapi-inprocess-hub": {
+  "applied": 0,
+  "last_shown": "2026-11-04",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
  },
  "ssr-to-spa-same-context": {
   "applied": 0,
@@ -2008,7 +2059,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 37
+  "shown": 38
  },
  "stand-copy-restart-before-record": {
   "applied": 5,
@@ -2029,7 +2080,7 @@
    "gym-bro-3": 0,
    "tech": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "stand-restart-rotates-keys": {
   "applied": 1,
@@ -2074,7 +2125,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 48
+  "shown": 50
  },
  "subagent-model-fallback": {
   "applied": 4,
@@ -2132,7 +2183,7 @@
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "tests-observable-behavior": {
   "applied": 1,
@@ -2149,22 +2200,24 @@
   "last_shown": "2026-11-16",
   "projects": {
    "akm-news": 0,
+   "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 3
+  "shown": 5
  },
  "title-dedupe-full-name": {
   "applied": 0,
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-16",
   "projects": {
-   "planning": 0
+   "planning": 0,
+   "protoss-app": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "token-guarded-endpoints": {
   "applied": 3,
   "last_applied": "2026-11-14",
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-14",
   "projects": {
    "game-3": 1,
    "gym-bro-3": 1,
@@ -2174,7 +2227,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 24
+  "shown": 25
  },
  "ui-silent-failures": {
   "applied": 2,
