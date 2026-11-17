@@ -51,7 +51,7 @@
  "agent-interaction": {
   "applied": 7,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-14",
+  "last_shown": "2026-11-16",
   "projects": {
    "gym-bro-3": 0,
    "planning": 1,
@@ -59,7 +59,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "agent-oneoff-script": {
   "applied": 7,
@@ -83,7 +83,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 103
+  "shown": 104
  },
  "agent-shell-state": {
   "applied": 7,
@@ -111,7 +111,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 82
+  "shown": 83
  },
  "api-discovery": {
   "applied": 1,
@@ -181,7 +181,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 44
+  "shown": 45
  },
  "bisect-by-patched-page-copies": {
   "applied": 0,
@@ -204,7 +204,7 @@
    "training-3": 0,
    "video-blade-2": 0
   },
-  "shown": 15
+  "shown": 16
  },
  "branching-form-progress-pessimistic": {
   "applied": 0,
@@ -254,7 +254,7 @@
    "video-blade-2": 10,
    "video-blade-test": 0
   },
-  "shown": 33
+  "shown": 34
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
@@ -307,7 +307,7 @@
    "video-blade-2": 6,
    "video-blade-test": 0
   },
-  "shown": 45
+  "shown": 46
  },
  "complaint-history-mining": {
   "applied": 0,
@@ -329,7 +329,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 81
+  "shown": 82
  },
  "confirm-sheet-safe-action-under-finger": {
   "applied": 1,
@@ -445,7 +445,7 @@
    "gym-bro-3": 0,
    "planning": 1
   },
-  "shown": 8
+  "shown": 9
  },
  "design-mock-single-storyline": {
   "applied": 0,
@@ -592,7 +592,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 23
+  "shown": 24
  },
  "eval-cases-invariants-new-field": {
   "applied": 0,
@@ -670,7 +670,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 33
+  "shown": 34
  },
  "field-second-write-path": {
   "applied": 0,
@@ -691,7 +691,7 @@
    "planning": 0,
    "protoss-app": 0
   },
-  "shown": 19
+  "shown": 20
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -721,7 +721,7 @@
  "guard-hook-command-parsing": {
   "applied": 2,
   "last_applied": "2026-11-14",
-  "last_shown": "2026-11-15",
+  "last_shown": "2026-11-16",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -731,7 +731,7 @@
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 26
+  "shown": 27
  },
  "guard-hook-testing": {
   "applied": 2,
@@ -772,7 +772,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 32
  },
  "headless-chrome-pdf": {
   "applied": 0,
@@ -883,7 +883,7 @@
    "protoss-app": 5,
    "tech": 1
   },
-  "shown": 11
+  "shown": 12
  },
  "label-claims-need-arithmetic": {
   "applied": 3,
@@ -1056,7 +1056,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 31
+  "shown": 32
  },
  "look-text-click-counter": {
   "applied": 1,
@@ -1081,14 +1081,14 @@
  },
  "masonry-columns-via-slot": {
   "applied": 0,
-  "last_shown": "2026-11-14",
+  "last_shown": "2026-11-16",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "tech": 0,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "mcp-server-client-quirks": {
   "applied": 0,
@@ -1412,7 +1412,7 @@
    "protos-1": 0,
    "protoss-app": 3
   },
-  "shown": 22
+  "shown": 23
  },
  "pixel-server-event-dedup": {
   "applied": 0,
@@ -1626,7 +1626,7 @@
    "video-blade-2": 7,
    "video-blade-test": 0
   },
-  "shown": 40
+  "shown": 41
  },
  "render-before-model-eval": {
   "applied": 2,
@@ -1660,7 +1660,7 @@
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 28
+  "shown": 29
  },
  "rerender-keeps-typed-input": {
   "applied": 0,
@@ -1738,7 +1738,7 @@
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 33
+  "shown": 34
  },
  "review-file-uploads": {
   "applied": 0,
@@ -1763,7 +1763,7 @@
    "tech": 0,
    "video-blade-2": 3
   },
-  "shown": 16
+  "shown": 17
  },
  "review-loop-owner-decisions": {
   "applied": 8,
@@ -1791,7 +1791,7 @@
    "video-blade-2": 8,
    "video-blade-test": 0
   },
-  "shown": 34
+  "shown": 35
  },
  "review-stand-state-drift": {
   "applied": 1,
@@ -1853,7 +1853,7 @@
    "tech": 0,
    "video-blade-2": 1
   },
-  "shown": 13
+  "shown": 14
  },
  "rule-change-stale-wording": {
   "applied": 8,
