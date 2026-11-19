@@ -64,7 +64,7 @@
  "agent-oneoff-script": {
   "applied": 7,
   "last_applied": "2026-11-16",
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-19",
   "projects": {
    "akm-news": 0,
    "calibri": 0,
@@ -83,7 +83,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 106
+  "shown": 107
  },
  "agent-shell-state": {
   "applied": 7,
@@ -242,7 +242,7 @@
  "browser-verification": {
   "applied": 11,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-17",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 1,
@@ -254,7 +254,7 @@
    "video-blade-2": 10,
    "video-blade-test": 0
   },
-  "shown": 34
+  "shown": 35
  },
  "catalog-names-too-long-for-selects": {
   "applied": 0,
@@ -311,7 +311,7 @@
  },
  "complaint-history-mining": {
   "applied": 0,
-  "last_shown": "2026-11-17",
+  "last_shown": "2026-11-19",
   "projects": {
    "akm-news": 0,
    "calibri": 0,
@@ -329,7 +329,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 84
+  "shown": 85
  },
  "confirm-sheet-safe-action-under-finger": {
   "applied": 1,
@@ -685,7 +685,7 @@
  "first-commit-sweeps-key-files": {
   "applied": 1,
   "last_applied": "2026-11-01",
-  "last_shown": "2026-11-17",
+  "last_shown": "2026-11-19",
   "projects": {
    "akm-news": 0,
    "calibri": 0,
@@ -693,7 +693,7 @@
    "planning": 0,
    "protoss-app": 0
   },
-  "shown": 22
+  "shown": 23
  },
  "fstring-html-fragments": {
   "applied": 0,
@@ -787,13 +787,14 @@
  },
  "headless-touch-hangs-after-modal": {
   "applied": 0,
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-17",
   "projects": {
    "calibri": 0,
+   "planning": 0,
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "health-endpoint-dependencies": {
   "applied": 1,
@@ -876,7 +877,7 @@
  "knowledge-clone-autostash-conflict": {
   "applied": 9,
   "last_applied": "2026-11-16",
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-19",
   "projects": {
    "akm-news": 1,
    "calibri": 0,
@@ -885,7 +886,7 @@
    "protoss-app": 5,
    "tech": 1
   },
-  "shown": 13
+  "shown": 14
  },
  "label-claims-need-arithmetic": {
   "applied": 3,
@@ -985,12 +986,12 @@
  },
  "live-update-assert-by-wait-step": {
   "applied": 0,
-  "last_shown": "2026-11-12",
+  "last_shown": "2026-11-17",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "live-update-own-echo-autosave": {
   "applied": 2,
@@ -1085,14 +1086,14 @@
  },
  "masonry-columns-via-slot": {
   "applied": 0,
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-19",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "tech": 0,
    "video-blade-test": 0
   },
-  "shown": 8
+  "shown": 9
  },
  "mcp-server-client-quirks": {
   "applied": 0,
@@ -1399,16 +1400,16 @@
  },
  "phone-mockup-keyboard-overlay": {
   "applied": 0,
-  "last_shown": "2026-11-04",
+  "last_shown": "2026-11-17",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 1
+  "shown": 2
  },
  "pipe-tail-hides-exit-code": {
   "applied": 8,
   "last_applied": "2026-11-16",
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-19",
   "projects": {
    "akm-news": 1,
    "calibri": 0,
@@ -1417,7 +1418,7 @@
    "protos-1": 0,
    "protoss-app": 3
   },
-  "shown": 25
+  "shown": 26
  },
  "pixel-server-event-dedup": {
   "applied": 0,
@@ -1564,12 +1565,12 @@
  },
  "rate-limit-counts-delivered": {
   "applied": 0,
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-17",
   "projects": {
    "planning": 0,
    "video-blade-2": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "record-actions-visible-buttons": {
   "applied": 0,
@@ -1690,7 +1691,7 @@
  "research-agents-share-ip-quota": {
   "applied": 2,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-17",
   "projects": {
    "gym-bro-3": 0,
    "planning": 1,
@@ -1700,7 +1701,7 @@
    "tech": 0,
    "video-blade-2": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "restricted-key-gate-same-parser": {
   "applied": 0,
@@ -2214,12 +2215,12 @@
  },
  "title-dedupe-full-name": {
   "applied": 0,
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-17",
   "projects": {
    "planning": 0,
    "protoss-app": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "token-guarded-endpoints": {
   "applied": 3,
