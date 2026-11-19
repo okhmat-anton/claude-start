@@ -59,7 +59,7 @@
 - [lessons/auth-change-verification.md] [candidate] — Любая правка аутентификации проверяется тремя входами отдельно — логин в свежей сессии, токен в заголовке, ссылка-ключ; открытая вкладка врёт (any; from planning)
 - [lessons/autofix-hook-import-order.md] [candidate] — Автофикс-хук (ruff --fix) стирает импорт, добавленный раньше использования, между пошаговыми правками — сначала использование, потом импорт (any; from video-blade-2)
 - [lessons/bisect-by-patched-page-copies.md] [candidate] — Странность в браузере бисектируй копиями страницы с одной правкой каждая и одним сценарием, а не правками в репозитории (any; from video-blade-2)
-- [lessons/blind-judge-anchors.md] — Слепой судья калибруется эталонами: два реальных хита + заведомо слабый образец под буквами; проход — вровень с хитами, голос автора и названия скрыть (llm; from game-3, gym-bro-3)
+- [lessons/blind-judge-anchors.md] — Слепой судья калибруется эталонами: два реальных хита + заведомо слабый образец под буквами; проход — вровень с хитами, голос автора и названия скрыть (llm; from game-3, gym-bro-3, planning)
 - [lessons/branching-form-progress-pessimistic.md] [candidate] — Прогресс анкеты с ветвлением считать по наибольшему возможному числу вопросов и показывать остаток временем — финиш только приближается (vue, web, ux; from gym-bro-3)
 - [lessons/breaking-api-ships-with-client.md] [candidate] — Ответ API, на котором держится запись старого клиента, меняется одним релизом с заменой клиента; до релиза — без push (any; from akm-news)
 - [lessons/browser-check-raw-cdp.md] [candidate] — Живой прогон UI без Playwright — стенд с базой в памяти и сырой DevTools-протокол через websockets; DOM-узел из evaluate — {}, условия в !!() (web-ui; from video-blade-2)
@@ -174,6 +174,7 @@
 - [lessons/number-unit-two-lines-narrow-column.md] [candidate] — Подпись числа выросла до слов («41 тренировка подряд»): в узкой колонке число крупно, слова мелко под ним; кадр телефона до коммита (web-ui; from gym-bro-3)
 - [lessons/optimization-vs-manufacturability.md] [candidate] — Оптимизатор с одним критерием лепит неизготовимую геометрию — вторая технологическая мера, доводка при допуске, гладкость как отличие от себя заглаженной (python, any; from 3d-printer)
 - [lessons/optional-field-default-overwrites.md] [candidate] — Необязательное поле запроса со значением по умолчанию («UTC») перезаписывает хранимое при каждом вызове: по умолчанию — None, не значение (python, fastapi; from gym-bro-3)
+- [lessons/owner-answer-changes-data-now.md] [candidate] — Ответ владельца, который закрывает или меняет дело, исполняй правкой данных сразу: автоматика плана дня читает данные, а не разговор (any; from planning)
 - [lessons/owner-edits-open-file.md] [candidate] — Файл, открытый у владельца, он правит вместе с агентом: перечитать перед правками, якоря короткие, упавшая правка — его изменение (any; from planning)
 - [lessons/owner-task-before-plan-order.md] [candidate] — Задача из промта важнее порядка плана: план предлагает начать с другого (даже со срочного) — спросить кнопками до первой правки (any; from akm-news)
 - [lessons/page-boilerplate-checks.md] [candidate] — Обязательные подключения страниц (общая шапка, модуль размеров, id полей, список копирования образа) проверяет программа в make test, с негативным прогоном (node, web-ui; from planning)
@@ -203,6 +204,7 @@
 - [lessons/pydantic-patch-nested-exclude-unset.md] [candidate] — PATCH через model_dump(exclude_unset=True) срезает незаданные поля и во вложенных моделях — в базу пишется null вместо умолчаний; include=model_fields_set (fastapi; from video-blade-2)
 - [lessons/rate-limit-counts-delivered.md] [candidate] — Анти-спам лимит считает только дошедшее или ждущее отправки; истёкшие и упавшие записи, посчитанные в лимит, блокируют систему на весь период (python, mongodb; from akm-news)
 - [lessons/redesign-grep-tests-for-markup.md] [candidate] — Перед перерисовкой страницы grep тесты по её классам и переведи их на видимый текст; тест, упавший на структуре, чинится, а не разметка (any; from video-blade-2)
+- [lessons/refine-request-is-the-task.md] [candidate] — Просьба «доработай описание задачи» — сама работа: дорабатывается заметка владельца на месте, служебный вопрос «оформить ли техзаданием?» не задаётся (any; from planning)
 - [lessons/refusal-bound-to-sender.md] [candidate] — Отказ сервера привязывай к действию, которое его отправило, не к открытому окну; окно, которое каркас закрыл, открывай заново отложенно (web-ui; from video-blade-2)
 - [lessons/regex-codemod-spans-functions.md] [candidate] — Массовая правка кода регуляркой с re.S и нежадным .*? стартует у первого якоря файла и съедает соседние функции — одна замена на уникальный якорь (any; from video-blade-2)
 - [lessons/render-before-model-eval.md] [candidate] — Перед первым дорогим прогоном с моделью собрать результат без модели и прочитать его глазами человека: дефекты рендера ловятся бесплатно (python, llm, eval; from gym-bro-3)
@@ -242,6 +244,7 @@
 - [lessons/settings-save-model.md] [candidate] — Новая настройка рядом с экранами, которые сохраняются сами, — сохранять сразу по выбору, а не полем общей формы с «Save»: иначе правку молча теряют (web-ui; from video-blade-2)
 - [lessons/shell-form-reset-clears-vmodel.md] [candidate] — Оболочка сбрасывает форму после ответа — при повторном открытии окна с отказом верни значение в поле руками, v-model сам не восстановит (web-ui; from video-blade-2)
 - [lessons/shell-submit-skips-prevented.md] [candidate] — Перехватчик submit оболочки SPA пропускает формы с e.defaultPrevented — иначе форма с @submit.prevent всё равно уходит POST-ом на адрес страницы (vue, web-ui; from video-blade-2)
+- [lessons/show-new-rules-on-new-work.md] [candidate] — Новые правила качества показывают на новых работах из проверочного цикла (те же заказы по старым и новым правилам), а не переделкой готового; переделка — только по просьбе (llm; from planning)
 - [lessons/simplifier-parallel-with-visual-review.md] [candidate] — Ревью кода на упрощение — параллельно с последним кругом ревью глазами: читатель кода ловит баги, которых нет на кадрах, а ждать вдвое меньше (any; from gym-bro-3)
 - [lessons/simulation-plausibility.md] — «Не взорвалось» ≠ «даёт задуманный результат» — порог теста от требуемого результата, а не от первого замера; картинку сверять с референсом на ранней итерации (python, pymunk, any; from 3d-printer, 3d-printer-one)
 - [lessons/single-clock-read.md] [candidate] — Проверка «уже можно?» читает часы один раз: функция берёт now от вызывающего — иначе второе чтение делает «ещё рано» вечным (python; from akm-news)
@@ -303,5 +306,3 @@
 - [lessons/workspace-visual-isolation.md] — Окно каждого проекта помечается тёмным приглушённым Peacock-цветом — нет .vscode/settings.json → создать, есть → не трогать; проверить занятые цвета (any; from hr, planning)
 - [lessons/write-on-get-echo-loop.md] [candidate] — Запись на GET (просмотрено, посев, превью), которая публикует событие живого обновления, зацикливает вкладку: она перечитывает себя по кругу (fastapi, web-ui; from video-blade-2)
 - [lessons/zsh-var-command-no-split.md] [candidate] — В zsh команда в переменной ($CMD run …) не разбивается на слова и молча падает «command not found» — пиши команду целиком или массивом (any; from video-blade-2)
-- [lessons/refine-request-is-the-task.md] [candidate] — Просьба «доработай описание задачи» — сама работа: дорабатывается заметка владельца на месте, вопрос «оформить ли техзаданием?» не задаётся — from planning
-- [lessons/show-new-rules-on-new-work.md] [candidate] — Новые правила качества показывают на новых работах из проверочного цикла, а не переделкой готового; переделка — только по просьбе — from planning

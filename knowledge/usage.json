@@ -88,7 +88,7 @@
  "agent-shell-state": {
   "applied": 7,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-19",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -111,7 +111,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 84
+  "shown": 85
  },
  "api-discovery": {
   "applied": 1,
@@ -2413,13 +2413,13 @@
  },
  "zsh-var-command-no-split": {
   "applied": 0,
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-19",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 7
+  "shown": 8
  }
 }
