@@ -88,7 +88,7 @@
  "agent-shell-state": {
   "applied": 7,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "3d-printer": 0,
    "_src": 0,
@@ -111,12 +111,12 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 89
+  "shown": 90
  },
  "api-discovery": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "docs": 0,
    "gym-bro-3": 0,
@@ -126,7 +126,7 @@
    "todo": 0,
    "video-blade-2": 1
   },
-  "shown": 26
+  "shown": 27
  },
  "app-store": {
   "applied": 0,
@@ -451,14 +451,14 @@
  "deploy-command-alone": {
   "applied": 2,
   "last_applied": "2026-11-14",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 1,
    "gym-bro-3": 0,
    "planning": 1
   },
-  "shown": 14
+  "shown": 15
  },
  "design-mock-single-storyline": {
   "applied": 0,
@@ -534,14 +534,14 @@
  },
  "embedded-postgres-when-docker-stuck": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 11
+  "shown": 12
  },
  "empty-field-default-not-refusal": {
   "applied": 0,
@@ -937,7 +937,7 @@
  },
  "link-looks-like-link": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "akm-news": 0,
    "calibri": 0,
@@ -949,7 +949,7 @@
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 18
+  "shown": 19
  },
  "lint-first-run": {
   "applied": 0,
@@ -1165,13 +1165,13 @@
  "mock-two-states-fresh-and-demo": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "protoss-app": 0
   },
-  "shown": 11
+  "shown": 12
  },
  "mockup-review-prune-variants": {
   "applied": 0,
@@ -1376,7 +1376,7 @@
  "parallel-subagents": {
   "applied": 5,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-17",
+  "last_shown": "2026-11-22",
   "projects": {
    "aw-white": 0,
    "planning": 1,
@@ -1386,7 +1386,7 @@
    "tech": 0,
    "video-blade-2": 3
   },
-  "shown": 20
+  "shown": 21
  },
  "patch-script-anchors-vs-formatter": {
   "applied": 1,
@@ -2438,13 +2438,13 @@
  },
  "zsh-var-command-no-split": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 11
+  "shown": 12
  }
 }
