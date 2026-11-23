@@ -523,13 +523,13 @@
  "dialog-text-survives-close": {
   "applied": 1,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-11-08",
+  "last_shown": "2026-11-23",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 1
   },
-  "shown": 8
+  "shown": 9
  },
  "discard-button-named-by-action": {
   "applied": 0,
@@ -848,6 +848,12 @@
   },
   "shown": 1
  },
+ "identity-field-lost-on-save": {
+  "applied": 0,
+  "last_shown": "2026-11-23",
+  "projects": {},
+  "shown": 1
+ },
  "image-style-reference-without-subject": {
   "applied": 0,
   "last_shown": "2026-11-08",
@@ -879,6 +885,15 @@
    "video-blade-2": 2
   },
   "shown": 7
+ },
+ "judge-score-near-bar-is-a-range": {
+  "applied": 1,
+  "last_applied": "2026-11-23",
+  "last_shown": "2026-11-23",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
  },
  "kie-ai": {
   "applied": 3,
@@ -1087,6 +1102,12 @@
    "video-blade-test": 0
   },
   "shown": 40
+ },
+ "look-both-viewports-share-session": {
+  "applied": 1,
+  "last_applied": "2026-11-23",
+  "projects": {},
+  "shown": 0
  },
  "look-text-click-counter": {
   "applied": 1,
@@ -1306,7 +1327,7 @@
  "no-plan-states-at-every-money-entry": {
   "applied": 1,
   "last_applied": "2026-10-11",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-23",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -1314,7 +1335,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "number-unit-two-lines-narrow-column": {
   "applied": 0,
@@ -1847,7 +1868,7 @@
  "review-stand-synthetic-export": {
   "applied": 1,
   "last_applied": "2026-10-09",
-  "last_shown": "2026-11-03",
+  "last_shown": "2026-11-23",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -1856,19 +1877,19 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "review-tool-native-select": {
   "applied": 2,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-23",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 5
+  "shown": 6
  },
  "rewrite-port-old-screen-first": {
   "applied": 3,
@@ -1967,7 +1988,7 @@
  "second-stand-during-review": {
   "applied": 1,
   "last_applied": "2026-10-23",
-  "last_shown": "2026-11-13",
+  "last_shown": "2026-11-23",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -1975,7 +1996,7 @@
    "tech": 0,
    "video-blade-2": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "secret-in-scheduled-agent-prompts": {
   "applied": 0,
