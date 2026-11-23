@@ -216,6 +216,12 @@
   },
   "shown": 5
  },
+ "breaking-api-ships-with-client": {
+  "applied": 1,
+  "last_applied": "2026-11-22",
+  "projects": {},
+  "shown": 0
+ },
  "browser-check-raw-cdp": {
   "applied": 0,
   "last_shown": "2026-11-13",
@@ -229,7 +235,7 @@
  "browser-test-stand": {
   "applied": 4,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 1,
@@ -243,7 +249,7 @@
  "browser-verification": {
   "applied": 11,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 1,
@@ -290,12 +296,12 @@
  "code-checks-only-for-prompt-rules": {
   "applied": 2,
   "last_applied": "2026-11-03",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 1
   },
-  "shown": 6
+  "shown": 7
  },
  "codemod-after-formatter-hook": {
   "applied": 11,
@@ -352,9 +358,10 @@
  },
  "connect-page-recovery-path": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "calibri": 0,
+   "gym-bro-3": 0,
    "protoss-app": 0
   },
   "shown": 3
@@ -620,7 +627,7 @@
  "eval-judge-real-model-recorded": {
   "applied": 4,
   "last_applied": "2026-11-16",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -628,7 +635,7 @@
    "protoss-app": 1,
    "training-3": 0
   },
-  "shown": 6
+  "shown": 7
  },
  "eval-sim-starts-from-app-state": {
   "applied": 0,
@@ -845,9 +852,9 @@
   "shown": 1
  },
  "judge-requirements-per-lane": {
-  "applied": 6,
-  "last_applied": "2026-11-14",
-  "last_shown": "2026-11-21",
+  "applied": 7,
+  "last_applied": "2026-11-22",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 1,
    "planning": 2,
@@ -889,9 +896,9 @@
   "shown": 28
  },
  "knowledge-clone-autostash-conflict": {
-  "applied": 9,
-  "last_applied": "2026-11-16",
-  "last_shown": "2026-11-21",
+  "applied": 10,
+  "last_applied": "2026-11-22",
+  "last_shown": "2026-11-22",
   "projects": {
    "akm-news": 1,
    "calibri": 0,
@@ -900,7 +907,7 @@
    "protoss-app": 5,
    "tech": 1
   },
-  "shown": 14
+  "shown": 15
  },
  "label-claims-need-arithmetic": {
   "applied": 3,
@@ -970,7 +977,7 @@
  "lint-rules-explicit-select": {
   "applied": 2,
   "last_applied": "2026-10-18",
-  "last_shown": "2026-11-11",
+  "last_shown": "2026-11-22",
   "projects": {
    "app-design-2": 0,
    "frontend": 0,
@@ -981,7 +988,7 @@
    "video-blade-2": 1,
    "video-blade-test": 0
   },
-  "shown": 23
+  "shown": 24
  },
  "list-action-returns-to-card": {
   "applied": 2,
@@ -1089,8 +1096,8 @@
   "shown": 3
  },
  "look-text-click-covered": {
-  "applied": 2,
-  "last_applied": "2026-11-12",
+  "applied": 3,
+  "last_applied": "2026-11-22",
   "last_shown": "2026-11-12",
   "projects": {
    "akm-news": 1,
@@ -1218,7 +1225,7 @@
  "multi-language-checks": {
   "applied": 1,
   "last_applied": "2026-10-30",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0
@@ -1236,7 +1243,8 @@
   "shown": 2
  },
  "names-bypass-id-filter": {
-  "applied": 0,
+  "applied": 1,
+  "last_applied": "2026-11-22",
   "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
@@ -1391,11 +1399,11 @@
  "patch-script-anchors-vs-formatter": {
   "applied": 1,
   "last_applied": "2026-11-02",
-  "last_shown": "2026-11-11",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0
   },
-  "shown": 2
+  "shown": 3
  },
  "payment-sandbox-means-test-key": {
   "applied": 0,
@@ -1477,15 +1485,15 @@
   "shown": 24
  },
  "prompt-field-reaches-model-test": {
-  "applied": 1,
-  "last_applied": "2026-11-01",
-  "last_shown": "2026-11-16",
+  "applied": 2,
+  "last_applied": "2026-11-22",
+  "last_shown": "2026-11-22",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 7
+  "shown": 8
  },
  "prompt-limit-ceiling-not-quota": {
   "applied": 0,
@@ -1496,13 +1504,14 @@
   "shown": 2
  },
  "prompt-numbers-carry-their-count": {
-  "applied": 0,
-  "last_shown": "2026-11-21",
+  "applied": 1,
+  "last_applied": "2026-11-22",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 3
+  "shown": 4
  },
  "proposal-numbers-explicit": {
   "applied": 2,
@@ -1559,7 +1568,7 @@
  "python-fastapi-vue": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "divani": 0,
@@ -1654,14 +1663,14 @@
   "shown": 46
  },
  "render-before-model-eval": {
-  "applied": 2,
-  "last_applied": "2026-11-03",
-  "last_shown": "2026-11-21",
+  "applied": 3,
+  "last_applied": "2026-11-22",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 1
   },
-  "shown": 4
+  "shown": 5
  },
  "replace-copies-before-adding-helper": {
   "applied": 0,
@@ -1779,7 +1788,7 @@
  "review-frames-both-viewports": {
   "applied": 5,
   "last_applied": "2026-11-13",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "akm-news": 1,
    "calibri": 0,
@@ -1789,7 +1798,7 @@
    "tech": 0,
    "video-blade-2": 3
   },
-  "shown": 18
+  "shown": 19
  },
  "review-loop-owner-decisions": {
   "applied": 8,
@@ -1899,7 +1908,7 @@
  },
  "run-once-objects-recreate-per-lifespan": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -2008,14 +2017,14 @@
  },
  "song-lyrics-content-check": {
   "applied": 0,
-  "last_shown": "2026-11-16",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 0,
    "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "spa-keyed-page-loses-input": {
   "applied": 0,
@@ -2140,7 +2149,7 @@
  },
  "stuck-binary-ue-processes": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
@@ -2207,7 +2216,7 @@
  },
  "testclient-sse-get-never-returns": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "calibri": 0,
@@ -2228,7 +2237,7 @@
  },
  "tests-shared-db-own-data": {
   "applied": 0,
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "akm-news": 0,
