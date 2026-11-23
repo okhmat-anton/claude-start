@@ -44,6 +44,7 @@
 
 ## Уроки
 
+- [lessons/action-result-toast-replaced-by-parent.md] [candidate] — Итог действия ушёл всплывающей строкой, а её тут же сменила строка родителя по тому же событию: итог большого действия — в том же окне до закрытия человеком (web-ui, vue; from gym-bro-3)
 - [lessons/actions-sheet-not-popover-in-clipped-tile.md] — Действия карточки в контейнере с overflow: hidden — окном-списком на dialog, не выпадающим меню внутри карточки: обрежется (web-ui; from video-blade-2, gym-bro-3)
 - [lessons/ad-creative-batch-size.md] [candidate] — Партия рекламных креативов — сначала тексты и их число на согласование; число = дневной бюджет × 7 ÷ цена тысячи показов; генерация после ответа (any; from planning)
 - [lessons/admin-links-to-app.md] [candidate] — В любой админке — пункт меню «Приложение» на корень приложения; обратно — кнопка «в админку» в кабинете только админу, серверным рендером (any; from video-blade-2)
@@ -130,12 +131,14 @@
 - [lessons/i18n-custom-plural-form-count.md] [candidate] — Своё правило множественного числа ждёт своего числа форм (0 | 1 | 2–4 | 5+): тест на число форм во всех строках со счётчиком (vue, web-ui; from gym-bro-3)
 - [lessons/i18n-key-from-code.md] [candidate] — Ключ словаря собирается из стабильного кода (mon…sun), никогда из вывода Intl или словаря: на втором языке экран покажет сырой ключ, а английский это прячет (web, i18n; from gym-bro-3)
 - [lessons/idempotent-add-with-visible-state.md] [candidate] — «Добавить X в набор» — идемпотентно на сервере, в выборе галочка «уже есть», окно не закрывается после выбора, отклик там, где нажали (web-ui; from video-blade-2)
+- [lessons/identity-field-lost-on-save.md] [candidate] — Экран узнавал карточку по полю, которое запись при сохранении теряет: признак держи на id; счёт и вид проверяй на живой, сохранённой и старой записи (web-ui, any; from gym-bro-3)
 - [lessons/image-style-reference-without-subject.md] [candidate] — Референс стиля с фигурой тянет в картинку и позу, даже под запретом в промте — для стиля давай фрагмент без предмета и позы (kie-ai; from gym-bro-3)
 - [lessons/jinja-dict-key-named-items.md] [candidate] — Jinja: ключ словаря items/keys/values в шаблоне отдаёт метод, а не значение — читать через d['items'] или переименовать (python; from video-blade-2)
 - [lessons/journal-entry-id.md] [candidate] — Записи журнала правок — со своим id, время — не ключ: создание и удаление в одну миллисекунду дают две записи с одним временем, откат попадает не в тот снимок (any; from planning)
 - [lessons/jsonb-partial-update-in-db.md] [candidate] — Два писателя одного JSON-поля (фоновая задача и запрос человека) — обновлять ключ в базе через jsonb_set; cast(json.dumps(x), JSONB) кладёт строку, а не объект (python, fastapi; from gym-bro-3)
 - [lessons/judge-requirements-per-lane.md] — Цикл промт→судья: требования судье — из промта каждой линии (такты рэпа, слова EDM), автопроверки без тегов; иначе судья штрафует правила самого промта (llm; from video-blade-2, gym-bro-3)
 - [lessons/judge-rules-interact.md] [candidate] — Советы судьи из цикла промт→судья — в протокол только после сверки с действующими правилами и моделью данных, затем круг на тех же образцах (llm; from video-blade-2)
+- [lessons/judge-score-near-bar-is-a-range.md] [candidate] — Оценка судьи в трёх баллах от планки — диапазон по 2–3 прогонам, а не «прошёл / упал»; сверяй с кодом до правки (llm; from gym-bro-3)
 - [lessons/knowledge-clone-autostash-conflict.md] [candidate] — Незакоммиченная правка в клоне базы знаний (style-base) при следующем pull — конфликт автостэша: слить обе стороны, stash drop, правила коммитить в конце задачи (any; from tech)
 - [lessons/label-claims-need-arithmetic.md] [candidate] — Метка «популярный/выгодный» и слово «выгоднее» — только после арифметики цены за единицу против соседних вариантов (any; from video-blade-2)
 - [lessons/layout-on-real-agent-data.md] [candidate] — Экран-справочник проверять на настоящем выводе агента; длинные поля — карточками со сворачиванием (web-ui; from planning)
@@ -151,6 +154,7 @@
 - [lessons/local-runs-reach-production.md] — Локальный прогон с боевым env пишет в чужие боевые системы — глушить внешнюю сторону до прогона (пустой ключ или подмена клиента), исходящих ноль (any; from planning, 3d-printer)
 - [lessons/log-params-user-visible.md] [candidate] — Словарь, который журнал показывает пользователю целиком, — не место служебным числам: отдельное поле или леджер, тест на отсутствие ключей (any; from video-blade-2)
 - [lessons/long-work-progress-statuses.md] — Долгая работа с фоновыми прогонами — статусы по ходу (что идёт, что готово) в чат и планировщик; молчание до конца владелец не принимает (any; from video-blade-2, game-3)
+- [lessons/look-both-viewports-share-session.md] [candidate] — look.js: второй экран сценария живёт в сессии первого — вход уже есть, прокрутка чужая; компьютер снимай отдельно (any; from gym-bro-3)
 - [lessons/look-text-click-counter.md] [candidate] — Сценарий кадров: шаг text= не находит кнопку со счётчиком внутри (Гранты<span>5</span>) — вкладки открывать адресом (#hash) или по id (any; from planning)
 - [lessons/look-text-click-covered.md] [candidate] — Сценарий кадров: text= ищет без регистра и может нажать перекрытую ссылку с тем же текстом — «не работает» оказывается артефактом (tools; from gym-bro-3)
 - [lessons/masonry-columns-via-slot.md] [candidate] — Дешборд из блоков двух ширин в одной сетке даёт дыры — строки выравниваются между колонками; рендерь блоки слотом в два независимых flex-контейнера (vue; from video-blade-2)
