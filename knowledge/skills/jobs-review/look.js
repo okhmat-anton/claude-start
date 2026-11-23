@@ -5,6 +5,7 @@
 //   node look.js run  <сценарий.json> [--out папка]
 //   node look.js open <адрес>                  — обычное окно Chrome для человека, остаётся открытым
 //   общие флаги: --auth auth.json   --readonly   --timeout 180   --lang ru-RU (язык браузера, по умолчанию ru-RU)
+//                --touch — на «телефоне» кликать настоящими касаниями (по умолчанию — мышью)
 //
 // auth.json — как войти:
 //   {"base":"http://127.0.0.1:5190","login":{"path":"/api/auth/login","json":{"username":"…","password":"…"}}}
@@ -30,6 +31,7 @@ const VIEWPORTS = {
   mobile: { width: 390, height: 844, deviceScaleFactor: 2, mobile: true },
 };
 const MOBILE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1";
+let TOUCH = false; // флаг --touch: на «телефоне» кликать настоящими касаниями
 let LANG = "ru-RU"; // язык браузера, флаг --lang: на macOS Chrome не слушает --lang, поэтому ещё и Accept-Language
 const acceptLanguage = () => `${LANG},${LANG.split("-")[0]};q=0.8`;
 const KEYS = { Enter: [13, "\r"], Escape: [27, ""], Tab: [9, ""], Backspace: [8, ""], Delete: [46, ""], Space: [32, " "],
@@ -43,7 +45,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (!a.startsWith("--")) pos.push(a);
-    else if (["mobile", "both", "readonly"].includes(a.slice(2))) opt[a.slice(2)] = true;
+    else if (["mobile", "both", "readonly", "touch"].includes(a.slice(2))) opt[a.slice(2)] = true;
     else opt[a.slice(2)] = argv[++i];
   }
   return { pos, opt };
@@ -228,6 +230,7 @@ function dedupe(list) {
 async function main() {
   const { pos, opt } = parseArgs(process.argv.slice(2));
   LANG = opt.lang || LANG;
+  TOUCH = !!opt.touch;
   const [cmd, target] = pos;
   if (!["shot", "run", "open"].includes(cmd) || !target) { console.error(USAGE); process.exit(1); }
   const auth = opt.auth ? JSON.parse(fs.readFileSync(opt.auth, "utf8")) : {};
@@ -376,7 +379,9 @@ async function main() {
       await settle();
     };
     const clickAt = async (x, y) => {
-      if (vp.mobile) {
+      // На «телефоне» клик по умолчанию — мышью: касание после закрытого листа или dialog Chrome не подтверждает 20 с,
+      // и ревьюер записывает «экран завис» (урок headless-touch-hangs-after-modal). Настоящие касания — флаг --touch.
+      if (vp.mobile && TOUCH) {
         await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x, y }] });
         await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
       } else {

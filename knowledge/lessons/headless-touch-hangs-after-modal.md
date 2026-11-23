@@ -2,9 +2,9 @@
 name: headless-touch-hangs-after-modal
 description: В эмуляции телефона касание, открывшее модальный dialog, вешает следующий Input.dispatchTouchEvent на 20 с — клики мышью по умолчанию, настоящие касания флагом
 stack: [web-ui, node]
-status: candidate
+status: mature
 created: 2026-10-09
-seen_in: [video-blade-2]
+seen_in: [video-blade-2, gym-bro-3]
 triggers:
   keywords: [dispatchTouchEvent, телефон завис, эмуляция касания, модальное окно, headless телефон, showModal, 20 секунд]
   commands: ['node .*look\\.js']

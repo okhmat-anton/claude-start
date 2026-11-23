@@ -49,9 +49,9 @@
   "shown": 1
  },
  "agent-interaction": {
-  "applied": 7,
-  "last_applied": "2026-11-13",
-  "last_shown": "2026-11-17",
+  "applied": 8,
+  "last_applied": "2026-11-23",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 1,
@@ -59,7 +59,7 @@
    "video-blade-2": 5,
    "video-blade-test": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "agent-oneoff-script": {
   "applied": 7,
@@ -354,7 +354,7 @@
    "gym-bro-3": 0,
    "planning": 0
   },
-  "shown": 10
+  "shown": 11
  },
  "connect-page-recovery-path": {
   "applied": 0,
@@ -570,14 +570,15 @@
  "entry-page-not-dashboard": {
   "applied": 4,
   "last_applied": "2026-10-16",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
+   "gym-bro-3": 0,
    "planning": 0,
    "tasks": 0,
    "video-blade-2": 4,
    "video-blade-test": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "env-example-no-secrets": {
   "applied": 2,
@@ -807,15 +808,17 @@
   "shown": 2
  },
  "headless-touch-hangs-after-modal": {
-  "applied": 0,
-  "last_shown": "2026-11-17",
+  "applied": 1,
+  "last_applied": "2026-11-23",
+  "last_shown": "2026-11-22",
   "projects": {
    "calibri": 0,
+   "gym-bro-3": 0,
    "planning": 0,
    "tasks": 0,
    "video-blade-2": 0
   },
-  "shown": 4
+  "shown": 5
  },
  "health-endpoint-dependencies": {
   "applied": 1,
@@ -867,15 +870,15 @@
   "shown": 18
  },
  "judge-rules-interact": {
-  "applied": 2,
-  "last_applied": "2026-10-21",
-  "last_shown": "2026-11-16",
+  "applied": 3,
+  "last_applied": "2026-11-23",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "video-blade-2": 2
   },
-  "shown": 6
+  "shown": 7
  },
  "kie-ai": {
   "applied": 3,
@@ -993,7 +996,7 @@
  "list-action-returns-to-card": {
   "applied": 2,
   "last_applied": "2026-10-12",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "calibri": 0,
    "gym-bro-3": 0,
@@ -1003,7 +1006,7 @@
    "video-blade-2": 2,
    "video-blade-test": 0
   },
-  "shown": 21
+  "shown": 22
  },
  "live-update-assert-by-wait-step": {
   "applied": 0,
@@ -1178,7 +1181,7 @@
    "planning": 0,
    "protoss-app": 0
   },
-  "shown": 12
+  "shown": 13
  },
  "mockup-review-prune-variants": {
   "applied": 0,
@@ -1984,14 +1987,14 @@
  "settings-save-model": {
   "applied": 1,
   "last_applied": "2026-10-21",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "gym-bro-3": 0,
    "planning": 0,
    "tasks": 0,
    "video-blade-2": 1
   },
-  "shown": 10
+  "shown": 11
  },
  "simplifier-parallel-with-visual-review": {
   "applied": 1,
@@ -2246,6 +2249,15 @@
   },
   "shown": 7
  },
+ "timer-state-from-wall-clock": {
+  "applied": 1,
+  "last_applied": "2026-11-23",
+  "last_shown": "2026-11-22",
+  "projects": {
+   "gym-bro-3": 0
+  },
+  "shown": 1
+ },
  "title-dedupe-full-name": {
   "applied": 0,
   "last_shown": "2026-11-17",
@@ -2285,13 +2297,13 @@
  "units-in-text-as-tokens": {
   "applied": 1,
   "last_applied": "2026-10-29",
-  "last_shown": "2026-11-21",
+  "last_shown": "2026-11-22",
   "projects": {
    "ai-business-advisor-websites": 0,
    "calibri": 0,
    "gym-bro-3": 0
   },
-  "shown": 5
+  "shown": 6
  },
  "untracked-build-artifacts": {
   "applied": 0,
@@ -2454,6 +2466,6 @@
    "scratchpad": 0,
    "video-blade-2": 0
   },
-  "shown": 12
+  "shown": 13
  }
 }
