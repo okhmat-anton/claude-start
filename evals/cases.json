@@ -1293,5 +1293,470 @@
       "line": "^(?!.*skill spec-write).*сложная \\(назван в промте"
     },
     "prompt": "Сложная: продолжай, ответ на твой вопрос — вариант А"
+  },
+  {
+    "below": true,
+    "model": "claude-haiku-5-5",
+    "min": "Opus"
+  },
+  {
+    "below": true,
+    "model": "claude-sonnet-5-5",
+    "min": "Opus 5.5"
+  },
+  {
+    "below": false,
+    "model": "claude-opus-5-5",
+    "min": "Opus 5.5"
+  },
+  {
+    "below": true,
+    "model": "claude-opus-5-1",
+    "min": "Opus 5.5"
+  },
+  {
+    "below": true,
+    "model": "claude-opus-4-1-20250805",
+    "min": "не ниже Opus 5.5"
+  },
+  {
+    "below": false,
+    "model": "claude-fable-5-2",
+    "min": "Opus 5.5"
+  },
+  {
+    "below": false,
+    "model": "claude-fable-5-2[1m]",
+    "min": "Fable"
+  },
+  {
+    "below": false,
+    "model": "claude-mythos-5-2",
+    "min": "Fable 5.2"
+  },
+  {
+    "below": true,
+    "model": "claude-3-5-haiku-20241022",
+    "min": "Haiku 4.5"
+  },
+  {
+    "below": false,
+    "model": "claude-sonnet-4-5-20250929",
+    "min": "Sonnet 4.5"
+  },
+  {
+    "below": false,
+    "model": "us.anthropic.claude-opus-4-1-20250805-v1:0",
+    "min": "Opus 4.1"
+  },
+  {
+    "below": false,
+    "model": "opus",
+    "min": "Opus 5.5"
+  },
+  {
+    "below": true,
+    "model": "glm-4.6",
+    "min": "Sonnet"
+  },
+  {
+    "below": null,
+    "model": "claude-haiku-5-5",
+    "min": "любая"
+  },
+  {
+    "below": null,
+    "model": "claude-haiku-5-5",
+    "min": ""
+  },
+  {
+    "below": null,
+    "model": "",
+    "min": "Opus"
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "Edit"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "Read"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "Bash"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "Agent"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "AskUserQuestion"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "ToolSearch"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "answer": "Продолжить на claude-haiku-5-5"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "answer": "Стоп — сменю нейронку"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "answer": "она должна просто стоять и ждать"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5",
+        "claude-sonnet-5-5"
+      ],
+      "confirmed": "claude-haiku-5-5"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "confirmed": "claude-haiku-5-5",
+      "prompt": "Добавь в форму входа кнопку «Показать пароль» и поправь отступы"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "confirmed": "claude-haiku-5-5",
+      "prompt": "да, продолжай"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "confirmed": "claude-haiku-5-5",
+      "prompt": "Почему кнопка съехала вправо на телефоне?"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "tool": "Edit"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus 5.5",
+      "models": [
+        "claude-haiku-5-5",
+        "claude-opus-5-5"
+      ],
+      "tool": "Bash"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "любая",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "Edit"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "Edit"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "tool": "Edit",
+      "agent": true
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-fable-5-2",
+        [
+          "claude-haiku-5-5",
+          true
+        ]
+      ],
+      "tool": "Edit"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "tool": "Edit"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Fable",
+      "models": [
+        "claude-fable-5-2",
+        "claude-opus-5-5"
+      ],
+      "tool": "Edit"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Fable",
+      "models": [
+        "claude-opus-5-5",
+        "<synthetic>"
+      ],
+      "tool": "Edit"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        {
+          "request": "claude-haiku-5-5"
+        }
+      ],
+      "tool": "Bash"
+    },
+    "deny": true
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5",
+        {
+          "request": "claude-fable-5-2"
+        }
+      ],
+      "tool": "Edit"
+    },
+    "deny": false
+  },
+  {
+    "gate": {
+      "min": "Opus",
+      "models": [
+        "claude-fable-5-2",
+        {
+          "request": "claude-haiku-5-5",
+          "agentId": "a1"
+        }
+      ],
+      "tool": "Edit"
+    },
+    "deny": false
+  },
+  {
+    "below": true,
+    "model": "claude-sonnet-5-5",
+    "min": "Opus 5.5, не Sonnet"
+  },
+  {
+    "below": false,
+    "model": "claude-opus-5-5",
+    "min": "Opus 5.5, не Sonnet"
+  },
+  {
+    "ask": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "asked": [
+        [
+          "Нейронка",
+          "Задачу начинает claude-haiku-5-5 — она слабее минимального уровня проекта (Opus). Продолжить?",
+          "Продолжить на claude-haiku-5-5"
+        ],
+        [
+          "Сложность",
+          "Какой сложности задача?",
+          "Средняя (Recommended)"
+        ]
+      ]
+    },
+    "says": "подтвердил.*Уровень задачи: средняя"
+  },
+  {
+    "ask": {
+      "min": "Opus",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "asked": [
+        [
+          "Нейронка",
+          "Задачу начинает claude-haiku-5-5 — она слабее минимального уровня проекта (Opus). Продолжить?",
+          "Стоп — сменю нейронку"
+        ]
+      ]
+    },
+    "says": "остановись"
+  },
+  {
+    "ask": {
+      "min": "Opus",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "asked": [
+        [
+          "Нейронка",
+          "Какую нейронку подключить к чату по умолчанию?",
+          "Opus 5.5"
+        ]
+      ]
+    },
+    "says": "^$"
+  },
+  {
+    "ask": {
+      "min": "",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "asked": [
+        [
+          "Сложность",
+          "Какой сложности задача?",
+          "Сложная"
+        ]
+      ]
+    },
+    "says": "Уровень задачи: сложная"
+  },
+  {
+    "below": true,
+    "model": "claude-sonnet-5-5",
+    "min": "Опус 5.5"
+  },
+  {
+    "below": false,
+    "model": "claude-fable-5-2",
+    "min": "не ниже Опус 5.5"
+  },
+  {
+    "understood": true,
+    "min": "Opus 5.5"
+  },
+  {
+    "understood": true,
+    "min": "Опус 5.5"
+  },
+  {
+    "understood": true,
+    "min": "любая, без ограничения"
+  },
+  {
+    "understood": true,
+    "min": ""
+  },
+  {
+    "understood": true,
+    "min": "—"
+  },
+  {
+    "understood": false,
+    "min": "Sonet"
+  },
+  {
+    "understood": false,
+    "min": "самая умная"
   }
 ]

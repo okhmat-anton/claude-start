@@ -4,10 +4,13 @@
   prompt         UserPromptSubmit — подмешать подходящие уроки; записать поправку владельца;
                  уровень задачи назван в промте — записать; не назван, а промт похож на задачу — записать
                  «простая» по умолчанию и напомнить перепроверить (не простая — предложить кнопками)
-  command        PreToolUse(Bash) — подмешать уроки по шаблону команды
-  ask            PostToolUse(AskUserQuestion) — записать уровень задачи, выбранный кнопками
+  tool           PreToolUse (все инструменты) — нейронка слабее минимального уровня проекта стоит и ждёт кнопку
+                 владельца: до неё проходит только сам вопрос; Bash — ещё и уроки по шаблону команды
+  command        PreToolUse(Bash) — только уроки по шаблону команды (старая подписка, до повторного install.sh)
+  ask            PostToolUse(AskUserQuestion) — записать уровень задачи, выбранный кнопками, и ответ на вопрос
+                 «Нейронка» (продолжить на слабой нейронке или нет)
   session-start  SessionStart — размер CLAUDE.md, неразобранные поправки, кандидаты в LESSONS.md, уровень задачи,
-                 улучшения из базы, не решённые в проекте
+                 улучшения из базы, не решённые в проекте; запомнить нейронку сессии
   stop           Stop — напомнить про retro, если правок много, а ретро не было (не в простой и средней задаче)
 
 Уровень задачи (простая / средняя / сложная) лежит в ~/.claude/task-tier/<session_id>.json — правило владельца
@@ -15,7 +18,11 @@
 Уточнение 12.10.2026: уровень не назван — по умолчанию простая; агент перепроверяет и, если задача не простая,
 предлагает выбор кнопками, а не назначает уровень сам.
 
-Хук никогда не блокирует работу: любая ошибка внутри — тихий выход 0.
+Минимальный уровень нейронки проекта — поле min_model в .claude/knowledge.json (правило владельца, 25.11.2026):
+задачу начинает нейронка слабее — она стоит и ждёт, пока владелец не нажмёт «Продолжить» в чате. Подтверждение
+лежит в ~/.claude/model-gate/<session_id>.json, действует на одну задачу и одну нейронку.
+
+Сбой самого хука работу не блокирует: любая ошибка внутри — тихий выход 0.
 """
 from __future__ import annotations
 
@@ -166,6 +173,172 @@ def resolve_tier(prompt: str, saved: dict) -> tuple[str | None, str | None, str]
     return "simple", "default", f"{tier_line('simple', TIER_SOURCE_HOW['default'] + ': в промте не назван')} {RECHECK}"
 
 
+# --------------------------------------------------------------------------- минимальный уровень нейронки
+
+GATE_DIR = Path.home() / ".claude" / "model-gate"
+MODEL_FAMILIES = {  # ступени шкалы, по возрастанию; русские названия — для ответа владельца («Опус 5.5»)
+    "haiku": 1, "sonnet": 2, "opus": 3, "fable": 4, "mythos": 4,
+    "хайку": 1, "сонет": 2, "соннет": 2, "опус": 3, "фейбл": 4, "фэйбл": 4, "мифос": 4,
+}
+GATE_ANY = re.compile(r"люб|\bany\b|\bнет\b|без\s+огранич|\A\W*\Z", re.I)  # «любая», пусто, прочерк — без ограничения
+_VERSION = r"(\d{1,2})(?!\d)(?:[-_.](\d{1,2})(?!\d))?"  # «5-5», «5.5», «4»; дата «20250929» версией не считается
+GATE_FREE_TOOLS = ("AskUserQuestion", "ToolSearch")  # сам вопрос владельцу и загрузка его описания
+GATE_HEADER = re.compile(r"нейронк", re.I)
+GATE_YES = re.compile(r"\A\W*(?:продолж|continue|да\b|yes\b)", re.I)
+GATE_TAIL = 400_000  # байт с конца журнала сессии: журнал долгой сессии — десятки мегабайт
+GATE_ASK = (
+    "Нейронка сессии — {model}, она слабее минимального уровня проекта ({minimum}). Стой и жди ответа владельца: "
+    "ничего не читай, не планируй и не правь. Задай один вопрос кнопками (AskUserQuestion), заголовок «Нейронка»: "
+    "«Задачу начинает {model} — она слабее минимального уровня проекта ({minimum}). Продолжить?» — варианты "
+    "«Продолжить на {model}» и «Стоп — сменю нейронку». Работай только после «Продолжить»; иначе остановись."
+)
+
+
+def model_level(text: str) -> tuple[int, tuple[int, ...]] | None:
+    """(ступень семейства, версия) по идентификатору модели или ответу владельца: «claude-opus-5-5», «Opus 5.5»,
+    «claude-3-5-haiku-20241022»; None — семейство не из шкалы («любая», пусто, чужая модель)."""
+    low = re.sub(r"\[.*?\]", "", text.lower())  # «claude-fable-5-2[1m]»: метка окна контекста — не версия
+    # названо несколько семейств («Opus 5.5, не Sonnet») — берётся первое в тексте, а не слабейшее
+    family = min((f for f in MODEL_FAMILIES if f in low), key=low.index, default=None)
+    if not family:
+        return None
+    head, tail = low.split(family, 1)
+    m = re.match(r"[\s\-_.v]*" + _VERSION, tail) or re.search(_VERSION + r"[\s\-_.]*\Z", head)
+    return MODEL_FAMILIES[family], tuple(int(g) for g in (m.groups() if m else ()) if g)
+
+
+def model_below(model: str, minimum: str) -> bool | None:
+    """True — нейронка слабее минимума проекта; None — минимума нет («любая», пусто) или нейронка неизвестна.
+
+    Семейство ниже — слабее; то же семейство — по версии, если она названа с обеих сторон; семейство выше проходит
+    при любой версии. Нейронка не из шкалы (другой поставщик, локальная) считается слабее.
+    """
+    need = model_level(minimum)
+    if not need or not model.strip():
+        return None
+    have = model_level(model)
+    if not have:
+        return True
+    if have[0] != need[0]:
+        return have[0] < need[0]
+    return bool(have[1] and need[1]) and have[1] < need[1]
+
+
+def min_model_understood(minimum: str) -> bool:
+    """Запись минимума понятна хуку: семейство из шкалы либо «любая» / пусто. Непонятная запись («Sonet», «самая
+    умная») молча выключала бы защиту — о ней говорит строка на старте сессии."""
+    return bool(model_level(minimum) or GATE_ANY.search(minimum))
+
+
+def gate_ask(model: str, minimum: str, confirmed: str) -> str:
+    """Текст «стой и спроси»: нейронка слабее минимума проекта, а «Продолжить» для неё в этой задаче не нажато;
+    "" — работать можно."""
+    if model_below(model, minimum) is not True or model == confirmed:
+        return ""
+    return GATE_ASK.format(model=model, minimum=minimum)
+
+
+def min_model_of(inp: dict) -> str:
+    """Минимальный уровень нейронки проекта из .claude/knowledge.json; "" — не задан. Корень проекта — из окружения
+    хука: рабочая папка сессии после cd бывает подпапкой."""
+    root = Path(os.environ.get("CLAUDE_PROJECT_DIR") or inp.get("cwd") or os.getcwd())
+    try:
+        return str(json.loads((root / ".claude" / "knowledge.json").read_text(encoding="utf-8")).get("min_model") or "")
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return ""
+
+
+def load_gate(session: str) -> dict:
+    try:
+        rec = json.loads(_session_file(GATE_DIR, session, ttl_days=14).read_text(encoding="utf-8"))
+        return rec if isinstance(rec, dict) else {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def save_gate(session: str, rec: dict) -> None:
+    try:
+        _session_file(GATE_DIR, session, ttl_days=14).write_text(json.dumps(rec, ensure_ascii=False), encoding="utf-8")
+    except OSError:
+        pass
+
+
+def session_model(inp: dict, fallback: str = "") -> str:
+    """Нейронка основной сессии — из журнала сессии: во входе хуков её нет, а посреди сессии она меняется.
+
+    Берётся последняя запись запроса к модели (api-request, params.model — она есть уже до первого ответа сессии)
+    или ответа (assistant, message.model); записи субагентов и служебная «<synthetic>» не считаются. Формат журнала
+    не документирован: таких записей в хвосте нет — fallback, и хук никого не останавливает.
+    """
+    try:
+        with open(str(inp.get("transcript_path") or ""), "rb") as fh:
+            fh.seek(0, os.SEEK_END)
+            fh.seek(max(0, fh.tell() - GATE_TAIL))
+            lines = fh.read().decode("utf-8", "ignore").splitlines()
+    except OSError:
+        return fallback
+    for line in reversed(lines):
+        if '"model"' not in line:
+            continue
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:  # первая строка хвоста обрезана
+            continue
+        if not isinstance(rec, dict) or rec.get("isSidechain") or rec.get("agentId"):
+            continue
+        holder = rec.get({"assistant": "message", "api-request": "params"}.get(str(rec.get("type")), ""))
+        model = holder.get("model") if isinstance(holder, dict) else None
+        if isinstance(model, str) and model and not model.startswith("<"):
+            return model
+    return fallback
+
+
+def _gate_state(inp: dict) -> tuple[str, dict, str]:
+    """(сессия, её запись, нейронка сессии): журнал сессии, а без записей в нём — нейронка, запомненная раньше."""
+    session = str(inp.get("session_id", ""))
+    gate = load_gate(session)
+    return session, gate, session_model(inp, str(gate.get("model") or ""))
+
+
+def gate_reason(inp: dict) -> str:
+    """Почему инструмент не проходит (текст для нейронки) или "" — пропустить. Помощники (субагенты) не проверяются:
+    сравнивается нейронка самой сессии."""
+    minimum = min_model_of(inp)
+    if not minimum or inp.get("tool_name") in GATE_FREE_TOOLS or inp.get("agent_id"):
+        return ""
+    _, gate, model = _gate_state(inp)
+    return gate_ask(model, minimum, str(gate.get("confirmed") or ""))
+
+
+def gate_on_prompt(inp: dict, prompt: str) -> str:
+    """Строка агенту на промт. Новое задание снимает подтверждение: оно действует на одну задачу."""
+    minimum = min_model_of(inp)
+    if not minimum:
+        return ""
+    session, gate, model = _gate_state(inp)
+    fresh = {"model": model} if looks_like_task(prompt) else {**gate, "model": model}
+    if fresh != gate:
+        save_gate(session, fresh)
+    return gate_ask(model, minimum, str(fresh.get("confirmed") or ""))
+
+
+def gate_on_answer(inp: dict, label: str) -> str:
+    """Ответ владельца на вопрос «Нейронка»: «Продолжить» — записать подтверждение для этой нейронки.
+
+    "" — вопрос не про подтверждение: нейронка сессии не слабее минимума проекта (у проекта свой вопрос с таким же
+    заголовком, например «какую нейронку подключить») или минимума нет.
+    """
+    session, _, model = _gate_state(inp)
+    if model_below(model, min_model_of(inp)) is not True:
+        return ""
+    if not GATE_YES.search(label):
+        return ("Владелец не подтвердил работу на этой нейронке: остановись и ничего не делай. Он сменит нейронку "
+                "(/model) и повторит задачу.")
+    save_gate(session, {"model": model, "confirmed": model})
+    return (f"Владелец подтвердил: работай на {model} по этой задаче. Следующая новая задача снова начнётся "
+            "с вопроса «Нейронка».")
+
+
 def strip_heredocs(cmd: str) -> str:
     """Тела heredoc — это содержимое файлов, а не команда: по ним уроки не подбираем."""
     return HEREDOC.sub("<<heredoc>", cmd)
@@ -259,6 +432,10 @@ def on_prompt(inp: dict) -> None:
         save_tier(session, tier, source, project)
     if line:
         print(line)
+    # 2.1 минимальный уровень нейронки проекта: слабее — стоит и ждёт кнопку владельца
+    gate_line = gate_on_prompt(inp, prompt)
+    if gate_line:
+        print(gate_line)
     # 3. подходящие уроки
     if len(prompt) < 25:
         return
@@ -288,6 +465,16 @@ def on_command(inp: dict) -> None:
     remember_shown(f, shown, [u.name for u, _, _ in res], project)
 
 
+def on_tool(inp: dict) -> None:
+    """PreToolUse на все инструменты: сначала минимальный уровень нейронки, для Bash — ещё и уроки по команде."""
+    reason = gate_reason(inp)
+    if reason:
+        out = {"hookEventName": "PreToolUse", "permissionDecision": "deny", "permissionDecisionReason": reason}
+        print(json.dumps({"hookSpecificOutput": out}, ensure_ascii=False))
+        return
+    on_command(inp)
+
+
 def _answers(tool_response) -> list[tuple[str, str]]:
     """Пары (вопрос, выбранный вариант) из результата AskUserQuestion: объект с answers или строка «"q"="a"»."""
     if isinstance(tool_response, dict) and isinstance(tool_response.get("answers"), dict):
@@ -300,29 +487,53 @@ def on_ask(inp: dict) -> None:
     if inp.get("tool_name") != "AskUserQuestion":
         return
     tin = inp.get("tool_input") or {}
+    answers = _answers(inp.get("tool_response"))
+    headers = {str(q.get("question")): str(q.get("header") or "") for q in (tin.get("questions") or []) if isinstance(q, dict)}
+    # вопросы одного вызова разбираются все: «Нейронка» и «Сложность» могут прийти вместе
+    notes = [gate_on_answer(inp, label) for question, label in answers if GATE_HEADER.search(headers.get(question, ""))]
     about_tier = re.compile(r"сложност|уровень задач|complexity|tier", re.I)
-    tier_questions = {
-        str(q.get("question"))
-        for q in (tin.get("questions") or [])
-        if isinstance(q, dict) and about_tier.search(str(q.get("header") or ""))
-    }
-    for question, label in _answers(inp.get("tool_response")):
-        if question not in tier_questions and not about_tier.search(question):
+    for question, label in answers:
+        if not about_tier.search(headers.get(question, "")) and not about_tier.search(question):
             continue
         tier = tier_of_label(label)
         if not tier:
             continue
         _, project, _ = project_of(inp.get("cwd", ""))
         save_tier(str(inp.get("session_id", "")), tier, "buttons", project)
-        out = {"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": tier_line(tier, TIER_SOURCE_HOW["buttons"] + ", записан", offer=True)}}
-        print(json.dumps(out, ensure_ascii=False))
-        return
+        notes.append(tier_line(tier, TIER_SOURCE_HOW["buttons"] + ", записан", offer=True))
+        break
+    notes = [n for n in notes if n]
+    if notes:
+        out = {"hookEventName": "PostToolUse", "additionalContext": " ".join(notes)}
+        print(json.dumps({"hookSpecificOutput": out}, ensure_ascii=False))
+
+
+def _tool_hook_installed() -> bool:
+    """Подписка `hook.py tool` (PreToolUse на все инструменты) есть в ~/.claude/settings.json. Клон базы обновляется
+    через git pull, а подписки ставит install.sh — на втором компьютере владельца они отстают. Не прочитали — True."""
+    try:
+        hooks = json.loads((Path.home() / ".claude" / "settings.json").read_text(encoding="utf-8")).get("hooks", {})
+        return any(str(h.get("command", "")).endswith("hook.py\" tool")
+                   for e in hooks.get("PreToolUse", []) for h in e.get("hooks", []))
+    except (OSError, json.JSONDecodeError, AttributeError, TypeError):
+        return True
 
 
 def on_session_start(inp: dict) -> None:
     root, project, stack = project_of(inp.get("cwd", ""))
     notes: list[str] = []
-    t = load_tier(str(inp.get("session_id", "")))
+    session = str(inp.get("session_id", ""))
+    minimum = min_model_of(inp)
+    if inp.get("model") and minimum:  # до первого запроса в журнале сессии нейронки ещё нет — запомнить отсюда
+        save_gate(session, {**load_gate(session), "model": str(inp["model"])})
+    if not min_model_understood(minimum):
+        notes.append(f"Минимальный уровень нейронки проекта записан как «{minimum}» — хук его не понял, защита от "
+                     "слабой нейронки не работает. Запиши в .claude/knowledge.json семейство из шкалы: haiku, sonnet, "
+                     "opus или fable, можно с версией («opus 5.5»).")
+    if not _tool_hook_installed():
+        notes.append("Хуки базы знаний обновились, а на этом компьютере подключены старые — запрет инструментов для "
+                     f"нейронки слабее минимума проекта не работает. Запусти: bash {kb.ROOT}/tools/install.sh")
+    t = load_tier(session)
     if t.get("tier") in TIERS:
         notes.append(tier_line(t["tier"], TIER_SOURCE_HOW.get(str(t.get("source")), "выбран") + " ранее в этой сессии"))
     for name in ("CLAUDE.md", "Claude.md"):
@@ -419,7 +630,8 @@ def main() -> int:
     event = sys.argv[1] if len(sys.argv) > 1 else ""
     inp = read_input()
     try:
-        handlers = {"prompt": on_prompt, "command": on_command, "ask": on_ask, "session-start": on_session_start, "stop": on_stop}
+        handlers = {"prompt": on_prompt, "tool": on_tool, "command": on_command, "ask": on_ask,
+                    "session-start": on_session_start, "stop": on_stop}
         handlers.get(event, lambda _: None)(inp)
     except Exception as ex:  # noqa: BLE001 — хук не должен ронять работу
         print(f"knowledge hook '{event}' failed: {ex}", file=sys.stderr)

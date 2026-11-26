@@ -12,6 +12,17 @@
 по которым simplify-review и improve-sweep подбирают их под задачу.
 Кейс с ключом "cwd" проверяет, какую папку хук считает проектом (hook.project_of): "project" — ожидаемое имя,
 "" — не проект (временная папка, рабочая копия в scratchpad); "<repo>" в cwd — корень этого репозитория.
+Кейс с ключом "below" проверяет шкалу нейронок (hook.model_below): "model" слабее минимума проекта "min" — true,
+не слабее — false, минимума нет или нейронка неизвестна — null.
+Кейс с ключом "understood" проверяет, понял ли хук запись минимума "min" (hook.min_model_understood): семейство из
+шкалы или «любая» — true; опечатка или описание словами — false (о такой записи хук говорит на старте сессии).
+Кейс с ключом "gate" прогоняет запрет инструментов для нейронки слабее минимума (hook.gate_reason) во временном
+проекте: "min" — min_model проекта, "models" — записи журнала сессии по порядку (строка — ответ нейронки,
+[модель, true] — ответ субагента, {"request": модель} — запрос к модели: он в журнале раньше первого ответа),
+"confirmed" — уже нажатое «Продолжить», "answer" — ответ на вопрос «Нейронка», "prompt" — новый промт перед вызовом,
+"tool" — инструмент, "agent" — вызов из субагента; "deny" — ждём запрет (true) или пропуск (false).
+Кейс с ключом "ask" проверяет, что хук говорит агенту после ответов владельца кнопками (hook.on_ask) в таком же
+временном проекте: "asked" — список [заголовок, вопрос, ответ], "says" — регулярка по выводу хука ("^$" — молчит).
 
 --live (платно, вручную): прогоняем `claude -p` во временном проекте с подключёнными
 хуками и проверяем, что ответ содержит ожидаемый признак (expect — регулярка).
@@ -19,12 +30,16 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
+import io
 import json
+import os
 import re
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hook  # noqa: E402
@@ -33,9 +48,80 @@ import knowledge as kb  # noqa: E402
 CASES = kb.ROOT / "evals" / "cases.json"
 
 
+def _journal_record(item) -> dict:
+    if isinstance(item, dict):  # запрос к модели; "agentId" — запрос субагента
+        return {"type": "api-request", "params": {"model": item["request"]}, **{k: v for k, v in item.items() if k != "request"}}
+    model, side = item if isinstance(item, list) else (item, False)
+    return {"type": "assistant", "isSidechain": side, "message": {"model": model}}
+
+
+@contextlib.contextmanager
+def gate_project(g: dict):
+    """Вход хука для временного проекта: min_model, журнал сессии с записями нейронок; записи хука — во временной папке."""
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        (root / ".claude").mkdir()
+        (root / ".claude" / "knowledge.json").write_text(json.dumps({"min_model": g.get("min", "")}), encoding="utf-8")
+        inp = {"session_id": "eval", "cwd": tmp, "tool_name": g.get("tool", "Edit")}
+        if "models" in g:
+            inp["transcript_path"] = str(root / "session.jsonl")
+            Path(inp["transcript_path"]).write_text(
+                "".join(json.dumps(_journal_record(m)) + "\n" for m in g["models"]), encoding="utf-8")
+        if g.get("agent"):
+            inp["agent_id"] = "eval-agent"
+        with (mock.patch.object(hook, "GATE_DIR", root / "gate"), mock.patch.object(hook, "TIER_DIR", root / "tier"),
+              mock.patch.dict(os.environ, {"CLAUDE_PROJECT_DIR": tmp})):
+            if g.get("confirmed"):
+                hook.save_gate("eval", {"confirmed": g["confirmed"]})
+            yield inp
+
+
+def gate_denies(g: dict) -> bool:
+    """Запретил ли хук инструмент (hook.gate_reason) после ответа на вопрос «Нейронка» и нового промта, если заданы."""
+    with gate_project(g) as inp:
+        if "answer" in g:
+            hook.gate_on_answer(inp, g["answer"])
+        if "prompt" in g:
+            hook.gate_on_prompt(inp, g["prompt"])
+        return bool(hook.gate_reason(inp))
+
+
+def ask_says(g: dict) -> str:
+    """Что хук говорит агенту после ответов владельца кнопками (hook.on_ask): "asked" — [заголовок, вопрос, ответ]."""
+    with gate_project(g) as inp, contextlib.redirect_stdout(io.StringIO()) as out:
+        hook.on_ask({**inp, "tool_name": "AskUserQuestion",
+                     "tool_input": {"questions": [{"header": h, "question": q} for h, q, _ in g["asked"]]},
+                     "tool_response": {"answers": {q: a for _, q, a in g["asked"]}}})
+    return out.getvalue()
+
+
 def offline(cases: list[dict]) -> int:
     failed = 0
     for c in cases:
+        if "below" in c:
+            got = hook.model_below(c.get("model", ""), c.get("min", ""))
+            ok = got is c["below"]
+            failed += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} below={str(c['below']):<6} got={str(got):<6} «{c.get('model', '')}» при минимуме «{c.get('min', '')}»")
+            continue
+        if "understood" in c:
+            got = hook.min_model_understood(c["min"])
+            ok = got is c["understood"]
+            failed += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} understood={str(c['understood']):<6} got={str(got):<6} минимум «{c['min']}»")
+            continue
+        if "gate" in c:
+            got = gate_denies(c["gate"])
+            ok = got is c["deny"]
+            failed += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} deny={str(c['deny']):<6} got={str(got):<6} {json.dumps(c['gate'], ensure_ascii=False)[:90]}")
+            continue
+        if "ask" in c:
+            got = ask_says(c["ask"])
+            ok = re.search(c["says"], got) is not None
+            failed += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} ask says=/{c['says']}/ {json.dumps(c['ask']['asked'], ensure_ascii=False)[:80]}")
+            continue
         if "resolve" in c:
             exp = c["resolve"]
             tier, source, line = hook.resolve_tier(c.get("prompt", ""), c.get("saved") or {})
