@@ -1798,5 +1798,14 @@
   {
     "unit": "browser-agent-react-forms",
     "prompt": "агент в браузере заполняет App Store Connect, а поле не сохраняется и кнопка Save неактивна"
+  },
+  {
+    "unit": "freecad",
+    "prompt": "построй модель детали во FreeCAD скриптом и собери её без окна",
+    "expect": "freecadcmd"
+  },
+  {
+    "unit": "freecad",
+    "command": "/Applications/FreeCAD.app/Contents/Resources/bin/freecadcmd parts/frame.py"
   }
 ]

@@ -26,6 +26,7 @@
 - [stacks/app-store.md] — App Store — страница продукта (поиск, скриншоты, первая строка), «попробуй и купи», подписки и Suites, In-App Events, правила 2.3.x и 3.1.x; проверено 10.2026 (any)
 - [stacks/app-store-connect.md] — Выкладка iOS-приложения в App Store Connect (11.2026) — сборка из терминала, снимки и Header, анкеты, Китай и DSA, подписки, черновик отправки (any)
 - [stacks/architecture-mvc.md] — MVC в духе Yii2 advanced — роут = файл + функция, async-экшены index/view/…, роут в docstring, логика в экшене, слои public/admin/console в одном app (python, fastapi, vue, nuxt, node)
+- [stacks/freecad.md] — FreeCAD без окна на macOS — установка brew cask, путь к freecadcmd, встроенный Python 3.11 (линтер py311), импорт FreeCAD/Part, проверка кубом (freecad, python)
 - [stacks/kie-ai.md] — kie.ai — Bearer, createTask/recordInfo, HTTP 200 с ошибкой в теле, длинные текстовые генерации только SSE, image_input публичными URL, стоимость из recordInfo (kie-ai, python)
 - [stacks/python-fastapi-mongo-nuxt.md] — FastAPI + motor + Nuxt 3 SSR — API через routeRules (не devProxy), cookie через useRequestHeaders, тестовая БД форсируется до импорта app, точечный pytest (fastapi, nuxt, python)
 - [stacks/python-fastapi-vue.md] — FastAPI + Vue 3 + PostgreSQL — структура app/, pydantic-settings, auth-зависимости, SQLAlchemy 2.0, Celery, порты по сотне на проект, auth прототипа на stdlib (fastapi, vue, python)
