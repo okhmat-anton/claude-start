@@ -1758,5 +1758,45 @@
   {
     "understood": false,
     "min": "самая умная"
+  },
+  {
+    "unit": "app-store-connect",
+    "prompt": "собери черновик отправки в App Store Connect: версия, группа подписок, Submit for Review"
+  },
+  {
+    "unit": "app-store-connect",
+    "prompt": "App Store Connect пишет File dimensions are invalid на снимках 1320×2868"
+  },
+  {
+    "unit": "capacitor-ios-screen-in-chrome",
+    "prompt": "сними экран оплаты как в айфоне, без симулятора — в браузере capacitor показывает версию сайта"
+  },
+  {
+    "unit": "app-update-required-gate",
+    "prompt": "нужно требование обновить приложение: если версия старее минимальной версии на сервере — экран «обновитесь»"
+  },
+  {
+    "unit": "ios-build-number-never-reused",
+    "command": "xcodebuild -exportArchive -archivePath 'App 1.0.6.xcarchive' -exportOptionsPlist export.plist -exportPath /tmp/out"
+  },
+  {
+    "unit": "ios-build-number-never-reused",
+    "prompt": "какой номер сборки ставить перед загрузкой в TestFlight, CFBundleVersion уже занят"
+  },
+  {
+    "unit": "apple-review-demo-account",
+    "prompt": "сделай демо-аккаунт для проверяющего apple, в App Review Information нужен Sign-in required"
+  },
+  {
+    "unit": "iap-review-screenshot-per-product",
+    "prompt": "у трёх подписок не хватает снимка экрана подписки в Review Information, статус Missing Metadata"
+  },
+  {
+    "unit": "store-price-from-apple-grid",
+    "prompt": "поставь годовую подписку за $215.99, в списке Subscription Prices такой цены нет"
+  },
+  {
+    "unit": "browser-agent-react-forms",
+    "prompt": "агент в браузере заполняет App Store Connect, а поле не сохраняется и кнопка Save неактивна"
   }
 ]
